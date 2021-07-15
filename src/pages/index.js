@@ -4,16 +4,19 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 //import Plug from '../../static/img/shutterstock_1868850010.jpeg';
 //import Plug from '../../static/img/shutterstock_1868849356.jpeg';
 import Plug from '../../static/img/shutterstock_1859956345.jpeg';
 import Map from '../../static/img/home_bg1.jpeg';
+//import Evse from '../../static/img/shutterstock_259990757.png';
+import Evse from '../../static/img/shutterstock_1436226374.jpeg';
 
 const texts = {
   tagline : 'This is the very important portals header tagline',
-  mobiletagline : 'This is the very important mobile app tagline'
+  mobiletagline : 'This is the very important mobile app tagline',
+  evsemanagertagline : 'This is the very important evse manager app tagline'
 }
 
 const layoutOptions = {
@@ -115,6 +118,58 @@ const MobileApp = () => {
   )
 }
 
+const Labtop = () => {
+  return (
+    <div style={{
+      position : 'relative',
+      height   : '700px',
+      width    : '1500px'
+    }}>
+      <div style={{
+        backgroundColor : 'black',
+        position  : 'absolute',
+        top      : '80px',
+        left     : '180px',
+        height   : '550px',
+        width    : '1500px'
+      }}>
+      </div>
+      <img src={useBaseUrl('img/mac-mockup.png')} style={{
+        position : 'absolute',
+        top      : '64px',
+        left     : '79px',
+        height   : '600px'
+      }}/>
+
+    </div>
+  )
+}
+
+const EvseManager = () => {
+  return (
+    <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
+      height: "700px",
+      backgroundImage : `linear-gradient(0deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 80%), rgb(0 76 126 / 0%)), url(${Evse})`,
+      backgroundSize : 'cover'
+    }}>
+    <Grid container direction="column" justifyContent="flex-end" alignItems="center" item md={6} sm={12} xs={12} style={{ height : '100%' }}>
+      <Grid item style={{
+          margin   : '100px',
+          textAlign   : 'center'
+         }}>
+        <Typography variant='h3'>{texts.evsemanagertagline}</Typography>
+      </Grid>
+      <Grid item>
+        <Button>go to app</Button>
+      </Grid>
+    </Grid>
+    <Grid item md={6} sm={12} xs={12} style={{ height : '100%', overflow : 'hidden' }}>
+      <Labtop />
+    </Grid>
+    </Grid>
+  )
+}
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -123,6 +178,7 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <WerenodeHeader />
       <MobileApp />
+      <EvseManager />
     </Layout>
   );
 }
