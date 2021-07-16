@@ -15,10 +15,47 @@ import Evse from '../../static/img/shutterstock_1436226374.jpeg';
 import withWidth, { isWidthUp, isWidthDown } from '@material-ui/core/withWidth';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
-const texts = {
-  tagline : 'This is the very important portals header tagline',
-  mobiletagline : 'This is the very important mobile app tagline',
-  evsemanagertagline : 'This is the very important evse manager app tagline'
+const data = {
+  taglines : {
+    header      : 'This is the very important portals header tagline',
+    mobile      : 'This is the very important mobile app tagline',
+    evsemanager : 'This is the very important evse manager app tagline',
+  },
+  team : [
+    {
+      name     : 'Benoît Maïsseu',
+      title    : 'CEO',
+      role     : 'EV ecosystem expert',
+      img      : 'img/BM.jpeg',
+      linkedin : '' },
+    {
+      name     : 'Gaëtan Cadéro',
+      title    : 'COO-CFO',
+      role     : 'Operation management expert',
+      img      : 'img/GC.jpeg',
+      linkedin : '' },
+    {
+      name     : 'François Chiron',
+      title    : 'Payment Technology Advisor',
+      role     : 'IT & payment expert',
+      img      : 'img/FCh.png',
+      linkedin : ''
+    },
+    {
+      name     : 'François Colet',
+      title    : 'CTO',
+      role     : 'EV charging expert, ISO15118 co-author',
+      img      : 'img/FC.jpeg',
+      linkedin : ''
+    },
+    {
+      name     : 'Benoît Rognier',
+      title    : 'CIO',
+      role     : 'Deep tech and blockchain expert',
+      img      : 'img/BR.jpeg',
+      linkedin : ''
+    },
+  ]
 }
 
 const layoutOptions = {
@@ -34,12 +71,13 @@ const layoutOptions = {
 
 const layout = 'left'
 
-const WerenodeHeader = () => {
+const WerenodeHeader = withWidth()((props) => {
   return (
     <Grid container direction={layoutOptions[layout].direction} justifyContent="flex-start" alignItems="flex-start" style={{
       height: "500px",
       backgroundImage : `linear-gradient(${layoutOptions[layout].angle}deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 90%), rgb(0 76 126 / 0%)), url(${Plug})`,
-      backgroundSize : 'cover'
+      backgroundSize : 'cover',
+      backgroundPosition : isWidthDown('sm', props.width) ? 'right' : 'left'
     }}>
       <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12}>
         <Grid item xs={12} style={{
@@ -52,12 +90,12 @@ const WerenodeHeader = () => {
           margin      : '50px',
           textAlign   : 'center'
          }}>
-          <Typography variant='h3' xs={12}>{texts.tagline}</Typography>
+          <Typography variant='h3' xs={12}>{data.taglines.header}</Typography>
         </Grid>
       </Grid>
     </Grid>
   )
-}
+})
 
 const Phone = () => {
   return (
@@ -111,7 +149,7 @@ const MobileApp = withWidth()((props) => {
         marginTop      : isWidthDown('sm', props.width) ? "50px" : "0px",
         marginBottom   : isWidthDown('sm', props.width) ? "50px" : "0px",
       }}>
-        <Typography variant='h3'>{texts.mobiletagline}</Typography>
+        <Typography variant='h3'>{data.taglines.mobile}</Typography>
       </Grid>
       <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4} item>
         <Grid item>
@@ -157,7 +195,8 @@ const EvseManager = withWidth()((props) => {
   return (
     <Grid container direction={isWidthDown('sm', props.width) ? "column-reverse" : "row"} justifyContent="flex-start" alignItems="flex-start" style={{
       backgroundImage : `linear-gradient(0deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 80%), rgb(0 76 126 / 0%)), url(${Evse})`,
-      backgroundSize : 'cover'
+      backgroundSize : 'cover',
+      backgroundPosition : isWidthDown('sm', props.width) ? 'center' : 'left'
     }}>
     <Grid container direction="column" justifyContent="flex-end" alignItems="center" item md={6} sm={12} xs={12} style={{
       height : "700px"
@@ -167,7 +206,7 @@ const EvseManager = withWidth()((props) => {
           marginRight  : isWidthDown('sm', props.width) ? "0px" : "100px",
           textAlign    : 'center'
          }}>
-        <Typography variant='h3'>{texts.evsemanagertagline}</Typography>
+        <Typography variant='h3'>{data.taglines.evsemanager}</Typography>
       </Grid>
       <Grid item>
         <Button variant="contained" disableElevation style={{
@@ -188,6 +227,45 @@ const EvseManager = withWidth()((props) => {
     </Grid>
   )
 })
+
+const Member = (props) => {
+  return (
+    <Grid item md={4} sm={6} xs={12} container direction="column" justifyContent="center" alignItems="center" style={{
+      marginTop : '30px'
+    }}>
+      <Grid item>
+        <img src={useBaseUrl(props.img)} style={{
+          borderRadius : '100%',
+          borderStyle  : 'inset',
+          borderColor  : 'white',
+          borderWidth  : '2px',
+          height       : '120px',
+          width        : '120px'
+        }}
+        />
+      </Grid>
+      <Grid item style={{ textAlign : 'center' }}>
+        <Typography>{ props.name + ', ' + props.title }</Typography>
+      </Grid>
+      <Grid item style={{ textAlign : 'center' }}>
+        <Typography>{ props.role }</Typography>
+      </Grid>
+    </Grid>
+  )
+}
+
+const Team = (props) => {
+  return (
+    <Grid container direction="row" justifyContent="flex-start" alignItems="center" style={{
+      marginTop : '100px',
+      marginBottom : '130px'
+    }}>
+      { data.team.map(member =>
+        <Member img={member.img} name={member.name} title={member.title} role={member.role}/>
+      ) }
+    </Grid>
+  )
+}
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
@@ -218,6 +296,7 @@ export default function Home() {
       <WerenodeHeader />
       <MobileApp />
       <EvseManager />
+      <Team />
     </Layout>
     </ThemeProvider>
   );
