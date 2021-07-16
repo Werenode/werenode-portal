@@ -99,7 +99,7 @@ const WerenodeHeader = () => {
       height: "500px",
       backgroundImage : `linear-gradient(${layoutOptions[layout].angle}deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 90%), rgb(0 76 126 / 0%)), url(${Plug})`,
       backgroundSize : 'cover',
-      backgroundPosition : isWidthDown('sm', width) ? 'right' : 'left'
+      backgroundPosition : isWidthDown('sm', width) ? 'right' : 'right'
     }}>
       <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12}>
         <Grid item xs={12} style={{
