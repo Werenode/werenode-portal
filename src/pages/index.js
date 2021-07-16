@@ -12,6 +12,8 @@ import Plug from '../../static/img/shutterstock_1859956345.jpeg';
 import Map from '../../static/img/home_bg1.jpeg';
 //import Evse from '../../static/img/shutterstock_259990757.png';
 import Evse from '../../static/img/shutterstock_1436226374.jpeg';
+import withWidth, { isWidthUp, isWidthDown } from '@material-ui/core/withWidth';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const texts = {
   tagline : 'This is the very important portals header tagline',
@@ -88,22 +90,28 @@ const AppleStore = () => {
   )
 }
 
-const MobileApp = () => {
+const MobileApp = withWidth()((props) => {
   return (
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
-      height: "650px",
       backgroundImage : `url(${Map})`,
-      backgroundSize : 'cover'
+      backgroundSize  : 'cover',
     }}>
-    <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12}>
+    <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12} style={{
+      height     : "650px",
+    }} >
       <Grid item><Phone /></Grid>
     </Grid>
-    <Grid container direction="column" justifyContent="space-between" alignItems="center" style={{ height: '100%' }} item md={4} sm={12} xs={12} >
+    <Grid container direction="column" justifyContent="space-between" alignItems="center" item md={4} sm={12} xs={12} style={{
+      height     : '100%',
+      paddingTop : isWidthDown('sm', props.width) ? "0px" : "100px",
+      height     : isWidthDown('sm', props.width) ? "100%" : "650px"
+    }}  >
       <Grid item style={{
-          marginTop   : '100px',
-          textAlign   : 'center'
-         }}>
-          <Typography variant='h3'>{texts.mobiletagline}</Typography>
+        textAlign   : 'center',
+        marginTop      : isWidthDown('sm', props.width) ? "50px" : "0px",
+        marginBottom   : isWidthDown('sm', props.width) ? "50px" : "0px",
+      }}>
+        <Typography variant='h3'>{texts.mobiletagline}</Typography>
       </Grid>
       <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4} item>
         <Grid item>
@@ -116,7 +124,7 @@ const MobileApp = () => {
     </Grid>
     </Grid>
   )
-}
+})
 
 const Labtop = () => {
   return (
@@ -145,34 +153,65 @@ const Labtop = () => {
   )
 }
 
-const EvseManager = () => {
+const EvseManager = withWidth()((props) => {
   return (
-    <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
-      height: "700px",
+    <Grid container direction={isWidthDown('sm', props.width) ? "column-reverse" : "row"} justifyContent="flex-start" alignItems="flex-start" style={{
       backgroundImage : `linear-gradient(0deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 80%), rgb(0 76 126 / 0%)), url(${Evse})`,
       backgroundSize : 'cover'
     }}>
-    <Grid container direction="column" justifyContent="flex-end" alignItems="center" item md={6} sm={12} xs={12} style={{ height : '100%' }}>
+    <Grid container direction="column" justifyContent="flex-end" alignItems="center" item md={6} sm={12} xs={12} style={{
+      height : "700px"
+    }}>
       <Grid item style={{
-          margin   : '100px',
-          textAlign   : 'center'
+          marginLeft   : isWidthDown('sm', props.width) ? "0px" : "100px",
+          marginRight  : isWidthDown('sm', props.width) ? "0px" : "100px",
+          textAlign    : 'center'
          }}>
         <Typography variant='h3'>{texts.evsemanagertagline}</Typography>
       </Grid>
       <Grid item>
-        <Button>go to app</Button>
+        <Button variant="contained" disableElevation style={{
+          paddingLeft  : '40px',
+          paddingRight : '40px',
+          color        : 'white',
+          marginBottom : '100px',
+          marginTop    : '50px'
+        }}>open app</Button>
       </Grid>
     </Grid>
-    <Grid item md={6} sm={12} xs={12} style={{ height : '100%', overflow : 'hidden' }}>
+    <Grid item md={6} sm={12} xs={12} style={{
+      height   : isWidthDown('sm', props.width) ? "700px" : "100%",
+      overflow : 'hidden'
+    }}>
       <Labtop />
     </Grid>
     </Grid>
   )
-}
+})
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          type: 'dark',
+          primary : {
+            main :  '#00b1a5'
+          },
+          background : {
+            paper : 'black',
+            default: 'black'
+          },
+          info : {
+            main :  '#c7b45f'
+          }
+        },
+      }),
+    [true],
+  );
   return (
+    <ThemeProvider theme={ theme }>
     <Layout
       title="Werenode Portal"
       description="Description will go into a meta tag in <head />">
@@ -180,5 +219,6 @@ export default function Home() {
       <MobileApp />
       <EvseManager />
     </Layout>
+    </ThemeProvider>
   );
 }
