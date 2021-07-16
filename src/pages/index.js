@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-import { Grid, Typography, Button } from '@material-ui/core';
+import { Grid, Typography, Button, Container } from '@material-ui/core';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 //import Plug from '../../static/img/shutterstock_1868850010.jpeg';
 //import Plug from '../../static/img/shutterstock_1868849356.jpeg';
@@ -12,8 +12,10 @@ import Plug from '../../static/img/shutterstock_1859956345.jpeg';
 import Map from '../../static/img/home_bg1.jpeg';
 //import Evse from '../../static/img/shutterstock_259990757.png';
 import Evse from '../../static/img/shutterstock_1436226374.jpeg';
-import withWidth, { isWidthUp, isWidthDown } from '@material-ui/core/withWidth';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider, useTheme } from '@material-ui/core/styles';
+
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 
 const data = {
   taglines : {
@@ -71,13 +73,33 @@ const layoutOptions = {
 
 const layout = 'left'
 
-const WerenodeHeader = withWidth()((props) => {
+function useWidth() {
+  const theme = useTheme();
+  const keys = [...theme.breakpoints.keys].reverse();
+  return (
+    keys.reduce((output, key) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const matches = useMediaQuery(theme.breakpoints.up(key));
+      return !output && matches ? key : output;
+    }, null) || 'xs'
+  );
+}
+
+function isWidthDown(breakp, width) {
+  switch (breakp) {
+    case 'sm' : return (width == 'xs' || width == 'sm');
+    default : return true
+  }
+}
+
+const WerenodeHeader = () => {
+  const width = useWidth();
   return (
     <Grid container direction={layoutOptions[layout].direction} justifyContent="flex-start" alignItems="flex-start" style={{
       height: "500px",
       backgroundImage : `linear-gradient(${layoutOptions[layout].angle}deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 90%), rgb(0 76 126 / 0%)), url(${Plug})`,
       backgroundSize : 'cover',
-      backgroundPosition : isWidthDown('sm', props.width) ? 'right' : 'left'
+      backgroundPosition : isWidthDown('sm', width) ? 'right' : 'left'
     }}>
       <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12}>
         <Grid item xs={12} style={{
@@ -95,7 +117,7 @@ const WerenodeHeader = withWidth()((props) => {
       </Grid>
     </Grid>
   )
-})
+}
 
 const Phone = () => {
   return (
@@ -128,7 +150,8 @@ const AppleStore = () => {
   )
 }
 
-const MobileApp = withWidth()((props) => {
+const MobileApp = () => {
+  const width = useWidth();
   return (
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
       backgroundImage : `url(${Map})`,
@@ -141,13 +164,13 @@ const MobileApp = withWidth()((props) => {
     </Grid>
     <Grid container direction="column" justifyContent="space-between" alignItems="center" item md={4} sm={12} xs={12} style={{
       height     : '100%',
-      paddingTop : isWidthDown('sm', props.width) ? "0px" : "100px",
-      height     : isWidthDown('sm', props.width) ? "100%" : "650px"
+      paddingTop : isWidthDown('sm', width) ? "0px" : "100px",
+      height     : isWidthDown('sm', width) ? "100%" : "650px"
     }}  >
       <Grid item style={{
         textAlign   : 'center',
-        marginTop      : isWidthDown('sm', props.width) ? "50px" : "0px",
-        marginBottom   : isWidthDown('sm', props.width) ? "50px" : "0px",
+        marginTop      : isWidthDown('sm', width) ? "50px" : "0px",
+        marginBottom   : isWidthDown('sm', width) ? "50px" : "0px",
       }}>
         <Typography variant='h3'>{data.taglines.mobile}</Typography>
       </Grid>
@@ -162,7 +185,7 @@ const MobileApp = withWidth()((props) => {
     </Grid>
     </Grid>
   )
-})
+}
 
 const Labtop = () => {
   return (
@@ -191,19 +214,20 @@ const Labtop = () => {
   )
 }
 
-const EvseManager = withWidth()((props) => {
+const EvseManager = () => {
+  const width = useWidth();
   return (
-    <Grid container direction={isWidthDown('sm', props.width) ? "column-reverse" : "row"} justifyContent="flex-start" alignItems="flex-start" style={{
+    <Grid container direction={isWidthDown('sm', width) ? "column-reverse" : "row"} justifyContent="flex-start" alignItems="flex-start" style={{
       backgroundImage : `linear-gradient(0deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 80%), rgb(0 76 126 / 0%)), url(${Evse})`,
       backgroundSize : 'cover',
-      backgroundPosition : isWidthDown('sm', props.width) ? 'center' : 'left'
+      backgroundPosition : isWidthDown('sm', width) ? 'center' : 'left'
     }}>
     <Grid container direction="column" justifyContent="flex-end" alignItems="center" item md={6} sm={12} xs={12} style={{
       height : "700px"
     }}>
       <Grid item style={{
-          marginLeft   : isWidthDown('sm', props.width) ? "0px" : "100px",
-          marginRight  : isWidthDown('sm', props.width) ? "0px" : "100px",
+          marginLeft   : isWidthDown('sm', width) ? "0px" : "100px",
+          marginRight  : isWidthDown('sm', width) ? "0px" : "100px",
           textAlign    : 'center'
          }}>
         <Typography variant='h3'>{data.taglines.evsemanager}</Typography>
@@ -219,14 +243,14 @@ const EvseManager = withWidth()((props) => {
       </Grid>
     </Grid>
     <Grid item md={6} sm={12} xs={12} style={{
-      height   : isWidthDown('sm', props.width) ? "700px" : "100%",
+      height   : isWidthDown('sm', width) ? "700px" : "100%",
       overflow : 'hidden'
     }}>
       <Labtop />
     </Grid>
     </Grid>
   )
-})
+}
 
 const Member = (props) => {
   return (
@@ -256,14 +280,16 @@ const Member = (props) => {
 
 const Team = (props) => {
   return (
+    <Container>
     <Grid container direction="row" justifyContent="flex-start" alignItems="center" style={{
       marginTop : '100px',
-      marginBottom : '130px'
+      marginBottom : '130px',
     }}>
       { data.team.map(member =>
         <Member img={member.img} name={member.name} title={member.title} role={member.role}/>
       ) }
     </Grid>
+    </Container>
   )
 }
 
