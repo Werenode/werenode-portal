@@ -15,7 +15,7 @@ import Evse from '../../static/img/shutterstock_1436226374.jpeg';
 import { createTheme, ThemeProvider, useTheme } from '@material-ui/core/styles';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-
+import HomepageFeatures from '../components/HomepageFeatures';
 
 const data = {
   taglines : {
@@ -315,6 +315,7 @@ export default function Home() {
     [true],
   );
   return (
+    <div style={{ backgroundColor : '#121212' }}>
     <ThemeProvider theme={ theme }>
     <Layout
       title="Werenode Portal"
@@ -322,8 +323,10 @@ export default function Home() {
       <WerenodeHeader />
       <MobileApp />
       <EvseManager />
+      {/*<HomepageFeatures />*/}
       <Team />
     </Layout>
     </ThemeProvider>
+    </div>
   );
 }

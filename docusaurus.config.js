@@ -29,11 +29,11 @@ module.exports = {
           type: 'doc',
           docId: 'intro',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Technical docs',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/Werenode',
+          href: 'https://github.com/Werenode/werenode-portal',
           label: 'GitHub',
           position: 'right',
         },
@@ -77,7 +77,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/Werenode',
+              href: 'https://github.com/Werenode/werenode-portal',
             },
           ],
         },
