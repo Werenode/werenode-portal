@@ -4,6 +4,8 @@ sidebar_position: 5
 
 # Delegation Based DeFi (White paper)
 
+import Link from '@docusaurus/Link';
+
 [(pfd version)](http://werenode.com/documents/WerenodeWhitepaperv09.pdf)
 
 ## Authors
@@ -23,7 +25,7 @@ burned automatically thanks to a smart contract, thus sustaining the value of th
 
 ## Introduction
 This document describes the architecture of Werenode’s proposed investment token contracts, including the contract that controls the emission of Werecoin itself (Werenode’s token) thanks to
-a specific concept of Tezos blockchain: the baking delegation [5]. We will also describe how the
+a specific concept of Tezos blockchain: the baking delegation <Link to='/docs/defiwhitepapers/#references'>[5]</Link>. We will also describe how the
 revenue flow is connected to the investment token and the smart contract that allows to manage
 the link with the revenues of the project for which the investment is gathered.
 
@@ -39,14 +41,14 @@ the reward process thanks to the use of formally verified smart contracts.
 ## Continuous Delegation Offering
 First and foremost, as an innovation, the Tezos tool of delegated baking is used to introduce safely
 the investment token. Indeed, thanks to the proof of stake consensus algorithm, Tezos owners can
-be rewarded when they lend their baking rights to another baker [3]. In exchange, the delegated
+be rewarded when they lend their baking rights to another baker <Link to='/docs/defiwhitepapers/#references'>[3]</Link>. In exchange, the delegated
 baker will receive a part of the baking fee. As an example, Werenode, a member of Tezos baker
 community, will reward the owners of the tez which are delegated to itself with Werecoin tokens
 (WRC), hence introducing them. With this so-called Continuous Delegation Offerings (CDOs),
 it will be possible to introduce smoothly and progressively WRC, without any concentration and
 later dilution. This introduction mechanism requires that the financed services are bound to a
 baker setup. The native process of the Tezos baking protocol will serve to control the issuance,
-while contributing to the decentralization of the network [1].
+while contributing to the decentralization of the network <Link to='/docs/defiwhitepapers/#references'>[1]</Link>.
 
 Indeed, the reward for the delegation will be partly or totally paid to the owner of the tez in
 WRC. The ratio XTZ/WRC for the baking reward of the delegate can be chosen, depending on the
@@ -56,7 +58,7 @@ issuance need, which is one of the keys of a successful token introduction. Toke
 raises a risk of concentration but this process of emission guarantees a fair and transparent opportunity for potential stakeholders.
 
 The market value of the WRC will be fixed by an automated market mechanism (whether an
-existing decentralized exchange like Dexter [2] or QuipuSwap or a new relevant comparable exchange). The emitted number of WRC for each cycle of delegation will be adjusted to the current WRC/XTZ value.
+existing decentralized exchange like Dexter <Link to='/docs/defiwhitepapers/#references'>[2]</Link> or QuipuSwap or a new relevant comparable exchange). The emitted number of WRC for each cycle of delegation will be adjusted to the current WRC/XTZ value.
 
 The amount of planned tokens for issuance has to be cautiously scheduled. It needs to be connected to the revenue that a tranche of investment is generating. Each time a new tranche of
 investment is created, the amount of token to be reissued, in relation with the planned investment
@@ -82,7 +84,8 @@ principle of consolidated added value for the token, also contributing to the Te
 
 Alternatively, instead of simply burning this percentage n of tokens, a larger amount of WRC could
 be bought back automatically at market price by the entity managing the revenue flow, with a
-fee used to reward the liquidity provider of the decentralized exchange mechanism [4]. This would
+fee used to reward the liquidity provider of the decentralized exchange mechanism
+<Link to='/docs/defiwhitepapers/#references'>[4]</Link>. This would
 offer the additional advantage of supporting the decentralized exchange XTZ/WRC pair. But this
 alternate process could be used as long as it doesn’t reintroduce a risk of token accumulation
 endangering its market value. Indeed, in this case, the usual drawback would be to create a new
