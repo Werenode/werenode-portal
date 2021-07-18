@@ -6,6 +6,8 @@ const useStyles = makeStyles({
   paper: {
     padding     : '50px',
     borderColor : '#34383e',
+    borderWidth : '1px',
+    borderStyle : 'solid'
   },
   grid: {
     height: '100%',
@@ -17,7 +19,7 @@ const Login = () => {
   return (
     <Grid container direction="row" direction="row" justifyContent="center" alignItems="center" className={classes.grid}>
       <Grid item>
-        <Paper variant="outlined" elevation={0} className={classes.paper}>
+        <Paper className={classes.paper} elevation={0}>
           <Grid container direction="column" justifyContent="center" alignItems="center" spacing={4}>
             <Grid item>
               <Typography>Click below to connect to the app</Typography>

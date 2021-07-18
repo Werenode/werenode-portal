@@ -1,13 +1,15 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+
 
 import { useState, useEffect } from 'react';
 
 import Login from './Login.js';
 
 function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
+  const { innerWidth: width, innerHeight: height } = ExecutionEnvironment.canUseDOM ? window : { innerWidth:0, innerHeight:0 };
   return {
     width,
     height
@@ -27,6 +29,15 @@ function useWindowDimensions() {
   }, []);
 
   return windowDimensions;
+}
+
+const MyEVSEsUI = () => {
+  const { height } = useWindowDimensions();
+  return (
+    <div style={{ height: `${height-60}px` }}>
+      <Login />
+    </div>
+  )
 }
 
 const MyEVSEs = () => {
@@ -52,13 +63,10 @@ const MyEVSEs = () => {
       }),
     [true],
   );
-  const { height } = useWindowDimensions();
   return(
     <Layout>
       <ThemeProvider theme={theme}>
-      <div style={{ height: `${height-60}px` }}>
-        <Login />
-      </div>
+        <MyEVSEsUI />
       </ThemeProvider>
     </Layout>
   )
