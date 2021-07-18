@@ -10,8 +10,8 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'werenode', // Usually your GitHub org/user name.
+  projectName: 'werenode-portal', // Usually your repo name.
   themeConfig: {
     colorMode : {
       defaultMode : 'dark',
@@ -31,9 +31,10 @@ module.exports = {
           position: 'left',
           label: 'Technical docs',
         },
+        { to: 'myevses', label: 'My EVSEs', position: 'left' },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/Werenode/werenode-portal',
+          href: 'https://github.com/Werenode',
           label: 'GitHub',
           position: 'right',
         },
@@ -77,7 +78,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/Werenode/werenode-portal',
+              href: 'https://github.com/Werenode',
             },
           ],
         },
@@ -97,13 +98,13 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+            'https://github.com/Werenode/werenode-portal',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+            'https://github.com/Werenode/werenode-portal/tree/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
