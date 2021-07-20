@@ -12,13 +12,22 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'werenode', // Usually your GitHub org/user name.
   projectName: 'werenode-portal', // Usually your repo name.
+  stylesheets: [
+    "https://fonts.googleapis.com/icon?family=Material+Icons",
+  ],
   themeConfig: {
+    hideableSidebar: false,
+    prism: {
+      additionalLanguages: ['lisp'],
+      theme: require('./src/theme/prism-archetype-theme'),
+    },
     colorMode : {
       defaultMode : 'dark',
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
     navbar: {
+      hideOnScroll: true,
       title: '',
       logo: {
         alt: 'Werenode portal',
