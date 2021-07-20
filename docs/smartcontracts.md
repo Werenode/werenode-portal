@@ -6,9 +6,15 @@ sidebar_position: 3
 
 ## WRC Token
 
+```jsx title="/src/components/HelloCodeTitle.js"
+function HelloCodeTitle(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
 ## Address book
 
-```lisp title="test"
+```js title="test"
 archetype addressbook
 
 variable test : int = 0

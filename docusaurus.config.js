@@ -18,7 +18,6 @@ module.exports = {
   themeConfig: {
     hideableSidebar: false,
     prism: {
-      additionalLanguages: ['lisp'],
       theme: require('./src/theme/prism-archetype-theme'),
     },
     colorMode : {
@@ -93,11 +92,7 @@ module.exports = {
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-    },
-    prism: {
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
-    },
+    }
   },
   presets: [
     [
