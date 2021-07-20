@@ -14,7 +14,7 @@ function HelloCodeTitle(props) {
 
 ## Address book
 
-```js title="test"
+```archetype title="test"
 archetype addressbook
 
 variable test : int = 0
