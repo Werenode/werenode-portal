@@ -233,6 +233,7 @@ const EvseManager = () => {
         <Typography variant='h3'>{data.taglines.evsemanager}</Typography>
       </Grid>
       <Grid item>
+        <Link to='myevses' style={{ textDecoration: 'none' }}>
         <Button variant="contained" disableElevation style={{
           paddingLeft  : '40px',
           paddingRight : '40px',
@@ -240,6 +241,7 @@ const EvseManager = () => {
           marginBottom : '100px',
           marginTop    : '50px'
         }}>open app</Button>
+        </Link>
       </Grid>
     </Grid>
     <Grid item md={6} sm={12} xs={12} style={{
