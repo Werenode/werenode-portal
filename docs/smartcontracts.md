@@ -6,18 +6,116 @@ sidebar_position: 3
 
 ## WRC Token
 
-```jsx title="/src/components/HelloCodeTitle.js"
-function HelloCodeTitle(props) {
-  return <h1>Hello, {props.name}</h1>;
+
+## EVSE Ledger
+
+```archetype
+(* Copyright (C) 2020-2021 Werenode SAS *)
+
+archetype evseledger(admin : address)
+
+variable admin_candidate : option<address> = none
+
+states =
+| Running
+| Paused
+
+asset evse to big_map {
+  evse_id    : string;
+  evse_mng   : address;
+  evse_owner : address;
+  evse_data  : bytes;
 }
-```
 
-## Address book
+asset evsemanager {
+  mng_addr   : address;
+  mng_server : bytes; (* encrypted data to connect to evsemanager server *)
+  evses      : aggregate<evse> = [];
+}
 
-```archetype title="test"
-archetype addressbook
+record evse_params {
+  pid     : string;
+  pmng   : address;
+  powner : address;
+  pdata   : bytes;
+}
 
-variable test : int = 0
+entry add_evse (params : list<evse_params>) {
+  state is Running
+  effect {
+    for p in params do
+      dorequire(evsemanager.contains(p.pmng), (p.pmng, "EVSEMANAGER_NOT_FOUND"));
+      evse.add({ evse_id = p.pid; evse_mng = p.pmng; evse_owner = p.powner; evse_data = p.pdata });
+      evsemanager[p.pmng].evses.add(p.pid);
+    done
+  }
+}
 
-var j = 0
+entry update_evse (params : list<evse_params>) {
+  state is Running
+  effect {
+    for p in params do
+      dorequire(p.powner = caller or admin = caller, (p.powner, "CALLER_NOT_OWNER"));
+      dorequire(evsemanager.contains(p.pmng), (p.pmng, "EVSEMANAGER_NOT_FOUND"));
+      evse.update(p.pid, { evse_mng = p.pmng; evse_owner = p.powner; evse_data = p.pdata });
+    done
+  }
+}
+
+entry remove_evse (evse_ids : list<string>) {
+  state is Running
+  effect {
+    for id in evse_ids do
+      dorequire(evse.contains(id), (id, "EVSE_NOT_EXISTS"));
+      var owner = evse[id].evse_owner;
+      dorequire(owner = caller or admin = caller, ((owner, id), "CALLER_NOT_EVSE_OWNER"));
+      var mng = evse[id].evse_mng;
+      if (evsemanager.contains(mng)) then
+        evsemanager[mng].evses.remove(id);
+      evse.remove(id);
+    done
+  }
+}
+
+entry addupdate_evsemanager (addr     : address,
+                             server   : bytes) {
+  called by admin
+  state is Running
+  effect {
+    evsemanager.addupdate(addr, { mng_server = server });
+  }
+}
+
+entry remove_evsemanager(addr : address) {
+  called by admin
+  state is Running
+  effect {
+    evsemanager.remove(addr)
+  }
+}
+
+entry transfer_admin (pnew_admin : address) {
+  called by admin
+  effect {
+    admin_candidate := some(pnew_admin);
+  }
+}
+
+entry claim_admin () {
+  called by opt_get(admin_candidate)
+  effect {
+    admin := caller;
+    admin_candidate := none
+  }
+}
+
+transition pause () {
+  called by admin
+  from Running to Paused
+}
+
+transition run () {
+  called by admin
+  from Paused to Running
+}
 ```
