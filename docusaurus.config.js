@@ -33,14 +33,14 @@ module.exports = {
         src: 'img/werenode_logo_no_name_250px.png',
       },
       items: [
+        { to: 'invest', label: 'Invest', position: 'left' },
+        { to: 'myevses', label: 'My EVSEs', position: 'left' },
         {
           type: 'doc',
           docId: 'intro',
           position: 'left',
           label: 'Technical docs',
         },
-        { to: 'invest', label: 'Invest', position: 'left' },
-        { to: 'myevses', label: 'My EVSEs', position: 'left' },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/Werenode',
@@ -56,16 +56,16 @@ module.exports = {
           title: 'Services',
           items: [
             {
-              label: 'Technical Docs',
-              to: '/docs/intro',
-            },
-            {
               label: 'Invest',
               to: '/invest',
             },
             {
               label: 'My Evses',
               to: '/myevses',
+            },
+            {
+              label: 'Technical Docs',
+              to: '/docs/intro',
             },
           ],
         },
