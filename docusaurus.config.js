@@ -100,7 +100,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Werenode Portal, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Werenode, Inc. Built with Docusaurus.`,
     }
   },
   presets: [

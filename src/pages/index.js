@@ -166,16 +166,16 @@ const Phone = () => {
     <div style={{
       position : 'relative',
       width    : '500px',
-      height   : '650px',
+      height   : '660px',
       overflow : 'hidden'
     }}>
+      <img src={useBaseUrl('img/phone2.png')} style={{ width : '430px', position : 'absolute', top : '-3px', left : '34px' }}/>
       <img src={useBaseUrl('img/app_screen1.jpg')} style={{
         position : 'absolute',
-        top: '64px',
+        top: '74px',
         left: '79px',
         width: '342px',
       }}/>
-      <img src={useBaseUrl('img/phone.png')} style={{ width : '500px', position : 'absolute', top : '0px', left : '0px' }}/>
     </div>
   )
 }
@@ -200,7 +200,7 @@ const MobileApp = () => {
       backgroundSize  : 'cover',
     }}>
     <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12} style={{
-      height     : "650px",
+      height     : "660px",
     }} >
       <Grid item><Phone /></Grid>
     </Grid>
