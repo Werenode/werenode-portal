@@ -39,6 +39,7 @@ module.exports = {
           position: 'left',
           label: 'Technical docs',
         },
+        { to: 'invest', label: 'Invest', position: 'left' },
         { to: 'myevses', label: 'My EVSEs', position: 'left' },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -52,11 +53,19 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Services',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Technical Docs',
               to: '/docs/intro',
+            },
+            {
+              label: 'Invest',
+              to: '/invest',
+            },
+            {
+              label: 'My Evses',
+              to: '/myevses',
             },
           ],
         },
@@ -91,7 +100,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Werenode Portal, Inc. Built with Docusaurus.`,
     }
   },
   presets: [

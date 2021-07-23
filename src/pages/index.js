@@ -1,9 +1,7 @@
 import React from 'react';
-import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
 import { Grid, Typography, Button, Container } from '@material-ui/core';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 //import Plug from '../../static/img/shutterstock_1868850010.jpeg';
@@ -12,50 +10,94 @@ import Plug from '../../static/img/shutterstock_1859956345.jpeg';
 import Map from '../../static/img/home_bg1.jpeg';
 //import Evse from '../../static/img/shutterstock_259990757.png';
 import Evse from '../../static/img/shutterstock_1436226374.jpeg';
+import Car from '../../static/img/car.png';
 import { createTheme, ThemeProvider, useTheme } from '@material-ui/core/styles';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import HomepageFeatures from '../components/HomepageFeatures';
+//import HomepageFeatures from '../components/HomepageFeatures';
 
 const data = {
   taglines : {
     header      : 'This is the very important portals header tagline',
     mobile      : 'This is the very important mobile app tagline',
     evsemanager : 'This is the very important evse manager app tagline',
+    invest      : 'Invest in the future of EV'
+  },
+  buttons : {
+    invest      : 'join the community',
+    evsemanager : 'open app'
   },
   team : [
     {
-      name     : 'Benoît Maïsseu',
+      key      : 'Benoît Maïsseu',
       title    : 'CEO',
       role     : 'EV ecosystem expert',
       img      : 'img/BM.jpeg',
       linkedin : '' },
     {
-      name     : 'Gaëtan Cadéro',
+      key      : 'Gaëtan Cadéro',
       title    : 'COO-CFO',
       role     : 'Operation management expert',
       img      : 'img/GC.jpeg',
       linkedin : '' },
     {
-      name     : 'François Chiron',
+      key      : 'François Chiron',
       title    : 'Payment Technology Advisor',
       role     : 'IT & payment expert',
       img      : 'img/FCh.png',
       linkedin : ''
     },
     {
-      name     : 'François Colet',
+      key      : 'François Colet',
       title    : 'CTO',
       role     : 'EV charging expert, ISO15118 co-author',
       img      : 'img/FC.jpeg',
       linkedin : ''
     },
     {
-      name     : 'Benoît Rognier',
+      key      : 'Benoît Rognier',
       title    : 'CIO',
       role     : 'Deep tech and blockchain expert',
       img      : 'img/BR.jpeg',
       linkedin : ''
+    },
+  ],
+  partners : [
+    {
+      key      : 'BPI France',
+      img      : 'img/bpifr.svg',
+      url      : 'https://www.bpifrance.fr/',
+      width    : '300px'
+    },
+    {
+      key      : 'Completium',
+      img      : 'img/completium.svg',
+      url      : 'https://completium.com/',
+      width    : '180px'
+    },
+    {
+      key      : 'Easy Wallet',
+      img      : 'img/easywallet.png',
+      url      : 'https://easywallet.com/',
+      width    : '200px',
+    },
+    {
+      key      : 'Essimo',
+      img      : 'img/essimo.png',
+      url      : '',
+      width    : '130px',
+    },
+    {
+      key      : 'Magmet',
+      img      : 'img/magment.png',
+      url      : 'https://www.magment.de/',
+      width    : '100px',
+    },
+    {
+      key      : 'Nomadic Labs',
+      img      : 'img/nomadic-labs.png',
+      url      : 'https://www.nomadic-labs.com/',
+      width    : '250px',
     },
   ]
 }
@@ -240,7 +282,7 @@ const EvseManager = () => {
           color        : 'white',
           marginBottom : '100px',
           marginTop    : '50px'
-        }}>open app</Button>
+        }}>{data.buttons.evsemanager}</Button>
         </Link>
       </Grid>
     </Grid>
@@ -250,6 +292,40 @@ const EvseManager = () => {
     }}>
       <Labtop />
     </Grid>
+    </Grid>
+  )
+}
+
+const Invest = () => {
+  const width = useWidth();
+  const deg = isWidthDown('sm', width) ? '0' : '225';
+  return (
+    <Grid container direction={isWidthDown('sm', width) ? "column-reverse" : "row"} justifyContent="flex-end" alignItems="flex-start" style={{
+      backgroundImage : `linear-gradient(${deg}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${Car})`,
+      backgroundSize : 'cover',
+      backgroundPosition : 'left',
+      height: "500px",
+    }}>
+    <Grid container direction="column" justifyContent={isWidthDown('sm', width) ? "flex-end" : "center"}  alignItems="center" item md={6} sm={12} xs={12} style={{
+      height: "100%",
+    }}>
+      <Grid item style={{
+        marginLeft   : isWidthDown('sm', width) ? "50px" : "50px",
+        marginRight  : isWidthDown('sm', width) ? "50px" : "50px",
+        textAlign    : 'center',
+        marginBottom : isWidthDown('sm', width) ? '25px' : '50px',
+      }}>
+        <Typography variant='h3'>{data.taglines.invest}</Typography>
+      </Grid>
+      <Grid item style={{
+        marginBottom : isWidthDown('sm', width) ? '50px' : '0px',
+      }}>
+        <Link to='/invest' style={{ textDecoration : 'none' }}>
+          <Button variant='outlined' style={{ color : 'white' }}>{data.buttons.invest}</Button>
+        </Link>
+      </Grid>
+    </Grid>
+
     </Grid>
   )
 }
@@ -282,16 +358,49 @@ const Member = (props) => {
 
 const Team = (props) => {
   return (
-    <Container>
     <Grid container direction="row" justifyContent="flex-start" alignItems="center" style={{
       marginTop : '100px',
       marginBottom : '130px',
     }}>
       { data.team.map(member =>
-        <Member img={member.img} name={member.name} title={member.title} role={member.role}/>
+        <Member img={member.img} key={member.key} name={member.key} title={member.title} role={member.role}/>
       ) }
     </Grid>
-    </Container>
+  )
+}
+
+const Partner = (props) => {
+  const width = useWidth();
+  return (
+    <Grid item style={{
+      marginBottom : isWidthDown('sm', width) ? "20px" : "0px",
+      marginTop    : isWidthDown('sm', width) ? "20px" : "0px"
+    }}>
+      <Link to={props.url}>
+        <img src={useBaseUrl(props.img)} style={{ width : props.width }}/>
+      </Link>
+    </Grid>
+  )
+}
+
+const Partners = () => {
+  const width = useWidth();
+  return (
+    <Grid container direction="column" justifyContent="center" alignItems="center" style={{
+      backgroundColor : 'rgb(36 36 36)'
+    }}>
+    <Grid item style={{ marginTop : '15px' }}>
+      <Typography variant='subtitle1' style={{ color : 'grey' }}>Partners</Typography>
+    </Grid>
+    <Grid item container direction={isWidthDown('sm', width) ? "column" : "row"} justifyContent="center" alignItems="center" spacing={2} style={{
+      marginTop : '0px',
+      marginBottom : '25px',
+    }}>
+    { data.partners.map(partner =>
+        <Partner key={partner.key} img={partner.img} width={partner.width} url={partner.url}/>
+      ) }
+    </Grid>
+    </Grid>
   )
 }
 
@@ -318,17 +427,19 @@ export default function Home() {
   );
   return (
     <div style={{ backgroundColor : '#121212' }}>
-    <ThemeProvider theme={ theme }>
     <Layout
       title="Werenode Portal"
       description="Description will go into a meta tag in <head />">
+      <ThemeProvider theme={ theme }>
       <WerenodeHeader />
       <MobileApp />
       <EvseManager />
+      <Invest />
       {/*<HomepageFeatures />*/}
       <Team />
+      <Partners />
+      </ThemeProvider>
     </Layout>
-    </ThemeProvider>
     </div>
   );
 }
