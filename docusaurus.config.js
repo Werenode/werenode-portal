@@ -15,6 +15,9 @@ module.exports = {
   stylesheets: [
     "https://fonts.googleapis.com/icon?family=Material+Icons",
   ],
+  plugins: [
+    './src/myevses-plugin',
+  ],
   themeConfig: {
     hideableSidebar: false,
     prism: {

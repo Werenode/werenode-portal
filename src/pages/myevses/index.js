@@ -1,12 +1,8 @@
 import React from 'react';
-import Layout from '@theme/Layout';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-
-
 import { useState, useEffect } from 'react';
-
-import Login from './Login.js';
+import Layout from '@theme/Layout';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+import MyEVSEs from '../../components/myevses/MyEVSEs';
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = ExecutionEnvironment.canUseDOM ? window : { innerWidth:0, innerHeight:0 };
@@ -31,45 +27,13 @@ function useWindowDimensions() {
   return windowDimensions;
 }
 
-const MyEVSEsUI = () => {
+const MyEVSEsPage = () => {
   const { height } = useWindowDimensions();
   return (
-    <div style={{ height: `${height-60}px` }}>
-      <Login />
-    </div>
-  )
-}
-
-const MyEVSEs = () => {
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          type: 'dark',
-          primary : {
-            main :  '#00b1a5'
-          },
-          background : {
-            paper : '#18191a',
-            default: '#18191a'
-          },
-          text : {
-            primary : '#fff',
-          },
-          info : {
-            main :  '#c7b45f'
-          }
-        },
-      }),
-    [true],
-  );
-  return(
     <Layout>
-      <ThemeProvider theme={theme}>
-        <MyEVSEsUI />
-      </ThemeProvider>
+      <MyEVSEs height={height-60}/>
     </Layout>
   )
 }
 
-export default MyEVSEs;
+export default MyEVSEsPage;

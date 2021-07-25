@@ -387,7 +387,7 @@ const Partners = () => {
   const width = useWidth();
   return (
     <Grid container direction="column" justifyContent="center" alignItems="center" style={{
-      backgroundColor : 'rgb(0 0 0)'
+      backgroundColor : '#1d222b'
     }}>
     <Grid item style={{ marginTop : '15px' }}>
       <Typography variant='subtitle1' style={{ color : 'grey' }}>Partners</Typography>
