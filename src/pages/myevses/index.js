@@ -28,10 +28,10 @@ function useWindowDimensions() {
 }
 
 const MyEVSEsPage = () => {
-  const { height } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
   return (
     <Layout>
-      <MyEVSEs height={height-60}/>
+      <MyEVSEs width={width} height={height-60}/>
     </Layout>
   )
 }
