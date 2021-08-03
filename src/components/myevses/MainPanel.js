@@ -131,7 +131,7 @@ export default function MainPanel() {
         <StyledDivider />
         <List>
           { panels.slice(0,3).map(x => {
-            return <ListItem button key={x.title} onClick={handleOpen(x.id)}>
+            return <ListItem button key={x.title} onClick={handleOpen(x.id)} selected={panel == x.id}>
               <ListItemIcon >
                 {x.icon}
               </ListItemIcon>
@@ -142,7 +142,7 @@ export default function MainPanel() {
         <StyledDivider />
         <List>
         { panels.slice(3,5).map(x => {
-            return <ListItem button key={x.title} onClick={handleOpen(x.id)}>
+            return <ListItem button key={x.title} onClick={handleOpen(x.id)} selected={panel == x.id}>
               <ListItemIcon >
                 {x.icon}
               </ListItemIcon>

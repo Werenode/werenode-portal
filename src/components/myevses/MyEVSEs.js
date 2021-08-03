@@ -20,7 +20,7 @@ const MyEVSEs = (props) => {
         palette: {
           type: 'dark',
           primary : {
-            main :  '#00b1a5'
+            main :  'rgba(0, 177, 165, 1)'
           },
           background : {
             paper : '#18191a',
@@ -36,7 +36,8 @@ const MyEVSEs = (props) => {
           action : {
             disabled : '#34383e',
             disabledBackground : '#34383e',
-            hover : 'rgba(255,255,255,0.08)',
+            hover : 'rgba(0, 177, 165, 1)',
+            selectedOpacity : '0.8'
           }
         },
       }),
