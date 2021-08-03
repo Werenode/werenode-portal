@@ -35,7 +35,8 @@ const MyEVSEs = (props) => {
           },
           action : {
             disabled : '#34383e',
-            disabledBackground : '#34383e'
+            disabledBackground : '#34383e',
+            hover : 'rgba(255,255,255,0.08)',
           }
         },
       }),
