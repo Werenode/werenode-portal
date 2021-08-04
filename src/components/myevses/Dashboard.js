@@ -88,7 +88,7 @@ const EVSE = (props) => {
 const EVSEsPanel = (props) => {
   const { evses } = getEVSEs();
   return (
-    <Container maxWidth="lg" style={{ marginBottom : '40px' }}>
+    <Container maxWidth="lg" style={{ marginTop : '40px' }}>
     <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={4}>
       { evses.data.map(evse => {
         return (
@@ -106,17 +106,33 @@ const actions = ['Add', 'Edit', 'Remove', 'Sort'];
 const ActionButtons = (props) => {
   const anchorRef = React.useRef(null);
   const [open, setOpen] = React.useState(false);
-  const { setSelect, setSelected } = getSelect();
-  const { evses, setEvses } = getEVSEs();
+  const [sortalpha, setSortAlpha] = React.useState(false);
+  const { selected, setSelect, setSelected } = getSelect();
+  const { setEvses } = getEVSEs();
   const handleClick = (e) => {
     console.info(`You clicked ${actions[props.selectedIndex]}`);
-    if(props.selectedIndex == 3) {
-      setEvses(evses => {
-        const sorted = evses.data.concat().sort((x,y) => parseFloat(y.revenue) - parseFloat(x.revenue));
-        console.log(sorted);
-        return { ...evses, data : sorted };
-      })
-    };
+    switch(props.selectedIndex) {
+      case 3: // Sort
+        setEvses(evses => {
+          var sorted = [];
+          if (!sortalpha) {
+            sorted = evses.data.concat().sort((x,y) => parseFloat(y.revenue) - parseFloat(x.revenue));
+          } else {
+            sorted = evses.data.concat().sort((x,y) => x.id > y.id ? 1 : -1);
+          }
+          console.log(sorted);
+          return { ...evses, data : sorted };
+        });
+        setSortAlpha(sa => !sa);
+        break;
+      case 2: // Remove
+        if (selected.length > 0) {
+          setEvses(evses => { return { ...evses, data : evses.data.filter(x => selected.indexOf(x.id)<0) }; });
+        }
+        props.setSelectedIndex(0);
+        setSelect(false);
+        break;
+    }
   };
   const handleMenuItemClick = (event, index) => {
     props.setSelectedIndex(index);
@@ -223,7 +239,7 @@ const DashBoard = (props) => {
   return (
     <Grid container
       direction="column-reverse"
-      justifyContent="flex-start"
+      justifyContent="space-between"
       alignItems="center"
       style={{ height : props.height }}>
       <Grid item style={{ width : '100%' }}>
