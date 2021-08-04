@@ -13,6 +13,10 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Container from '@material-ui/core/Container';
+
+import { Typography } from '@material-ui/core';
+import { getEVSEs } from './constate/evses';
 
 const useStyles = makeStyles({
   tools: {
@@ -23,7 +27,39 @@ const useStyles = makeStyles({
     borderWidth : '1px',
     paddingRight : '24px'
   },
+  evse: {
+    width : '200px',
+    height : '300px',
+    borderColor : '#34383e',
+    borderWidth : '1px',
+    borderStyle : 'solid',
+  }
 });
+
+const EVSE = (props) => {
+  const classes = useStyles();
+  return (
+    <Paper className={classes.evse}>
+      <Typography>{props.id}</Typography>
+    </Paper>
+  )
+}
+
+const EVSEsPanel = (props) => {
+  const { evses } = getEVSEs();
+  return (
+    <Container maxWidth="lg" style={{ marginBottom : '40px' }}>
+    <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={4}>
+      { evses.data.map(evse => {
+        return (
+          <Grid item key={evse.id}>
+            <EVSE id={evse.id} />
+          </Grid>)
+      }) }
+    </Grid>
+    </Container>
+  )
+}
 
 const actions = ['Add EVSE(s)', 'Select', 'Sort by Revenue', 'Sort by Nb Charging Sessions'];
 
@@ -122,6 +158,9 @@ const DashBoard = (props) => {
       style={{ height : props.height }}>
       <Grid item style={{ width : '100%' }}>
         <Tools />
+      </Grid>
+      <Grid item style={{ width: '100%', maxHeight : props.height - 64, overflow : 'scroll' }}>
+        <EVSEsPanel />
       </Grid>
     </Grid>
   )

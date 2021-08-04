@@ -1,6 +1,7 @@
 import React from 'react';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { DAppProvider, useReady } from './constate/dapp';
+import { EVSEProvider } from './constate/evses';
 import labels from './labels.js';
 import Login from './Login.js';
 import MainPanel from './MainPanel.js';
@@ -47,9 +48,11 @@ const MyEVSEs = (props) => {
   return(
       <ThemeProvider theme={theme}>
       <DAppProvider appName={ labels.appname }>
+      <EVSEProvider>
         <div style={{ height: `${props.height}px`, width: `${props.width}px` }}>
           <TopPanel height={props.height} width={props.width} />
        </div>
+      </EVSEProvider>
       </DAppProvider>
       </ThemeProvider>
   )
