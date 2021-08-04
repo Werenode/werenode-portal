@@ -29,7 +29,7 @@ module.exports = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      hideOnScroll: false,
+      hideOnScroll: true,
       title: '',
       logo: {
         alt: 'Werenode portal',

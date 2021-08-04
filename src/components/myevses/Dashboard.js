@@ -159,7 +159,7 @@ const DashBoard = (props) => {
       <Grid item style={{ width : '100%' }}>
         <Tools />
       </Grid>
-      <Grid item style={{ width: '100%', maxHeight : props.height - 64, overflow : 'scroll' }}>
+      <Grid item style={{ width: '100%', maxHeight : props.height - 64, overflow : 'auto' }}>
         <EVSEsPanel />
       </Grid>
     </Grid>
