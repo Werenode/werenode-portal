@@ -95,7 +95,7 @@ const Login = (props) => {
   const width = Math.min(props.width-80,500);
   return (
     <Grid container direction="row" direction="row" justifyContent="center" alignItems="center" className={classes.grid}>
-      <Grid item style={{ paddingBottom : '20%' }}>
+      <Grid item style={{ paddingBottom : '10%' }}>
         <Paper className={classes.paper} elevation={0}>
           <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">
             <Grid item>

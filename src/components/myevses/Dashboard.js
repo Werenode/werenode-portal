@@ -9,7 +9,8 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import { CardActionArea, CardContent } from '@material-ui/core';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
@@ -17,6 +18,7 @@ import Container from '@material-ui/core/Container';
 
 import { Typography } from '@material-ui/core';
 import { getEVSEs } from './constate/evses';
+import { getPanels } from './constate/panels';
 
 const useStyles = makeStyles({
   tools: {
@@ -37,11 +39,16 @@ const useStyles = makeStyles({
 });
 
 const EVSE = (props) => {
+  const { setPanel } = getPanels();
   const classes = useStyles();
   return (
-    <Paper className={classes.evse}>
-      <Typography>{props.id}</Typography>
-    </Paper>
+    <Card className={classes.evse}>
+      <CardActionArea>
+        <CardContent>
+          <Typography>{props.id}</Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   )
 }
 
@@ -61,7 +68,7 @@ const EVSEsPanel = (props) => {
   )
 }
 
-const actions = ['Add EVSE(s)', 'Select', 'Sort by Revenue', 'Sort by Nb Charging Sessions'];
+const actions = ['Add', 'Edit', 'Remove', 'Sort'];
 
 const ActionButtons = (props) => {
   const anchorRef = React.useRef(null);

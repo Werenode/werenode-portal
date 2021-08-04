@@ -22,6 +22,15 @@ import { Grid } from '@material-ui/core';
 import { useAccountPkh } from './constate/dapp';
 import DashBoard from './Dashboard';
 
+import { getEVSEs } from './constate/evses';
+
+import Collapse from '@material-ui/core/Collapse';
+
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+
+import { getPanels } from './constate/panels';
+
 const drawerWidth = 240;
 const courier = "Courier Prime, monospace";
 
@@ -90,12 +99,31 @@ const panels = [
   { id : 4, title : 'Help',      icon : <HelpIcon style={{ color : 'white' }}/>}
 ]
 
+const EVSEsTitle = 'EVSEs';
+const EVSEsIdx   = 1;
+
+const getEVSEPanelIdx = (id) => {
+  return 10 * panels.length + id;
+}
+
+const getEVSEIdfromPanelIdx = (id) => {
+  return id - 10 * panels.length;
+}
+
 const LoggedAs = (props) => {
   const phk = useAccountPkh();
+  const { evses } = getEVSEs();
+  var title = '';
+  if (props.panel >= getEVSEPanelIdx(0)) {
+    const panel = getEVSEIdfromPanelIdx(props.panel);
+    title = evses.data[panel].id;
+  } else {
+    title = panels[props.panel].title;
+  }
   return (
     <Grid container direction="row" justifyContent="space-between" alignItems="center" >
       <Grid item>
-        <Typography variant='h5'>{panels[props.panel].title}</Typography>
+        <Typography variant='h5'>{title}</Typography>
       </Grid>
       <Grid item>
         <Grid container direction="row" spacing={1}>
@@ -121,16 +149,56 @@ const Header = (props) => {
   </DrawerHeader>)
 }
 
+const DefaultPanel = () => {
+  return (<div />)
+}
+
 export default function MainPanel(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [panel, setPanel] = React.useState(0);
+  const [openevses, setOpenEvses] = React.useState(false);
+  const { panel, setPanel } = getPanels();
   const [headerHeight, setHeaderHeight] = React.useState(0);
+  const { evses } = getEVSEs();
   const switchOpen = () => {
     setOpen(o => !o);
-  }
+    if (openevses) { setOpenEvses(false) }
+    else {
+      if (panel >= getEVSEPanelIdx(0)) {
+        setOpenEvses(true);
+      }
+    }
+  };
   const handleOpen = (id) => (e) => {
-    setPanel(id);
+    switch(id) {
+      case EVSEsIdx :
+      if (openevses) {
+        setOpenEvses(false)
+      } else {
+        setOpenEvses(true);
+        if (!open) {
+          setOpen(true);
+        }
+      }; break;
+      default : setPanel(id);
+    }
+  };
+  const isSelected = (id) => {
+    if (openevses) {
+      return panel == id;
+    } else {
+      if (panel >= getEVSEPanelIdx(0)) {
+        return EVSEsIdx == id;
+      } else {
+        return panel == id;
+      }
+    }
+  }
+  const getPanel = (id) => {
+    switch (id) {
+      case 0 : return <DashBoard height={ props.height - headerHeight }/>;
+      default : return <DefaultPanel />;
+    }
   }
   return (
     <Box sx={{ display: 'flex' }}>
@@ -142,19 +210,35 @@ export default function MainPanel(props) {
         </DrawerHeader>
         <StyledDivider />
         <List>
-          { panels.slice(0,3).map(x => {
-            return <ListItem button key={x.title} onClick={handleOpen(x.id)} selected={panel == x.id}>
-              <ListItemIcon >
-                {x.icon}
-              </ListItemIcon>
-              <ListItemText primary={x.title} />
-            </ListItem>
-          })}
+          { panels.slice(0,3).reduce((acc, x) => {
+            const item =
+              <ListItem button key={x.title} onClick={handleOpen(x.id)} selected={isSelected(x.id)}>
+                <ListItemIcon >{x.icon}</ListItemIcon>
+                <ListItemText primary={x.title} />
+                { x.title == EVSEsTitle ? (openevses ? <ExpandLess /> : <ExpandMore />) : null }
+              </ListItem>;
+            const evseitems = evses.data.map((x, id) => {
+              const evseid = getEVSEPanelIdx(id);
+              return (
+                <ListItem key={evseid} button style={{ paddingLeft: theme.spacing(4) }} selected={panel == evseid} onClick={handleOpen(evseid)}>
+                  <ListItemText primary={x.id} />
+                </ListItem>)
+            });
+            switch(x.title) {
+              case EVSEsTitle : return acc.concat([item,
+              <Collapse in={openevses} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  { evseitems }
+                </List>
+              </Collapse>]);
+              default : return acc.concat([item]);
+            }
+          },[])}
         </List>
         <StyledDivider />
         <List>
         { panels.slice(3,5).map(x => {
-            return <ListItem button key={x.title} onClick={handleOpen(x.id)} selected={panel == x.id}>
+            return <ListItem button key={x.title} onClick={handleOpen(x.id)} selected={isSelected(x.id)}>
               <ListItemIcon >
                 {x.icon}
               </ListItemIcon>
@@ -165,7 +249,7 @@ export default function MainPanel(props) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }} style={{ height : props.height }}>
         <Header panel={panel} setHeaderHeight={setHeaderHeight}/>
-        <DashBoard height={ props.height - headerHeight }/>
+        { getPanel(panel) }
       </Box>
     </Box>
   );
