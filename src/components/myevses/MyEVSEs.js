@@ -8,7 +8,7 @@ import MainPanel from './MainPanel.js';
 const TopPanel = (props) => {
   const ready = useReady();
   return (
-    ready ? <MainPanel /> :
+    ready ? <MainPanel height={props.height}/> :
     <Login width={props.width}/>
   )
 }
@@ -20,7 +20,8 @@ const MyEVSEs = (props) => {
         palette: {
           type: 'dark',
           primary : {
-            main :  'rgba(0, 177, 165, 1)'
+            main :  'rgba(0, 177, 165, 1)',
+            contrastText : 'white'
           },
           background : {
             paper : '#18191a',
@@ -47,7 +48,7 @@ const MyEVSEs = (props) => {
       <ThemeProvider theme={theme}>
       <DAppProvider appName={ labels.appname }>
         <div style={{ height: `${props.height}px`, width: `${props.width}px` }}>
-          <TopPanel width={props.width} />
+          <TopPanel height={props.height} width={props.width} />
        </div>
       </DAppProvider>
       </ThemeProvider>
