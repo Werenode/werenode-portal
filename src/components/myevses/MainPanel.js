@@ -12,11 +12,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import PowerIcon from '@material-ui/icons/Power';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import FileDownloadIcon from '@material-ui/icons/FileDownload';
-import HelpIcon from '@material-ui/icons/Help';
 import { Grid } from '@material-ui/core';
 
 import { useAccountPkh } from './constate/dapp';
@@ -29,7 +24,7 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
-import { getPanels } from './constate/panels';
+import { getPanels, panels, getEVSEPanelIdx, getEVSEIdfromPanelIdx, EVSEsTitle, EVSEsIdx } from './constate/panels';
 
 const drawerWidth = 240;
 const courier = "Courier Prime, monospace";
@@ -91,25 +86,6 @@ const StyledDivider = styled(Divider)({
   borderColor : '#34383e'
 });
 
-const panels = [
-  { id : 0, title : 'Dashboard', icon : <DashboardIcon style={{ color : 'white' }} /> },
-  { id : 1, title : 'EVSEs',     icon : <PowerIcon style={{ color : 'white' }} /> },
-  { id : 2, title : 'Account',   icon : <AccountCircleIcon style={{ color : 'white' }}/> },
-  { id : 3, title : 'Export',    icon : <FileDownloadIcon style={{ color : 'white' }}/>},
-  { id : 4, title : 'Help',      icon : <HelpIcon style={{ color : 'white' }}/>}
-]
-
-const EVSEsTitle = 'EVSEs';
-const EVSEsIdx   = 1;
-
-const getEVSEPanelIdx = (id) => {
-  return 10 * panels.length + id;
-}
-
-const getEVSEIdfromPanelIdx = (id) => {
-  return id - 10 * panels.length;
-}
-
 const LoggedAs = (props) => {
   const phk = useAccountPkh();
   const { evses } = getEVSEs();
@@ -155,16 +131,14 @@ const DefaultPanel = () => {
 
 export default function MainPanel(props) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  const [openevses, setOpenEvses] = React.useState(false);
-  const { panel, setPanel } = getPanels();
+  const { panel, setPanel, openevses, setOpenEvses, open, setOpen } = getPanels();
   const [headerHeight, setHeaderHeight] = React.useState(0);
   const { evses } = getEVSEs();
   const switchOpen = () => {
     setOpen(o => !o);
     if (openevses) { setOpenEvses(false) }
     else {
-      if (panel >= getEVSEPanelIdx(0)) {
+      if (!open && panel >= getEVSEPanelIdx(0)) {
         setOpenEvses(true);
       }
     }

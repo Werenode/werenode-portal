@@ -10,6 +10,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Card from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
 import { CardActionArea, CardContent } from '@material-ui/core';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -18,7 +19,9 @@ import Container from '@material-ui/core/Container';
 
 import { Typography } from '@material-ui/core';
 import { getEVSEs } from './constate/evses';
-import { getPanels } from './constate/panels';
+import { getPanels, getEVSEPanelIdx } from './constate/panels';
+
+import { getSelect } from './constate/select';
 
 const useStyles = makeStyles({
   tools: {
@@ -35,15 +38,44 @@ const useStyles = makeStyles({
     borderColor : '#34383e',
     borderWidth : '1px',
     borderStyle : 'solid',
+  },
+  selected : {
+    width : '200px',
+    height : '300px',
+    borderColor : 'rgba(0, 177, 165, 1)',
+    borderWidth : '2px',
+    borderStyle : 'solid',
   }
 });
 
+const getEvseIdx = (evses, id) => {
+  return evses.map(x => x.id).indexOf(id);
+}
+
 const EVSE = (props) => {
   const { setPanel } = getPanels();
+  const { select, selected, setSelected } = getSelect();
+  const { evses } = getEVSEs();
   const classes = useStyles();
+  const evseidx = getEVSEPanelIdx(getEvseIdx(evses.data,props.id));
+
+  const handleClick = () => {
+    if (select) {
+      if (selected.includes(props.id)) {
+        setSelected(s => s.filter(x => x != props.id));
+      } else {
+        setSelected(s => s.concat([props.id]));
+      }
+    } else {
+      setPanel(evseidx)
+    }
+  };
+  const isSelected = () => {
+    return select && selected.includes(props.id);
+  }
   return (
-    <Card className={classes.evse}>
-      <CardActionArea>
+    <Card className={ isSelected() ? classes.selected : classes.evse}>
+      <CardActionArea onClick={handleClick}>
         <CardContent>
           <Typography>{props.id}</Typography>
         </CardContent>
@@ -73,12 +105,19 @@ const actions = ['Add', 'Edit', 'Remove', 'Sort'];
 const ActionButtons = (props) => {
   const anchorRef = React.useRef(null);
   const [open, setOpen] = React.useState(false);
-  const handleClick = () => {
+  const { setSelect, setSelected } = getSelect();
+  const handleClick = (e) => {
     console.info(`You clicked ${actions[props.selectedIndex]}`);
   };
   const handleMenuItemClick = (event, index) => {
     props.setSelectedIndex(index);
     setOpen(false);
+    if (index == 1 || index == 2) {
+      setSelect(true);
+    } else {
+      setSelected([]);
+      setSelect(false);
+    }
   };
 
   const handleToggle = () => {
@@ -144,12 +183,27 @@ const ActionButtons = (props) => {
   )
 }
 
+const SelectAll = () => {
+  const { setSelected } = getSelect();
+  const { evses } = getEVSEs();
+  const handleClick = () => {
+    setSelected(evses.data.map(x => x.id));
+  }
+  return (
+    <Grid item style={{ marginRight : '32px' }}>
+      <Button variant="text" onClick={handleClick}>select all</Button>
+    </Grid>
+  )
+}
+
 const Tools = (props) => {
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const { select } = getSelect();
   return (
     <div className={ classes.tools }>
       <Grid container direction="row" justifyContent="flex-end" alignItems="center" style={{ height:'100%' }}>
+        { select ? <SelectAll /> : null }
         <ActionButtons selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
       </Grid>
     </div>
