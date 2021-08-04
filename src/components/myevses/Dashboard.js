@@ -36,6 +36,7 @@ const useStyles = makeStyles({
     width : '200px',
     height : '300px',
     borderColor : '#34383e',
+    //borderColor : 'white',
     borderWidth : '1px',
     borderStyle : 'solid',
   },
@@ -106,8 +107,16 @@ const ActionButtons = (props) => {
   const anchorRef = React.useRef(null);
   const [open, setOpen] = React.useState(false);
   const { setSelect, setSelected } = getSelect();
+  const { evses, setEvses } = getEVSEs();
   const handleClick = (e) => {
     console.info(`You clicked ${actions[props.selectedIndex]}`);
+    if(props.selectedIndex == 3) {
+      setEvses(evses => {
+        const sorted = evses.data.concat().sort((x,y) => parseFloat(y.revenue) - parseFloat(x.revenue));
+        console.log(sorted);
+        return { ...evses, data : sorted };
+      })
+    };
   };
   const handleMenuItemClick = (event, index) => {
     props.setSelectedIndex(index);
