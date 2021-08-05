@@ -18,10 +18,14 @@ import MenuList from '@material-ui/core/MenuList';
 import Container from '@material-ui/core/Container';
 
 import { Typography } from '@material-ui/core';
+
 import { getEVSEs } from './constate/evses';
 import { getPanels, getEVSEPanelIdx } from './constate/panels';
+import { getWizard } from './constate/wizard';
 
 import { getSelect } from './constate/select';
+
+import { useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   tools: {
@@ -87,16 +91,22 @@ const EVSE = (props) => {
 
 const EVSEsPanel = (props) => {
   const { evses } = getEVSEs();
+  const theme = useTheme();
   return (
-    <Container maxWidth="lg" style={{ marginTop : '40px' }}>
-    <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={4}>
+    <Container maxWidth="lg" style={{ marginTop : '40px', height : props.height - 40 }}>
+    { evses.data.length == 0 ? (<Grid container direction="row" justifyContent="center" alignItems="center" style={{ height : '70%' }}>
+      <Grid item>
+        <Typography variant='subtitle1' style={{ color : theme.palette.grey.A700 }}>Click 'ADD' below to add an EVSE.</Typography>
+      </Grid>
+    </Grid>) :
+    (<Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={4}>
       { evses.data.map(evse => {
         return (
           <Grid item key={evse.id}>
             <EVSE id={evse.id} />
           </Grid>)
       }) }
-    </Grid>
+    </Grid>) }
     </Container>
   )
 }
@@ -108,6 +118,7 @@ const ActionButtons = (props) => {
   const [open, setOpen] = React.useState(false);
   const [sortalpha, setSortAlpha] = React.useState(false);
   const { selected, setSelect, setSelected } = getSelect();
+  const { setWizardOpen } = getWizard();
   const { setEvses } = getEVSEs();
   const handleClick = (e) => {
     console.info(`You clicked ${actions[props.selectedIndex]}`);
@@ -130,7 +141,11 @@ const ActionButtons = (props) => {
           setEvses(evses => { return { ...evses, data : evses.data.filter(x => selected.indexOf(x.id)<0) }; });
         }
         props.setSelectedIndex(0);
+        setSelected([]);
         setSelect(false);
+        break;
+      case 0: // Add
+        setWizardOpen(true);
         break;
     }
   };
@@ -236,6 +251,7 @@ const Tools = (props) => {
 }
 
 const DashBoard = (props) => {
+  const h = props.height - 64;
   return (
     <Grid container
       direction="column-reverse"
@@ -245,8 +261,8 @@ const DashBoard = (props) => {
       <Grid item style={{ width : '100%' }}>
         <Tools />
       </Grid>
-      <Grid item style={{ width: '100%', maxHeight : props.height - 64, overflow : 'auto' }}>
-        <EVSEsPanel />
+      <Grid item style={{ width: '100%', maxHeight : h, overflow : 'auto' }}>
+        <EVSEsPanel height={ h }/>
       </Grid>
     </Grid>
   )
