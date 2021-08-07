@@ -94,7 +94,7 @@ const EVSEsPanel = (props) => {
   const { evses } = getEVSEs();
   const theme = useTheme();
   return (
-    <Container maxWidth="lg" style={{ marginTop : '40px', height : props.height - 40 }}>
+    <Container maxWidth="lg" style={{ marginTop : '40px', height : props.height }}>
     { evses.data.length == 0 ? (<Grid container direction="column" justifyContent="center" alignItems="center" style={{ height : '70%' }}>
       <Grid item>
         <img src={useBaseUrl('img/werenode_logo_no_name_250px_black.png')} style={{ width : '150px', marginBottom: '20px' }}/>
@@ -103,7 +103,7 @@ const EVSEsPanel = (props) => {
         <Typography variant='subtitle1' style={{ color : theme.palette.grey.A700 }}>Click 'ADD' below to add an EVSE.</Typography>
       </Grid>
     </Grid>) :
-    (<Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={4}>
+    (<Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={4} style={{ paddingBottom : '40px' }}>
       { evses.data.map(evse => {
         return (
           <Grid item key={evse.id}>
