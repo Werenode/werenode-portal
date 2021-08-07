@@ -122,10 +122,9 @@ const ActionButtons = (props) => {
   const [open, setOpen] = React.useState(false);
   const [sortalpha, setSortAlpha] = React.useState(false);
   const { selected, setSelect, setSelected } = getSelect();
-  const { setWizardOpen } = getWizard();
+  const { setPanel } = getPanels();
   const { setEvses } = getEVSEs();
   const handleClick = (e) => {
-    console.info(`You clicked ${actions[props.selectedIndex]}`);
     switch(props.selectedIndex) {
       case 3: // Sort
         setEvses(evses => {
@@ -149,7 +148,7 @@ const ActionButtons = (props) => {
         setSelect(false);
         break;
       case 0: // Add
-        setWizardOpen(true);
+        setPanel(-1);
         break;
     }
   };

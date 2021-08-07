@@ -16,6 +16,7 @@ import { Grid } from '@material-ui/core';
 
 import { useAccountPkh } from './constate/dapp';
 import DashBoard from './Dashboard';
+import Wizard from './Wizard';
 
 import { getEVSEs } from './constate/evses';
 
@@ -93,7 +94,10 @@ const LoggedAs = (props) => {
   if (props.panel >= getEVSEPanelIdx(0)) {
     const panel = getEVSEIdfromPanelIdx(props.panel);
     title = evses.data[panel].id;
-  } else {
+  } else if (props.panel == -1) {
+    title = 'Add EVSE(s)'
+  }
+  else {
     title = panels[props.panel].title;
   }
   return (
@@ -104,7 +108,7 @@ const LoggedAs = (props) => {
       <Grid item>
         <Grid container direction="row" spacing={1}>
           <Grid item>
-            <Typography variant='caption'>Logged as</Typography>
+            <Typography variant='caption'>Connected as</Typography>
           </Grid>
           <Grid item>
             <Typography variant='caption' style={{ fontFamily : courier }}>{phk}</Typography>
@@ -170,6 +174,7 @@ export default function MainPanel(props) {
   }
   const getPanel = (id) => {
     switch (id) {
+      case -1 : return <Wizard height={ props.height - headerHeight } />;
       case 0 : return <DashBoard height={ props.height - headerHeight }/>;
       default : return <DefaultPanel />;
     }

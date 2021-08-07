@@ -9,6 +9,7 @@ import labels from './labels.js';
 import Login from './Login.js';
 import MainPanel from './MainPanel.js';
 import Wizard from './Wizard';
+import { SportsRugbySharp } from '@material-ui/icons';
 
 const TopPanel = (props) => {
   const ready = useReady();
@@ -41,6 +42,7 @@ const MyEVSEs = (props) => {
             main :  '#c7b45f'
           },
           action : {
+            active : 'rgb(255,255,255)',
             disabled : '#34383e',
             disabledBackground : '#34383e',
             hover : 'rgba(0, 177, 165, 1)',
@@ -59,7 +61,6 @@ const MyEVSEs = (props) => {
       <WizardProvider>
         <div style={{ height: `${props.height}px`, width: `${props.width}px` }}>
           <TopPanel height={props.height} width={props.width} />
-          <Wizard />
        </div>
       </WizardProvider>
       </SelectProvider>
