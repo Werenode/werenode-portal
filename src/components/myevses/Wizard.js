@@ -13,7 +13,7 @@ import StyledTextField from './styled/StyledTextField';
 
 import { getEVSEs } from './constate/evses';
 import { getPanels } from './constate/panels';
-import { getWizard } from './constate/wizard';
+import { getWizard, isValidAddress } from './constate/wizard';
 import { useAccountPkh } from './constate/dapp';
 
 import Tooltip, { tooltipClasses } from '@material-ui/core/Tooltip';
@@ -60,8 +60,8 @@ const useStyles = makeStyles({
 const inputData = {
   owner : { label : 'Owner', hash :'owner', desc : 'Address of the Tezos account that owns the EVSE(s).' },
   id :    { label : 'Identifier', hash : 'identifier', desc : 'Identifier of the EVSE(s).' },
-  nb :    { label : 'Number of EVSE(s)', hash : 'nb-evses', desc : 'Number of EVSEs to declare.' },
-  evseserver : { label : 'EVSE Server', hash : 'evse-server', desc : 'EVSE Manager Server.',
+  nb :    { label : 'Number of EVSE(s)', hash : 'number-of-evses', desc : 'Number of EVSEs to declare.' },
+  evseserver : { label : 'EVSE Server', hash : 'evse-manager-server', desc : 'EVSE Manager Server.',
     items : [ { value : 'werenode', label : 'Werenode Server' } ]
   }
 }
@@ -79,10 +79,11 @@ const WithHelp = (props) => {
   const handleClick = () => {
     window.open(url, 'My EVSEs User Manual');
   }
+  const margin = props.error ? '10px' : '32px';
   return (
-    <Grid container direction="row" justifyContent="flex-start" alignContent="center" style={{ width: '100%' }}>
-      <Grid item children={props.element} style={{ width: 'calc(100% - 32px)' }}/>
-      <Grid item style={{ marginLeft : '12px' }}>
+    <Grid container direction="row" justifyContent="flex-start" alignContent="center" style={{ width: '100%', marginBottom : margin }}>
+      <Grid item children={props.element} style={{ width: 'calc(100% - 64px)' }}/>
+      <Grid item style={{ marginLeft : '12px', marginRight : '32px' }}>
         <HtmlTooltip
           title={
             <React.Fragment>
@@ -103,8 +104,9 @@ const EvseTextField = (props) => {
   function handleChange(e) {
     setData(d => { d[props.id] = e.target.value; return { ...d, edition : true } })
   };
+  const isError = props.isError !== undefined ? props.isError() : false;
   return (
-    <WithHelp id={props.id} element={
+    <WithHelp id={props.id} error={isError} element={
       <StyledTextField
         id={ "evses" + props.id }
         label={inputData[props.id].label}
@@ -114,6 +116,8 @@ const EvseTextField = (props) => {
         onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
         type={props.type}
         fullWidth
+        error={ isError }
+        helperText={ props.isError !== undefined ? (props.isError() ? props.errorText : "") : "" }
       />} />
   )
 }
@@ -161,12 +165,19 @@ const General = (props) => {
       <Grid item sm={12} md={6} xs={12}>
         <Grid container direction="row"
               justifyContent='flex-start'
-              alignContent='center' spacing={4}>
+              alignContent='center'>
           <Grid item xs={12}>
-            <EvseTextField id="owner"/>
+            <EvseTextField
+              id="owner"
+              isError={() => !isValidAddress(data.owner)}
+              errorText="Invalid address format" />
           </Grid>
           <Grid item xs={6}>
-            <EvseTextField id="id" handleChange={e => setId(e.target.value)} />
+            <EvseTextField
+              id="id"
+              handleChange={e => setId(e.target.value)}
+              isError={() => (data.showerrors ? data.id == "" : false) }
+              errorText="Empty identifier"/>
           </Grid>
           <Grid item  xs={6}>
             <EvseTextField id="nb" type="number" handleChange={e => setNb(e.target.value)}/>
@@ -239,20 +250,28 @@ const Buttons = (props) => {
 const Wizard = (props) => {
   const classes = useStyles();
   const [ wizardPanelIdx, setWizardPanel ] = React.useState(0);
-  const { data } = getWizard();
+  const { data, setShowErrors } = getWizard();
   const { evses, setEvses } = getEVSEs();
   const { setPanel } = getPanels();
+  const isGeneralInvalid = () => {
+    if (wizardPanelIdx == 0) {
+      return (data.id == "" || !isValidAddress(data.owner));
+    } else return false;
+  }
   const handleClick = () => {
     if (wizardPanelIdx == wizardPanels.length - 1) {
       const newevses = Array(parseInt(data.nb)).fill(evses.data.length).map((x,i) => {
-        return {id : ('EVSE ' +  (x + i + 1)), revenue : 0 };
+        return {id : (data.id + ' ' +  (x + i + 1)), revenue : 0 };
       } );
       setEvses(e => { return { ...e, data : e.data.concat(newevses) }; });
       setPanel(0);
+    } else if (isGeneralInvalid()) {
+      setShowErrors(true);
     } else {
+      setShowErrors(false);
       setWizardPanel(wp => wp + 1);
     }
-  }
+  };
   return (
     <Grid container direction="row" justifyContent='center' alignContent='center' style={{ height : props.height }}>
       <Grid item>
@@ -266,7 +285,10 @@ const Wizard = (props) => {
         <Grid item>
           { wizardPanels[wizardPanelIdx].panel }
         </Grid>
-        <Buttons handleClick={handleClick} wizardPanelIdx={wizardPanelIdx} setWizardPanel={setWizardPanel}/>
+        <Buttons
+          handleClick={handleClick}
+          wizardPanelIdx={wizardPanelIdx}
+          setWizardPanel={setWizardPanel}/>
       </Grid>
     </Paper>
       </Grid>
