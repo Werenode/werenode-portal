@@ -196,20 +196,22 @@ export default function MainPanel(props) {
                 <ListItemText primary={x.title} />
                 { x.title == EVSEsTitle ? (openevses ? <ExpandLess /> : <ExpandMore />) : null }
               </ListItem>;
-            const evseitems = evses.data.map((x, id) => {
-              const evseid = getEVSEPanelIdx(id);
-              return (
-                <ListItem key={evseid} button style={{ paddingLeft: theme.spacing(4) }} selected={panel == evseid} onClick={handleOpen(evseid)}>
-                  <ListItemText primary={x.id} />
-                </ListItem>)
-            });
             switch(x.title) {
-              case EVSEsTitle : return acc.concat([item,
-              <Collapse in={openevses} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  { evseitems }
-                </List>
-              </Collapse>]);
+              case EVSEsTitle :
+              const evseitems = evses.data.map((x, id) => {
+                const evseid = getEVSEPanelIdx(id);
+                return (
+                  <ListItem key={evseid} button style={{ paddingLeft: theme.spacing(4) }} selected={panel == evseid} onClick={handleOpen(evseid)}>
+                    <ListItemText primary={x.id} />
+                  </ListItem>)
+              });
+              return acc.concat([item,
+                <Collapse key={"collapse"} in={openevses} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    { evseitems }
+                  </List>
+                </Collapse>
+              ]);
               default : return acc.concat([item]);
             }
           },[])}

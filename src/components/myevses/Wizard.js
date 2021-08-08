@@ -76,7 +76,6 @@ const HtmlTooltip = styled(({ className, ...props }) => (
 
 const WithHelp = (props) => {
   const url = window.location.protocol + '//' + window.location.host + useBaseUrl("docs/myevsesmanual" + '#' + inputData[props.id].hash);
-  console.log(url);
   const handleClick = () => {
     window.open(url, 'My EVSEs User Manual');
   }
@@ -112,7 +111,7 @@ const EvseTextField = (props) => {
         color="primary"
         variant="outlined"
         value={data[props.id]}
-        onChange={handleChange}
+        onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
         type={props.type}
         fullWidth
       />} />
@@ -145,7 +144,7 @@ const EvseSelect = (props) => {
 
 const General = (props) => {
   const classes = useStyles();
-  const { data, setData } = getWizard();
+  const { data, setData, setNb, setId } = getWizard();
   const pkh = useAccountPkh();
   React.useEffect(() => {
     if (!data.edition) {
@@ -167,10 +166,10 @@ const General = (props) => {
             <EvseTextField id="owner"/>
           </Grid>
           <Grid item xs={6}>
-            <EvseTextField id="id" />
+            <EvseTextField id="id" handleChange={e => setId(e.target.value)} />
           </Grid>
           <Grid item  xs={6}>
-            <EvseTextField id="nb" type="number"/>
+            <EvseTextField id="nb" type="number" handleChange={e => setNb(e.target.value)}/>
           </Grid>
           <Grid item  xs={12}>
             <EvseSelect id="evseserver" />
