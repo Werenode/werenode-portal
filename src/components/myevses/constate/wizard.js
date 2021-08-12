@@ -32,7 +32,8 @@ export function useWizard() {
     owner : "",
     id : "",
     nb : 1,
-    evseserver : 'werenode'
+    evseserver : 'werenode',
+    supervision : { type : 'wherenodeocpp16' },
   });
   const setShowErrors = (s) => { setData(d => { return { ...d, showerrors : s } }) };
   const setNb = (n) => {
@@ -45,13 +46,33 @@ export function useWizard() {
         return { ...d, edition : true, id : Array.from(i).filter(isBase58Char).join("") }
       })
   };
+  const setSupervision = (t) => { setData(d => { return { ...d, edition : true, supervision : {
+   type : t
+  }}})};
+  const setLogin = (l) => { setData(d => { return { ...d, edition : true, supervision : {
+    ...d.supervision, login : l
+  }}})};
+  const setPwd = (p) => { setData(d => { return { ...d, edition : true, supervision: {
+    ...d.supervision, pwd : p
+  }}})};
+  const setSwitchOn = (o) => { setData(d => { return { ...d, edition : true, supervision: {
+    ...d.supervision, switchon : o
+  }}})};
+  const setSwitchOff = (o) => { setData(d => { return { ...d, edition : true, supervision: {
+    ...d.supervision, switchoff : o
+  }}})};
   return {
     data,
     setData,
     setShowErrors,
     setOwner,
     setId,
-    setNb
+    setNb,
+    setSupervision,
+    setLogin,
+    setPwd,
+    setSwitchOn,
+    setSwitchOff
   }
 }
 

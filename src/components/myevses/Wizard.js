@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     transform: 'translate(-50%, -50%)',
     maxWidth: '1200px',
     width : '70%', */
-    transform: 'translate(0%, -20%)',
+    //transform: 'translate(0%, -20%)',
     border : '1px solid #34383e',
     //height : 600,
     bgcolor: 'background.paper',
@@ -63,7 +63,17 @@ const inputData = {
   nb :    { label : 'Number of EVSE(s)', hash : 'number-of-evses', desc : 'Number of EVSEs to declare.' },
   evseserver : { label : 'EVSE Server', hash : 'evse-manager-server', desc : 'EVSE Manager Server.',
     items : [ { value : 'werenode', label : 'Werenode Server' } ]
-  }
+  },
+  supervision : { label : 'Type', hash : 'type', desc : 'Type of supervision',
+    items : [
+      { value : 'wherenodeocpp16', label : 'Werenode - OCPP 1.6' },
+      { value : 'wherenodeocpp20', label : 'Werenode - OCPP 2.0' },
+      { value : 'custom', label : 'Customized ...' },
+  ]},
+  switchon : { label : 'Url to switch on', hash : 'switch-on-url', desc : 'Url to switch EVSE on' },
+  switchoff : { label : 'Url to switch off', hash : 'switch-off-url', desc : 'Url to switch EVSE off' },
+  login : { label : 'Login', hash : 'login', desc : 'Login to connect to EVSE' },
+  pwd : { label : 'Password', hash : 'password', desc : 'Password to connect to EVSE' },
 }
 
 const HtmlTooltip = styled(({ className, ...props }) => (
@@ -104,7 +114,16 @@ const EvseTextField = (props) => {
   function handleChange(e) {
     setData(d => { d[props.id] = e.target.value; return { ...d, edition : true } })
   };
-  const isError = props.isError !== undefined ? props.isError() : false;
+  const isInvalid = () => {
+    var val = undefined;
+    if (props.getValue !== undefined) {
+      val = props.getValue(data)
+    } else {
+      val = data[props.id]
+    };
+    return val == undefined || val == ""
+  }
+  const isError = props.isError !== undefined ? props.isError() : (data.showerrors ? isInvalid () : false);
   return (
     <WithHelp id={props.id} error={isError} element={
       <StyledTextField
@@ -112,12 +131,12 @@ const EvseTextField = (props) => {
         label={inputData[props.id].label}
         color="primary"
         variant="outlined"
-        value={data[props.id]}
+        value={props.getValue !== undefined ? props.getValue(data) : data[props.id]}
         onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
         type={props.type}
         fullWidth
         error={ isError }
-        helperText={ props.isError !== undefined ? (props.isError() ? props.errorText : "") : "" }
+        helperText={ isError ? props.errorText : "" }
       />} />
   )
 }
@@ -134,8 +153,8 @@ const EvseSelect = (props) => {
       <StyledSelect
         id={ "evses" + props.id }
         label={inputData[props.id].label}
-        value={data[props.id]}
-        onChange={handleChange}
+        value={props.getValue !== undefined ? props.getValue(data) : data[props.id]}
+        onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
       >
         { inputData[props.id].items.map(x => {
           return <MenuItem key={x.value} value={x.value}>{x.label}</MenuItem>
@@ -143,6 +162,70 @@ const EvseSelect = (props) => {
       </StyledSelect>
       </StyledFormControl>
     } />
+  )
+}
+
+const CustomSupervision = () => {
+  const { setLogin, setPwd, setSwitchOn, setSwitchOff } = getWizard();
+  return (
+    <Grid container direction='row' justifyContent='flex-start' alignContent='center'>
+      <Grid item md={6} sm={12} xs={12}>
+        <EvseTextField id="switchon"
+          getValue={d => d.supervision.switchon}
+          handleChange={e => setSwitchOn(e.target.value)}
+          errorText="Invalid Url"/>
+      </Grid>
+      <Grid item md={6} sm={12} xs={12}>
+        <EvseTextField id="switchoff"
+          getValue={d => d.supervision.switchoff}
+          handleChange={e => setSwitchOff(e.target.value)}
+          errorText="Invalid Url"/>
+      </Grid>
+      <Grid item md={3} sm={6} xs={12}>
+        <EvseTextField id="login"
+          getValue={d => d.supervision.login}
+          handleChange={e => setLogin(e.target.value)}
+          errorText="Empty Login"/>
+      </Grid>
+      <Grid item md={3} sm={6} xs={12}>
+        <EvseTextField id="pwd"
+          getValue={d => d.supervision.pwd}
+          handleChange={e => setPwd(e.target.value)}
+          errorText="Empty Password"/>
+      </Grid>
+    </Grid>
+  )
+}
+
+const Supervision = (props) => {
+  const classes = useStyles();
+  const { data, setSupervision } = getWizard();
+  const [ customized, setCustomized ] = React.useState(data.supervision.type == 'custom');
+  const handleSupervision = e => {
+    const v = e.target.value;
+    setCustomized(v == 'custom');
+    setSupervision(e.target.value);
+  }
+  return (
+    <Grid
+      container
+      direction="row"
+      justifyContent="flex-start"
+      alignContent="center"
+      className={ classes.panel } >
+      <Grid item sm={12} md={12} xs={12}>
+        <Grid container direction="row"
+              justifyContent='flex-start'
+              alignContent='center'>
+          <Grid item  md={6} sm={12} xs={12}>
+            <EvseSelect id="supervision" handleChange={handleSupervision} getValue={ d => d.supervision.type }/>
+          </Grid>
+          {
+            customized ? <CustomSupervision /> : null
+          }
+        </Grid>
+      </Grid>
+    </Grid>
   )
 }
 
@@ -176,7 +259,6 @@ const General = (props) => {
             <EvseTextField
               id="id"
               handleChange={e => setId(e.target.value)}
-              isError={() => (data.showerrors ? data.id == "" : false) }
               errorText="Empty identifier"/>
           </Grid>
           <Grid item  xs={6}>
@@ -197,7 +279,7 @@ const DefaultPanel = () => {
 
 const wizardPanels = [
   { title : 'General Settings', panel : <General /> },
-  { title : 'Supervision', panel : <DefaultPanel /> },
+  { title : 'Supervision', panel : <Supervision /> },
   { title : 'Connectors', panel : <DefaultPanel /> },
   { title : 'Other Settings', panel : <DefaultPanel /> },
   { title : 'Edit Settings', panel : <DefaultPanel /> },
@@ -256,6 +338,15 @@ const Wizard = (props) => {
   const isGeneralInvalid = () => {
     if (wizardPanelIdx == 0) {
       return (data.id == "" || !isValidAddress(data.owner));
+    } else if (wizardPanelIdx == 1) {
+      if (data.supervision.type == 'custom') {
+        return (
+          data.supervision.switchon == undefined ||
+          data.supervision.switchoff == undefined ||
+          data.supervision.login == undefined ||
+          data.supervision.pwd == undefined
+        )
+      } else return false;
     } else return false;
   }
   const handleClick = () => {
