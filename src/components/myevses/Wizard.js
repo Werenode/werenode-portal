@@ -3,27 +3,53 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
-import { Paper, Box } from '@material-ui/core';
+import { Paper, Box, Card, CardContent, CardActions } from '@material-ui/core';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import HelpIcon from '@material-ui/icons/Help';
-
-import StyledTextField from './styled/StyledTextField';
 
 import { getEVSEs } from './constate/evses';
 import { getPanels } from './constate/panels';
 import { getWizard, isValidAddress } from './constate/wizard';
 import { useAccountPkh } from './constate/dapp';
 
-import Tooltip, { tooltipClasses } from '@material-ui/core/Tooltip';
-import { styled } from "@material-ui/core/styles";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import MenuItem from '@material-ui/core/MenuItem';
-import StyledSelect from './styled/StyledSelect';
-import InputLabel from '@material-ui/core/InputLabel';
-import StyledFormControl from './styled/StyledFormControl';
+import { EvseTextField, EvseSelect } from './EvseInputs';
+import IconButton from '@material-ui/core/IconButton';
+import Chip from '@material-ui/core/Chip';
+import { inputData, isOCPP } from './inputData';
+
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import PowerIcon from '@material-ui/icons/Power';
+import SettingsInputSvideoIcon from '@material-ui/icons/SettingsInputSvideo';
+import LabelIcon from '@material-ui/icons/Label';
+
+import EvStationIcon from '@material-ui/icons/EvStation';
+import BoltIcon from '@material-ui/icons/Bolt';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+
+function useWidth() {
+  const theme = useTheme();
+  const keys = [...theme.breakpoints.keys].reverse();
+  return (
+    keys.reduce((output, key) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const matches = useMediaQuery(theme.breakpoints.up(key));
+      return !output && matches ? key : output;
+    }, null) || 'xs'
+  );
+}
+
+function isWidthDown(breakp, width) {
+  switch (breakp) {
+    case 'xs' : return (width == 'xs');
+    case 'sm' : return (width == 'xs' || width == 'sm');
+    default : return true
+  }
+}
 
 const useStyles = makeStyles({
   paper: {
@@ -55,133 +81,110 @@ const useStyles = makeStyles({
   panel: {
     padding : '24px',
   },
+  connectorformpanel: {
+    paddingTop : '32px',
+    paddingRight : '24px',
+    paddingLeft : '24px',
+  },
+  connector: {
+    border : '1px solid #34383e',
+  }
 });
 
-const inputData = {
-  owner : { label : 'Owner', hash :'owner', desc : 'Address of the Tezos account that owns the EVSE(s).' },
-  id :    { label : 'Identifier', hash : 'identifier', desc : 'Identifier of the EVSE(s).' },
-  nb :    { label : 'Number of EVSE(s)', hash : 'number-of-evses', desc : 'Number of EVSEs to declare.' },
-  evseserver : { label : 'EVSE Server', hash : 'evse-manager-server', desc : 'EVSE Manager Server.',
-    items : [ { value : 'werenode', label : 'Werenode Server' } ]
-  },
-  supervision : { label : 'Type', hash : 'type', desc : 'Type of supervision',
-    items : [
-      { value : 'wherenodeocpp16', label : 'Werenode - OCPP 1.6' },
-      { value : 'wherenodeocpp20', label : 'Werenode - OCPP 2.0' },
-      { value : 'custom', label : 'Customized ...' },
-  ]},
-  switchon : { label : 'Url to switch on', hash : 'switch-on-url', desc : 'Url to switch EVSE on' },
-  switchoff : { label : 'Url to switch off', hash : 'switch-off-url', desc : 'Url to switch EVSE off' },
-  login : { label : 'Login', hash : 'login', desc : 'Login to connect to EVSE' },
-  pwd : { label : 'Password', hash : 'password', desc : 'Password to connect to EVSE' },
+const toObj = v => {
+  var obj = {};
+  for (let i = 0; i < inputData[v].items.length; i++) {
+    obj[inputData[v].items[i].value] = inputData[v].items[i].label;
+  }
+  return obj;
 }
 
-const HtmlTooltip = styled(({ className, ...props }) => (
-  <Tooltip {...props} classes={{ popper: className }} placement="right-start"/>
-))(({ theme }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: '#000'
-  },
-}));
-
-const WithHelp = (props) => {
-  const url = window.location.protocol + '//' + window.location.host + useBaseUrl("docs/myevsesmanual" + '#' + inputData[props.id].hash);
-  const handleClick = () => {
-    window.open(url, 'My EVSEs User Manual');
-  }
-  const margin = props.error ? '10px' : '32px';
+const Connector = (props) => {
+  const classes = useStyles();
+  const { data, rmConnector, editConnector } = getWizard();
+  const connector = data.connectors[props.id];
+  const getMode = m => toObj('connectormode')[m];
+  const getPower = m => toObj('power')[m];
+  const getType = m => toObj('connectortype')[m];
+  const getPrice = m => {
+    const currency = toObj('currency')[m.currency];
+    return (m.price + ' ' + currency);
+  };
+  const handleDelete = () => rmConnector(connector.index);
+  const handleEdit = () => editConnector(connector.index);
   return (
-    <Grid container direction="row" justifyContent="flex-start" alignContent="center" style={{ width: '100%', marginBottom : margin }}>
-      <Grid item children={props.element} style={{ width: 'calc(100% - 64px)' }}/>
-      <Grid item style={{ marginLeft : '12px', marginRight : '32px' }}>
-        <HtmlTooltip
-          title={
-            <React.Fragment>
-              <Typography variant="caption">{inputData[props.id].desc}</Typography>
-              <Button size='small' variant="text" style={{ fontSize : '10px' }} onClick={handleClick}>Learn more...</Button>
-            </React.Fragment>
+    <Grid item key={props.id} xs={12}>
+     <Card key={props.id} className={ classes.connector }>
+      <CardContent>
+        <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
+          { isOCPP(data.supervision.type) ?
+            <Grid item><Chip variant="outlined" icon={<LabelIcon />} label={connector.index} /></Grid>
+            : null
           }
-        >
-          <HelpIcon fontSize="small"></HelpIcon>
-        </HtmlTooltip>
+          <Grid item><Chip variant="outlined" icon={<PowerIcon />} label={getMode(connector.mode)} /></Grid>
+          <Grid item><Chip variant="outlined" icon={<BoltIcon />} label={getPower(connector.power)} /></Grid>
+          <Grid item><Chip variant="outlined" icon={<SettingsInputSvideoIcon />} label={getType(connector.type)} /></Grid>
+          <Grid item><Chip variant="outlined" icon={<LocalOfferIcon />} label={getPrice(connector)} /></Grid>
+        </Grid>
+      </CardContent>
+      <CardActions>
+        <IconButton onClick={handleEdit}>
+          <EditIcon fontSize="small" />
+        </IconButton>
+        <IconButton onClick={handleDelete}>
+          <DeleteIcon fontSize="small" />
+        </IconButton>
+      </CardActions>
+     </Card>
+    </Grid>
+  )
+}
+
+const Connectors = () => {
+  const classes = useStyles();
+  const { data, setOpen } = getWizard();
+  const handleClick = () => { setOpen(true) };
+  return (
+    <Grid container
+      direction="row"
+      justifyContent="flex-start"
+      alignContent="center"
+      className={ classes.panel }
+      spacing={4}
+    >
+      {
+        data.connectors.length > 0 ?
+        data.connectors.map((x,i) => <Connector id={i} />) :
+        <Grid item style={{ height : '150px' }} container direction="row" justifyContent="center" alignContent="center">
+          <Typography variant="subtitle1" style={{ color : '#34383e' }}>No Connector. Click 'ADD CONNECTOR'.</Typography>
+        </Grid>
+      }
+      <Grid xs={12} item container direction="row" justifyContent="flex-end" alignContent="center">
+        <Grid item>
+          <Button onClick={handleClick}>add connector</Button>
+        </Grid>
       </Grid>
     </Grid>
   )
 }
 
-const EvseTextField = (props) => {
-  const { data, setData } = getWizard();
-  function handleChange(e) {
-    setData(d => { d[props.id] = e.target.value; return { ...d, edition : true } })
-  };
-  const isInvalid = () => {
-    var val = undefined;
-    if (props.getValue !== undefined) {
-      val = props.getValue(data)
-    } else {
-      val = data[props.id]
-    };
-    return val == undefined || val == ""
-  }
-  const isError = props.isError !== undefined ? props.isError() : (data.showerrors ? isInvalid () : false);
-  return (
-    <WithHelp id={props.id} error={isError} element={
-      <StyledTextField
-        id={ "evses" + props.id }
-        label={inputData[props.id].label}
-        color="primary"
-        variant="outlined"
-        value={props.getValue !== undefined ? props.getValue(data) : data[props.id]}
-        onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
-        type={props.type}
-        fullWidth
-        error={ isError }
-        helperText={ isError ? props.errorText : "" }
-      />} />
-  )
-}
-
-const EvseSelect = (props) => {
-  const { data, setData } = getWizard();
-  function handleChange(e) {
-    setData(d => { d[props.id] = e.target.value; return { ...d, edition : true } })
-  };
-  return (
-    <WithHelp id={props.id} element={
-      <StyledFormControl style={{ width : '100%' }}>
-      <InputLabel>{inputData[props.id].label}</InputLabel>
-      <StyledSelect
-        id={ "evses" + props.id }
-        label={inputData[props.id].label}
-        value={props.getValue !== undefined ? props.getValue(data) : data[props.id]}
-        onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
-      >
-        { inputData[props.id].items.map(x => {
-          return <MenuItem key={x.value} value={x.value}>{x.label}</MenuItem>
-        }) }
-      </StyledSelect>
-      </StyledFormControl>
-    } />
-  )
-}
-
-const CustomSupervision = () => {
-  const { setLogin, setPwd, setSwitchOn, setSwitchOff } = getWizard();
+const RPCGETSupervision = () => {
+  const { setSwitchOn, setSwitchOff } = getWizard();
   return (
     <Grid container direction='row' justifyContent='flex-start' alignContent='center'>
-      <Grid item md={6} sm={12} xs={12}>
+      <Grid item md={12} sm={12} xs={12}>
         <EvseTextField id="switchon"
           getValue={d => d.supervision.switchon}
           handleChange={e => setSwitchOn(e.target.value)}
           errorText="Invalid Url"/>
       </Grid>
-      <Grid item md={6} sm={12} xs={12}>
+      <Grid item md={12} sm={12} xs={12}>
         <EvseTextField id="switchoff"
           getValue={d => d.supervision.switchoff}
           handleChange={e => setSwitchOff(e.target.value)}
           errorText="Invalid Url"/>
       </Grid>
-      <Grid item md={3} sm={6} xs={12}>
+      {/* <Grid item md={3} sm={6} xs={12}>
         <EvseTextField id="login"
           getValue={d => d.supervision.login}
           handleChange={e => setLogin(e.target.value)}
@@ -192,7 +195,7 @@ const CustomSupervision = () => {
           getValue={d => d.supervision.pwd}
           handleChange={e => setPwd(e.target.value)}
           errorText="Empty Password"/>
-      </Grid>
+      </Grid> */}
     </Grid>
   )
 }
@@ -200,10 +203,7 @@ const CustomSupervision = () => {
 const Supervision = (props) => {
   const classes = useStyles();
   const { data, setSupervision } = getWizard();
-  const [ customized, setCustomized ] = React.useState(data.supervision.type == 'custom');
   const handleSupervision = e => {
-    const v = e.target.value;
-    setCustomized(v == 'custom');
     setSupervision(e.target.value);
   }
   return (
@@ -213,15 +213,15 @@ const Supervision = (props) => {
       justifyContent="flex-start"
       alignContent="center"
       className={ classes.panel } >
-      <Grid item sm={12} md={12} xs={12}>
+      <Grid item sm={12} md={6} xs={12}>
         <Grid container direction="row"
               justifyContent='flex-start'
               alignContent='center'>
-          <Grid item  md={6} sm={12} xs={12}>
+          <Grid item  md={12} sm={12} xs={12}>
             <EvseSelect id="supervision" handleChange={handleSupervision} getValue={ d => d.supervision.type }/>
           </Grid>
           {
-            customized ? <CustomSupervision /> : null
+            data.supervision.type == 'werenoderpcget' ? <RPCGETSupervision /> : null
           }
         </Grid>
       </Grid>
@@ -280,7 +280,7 @@ const DefaultPanel = () => {
 const wizardPanels = [
   { title : 'General Settings', panel : <General /> },
   { title : 'Supervision', panel : <Supervision /> },
-  { title : 'Connectors', panel : <DefaultPanel /> },
+  { title : 'Connectors', panel : <Connectors /> },
   { title : 'Other Settings', panel : <DefaultPanel /> },
   { title : 'Edit Settings', panel : <DefaultPanel /> },
   { title : 'Validate', panel : <DefaultPanel /> }
@@ -289,6 +289,7 @@ const wizardPanels = [
 const Buttons = (props) => {
   const classes = useStyles();
   const { setPanel } = getPanels();
+  const width = useWidth();
   const handleCancel = () => {
     setPanel(0);
   }
@@ -299,7 +300,7 @@ const Buttons = (props) => {
     <Grid item>
       <Grid container direction="row" justifyContent='flex-end' alignContent="end" className={ classes.buttons } >
         <Grid item xs={12} style={{ marginBottom: '18px' }}>
-          <Stepper activeStep={props.wizardPanelIdx} >
+          <Stepper activeStep={props.wizardPanelIdx} orientation={ isWidthDown('sm', width) ? 'vertical' : 'horizontal' }>
             {wizardPanels.map((panel) => (
               <Step key={panel.title}>
               <StepLabel>{panel.title}</StepLabel>
@@ -335,16 +336,14 @@ const Wizard = (props) => {
   const { data, setShowErrors } = getWizard();
   const { evses, setEvses } = getEVSEs();
   const { setPanel } = getPanels();
-  const isGeneralInvalid = () => {
+  const isInvalid = () => {
     if (wizardPanelIdx == 0) {
       return (data.id == "" || !isValidAddress(data.owner));
     } else if (wizardPanelIdx == 1) {
-      if (data.supervision.type == 'custom') {
+      if (data.supervision.type == 'werenoderpcget') {
         return (
           data.supervision.switchon == undefined ||
-          data.supervision.switchoff == undefined ||
-          data.supervision.login == undefined ||
-          data.supervision.pwd == undefined
+          data.supervision.switchoff == undefined
         )
       } else return false;
     } else return false;
@@ -356,7 +355,7 @@ const Wizard = (props) => {
       } );
       setEvses(e => { return { ...e, data : e.data.concat(newevses) }; });
       setPanel(0);
-    } else if (isGeneralInvalid()) {
+    } else if (isInvalid()) {
       setShowErrors(true);
     } else {
       setShowErrors(false);
@@ -365,23 +364,23 @@ const Wizard = (props) => {
   };
   return (
     <Grid container direction="row" justifyContent='center' alignContent='center' style={{ height : props.height }}>
-      <Grid item>
-    <Paper elevation={3} className={ classes.paper }>
-      <Grid container direction="column" justifyContent='flex-start' alignContent='flex-start' >
-        <Grid item className={ classes.header }>
-          <Typography variant="h5" component="div" className={ classes.title }>
-            { wizardPanels[wizardPanelIdx].title }
-          </Typography>
-        </Grid>
-        <Grid item>
-          { wizardPanels[wizardPanelIdx].panel }
-        </Grid>
-        <Buttons
-          handleClick={handleClick}
-          wizardPanelIdx={wizardPanelIdx}
-          setWizardPanel={setWizardPanel}/>
-      </Grid>
-    </Paper>
+      <Grid item lg={9} md={12}>
+        <Paper elevation={3} className={ classes.paper }>
+          <Grid container direction="column" justifyContent='flex-start' alignContent='flex-start' >
+            <Grid item className={ classes.header }>
+              <Typography variant="h5" component="div" className={ classes.title }>
+                { wizardPanels[wizardPanelIdx].title }
+              </Typography>
+            </Grid>
+            <Grid item style={{ maxHeight : props.height - 200, overflow: 'auto' }}>
+              { wizardPanels[wizardPanelIdx].panel }
+            </Grid>
+            <Buttons
+              handleClick={handleClick}
+              wizardPanelIdx={wizardPanelIdx}
+              setWizardPanel={setWizardPanel}/>
+          </Grid>
+        </Paper>
       </Grid>
     </Grid>
   )

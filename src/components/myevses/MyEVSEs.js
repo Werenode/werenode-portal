@@ -8,8 +8,7 @@ import { WizardProvider } from './constate/wizard';
 import labels from './labels.js';
 import Login from './Login.js';
 import MainPanel from './MainPanel.js';
-import Wizard from './Wizard';
-import { SportsRugbySharp } from '@material-ui/icons';
+import ConnectorSettings from './ConnectorSettings';
 
 const TopPanel = (props) => {
   const ready = useReady();
@@ -62,6 +61,7 @@ const MyEVSEs = (props) => {
         <div style={{ height: `${props.height}px`, width: `${props.width}px` }}>
           <TopPanel height={props.height} width={props.width} />
        </div>
+       <ConnectorSettings />
       </WizardProvider>
       </SelectProvider>
       </PanelsProvider>
