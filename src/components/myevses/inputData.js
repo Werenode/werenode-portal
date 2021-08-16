@@ -1,4 +1,4 @@
-export const inputData = {
+export const inputdata = {
   owner : { label : 'Owner', hash :'owner', desc : 'Address of the Tezos account that owns the EVSE(s).' },
   id :    { label : 'Identifier', hash : 'identifier', desc : 'Identifier of the EVSE(s).' },
   nb :    { label : 'Number of EVSE(s)', hash : 'number-of-evses', desc : 'Number of EVSEs to declare.' },
@@ -72,7 +72,8 @@ export const inputData = {
       { value : 'werecoin', label : 'WRC' }
     ]
   },
-  index : { label : 'Index', hash : 'index', desc : 'Connector index' }
+  index : { label : 'Index', hash : 'index', desc : 'Connector index' },
+  freeusers : { label : 'Free users', hash : 'free-users', desc : 'Free users' },
 }
 
 export const isOCPP = (t) => {

@@ -6,7 +6,7 @@ import Modal from '@material-ui/core/Modal';
 import { EvseSelect, EvseTextField } from './EvseInputs';
 import Grid from '@material-ui/core/Grid';
 import { getWizard } from './constate/wizard';
-import { isOCPP } from './inputData';
+import { isOCPP } from './inputData.js';
 
 const style = {
   position: 'absolute',

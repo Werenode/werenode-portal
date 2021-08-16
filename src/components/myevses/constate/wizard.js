@@ -42,9 +42,9 @@ export function useWizard() {
     nb : 1,
     evseserver : 'werenode',
     supervision : { type : 'wherenodeocpp16' },
-    connectors : [
-      { index : 1, mode : 'ac1', power : 'p2', type : 'ctype0', price : '2', currency : 'euro' },
-    ],
+    connectors : [],
+    freeusers : [],
+    openaddaddress : false,
     /* connector settings */
     open : false,
     connectormode : 'ac1',
@@ -121,6 +121,17 @@ export function useWizard() {
       currency : c.currency }
   })};
   const setConnectorEdit = (b) => { setData(d => { return { ...d, edition : true, connectoredit : b }})};
+  const addFreeUser = (a) => { setData(d => {
+    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a).concat[a] }
+  }) };
+  const rmFreeUser = (a) => { setData(d => {
+    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a) }
+  }) };
+  const setOpenAddAddress = (b) => { setData(d => {
+    return { ...d, edition : true, openaddaddress : b }
+  })
+
+  }
   return {
     data,
     setData,
@@ -140,6 +151,9 @@ export function useWizard() {
     rmConnector,
     editConnector,
     setConnectorEdit,
+    addFreeUser,
+    rmFreeUser,
+    setOpenAddAddress
   }
 }
 

@@ -9,6 +9,7 @@ import labels from './labels.js';
 import Login from './Login.js';
 import MainPanel from './MainPanel.js';
 import ConnectorSettings from './ConnectorSettings';
+import AddAddress from './AddAddress';
 
 const TopPanel = (props) => {
   const ready = useReady();
@@ -62,6 +63,7 @@ const MyEVSEs = (props) => {
           <TopPanel height={props.height} width={props.width} />
        </div>
        <ConnectorSettings />
+       <AddAddress />
       </WizardProvider>
       </SelectProvider>
       </PanelsProvider>

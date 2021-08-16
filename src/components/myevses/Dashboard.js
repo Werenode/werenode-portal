@@ -21,7 +21,6 @@ import { Typography } from '@material-ui/core';
 
 import { getEVSEs } from './constate/evses';
 import { getPanels, getEVSEPanelIdx } from './constate/panels';
-import { getWizard } from './constate/wizard';
 
 import { getSelect } from './constate/select';
 

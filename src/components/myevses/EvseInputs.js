@@ -12,7 +12,7 @@ import { styled } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { inputData } from './inputdata';
+import { inputdata } from './inputData.js';
 
 const HtmlTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} placement="right-start"/>
@@ -22,8 +22,8 @@ const HtmlTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-const WithHelp = (props) => {
-  const url = window.location.protocol + '//' + window.location.host + useBaseUrl("docs/myevsesmanual" + '#' + inputData[props.id].hash);
+export const WithHelp = (props) => {
+  const url = window.location.protocol + '//' + window.location.host + useBaseUrl("docs/myevsesmanual" + '#' + inputdata[props.id].hash);
   const handleClick = () => {
     window.open(url, 'My EVSEs User Manual');
   }
@@ -35,7 +35,7 @@ const WithHelp = (props) => {
         <HtmlTooltip
           title={
             <React.Fragment>
-              <Typography variant="caption">{inputData[props.id].desc}</Typography>
+              <Typography variant="caption">{inputdata[props.id].desc}</Typography>
               <Button size='small' variant="text" style={{ fontSize : '10px' }} onClick={handleClick}>Learn more...</Button>
             </React.Fragment>
           }
@@ -55,14 +55,14 @@ export const EvseSelect = (props) => {
   return (
     <WithHelp id={props.id} element={
       <StyledFormControl style={{ width : '100%' }}>
-      <InputLabel >{inputData[props.id].label}</InputLabel>
+      <InputLabel >{inputdata[props.id].label}</InputLabel>
       <StyledSelect
         id={ "evses" + props.id }
-        label={inputData[props.id].label}
+        label={inputdata[props.id].label}
         value={props.getValue !== undefined ? props.getValue(data) : data[props.id]}
         onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
       >
-        { inputData[props.id].items.map(x => {
+        { inputdata[props.id].items.map(x => {
           return <MenuItem key={x.value} value={x.value}>{x.label}</MenuItem>
         }) }
       </StyledSelect>
@@ -96,7 +96,7 @@ export const EvseTextField = (props) => {
     <WithHelp id={props.id} error={isError} element={
       <StyledTextField
         id={ "evses" + props.id }
-        label={inputData[props.id].label}
+        label={inputdata[props.id].label}
         color="primary"
         variant="outlined"
         value={props.getValue !== undefined ? props.getValue(data) : data[props.id]}

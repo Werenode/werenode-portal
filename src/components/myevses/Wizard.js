@@ -16,10 +16,10 @@ import { useAccountPkh } from './constate/dapp';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import { EvseTextField, EvseSelect } from './EvseInputs';
+import { WithHelp, EvseTextField, EvseSelect } from './EvseInputs';
 import IconButton from '@material-ui/core/IconButton';
 import Chip from '@material-ui/core/Chip';
-import { inputData, isOCPP } from './inputData';
+import { inputdata, isOCPP } from './inputData.js';
 
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -88,13 +88,63 @@ const useStyles = makeStyles({
   },
   connector: {
     border : '1px solid #34383e',
+  },
+  freeusers : {
+    border : '1px solid #34383e',
+    borderRadius : '4px',
+    padding : '24px',
+    position : 'relative'
   }
 });
 
+const FreeUsers = (props) => {
+  const classes = useStyles();
+  const { data, addFreeUser, rmFreeUser, setOpenAddAddress } = getWizard();
+  const theme = useTheme();
+  const handleDelete = v => () => {
+    rmFreeUser(v);
+  }
+  const handleClick = () => {
+    setOpenAddAddress(true);
+  }
+  let chips = data.freeusers.map(x => {
+    return <Grid key={x} item><Chip variant="outlined" onDelete={handleDelete(x)} label={x} /></Grid>
+  });
+  chips = chips.concat([
+    <Grid key={'add'} item><Button onClick={handleClick}>add address</Button></Grid>
+  ]);
+  return (
+    <Grid container direction="row" justifyContent="flex-start" alignContent="center" className={ classes.freeusers }>
+
+        <Typography variant='subtitle2' style={{
+          position : 'absolute',
+          top : '-11px',
+          backgroundColor : theme.palette.background.paper,
+          paddingLeft : '8px',
+          paddingRight : '8px' }}>Free access address(es)</Typography>
+
+      <Grid item container direction='row' justifyContent='flex-start' alignContent='center' spacing={2}>
+      {
+        chips
+      }
+      </Grid>
+    </Grid>
+  )
+}
+
+const OtherSettings = (props) => {
+  const classes = useStyles();
+  return (
+    <Grid container direction="column" >
+      <Grid item className={ classes.panel }><FreeUsers /></Grid>
+    </Grid>
+  )
+}
+
 const toObj = v => {
   var obj = {};
-  for (let i = 0; i < inputData[v].items.length; i++) {
-    obj[inputData[v].items[i].value] = inputData[v].items[i].label;
+  for (let i = 0; i < inputdata[v].items.length; i++) {
+    obj[inputdata[v].items[i].value] = inputdata[v].items[i].label;
   }
   return obj;
 }
@@ -235,7 +285,7 @@ const General = (props) => {
   const pkh = useAccountPkh();
   React.useEffect(() => {
     if (!data.edition) {
-      setData(d => { return { ...d, owner : pkh } })
+      setData(d => { return { ...d, owner : pkh, freeusers : d.freeusers.concat([ pkh ]) } })
     }
   }, []);
   return (
@@ -281,7 +331,7 @@ const wizardPanels = [
   { title : 'General Settings', panel : <General /> },
   { title : 'Supervision', panel : <Supervision /> },
   { title : 'Connectors', panel : <Connectors /> },
-  { title : 'Other Settings', panel : <DefaultPanel /> },
+  { title : 'Other Settings', panel : <OtherSettings /> },
   { title : 'Edit Settings', panel : <DefaultPanel /> },
   { title : 'Validate', panel : <DefaultPanel /> }
 ]
