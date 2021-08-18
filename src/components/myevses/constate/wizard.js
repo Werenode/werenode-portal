@@ -45,6 +45,7 @@ export function useWizard() {
     connectors : [],
     freeusers : [],
     openaddaddress : false,
+    evses : [],
     /* connector settings */
     open : false,
     connectormode : 'ac1',
@@ -129,9 +130,19 @@ export function useWizard() {
   }) };
   const setOpenAddAddress = (b) => { setData(d => {
     return { ...d, edition : true, openaddaddress : b }
-  })
-
-  }
+  }) };
+  const createEvses = () => { setData(d => {
+    const evses = Array.from(Array(parseInt(d.nb)), (x,i) => ({
+      id : (d.id + ' ' +  (i + 1)),
+      owner : d.owner,
+      evseserver : d.evseserver,
+      supervision : d.supervision,
+      connectors : d.connectors,
+      freeusers : d.freeusers,
+      gps : "",
+    }));
+    return { ...d, edition : true, evses : evses }
+  }) };
   return {
     data,
     setData,
@@ -153,7 +164,8 @@ export function useWizard() {
     setConnectorEdit,
     addFreeUser,
     rmFreeUser,
-    setOpenAddAddress
+    setOpenAddAddress,
+    createEvses,
   }
 }
 

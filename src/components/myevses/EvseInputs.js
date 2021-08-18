@@ -95,7 +95,7 @@ export const EvseTextField = (props) => {
   return (
     <WithHelp id={props.id} error={isError} element={
       <StyledTextField
-        id={ "evses" + props.id }
+        id={ "evses" + props.id + (props.extraid !== undefined ? props.extraid : "")}
         label={inputdata[props.id].label}
         color="primary"
         variant="outlined"

@@ -327,12 +327,53 @@ const DefaultPanel = () => {
   return <Box style={{ height : '200px' }} />
 }
 
+const EVSESettings = (props) => {
+  const classes = useStyles();
+  const { setData } = getWizard();
+  const handleChange = (field) => (e) => {
+    setData(d => ({
+      ...d, edition : true, evses : d.evses.map((x,i) => {
+        if (i == props.index) {
+          x[field] = e.target.value;
+        }
+        return x;
+      })
+    }))
+  }
+  return (
+    <Grid container direction='row' justifyContent='flex-start' alignContent='center' className={ classes.panel } spacing={2}>
+      <Grid item md={4} sm={12} xs={12}>
+        <EvseTextField id="id" extraid={props.index} getValue={(d) => d.evses[props.index].id} handleChange={handleChange("id")}/>
+      </Grid>
+      <Grid item md={6} sm={12} xs={12}>
+        <EvseTextField id="gps" extraid={props.index} getValue={(d) => d.evses[props.index].gps} handleChange={handleChange("gps")}/>
+      </Grid>
+    </Grid>
+  )
+}
+
+const EditSettings = () => {
+  const { data } = getWizard();
+  return (
+    <Grid container direction='row'>
+      {
+        data.evses.map((x,i) => {
+          return (
+            <Grid key={"evse"+i} xs={12} item style={{ borderBottom : '1px solid #34383e', marginBottom : '12px' }}>
+              <EVSESettings index={i} />
+            </Grid>
+          )
+        })
+      }
+    </Grid>)
+}
+
 const wizardPanels = [
   { title : 'General Settings', panel : <General /> },
   { title : 'Supervision', panel : <Supervision /> },
   { title : 'Connectors', panel : <Connectors /> },
   { title : 'Other Settings', panel : <OtherSettings /> },
-  { title : 'Edit Settings', panel : <DefaultPanel /> },
+  { title : 'Edit Settings', panel : <EditSettings /> },
   { title : 'Validate', panel : <DefaultPanel /> }
 ]
 
@@ -383,7 +424,7 @@ const Buttons = (props) => {
 const Wizard = (props) => {
   const classes = useStyles();
   const [ wizardPanelIdx, setWizardPanel ] = React.useState(0);
-  const { data, setShowErrors } = getWizard();
+  const { data, setShowErrors, createEvses } = getWizard();
   const { evses, setEvses } = getEVSEs();
   const { setPanel } = getPanels();
   const isInvalid = () => {
@@ -408,6 +449,9 @@ const Wizard = (props) => {
     } else if (isInvalid()) {
       setShowErrors(true);
     } else {
+      if (wizardPanelIdx == 3) {
+        createEvses();
+      }
       setShowErrors(false);
       setWizardPanel(wp => wp + 1);
     }

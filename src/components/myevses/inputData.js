@@ -1,6 +1,7 @@
 export const inputdata = {
   owner : { label : 'Owner', hash :'owner', desc : 'Address of the Tezos account that owns the EVSE(s).' },
   id :    { label : 'Identifier', hash : 'identifier', desc : 'Identifier of the EVSE(s).' },
+  name :    { label : 'Identifier', hash : 'identifier', desc : 'Identifier of the EVSE(s).' },
   nb :    { label : 'Number of EVSE(s)', hash : 'number-of-evses', desc : 'Number of EVSEs to declare.' },
   evseserver : { label : 'EVSE Server', hash : 'evse-manager-server', desc : 'EVSE Manager Server.',
     items : [ { value : 'werenode', label : 'Werenode Server' } ]
@@ -74,6 +75,7 @@ export const inputdata = {
   },
   index : { label : 'Index', hash : 'index', desc : 'Connector index' },
   freeusers : { label : 'Free users', hash : 'free-users', desc : 'Free users' },
+  gps : { label : 'GPS', hash : 'gps-coordinate', desc : 'GPS coordinate' }
 }
 
 export const isOCPP = (t) => {
