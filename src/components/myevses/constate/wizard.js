@@ -68,7 +68,7 @@ export function useWizard() {
         return { ...d, edition : true, id : Array.from(i).filter(isBase58Char).join("") }
       })
   };
-  const setSupervision = (t) => { setData(d => { return { ...d, edition : true, supervision : {
+  const setSupervision = (t) => { console.log("setSupervision"); setData(d => { return { ...d, edition : true, supervision : {
    type : t
   }}})};
   const setLogin = (l) => { setData(d => { return { ...d, edition : true, supervision : {

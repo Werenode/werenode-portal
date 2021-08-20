@@ -31,6 +31,11 @@ import EvStationIcon from '@material-ui/icons/EvStation';
 import BoltIcon from '@material-ui/icons/Bolt';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 function useWidth() {
   const theme = useTheme();
   const keys = [...theme.breakpoints.keys].reverse();
@@ -94,6 +99,10 @@ const useStyles = makeStyles({
     borderRadius : '4px',
     padding : '24px',
     position : 'relative'
+  },
+  settings : {
+    paddingTop : '24px',
+    paddingLeft : '24px',
   }
 });
 
@@ -329,7 +338,7 @@ const DefaultPanel = () => {
 
 const EVSESettings = (props) => {
   const classes = useStyles();
-  const { setData } = getWizard();
+  const { data, setData } = getWizard();
   const handleChange = (field) => (e) => {
     setData(d => ({
       ...d, edition : true, evses : d.evses.map((x,i) => {
@@ -339,14 +348,70 @@ const EVSESettings = (props) => {
         return x;
       })
     }))
+  };
+  const handleSupervision = (e) => {
+    console.log("handlesupervision");
+    var levses = data.evses;
+    levses[props.index]["supervision"]["type"] = e.target.value;
+    console.log(levses);
+    setData(d => {
+      console.log(d);
+      const nd = {
+      ...d, edition : true, evses : levses/* d.evses.map((x,i) => {
+        if (i === props.index) {
+          console.log(i);
+          x["supervision"]["type"] = e.target.value;
+        }
+        return x;
+        }) */
+      };
+      console.log(nd);
+      return nd;
+  })};
+  const getSupervision = (idx) => (d) => {
+    console.log("getSupervision ", idx, d.evses[idx].supervision.type);
+    return d.evses[idx].supervision.type
   }
   return (
-    <Grid container direction='row' justifyContent='flex-start' alignContent='center' className={ classes.panel } spacing={2}>
+    <Grid container direction='row' justifyContent='flex-start' alignContent='center' className={ classes.settings }>
       <Grid item md={4} sm={12} xs={12}>
         <EvseTextField id="id" extraid={props.index} getValue={(d) => d.evses[props.index].id} handleChange={handleChange("id")}/>
       </Grid>
       <Grid item md={6} sm={12} xs={12}>
         <EvseTextField id="gps" extraid={props.index} getValue={(d) => d.evses[props.index].gps} handleChange={handleChange("gps")}/>
+      </Grid>
+      <Grid item xs={12} style={{ marginBottom : '1px' }}>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls={"panel1a-content-"+props.index}
+            id={"panel1a-header-"+props.index}>
+            <Grid container direction='row' justifyContent='flex-start' alignContent='center' spacing={2}>
+              <Typography variant='subtitle2' style={{ color : '#34383e' }}>Click to expand settings</Typography>
+            </Grid>
+          </AccordionSummary>
+            <AccordionDetails style={{ padding : 0 }}>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignContent="center" >
+                <Grid item sm={12} md={6} xs={12}>
+                  <Grid container direction="row"
+                        justifyContent='flex-start'
+                        alignContent='center'>
+                    <Grid item  md={12} sm={12} xs={12}>
+                      <EvseSelect id="supervision" extraid={props.index}
+                        handleChange={handleSupervision} getValue={getSupervision(props.index)}/>
+                    </Grid>
+                    {
+                      data.evses[props.index].supervision.type == 'werenoderpcget' ? <RPCGETSupervision /> : null
+                    }
+                  </Grid>
+                </Grid>
+              </Grid>
+            </AccordionDetails>
+        </Accordion>
       </Grid>
     </Grid>
   )
@@ -359,7 +424,7 @@ const EditSettings = () => {
       {
         data.evses.map((x,i) => {
           return (
-            <Grid key={"evse"+i} xs={12} item style={{ borderBottom : '1px solid #34383e', marginBottom : '12px' }}>
+            <Grid key={"evse"+i} xs={12} item style={{ borderBottom : '1px solid #34383e' }}>
               <EVSESettings index={i} />
             </Grid>
           )

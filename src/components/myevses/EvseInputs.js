@@ -50,16 +50,21 @@ export const WithHelp = (props) => {
 export const EvseSelect = (props) => {
   const { data, setData } = getWizard();
   function handleChange(e) {
+    console.log("evseselect handlechange");
     setData(d => { d[props.id] = e.target.value; return { ...d, edition : true } })
   };
+  function getValue () {
+    console.log("evseselect getvalue");
+    return data[props.id];
+  }
   return (
     <WithHelp id={props.id} element={
       <StyledFormControl style={{ width : '100%' }}>
       <InputLabel >{inputdata[props.id].label}</InputLabel>
       <StyledSelect
-        id={ "evses" + props.id }
+        id={ "evses" + props.id + props.extraid }
         label={inputdata[props.id].label}
-        value={props.getValue !== undefined ? props.getValue(data) : data[props.id]}
+        value={props.getValue !== undefined ? props.getValue(data) : getValue() }
         onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
       >
         { inputdata[props.id].items.map(x => {
