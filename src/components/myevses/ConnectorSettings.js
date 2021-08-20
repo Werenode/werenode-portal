@@ -50,28 +50,28 @@ const ConnectorForm = () => {
       justifyContent="flex-start"
       alignContent="center">
       <Grid md={8} sm={12} xs={12} item>
-        <EvseSelect id="connectormode" />
+        <EvseSelect identifier="connectormode" />
       </Grid>
       <Grid md={4} sm={12} xs={12} item>
-        <EvseSelect id="power" />
+        <EvseSelect identifier="power" />
       </Grid>
       <Grid md={12} sm={12} xs={12} item>
-        <EvseSelect id="connectortype" />
+        <EvseSelect identifier="connectortype" />
       </Grid>
       <Grid md={8} sm={12} xs={12} item>
         <EvseTextField
-          id="price"
+          identifier="price"
           handleChange={e => setPrice(e.target.value)}
           errorText="Price not set"
         />
       </Grid>
       <Grid md={4} sm={4} xs={12} item>
-        <EvseSelect id="currency" />
+        <EvseSelect identifier="currency" />
       </Grid>
       { isOCPP(data.supervision.type) ?
         <Grid md={4} sm={4} xs={12} item>
           <EvseTextField
-            id="index"
+            identifier="index"
             type="number"
             handleChange={e => setIndex(e.target.value)}
             errorText="Index already set"

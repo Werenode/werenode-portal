@@ -23,7 +23,7 @@ const HtmlTooltip = styled(({ className, ...props }) => (
 }));
 
 export const WithHelp = (props) => {
-  const url = window.location.protocol + '//' + window.location.host + useBaseUrl("docs/myevsesmanual" + '#' + inputdata[props.id].hash);
+  const url = window.location.protocol + '//' + window.location.host + useBaseUrl("docs/myevsesmanual" + '#' + inputdata[props.identifier].hash);
   const handleClick = () => {
     window.open(url, 'My EVSEs User Manual');
   }
@@ -35,7 +35,7 @@ export const WithHelp = (props) => {
         <HtmlTooltip
           title={
             <React.Fragment>
-              <Typography variant="caption">{inputdata[props.id].desc}</Typography>
+              <Typography variant="caption">{inputdata[props.identifier].desc}</Typography>
               <Button size='small' variant="text" style={{ fontSize : '10px' }} onClick={handleClick}>Learn more...</Button>
             </React.Fragment>
           }
@@ -51,23 +51,23 @@ export const EvseSelect = (props) => {
   const { data, setData } = getWizard();
   function handleChange(e) {
     console.log("evseselect handlechange");
-    setData(d => { d[props.id] = e.target.value; return { ...d, edition : true } })
+    setData(d => { d[props.identifier] = e.target.value; return { ...d, edition : true } })
   };
   function getValue () {
     console.log("evseselect getvalue");
-    return data[props.id];
+    return data[props.identifier];
   }
   return (
-    <WithHelp id={props.id} element={
+    <WithHelp identifier={props.identifier} element={
       <StyledFormControl style={{ width : '100%' }}>
-      <InputLabel >{inputdata[props.id].label}</InputLabel>
+      <InputLabel >{inputdata[props.identifier].label}</InputLabel>
       <StyledSelect
-        id={ "evses" + props.id + props.extraid }
-        label={inputdata[props.id].label}
+        id={ "evses" + props.identifier + props.extraid }
+        label={inputdata[props.identifier].label}
         value={props.getValue !== undefined ? props.getValue(data) : getValue() }
         onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
       >
-        { inputdata[props.id].items.map(x => {
+        { inputdata[props.identifier].items.map(x => {
           return <MenuItem key={x.value} value={x.value}>{x.label}</MenuItem>
         }) }
       </StyledSelect>
@@ -79,14 +79,14 @@ export const EvseSelect = (props) => {
 export const EvseTextField = (props) => {
   const { data, setData } = getWizard();
   function handleChange(e) {
-    setData(d => { d[props.id] = e.target.value; return { ...d, edition : true } })
+    setData(d => { d[props.identifier] = e.target.value; return { ...d, edition : true } })
   };
   const isInvalid = () => {
     var val = undefined;
     if (props.getValue !== undefined) {
       val = props.getValue(data)
     } else {
-      val = data[props.id]
+      val = data[props.identifier]
     };
     var invalid = false;
     if (props.isError !== undefined) {
@@ -98,13 +98,13 @@ export const EvseTextField = (props) => {
   }
   const isError = data.showerrors ? isInvalid() : false;
   return (
-    <WithHelp id={props.id} error={isError} element={
+    <WithHelp identifier={props.identifier} error={isError} element={
       <StyledTextField
-        id={ "evses" + props.id + (props.extraid !== undefined ? props.extraid : "")}
-        label={inputdata[props.id].label}
+        id={ "evses" + props.identifier + (props.extraid !== undefined ? props.extraid : "")}
+        label={inputdata[props.identifier].label}
         color="primary"
         variant="outlined"
-        value={props.getValue !== undefined ? props.getValue(data) : data[props.id]}
+        value={props.getValue !== undefined ? props.getValue(data) : data[props.identifier]}
         onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
         type={props.type}
         fullWidth

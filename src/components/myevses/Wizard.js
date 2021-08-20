@@ -16,7 +16,7 @@ import { useAccountPkh } from './constate/dapp';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import { WithHelp, EvseTextField, EvseSelect } from './EvseInputs';
+import { EvseTextField, EvseSelect } from './EvseInputs';
 import IconButton from '@material-ui/core/IconButton';
 import Chip from '@material-ui/core/Chip';
 import { inputdata, isOCPP } from './inputData.js';
@@ -161,7 +161,7 @@ const toObj = v => {
 const Connector = (props) => {
   const classes = useStyles();
   const { data, rmConnector, editConnector } = getWizard();
-  const connector = data.connectors[props.id];
+  const connector = data.connectors[props.identifier];
   const getMode = m => toObj('connectormode')[m];
   const getPower = m => toObj('power')[m];
   const getType = m => toObj('connectortype')[m];
@@ -172,8 +172,8 @@ const Connector = (props) => {
   const handleDelete = () => rmConnector(connector.index);
   const handleEdit = () => editConnector(connector.index);
   return (
-    <Grid item key={props.id} xs={12}>
-     <Card key={props.id} className={ classes.connector }>
+    <Grid item key={props.identifier} xs={12}>
+     <Card key={props.identifier} className={ classes.connector }>
       <CardContent>
         <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
           { isOCPP(data.supervision.type) ?
@@ -213,7 +213,7 @@ const Connectors = () => {
     >
       {
         data.connectors.length > 0 ?
-        data.connectors.map((x,i) => <Connector id={i} />) :
+        data.connectors.map((x,i) => <Connector identifier={i} />) :
         <Grid item style={{ height : '150px' }} container direction="row" justifyContent="center" alignContent="center">
           <Typography variant="subtitle1" style={{ color : '#34383e' }}>No Connector. Click 'ADD CONNECTOR'.</Typography>
         </Grid>
@@ -232,25 +232,25 @@ const RPCGETSupervision = () => {
   return (
     <Grid container direction='row' justifyContent='flex-start' alignContent='center'>
       <Grid item md={12} sm={12} xs={12}>
-        <EvseTextField id="switchon"
+        <EvseTextField identifier="switchon"
           getValue={d => d.supervision.switchon}
           handleChange={e => setSwitchOn(e.target.value)}
           errorText="Invalid Url"/>
       </Grid>
       <Grid item md={12} sm={12} xs={12}>
-        <EvseTextField id="switchoff"
+        <EvseTextField identifier="switchoff"
           getValue={d => d.supervision.switchoff}
           handleChange={e => setSwitchOff(e.target.value)}
           errorText="Invalid Url"/>
       </Grid>
       {/* <Grid item md={3} sm={6} xs={12}>
-        <EvseTextField id="login"
+        <EvseTextField identifier="login"
           getValue={d => d.supervision.login}
           handleChange={e => setLogin(e.target.value)}
           errorText="Empty Login"/>
       </Grid>
       <Grid item md={3} sm={6} xs={12}>
-        <EvseTextField id="pwd"
+        <EvseTextField identifier="pwd"
           getValue={d => d.supervision.pwd}
           handleChange={e => setPwd(e.target.value)}
           errorText="Empty Password"/>
@@ -263,6 +263,7 @@ const Supervision = (props) => {
   const classes = useStyles();
   const { data, setSupervision } = getWizard();
   const handleSupervision = e => {
+    console.log("Supervision handleSupervision");
     setSupervision(e.target.value);
   }
   return (
@@ -277,7 +278,7 @@ const Supervision = (props) => {
               justifyContent='flex-start'
               alignContent='center'>
           <Grid item  md={12} sm={12} xs={12}>
-            <EvseSelect id="supervision" handleChange={handleSupervision} getValue={ d => d.supervision.type }/>
+            <EvseSelect identifier="supervision" handleChange={handleSupervision} getValue={ d => d.supervision.type }/>
           </Grid>
           {
             data.supervision.type == 'werenoderpcget' ? <RPCGETSupervision /> : null
@@ -291,6 +292,7 @@ const Supervision = (props) => {
 const General = (props) => {
   const classes = useStyles();
   const { data, setData, setNb, setId } = getWizard();
+  console.log(data);
   const pkh = useAccountPkh();
   React.useEffect(() => {
     if (!data.edition) {
@@ -310,21 +312,21 @@ const General = (props) => {
               alignContent='center'>
           <Grid item xs={12}>
             <EvseTextField
-              id="owner"
+              identifier="owner"
               isError={() => !isValidAddress(data.owner)}
               errorText="Invalid address format" />
           </Grid>
           <Grid item xs={6}>
             <EvseTextField
-              id="id"
+              identifier="id"
               handleChange={e => setId(e.target.value)}
               errorText="Empty identifier"/>
           </Grid>
           <Grid item  xs={6}>
-            <EvseTextField id="nb" type="number" handleChange={e => setNb(e.target.value)}/>
+            <EvseTextField identifier="nb" type="number" handleChange={e => setNb(e.target.value)}/>
           </Grid>
           <Grid item  xs={12}>
-            <EvseSelect id="evseserver" />
+            <EvseSelect identifier="evseserver" />
           </Grid>
         </Grid>
       </Grid>
@@ -375,10 +377,10 @@ const EVSESettings = (props) => {
   return (
     <Grid container direction='row' justifyContent='flex-start' alignContent='center' className={ classes.settings }>
       <Grid item md={4} sm={12} xs={12}>
-        <EvseTextField id="id" extraid={props.index} getValue={(d) => d.evses[props.index].id} handleChange={handleChange("id")}/>
+        <EvseTextField identifier="id" extraid={props.index} getValue={(d) => d.evses[props.index].id} handleChange={handleChange("id")}/>
       </Grid>
       <Grid item md={6} sm={12} xs={12}>
-        <EvseTextField id="gps" extraid={props.index} getValue={(d) => d.evses[props.index].gps} handleChange={handleChange("gps")}/>
+        <EvseTextField identifier="gps" extraid={props.index} getValue={(d) => d.evses[props.index].gps} handleChange={handleChange("gps")}/>
       </Grid>
       <Grid item xs={12} style={{ marginBottom : '1px' }}>
         <Accordion>
@@ -401,7 +403,7 @@ const EVSESettings = (props) => {
                         justifyContent='flex-start'
                         alignContent='center'>
                     <Grid item  md={12} sm={12} xs={12}>
-                      <EvseSelect id="supervision" extraid={props.index}
+                      <EvseSelect identifier="supervision" extraid={props.index}
                         handleChange={handleSupervision} getValue={getSupervision(props.index)}/>
                     </Grid>
                     {
