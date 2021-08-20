@@ -5,6 +5,7 @@ import { EVSEProvider } from './constate/evses';
 import { PanelsProvider } from './constate/panels';
 import { SelectProvider } from './constate/select';
 import { WizardProvider } from './constate/wizard';
+import { SettingsProvider } from './constate/settings';
 import labels from './labels.js';
 import Login from './Login.js';
 import MainPanel from './MainPanel.js';
@@ -59,11 +60,13 @@ const MyEVSEs = (props) => {
       <PanelsProvider>
       <SelectProvider>
       <WizardProvider>
+      <SettingsProvider>
         <div style={{ height: `${props.height}px`, width: `${props.width}px` }}>
           <TopPanel height={props.height} width={props.width} />
        </div>
        <ConnectorSettings />
        <AddAddress />
+      </SettingsProvider>
       </WizardProvider>
       </SelectProvider>
       </PanelsProvider>

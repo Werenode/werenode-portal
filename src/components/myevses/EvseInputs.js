@@ -50,12 +50,14 @@ export const WithHelp = (props) => {
 export const EvseSelect = (props) => {
   const { data, setData } = getWizard();
   function handleChange(e) {
-    console.log("evseselect handlechange");
     setData(d => { d[props.identifier] = e.target.value; return { ...d, edition : true } })
   };
   function getValue () {
-    console.log("evseselect getvalue");
-    return data[props.identifier];
+    if (props.getValue !== undefined) {
+      return props.getValue;
+    } else {
+      return data[props.identifier];
+    }
   }
   return (
     <WithHelp identifier={props.identifier} element={
@@ -64,7 +66,7 @@ export const EvseSelect = (props) => {
       <StyledSelect
         id={ "evses" + props.identifier + props.extraid }
         label={inputdata[props.identifier].label}
-        value={props.getValue !== undefined ? props.getValue(data) : getValue() }
+        value={ getValue() }
         onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
       >
         { inputdata[props.identifier].items.map(x => {
@@ -84,7 +86,7 @@ export const EvseTextField = (props) => {
   const isInvalid = () => {
     var val = undefined;
     if (props.getValue !== undefined) {
-      val = props.getValue(data)
+      val = props.getValue
     } else {
       val = data[props.identifier]
     };
@@ -104,7 +106,7 @@ export const EvseTextField = (props) => {
         label={inputdata[props.identifier].label}
         color="primary"
         variant="outlined"
-        value={props.getValue !== undefined ? props.getValue(data) : data[props.identifier]}
+        value={props.getValue !== undefined ? props.getValue : data[props.identifier]}
         onChange={props.handleChange !== undefined ? props.handleChange : handleChange}
         type={props.type}
         fullWidth

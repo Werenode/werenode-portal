@@ -35,6 +35,7 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { getSettings } from './constate/settings';
 
 function useWidth() {
   const theme = useTheme();
@@ -229,17 +230,18 @@ const Connectors = () => {
 
 const RPCGETSupervision = () => {
   const { setSwitchOn, setSwitchOff } = getWizard();
+  const { data } = getWizard();
   return (
     <Grid container direction='row' justifyContent='flex-start' alignContent='center'>
       <Grid item md={12} sm={12} xs={12}>
         <EvseTextField identifier="switchon"
-          getValue={d => d.supervision.switchon}
+          getValue={data.supervision.switchon}
           handleChange={e => setSwitchOn(e.target.value)}
           errorText="Invalid Url"/>
       </Grid>
       <Grid item md={12} sm={12} xs={12}>
         <EvseTextField identifier="switchoff"
-          getValue={d => d.supervision.switchoff}
+          getValue={data.supervision.switchoff}
           handleChange={e => setSwitchOff(e.target.value)}
           errorText="Invalid Url"/>
       </Grid>
@@ -263,7 +265,6 @@ const Supervision = (props) => {
   const classes = useStyles();
   const { data, setSupervision } = getWizard();
   const handleSupervision = e => {
-    console.log("Supervision handleSupervision");
     setSupervision(e.target.value);
   }
   return (
@@ -278,7 +279,7 @@ const Supervision = (props) => {
               justifyContent='flex-start'
               alignContent='center'>
           <Grid item  md={12} sm={12} xs={12}>
-            <EvseSelect identifier="supervision" handleChange={handleSupervision} getValue={ d => d.supervision.type }/>
+            <EvseSelect identifier="supervision" handleChange={handleSupervision} getValue={data.supervision.type}/>
           </Grid>
           {
             data.supervision.type == 'werenoderpcget' ? <RPCGETSupervision /> : null
@@ -292,7 +293,6 @@ const Supervision = (props) => {
 const General = (props) => {
   const classes = useStyles();
   const { data, setData, setNb, setId } = getWizard();
-  console.log(data);
   const pkh = useAccountPkh();
   React.useEffect(() => {
     if (!data.edition) {
@@ -340,47 +340,23 @@ const DefaultPanel = () => {
 
 const EVSESettings = (props) => {
   const classes = useStyles();
-  const { data, setData } = getWizard();
-  const handleChange = (field) => (e) => {
-    setData(d => ({
-      ...d, edition : true, evses : d.evses.map((x,i) => {
-        if (i == props.index) {
-          x[field] = e.target.value;
-        }
-        return x;
-      })
-    }))
-  };
+  const { settings, setSettings, setSetting } = getSettings();
   const handleSupervision = (e) => {
-    console.log("handlesupervision");
-    var levses = data.evses;
-    levses[props.index]["supervision"]["type"] = e.target.value;
-    console.log(levses);
-    setData(d => {
-      console.log(d);
-      const nd = {
-      ...d, edition : true, evses : levses/* d.evses.map((x,i) => {
-        if (i === props.index) {
-          console.log(i);
-          x["supervision"]["type"] = e.target.value;
-        }
+    setSettings(s => s.map((x,i) => {
+      if (i == props.index) {
+        return { ...x, supervision : { ...x.supervision, type : e.target.value } }
+      } else {
         return x;
-        }) */
-      };
-      console.log(nd);
-      return nd;
-  })};
-  const getSupervision = (idx) => (d) => {
-    console.log("getSupervision ", idx, d.evses[idx].supervision.type);
-    return d.evses[idx].supervision.type
-  }
+      }
+    }));
+  };
   return (
     <Grid container direction='row' justifyContent='flex-start' alignContent='center' className={ classes.settings }>
       <Grid item md={4} sm={12} xs={12}>
-        <EvseTextField identifier="id" extraid={props.index} getValue={(d) => d.evses[props.index].id} handleChange={handleChange("id")}/>
+        <EvseTextField identifier="id" extraid={props.index} getValue={settings[props.index].id} handleChange={e => setSetting(props.index)("id")(e.target.value)}/>
       </Grid>
       <Grid item md={6} sm={12} xs={12}>
-        <EvseTextField identifier="gps" extraid={props.index} getValue={(d) => d.evses[props.index].gps} handleChange={handleChange("gps")}/>
+        <EvseTextField identifier="gps" extraid={props.index} getValue={settings[props.index].gps} handleChange={e => setSetting(props.index)("gps")(e.target.value)}/>
       </Grid>
       <Grid item xs={12} style={{ marginBottom : '1px' }}>
         <Accordion>
@@ -404,10 +380,10 @@ const EVSESettings = (props) => {
                         alignContent='center'>
                     <Grid item  md={12} sm={12} xs={12}>
                       <EvseSelect identifier="supervision" extraid={props.index}
-                        handleChange={handleSupervision} getValue={getSupervision(props.index)}/>
+                        handleChange={handleSupervision} getValue={settings[props.index].supervision.type}/>
                     </Grid>
                     {
-                      data.evses[props.index].supervision.type == 'werenoderpcget' ? <RPCGETSupervision /> : null
+                      settings[props.index].supervision.type == 'werenoderpcget' ? <RPCGETSupervision /> : null
                     }
                   </Grid>
                 </Grid>
@@ -420,11 +396,11 @@ const EVSESettings = (props) => {
 }
 
 const EditSettings = () => {
-  const { data } = getWizard();
+  const { settings } = getSettings();
   return (
     <Grid container direction='row'>
       {
-        data.evses.map((x,i) => {
+        settings.map((x,i) => {
           return (
             <Grid key={"evse"+i} xs={12} item style={{ borderBottom : '1px solid #34383e' }}>
               <EVSESettings index={i} />
@@ -491,7 +467,8 @@ const Buttons = (props) => {
 const Wizard = (props) => {
   const classes = useStyles();
   const [ wizardPanelIdx, setWizardPanel ] = React.useState(0);
-  const { data, setShowErrors, createEvses } = getWizard();
+  const { data, setShowErrors } = getWizard();
+  const { createSettings } = getSettings();
   const { evses, setEvses } = getEVSEs();
   const { setPanel } = getPanels();
   const isInvalid = () => {
@@ -517,7 +494,7 @@ const Wizard = (props) => {
       setShowErrors(true);
     } else {
       if (wizardPanelIdx == 3) {
-        createEvses();
+        createSettings(data);
       }
       setShowErrors(false);
       setWizardPanel(wp => wp + 1);
