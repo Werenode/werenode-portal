@@ -46,6 +46,8 @@ export function useWizard() {
     freeusers : [],
     openaddaddress : false,
     /* connector settings */
+    addConnector : () => 0,
+    isInvalidIndex : () => 0,
     open : false,
     connectormode : 'ac1',
     power : 'p2',
@@ -67,9 +69,11 @@ export function useWizard() {
         return { ...d, edition : true, id : Array.from(i).filter(isBase58Char).join("") }
       })
   };
-  const setSupervision = (t) => { setData(d => { return { ...d, edition : true, supervision : {
-   type : t
-  }}})};
+  const setSupervision = (t) => {
+    if (t == 'werenoderpcget') {
+      setData(d => { return { ...d, edition : true, supervision : { type : "werenoderpcget", switchon : "", switchoff : "" }}})
+    } else setData(d => { return { ...d, edition : true, supervision : { type : t }}})
+  };
   const setLogin = (l) => { setData(d => { return { ...d, edition : true, supervision : {
     ...d.supervision, login : l
   }}})};
@@ -90,20 +94,11 @@ export function useWizard() {
   const setIndex = (i) => {
     if (i >= 1) setData(d => { return { ...d, edition : true, index : i } });
   };
-  const addConnector = () => { setData(d => {
-    const c = {
-      index    : parseInt(d.index),
-      mode     : d.connectormode,
-      power    : d.power,
-      type     : d.connectortype,
-      price    : d.price,
-      currency : d.currency
-    };
-    if (d.connectoredit == -1) {
-      return { ...d, edition : true, connectors : d.connectors.concat([c]) };
-    } else {
-      return { ...d, edition : true, connectoredit : -1, connectors : d.connectors.filter(x => x.index !== d.connectoredit).concat([c]) }
-    }
+  const setAddConnector = (f) => { setData(d => {
+    return { ...d, addConnector : f }
+  })};
+  const setIsInvalidIndex = (f) => { setData(d => {
+    return { ...d, isInvalidIndex : f }
   })};
   const rmConnector = (i) => { setData(d => {
     return { ...d, edition : true, connectors : d.connectors.filter(x => x.index !== i) } })
@@ -122,7 +117,7 @@ export function useWizard() {
   })};
   const setConnectorEdit = (b) => { setData(d => { return { ...d, edition : true, connectoredit : b }})};
   const addFreeUser = (a) => { setData(d => {
-    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a).concat[a] }
+    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a).concat([a]) }
   }) };
   const rmFreeUser = (a) => { setData(d => {
     return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a) }
@@ -145,7 +140,8 @@ export function useWizard() {
     setOpen,
     setPrice,
     setIndex,
-    addConnector,
+    setAddConnector,
+    setIsInvalidIndex,
     rmConnector,
     editConnector,
     setConnectorEdit,

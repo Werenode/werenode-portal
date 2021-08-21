@@ -74,6 +74,7 @@ export const inputdata = {
   },
   index : { label : 'Index', hash : 'index', desc : 'Connector index' },
   freeusers : { label : 'Free users', hash : 'free-users', desc : 'Free users' },
+  freeuser : { label : 'Free user account', hash : 'free-users', desc : 'Free user account address' },
   gps : { label : 'GPS', hash : 'gps-coordinate', desc : 'GPS coordinate' }
 }
 

@@ -3,9 +3,9 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
-import { EvseSelect, EvseTextField } from './EvseInputs';
+import { EvseTextField } from './EvseInputs';
 import Grid from '@material-ui/core/Grid';
-import { getWizard } from './constate/wizard';
+import { getWizard, isValidAddress } from './constate/wizard';
 
 const style = {
   position: 'absolute',
@@ -14,13 +14,26 @@ const style = {
   transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
   boxShadow: 24,
+  width : '500px',
   p: 4,
+  paddingBottom : '8px',
+  paddingRight : '12px'
 };
 
 const AddAddress = () => {
-  const { data, setOpenAddAddress } = getWizard();
+  const [ address, setAddress ] = React.useState("");
+  const { data, setOpenAddAddress, addFreeUser, setShowErrors } = getWizard();
   const handleClose = () => {
     setOpenAddAddress(false);
+  }
+  const handleClick = () => {
+    if (isValidAddress(address)) {
+      addFreeUser(address);
+      setOpenAddAddress(false);
+      setShowErrors(false);
+    } else {
+      setShowErrors(true);
+    }
   }
   return (
     <Modal
@@ -30,9 +43,20 @@ const AddAddress = () => {
       aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2" style={{ marginBottom : '34px' }}>
-            Add address
-          </Typography>
+          <Grid container direction="row" justifyContent="flex-start" alignContent="center">
+            <Grid item xs={12}>
+              <EvseTextField
+                identifier="freeuser"
+                getValue={address}
+                handleChange={e => setAddress(e.target.value)}
+                isError={v => !isValidAddress(v)}
+                helperText="Invalid address"
+              />
+            </Grid>
+            <Grid item xs={12} container direction="row" justifyContent="flex-end" alignContent="center">
+              <Button onClick={handleClick}>ok</Button>
+            </Grid>
+          </Grid>
         </Box>
       </Modal>
   )

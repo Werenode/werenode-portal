@@ -109,7 +109,7 @@ const useStyles = makeStyles({
 
 const FreeUsers = (props) => {
   const classes = useStyles();
-  const { data, addFreeUser, rmFreeUser, setOpenAddAddress } = getWizard();
+  const { data, rmFreeUser, setOpenAddAddress } = getWizard();
   const theme = useTheme();
   const handleDelete = v => () => {
     rmFreeUser(v);
@@ -161,8 +161,6 @@ const toObj = v => {
 
 const Connector = (props) => {
   const classes = useStyles();
-  const { data, rmConnector, editConnector } = getWizard();
-  const connector = data.connectors[props.identifier];
   const getMode = m => toObj('connectormode')[m];
   const getPower = m => toObj('power')[m];
   const getType = m => toObj('connectortype')[m];
@@ -170,21 +168,21 @@ const Connector = (props) => {
     const currency = toObj('currency')[m.currency];
     return (m.price + ' ' + currency);
   };
-  const handleDelete = () => rmConnector(connector.index);
-  const handleEdit = () => editConnector(connector.index);
+  const handleDelete = () => props.rmConnector(props.data.index);
+  const handleEdit = () => props.editConnector(props.data.index);
   return (
     <Grid item key={props.identifier} xs={12}>
      <Card key={props.identifier} className={ classes.connector }>
       <CardContent>
         <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={2}>
-          { isOCPP(data.supervision.type) ?
-            <Grid item><Chip variant="outlined" icon={<LabelIcon />} label={connector.index} /></Grid>
+          { isOCPP(props.supervisiontype) ?
+            <Grid item><Chip variant="outlined" icon={<LabelIcon />} label={props.data.index} /></Grid>
             : null
           }
-          <Grid item><Chip variant="outlined" icon={<PowerIcon />} label={getMode(connector.mode)} /></Grid>
-          <Grid item><Chip variant="outlined" icon={<BoltIcon />} label={getPower(connector.power)} /></Grid>
-          <Grid item><Chip variant="outlined" icon={<SettingsInputSvideoIcon />} label={getType(connector.type)} /></Grid>
-          <Grid item><Chip variant="outlined" icon={<LocalOfferIcon />} label={getPrice(connector)} /></Grid>
+          <Grid item><Chip variant="outlined" icon={<PowerIcon />} label={getMode(props.data.mode)} /></Grid>
+          <Grid item><Chip variant="outlined" icon={<BoltIcon />} label={getPower(props.data.power)} /></Grid>
+          <Grid item><Chip variant="outlined" icon={<SettingsInputSvideoIcon />} label={getType(props.data.type)} /></Grid>
+          <Grid item><Chip variant="outlined" icon={<LocalOfferIcon />} label={getPrice(props.data)} /></Grid>
         </Grid>
       </CardContent>
       <CardActions>
@@ -202,8 +200,29 @@ const Connector = (props) => {
 
 const Connectors = () => {
   const classes = useStyles();
-  const { data, setOpen } = getWizard();
-  const handleClick = () => { setOpen(true) };
+  const { data, setOpen, rmConnector, editConnector, setData, setAddConnector, setIsInvalidIndex } = getWizard();
+  const addConnector = () => { setData(d => {
+    const c = {
+      index    : parseInt(d.index),
+      mode     : d.connectormode,
+      power    : d.power,
+      type     : d.connectortype,
+      price    : d.price,
+      currency : d.currency
+    };
+    if (d.connectoredit == -1) {
+      return { ...d, edition : true, connectors : d.connectors.concat([c]) };
+    } else {
+      return { ...d, edition : true, connectoredit : -1, connectors : d.connectors.map(x => {
+        if (x.index == d.connectoredit) {
+          return c;
+        } else return x
+      })}
+    }
+  })};
+  const isInvalidIndex = (v) => (data.connectors.map(x => x.index).indexOf(parseInt(v)) != -1);
+  const handleClick = () => { setOpen(true); setAddConnector(addConnector); setIsInvalidIndex(isInvalidIndex) };
+  const theme = useTheme();
   return (
     <Grid container
       direction="row"
@@ -214,9 +233,17 @@ const Connectors = () => {
     >
       {
         data.connectors.length > 0 ?
-        data.connectors.map((x,i) => <Connector identifier={i} />) :
+        data.connectors.map((x,i) =>
+          <Connector
+            key={"connector" + i}
+            identifier={i}
+            rmConnector={rmConnector}
+            editConnector={editConnector}
+            supervisiontype={data.supervision.type}
+            data={data.connectors[i]}/>
+        ) :
         <Grid item style={{ height : '150px' }} container direction="row" justifyContent="center" alignContent="center">
-          <Typography variant="subtitle1" style={{ color : '#34383e' }}>No Connector. Click 'ADD CONNECTOR'.</Typography>
+          <Typography variant="subtitle1" style={{ color : data.showerrors? theme.palette.error.main : '#34383e' }}>No Connector. Click 'ADD CONNECTOR'.</Typography>
         </Grid>
       }
       <Grid xs={12} item container direction="row" justifyContent="flex-end" alignContent="center">
@@ -228,9 +255,42 @@ const Connectors = () => {
   )
 }
 
+const RPCGETSupervisionSettings = (props) => {
+  const { settings, setSettings } = getSettings();
+  const setOn = (e) => {
+    setSettings(s => s.map((x,i) => {
+      if (i == props.index) {
+        return { ...x, supervision : { ...x.supervision, switchon : e.target.value }}
+      } else return x;
+    }))
+  };
+  const setOff = (e) => {
+    setSettings(s => s.map((x,i) => {
+      if (i == props.index) {
+        return { ...x, supervision : { ...x.supervision, switchoff : e.target.value }}
+      } else return x;
+    }))
+  };
+  return (
+    <Grid container direction='row' justifyContent='flex-start' alignContent='center'>
+      <Grid item md={12} sm={12} xs={12}>
+        <EvseTextField identifier="switchon" extraid={props.index}
+          getValue={settings[props.index].supervision.switchon}
+          handleChange={setOn}
+          errorText="Invalid Url"/>
+      </Grid>
+      <Grid item md={12} sm={12} xs={12}>
+        <EvseTextField identifier="switchoff" extraid={props.index}
+          getValue={settings[props.index].supervision.switchoff}
+          handleChange={setOff}
+          errorText="Invalid Url"/>
+      </Grid>
+    </Grid>
+  )
+}
+
 const RPCGETSupervision = () => {
-  const { setSwitchOn, setSwitchOff } = getWizard();
-  const { data } = getWizard();
+  const { data, setSwitchOn, setSwitchOff } = getWizard();
   return (
     <Grid container direction='row' justifyContent='flex-start' alignContent='center'>
       <Grid item md={12} sm={12} xs={12}>
@@ -245,18 +305,6 @@ const RPCGETSupervision = () => {
           handleChange={e => setSwitchOff(e.target.value)}
           errorText="Invalid Url"/>
       </Grid>
-      {/* <Grid item md={3} sm={6} xs={12}>
-        <EvseTextField identifier="login"
-          getValue={d => d.supervision.login}
-          handleChange={e => setLogin(e.target.value)}
-          errorText="Empty Login"/>
-      </Grid>
-      <Grid item md={3} sm={6} xs={12}>
-        <EvseTextField identifier="pwd"
-          getValue={d => d.supervision.pwd}
-          handleChange={e => setPwd(e.target.value)}
-          errorText="Empty Password"/>
-      </Grid> */}
     </Grid>
   )
 }
@@ -340,32 +388,98 @@ const DefaultPanel = () => {
 
 const EVSESettings = (props) => {
   const classes = useStyles();
+  const [ expanded, setExpanded ] = React.useState(false);
   const { settings, setSettings, setSetting } = getSettings();
+  const { setOpen, setData, setAddConnector, setIsInvalidIndex } = getWizard();
   const handleSupervision = (e) => {
     setSettings(s => s.map((x,i) => {
       if (i == props.index) {
-        return { ...x, supervision : { ...x.supervision, type : e.target.value } }
+        if (e.target.value == 'werenoderpcget') {
+          return { ...x, supervision : { type : e.target.value, switchon : "", switchoff : ""  } }
+        } else return { ...x, supervision : { ...x.supervision, type : e.target.value } }
       } else {
         return x;
       }
     }));
   };
+  const handleExpansion = () => {
+    setExpanded(e => !e);
+  };
+  const rmConnector = (i) => () => {
+    setSettings(s => s.map((x,idx) => {
+      if (idx == props.index) {
+        return { ...x, connectors : x.connectors.filter((_,j) => j != i) }
+      } else return x;
+    }))
+  };
+  const addConnector = (d) => {
+    setSettings(s => s.map((x,idx) => {
+      if (idx == props.index) {
+        const c = {
+          index    : parseInt(d.index),
+          mode     : d.connectormode,
+          power    : d.power,
+          type     : d.connectortype,
+          price    : d.price,
+          currency : d.currency
+        };
+        if (d.connectoredit == -1) {
+          return { ...x, connectors : x.connectors.concat([c]) }
+        } else {
+          return { ...x, connectors : x.connectors.map(x => {
+            if (x.index == d.connectoredit) {
+              return c;
+            } else return x
+          })}
+        }
+      } else return x;
+    }));
+    setData(d => ({ ...d, connectoredit : -1 }));
+  };
+  const editConnector = (i) => () => {
+    setAddConnector(addConnector);
+    const c = settings[props.index].connectors.find(x => x.index == i);
+    setData(d => ({ ...d,
+      edition  : true,
+      open     : true,
+      connectoredit : c.index,
+      index    : parseInt(c.index),
+      connectormode : c.mode,
+      power    : c.power,
+      connectortype : c.type,
+      price    : c.price,
+      currency : c.currency }));
+  };
+  const isInvalidIndex = (v) => (settings[props.index].connectors.map(x => x.index).indexOf(parseInt(v)) != -1);
+  const handleClick = () => { setOpen(true); setAddConnector(addConnector); setIsInvalidIndex(isInvalidIndex) };
   return (
     <Grid container direction='row' justifyContent='flex-start' alignContent='center' className={ classes.settings }>
       <Grid item md={4} sm={12} xs={12}>
-        <EvseTextField identifier="id" extraid={props.index} getValue={settings[props.index].id} handleChange={e => setSetting(props.index)("id")(e.target.value)}/>
+        <EvseTextField
+          identifier="id"
+          extraid={props.index}
+          getValue={settings[props.index].id}
+          handleChange={e => setSetting(props.index)("id")(e.target.value)}/>
       </Grid>
       <Grid item md={6} sm={12} xs={12}>
-        <EvseTextField identifier="gps" extraid={props.index} getValue={settings[props.index].gps} handleChange={e => setSetting(props.index)("gps")(e.target.value)}/>
+        <EvseTextField
+          identifier="gps"
+          extraid={props.index}
+          getValue={settings[props.index].gps}
+          handleChange={e => setSetting(props.index)("gps")(e.target.value)}
+          isError={v => v == ""}
+          errorText="Invalid GPS value"
+        />
       </Grid>
       <Grid item xs={12} style={{ marginBottom : '1px' }}>
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
+            onClick={handleExpansion}
             aria-controls={"panel1a-content-"+props.index}
             id={"panel1a-header-"+props.index}>
             <Grid container direction='row' justifyContent='flex-start' alignContent='center' spacing={2}>
-              <Typography variant='subtitle2' style={{ color : '#34383e' }}>Click to expand settings</Typography>
+              <Typography variant='subtitle2' style={{ color : '#34383e' }}>{"Click to " + (expanded ? "collapse": "expand") + " settings"}</Typography>
             </Grid>
           </AccordionSummary>
             <AccordionDetails style={{ padding : 0 }}>
@@ -383,9 +497,24 @@ const EVSESettings = (props) => {
                         handleChange={handleSupervision} getValue={settings[props.index].supervision.type}/>
                     </Grid>
                     {
-                      settings[props.index].supervision.type == 'werenoderpcget' ? <RPCGETSupervision /> : null
+                      settings[props.index].supervision.type == 'werenoderpcget' ?
+                        <RPCGETSupervisionSettings index={props.index}/> : null
                     }
                   </Grid>
+                </Grid>
+                <Grid item xs={12} container style={{ paddingRight : "32px", marginBottom : "12px" }} spacing={2}>
+                  { settings[props.index].connectors.map((x,i) =>
+                    <Connector
+                      key={"connector" + props.index + i}
+                      identifier={i}
+                      rmConnector={rmConnector(i)}
+                      editConnector={editConnector(x.index)}
+                      supervisiontype={settings[props.index].supervision.type}
+                      data={x} />
+                    ) }
+                </Grid>
+                <Grid item xs={12} container justifyContent="flex-end" style={{ paddingRight : "32px", marginBottom : "32px" }}>
+                  <Button onClick={ handleClick }>add connector</Button>
                 </Grid>
               </Grid>
             </AccordionDetails>
@@ -470,6 +599,7 @@ const Wizard = (props) => {
   const { data, setShowErrors } = getWizard();
   const { createSettings } = getSettings();
   const { evses, setEvses } = getEVSEs();
+  const { settings } = getSettings();
   const { setPanel } = getPanels();
   const isInvalid = () => {
     if (wizardPanelIdx == 0) {
@@ -481,6 +611,10 @@ const Wizard = (props) => {
           data.supervision.switchoff == undefined
         )
       } else return false;
+    } else if (wizardPanelIdx == 2) {
+      return (data.connectors.length == 0);
+    } else if (wizardPanelIdx == 4) {
+      return settings.reduce((test,x) => (test || x.gps == ""), false);
     } else return false;
   }
   const handleClick = () => {
