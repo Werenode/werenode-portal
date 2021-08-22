@@ -11,7 +11,6 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Card from '@material-ui/core/Card';
 import Paper from '@material-ui/core/Paper';
-import { CardActionArea, CardContent } from '@material-ui/core';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
@@ -26,6 +25,12 @@ import { getSelect } from './constate/select';
 
 import { useTheme } from '@material-ui/core/styles';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+import { toObj } from './inputData.js';
+
+import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
+import BoltIcon from '@material-ui/icons/Bolt';
+import PowerIcon from '@material-ui/icons/Power';
 
 const useStyles = makeStyles({
   tools: {
@@ -50,6 +55,20 @@ const useStyles = makeStyles({
     borderColor : 'rgba(0, 177, 165, 1)',
     borderWidth : '2px',
     borderStyle : 'solid',
+  },
+  icons : {
+    borderTop : '1px solid #34383e',
+    borderBottom : '1px solid #34383e',
+    paddingLeft : '8px'
+  },
+  icon : {
+    marginTop : '6px',
+    marginRight : '4px',
+    marginLeft : '4px',
+  },
+  connector : {
+    borderBottom : '1px solid #34383e',
+    padding : '8px',
   }
 });
 
@@ -57,34 +76,67 @@ const getEvseIdx = (evses, id) => {
   return evses.map(x => x.id).indexOf(id);
 }
 
+const Connector = (props) => {
+  const classes = useStyles();
+  return (
+  <Grid container direction="row" justifyContent="flex-start" alignContent="center" className={ classes.connector }>
+    <Grid item> <PowerIcon fontSize="small" /></Grid>
+    <Grid item> <Typography variant="subtitle2">{props.data.index + ":"}</Typography></Grid>
+    <Grid item xs={12} style={{ paddingLeft : "12px" }}>
+      <Typography variant="subtitle2">{toObj('power')[props.data.power]}</Typography>
+    </Grid>
+    <Grid item xs={12} style={{ paddingLeft : "12px" }}>
+      <Typography variant="subtitle2">{toObj('connectormode')[props.data.mode]}</Typography>
+    </Grid>
+  </Grid>
+  )
+}
+
 const EVSE = (props) => {
   const { setPanel } = getPanels();
   const { select, selected, setSelected } = getSelect();
   const { evses } = getEVSEs();
   const classes = useStyles();
-  const evseidx = getEVSEPanelIdx(getEvseIdx(evses.data,props.id));
-
+  const data = props.data;
+  const evseidx = getEVSEPanelIdx(getEvseIdx(evses.data,data.id));
+  const theme = useTheme();
   const handleClick = () => {
     if (select) {
-      if (selected.includes(props.id)) {
-        setSelected(s => s.filter(x => x != props.id));
+      if (selected.includes(props.data.id)) {
+        setSelected(s => s.filter(x => x != data.id));
       } else {
-        setSelected(s => s.concat([props.id]));
+        setSelected(s => s.concat([data.id]));
       }
     } else {
       setPanel(evseidx)
     }
   };
   const isSelected = () => {
-    return select && selected.includes(props.id);
+    return select && selected.includes(data.id);
   }
   return (
-    <Card className={ isSelected() ? classes.selected : classes.evse}>
-      <CardActionArea onClick={handleClick}>
-        <CardContent>
-          <Typography>{props.id}</Typography>
-        </CardContent>
-      </CardActionArea>
+    <Card className={ isSelected() ? classes.selected : classes.evse} onClick={ handleClick }>
+      <Grid container direction="column" justifyContent="flex-start" alignContent="center" style={{ height : "300px" }}>
+        <Grid item style={{ padding : '12px' }}>
+          <Grid container direction="row" justifyContent="flex-start" alignContent="center">
+            <Grid item xs={12}>
+              <Typography>{data.id}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="subtitle2">{toObj('supervision')[data.setting.supervision.type]}</Typography>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item >
+          <Grid container direction="row" justifyContent="flex-start" alignContent="center" className={ classes.icons }>
+            <Grid item><SettingsEthernetIcon fontSize="small" style={{ color : theme.palette.action.hover }} className={ classes.icon }/></Grid>
+            <Grid item><BoltIcon fontSize="small" style={{ color : theme.palette.action.disabled }} className={ classes.icon }/></Grid>
+          </Grid>
+        </Grid>
+        {
+          data.setting.connectors.map((x,i) => <Grid key={"connector-"+data.id+"-"+i} item><Connector  data={x} /></Grid>)
+        }
+      </Grid>
     </Card>
   )
 }
@@ -106,7 +158,7 @@ const EVSEsPanel = (props) => {
       { evses.data.map(evse => {
         return (
           <Grid item key={evse.id}>
-            <EVSE id={evse.id} />
+            <EVSE data={evse} />
           </Grid>)
       }) }
     </Grid>) }
@@ -133,7 +185,6 @@ const ActionButtons = (props) => {
           } else {
             sorted = evses.data.concat().sort((x,y) => x.id > y.id ? 1 : -1);
           }
-          console.log(sorted);
           return { ...evses, data : sorted };
         });
         setSortAlpha(sa => !sa);

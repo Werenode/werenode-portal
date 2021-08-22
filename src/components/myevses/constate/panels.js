@@ -3,14 +3,14 @@ import { useState } from 'react';
 import constate from "constate";
 
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import PowerIcon from '@material-ui/icons/Power';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import FileDownloadIcon from '@material-ui/icons/FileDownload';
 import HelpIcon from '@material-ui/icons/Help';
+import EvStationIcon from '@material-ui/icons/EvStation';
 
 export const panels = [
   { id : 0, title : 'Dashboard', icon : <DashboardIcon style={{ color : 'white' }} /> },
-  { id : 1, title : 'EVSEs',     icon : <PowerIcon style={{ color : 'white' }} /> },
+  { id : 1, title : 'EVSEs',     icon : <EvStationIcon style={{ color : 'white' }} /> },
   { id : 2, title : 'Account',   icon : <AccountCircleIcon style={{ color : 'white' }}/> },
   { id : 3, title : 'Export',    icon : <FileDownloadIcon style={{ color : 'white' }}/>},
   { id : 4, title : 'Help',      icon : <HelpIcon style={{ color : 'white' }}/>}

@@ -19,7 +19,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { EvseTextField, EvseSelect } from './EvseInputs';
 import IconButton from '@material-ui/core/IconButton';
 import Chip from '@material-ui/core/Chip';
-import { inputdata, isOCPP } from './inputData.js';
+import { isOCPP, toObj } from './inputData.js';
 
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -27,7 +27,6 @@ import PowerIcon from '@material-ui/icons/Power';
 import SettingsInputSvideoIcon from '@material-ui/icons/SettingsInputSvideo';
 import LabelIcon from '@material-ui/icons/Label';
 
-import EvStationIcon from '@material-ui/icons/EvStation';
 import BoltIcon from '@material-ui/icons/Bolt';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 
@@ -157,14 +156,6 @@ const OtherSettings = (props) => {
         </Grid>
     </Grid>
   )
-}
-
-const toObj = v => {
-  var obj = {};
-  for (let i = 0; i < inputdata[v].items.length; i++) {
-    obj[inputdata[v].items[i].value] = inputdata[v].items[i].label;
-  }
-  return obj;
 }
 
 const Connector = (props) => {
@@ -399,6 +390,10 @@ const EVSESettings = (props) => {
   const [ expanded, setExpanded ] = React.useState(false);
   const { settings, setSettings, setSetting } = getSettings();
   const { setOpen, setData, setAddConnector, setIsInvalidIndex } = getWizard();
+  const { evses } = getEVSEs();
+  const isIndexError = (v) => {
+    return evses.data.map(x => x.id).indexOf(v) !== -1;
+  }
   const handleSupervision = (e) => {
     setSettings(s => s.map((x,i) => {
       if (i == props.index) {
@@ -459,7 +454,7 @@ const EVSESettings = (props) => {
       currency : c.currency }));
   };
   const isInvalidIndex = (v) => (settings[props.index].connectors.map(x => x.index).indexOf(parseInt(v)) != -1);
-  const handleClick = () => { setOpen(true); setAddConnector(addConnector); setIsInvalidIndex(isInvalidIndex) };
+  const handleAddConnector = () => { setOpen(true); setAddConnector(addConnector); setIsInvalidIndex(isInvalidIndex) };
   const addFreeUser = (a) => { setSettings(s => s.map((x,idx) => {
     if (idx == props.index) {
       return { ...x, freeusers : x.freeusers.filter(x => x != a).concat([a]) }
@@ -477,7 +472,10 @@ const EVSESettings = (props) => {
           identifier="id"
           extraid={props.index}
           getValue={settings[props.index].id}
-          handleChange={e => setSetting(props.index)("id")(e.target.value)}/>
+          handleChange={e => setSetting(props.index)("id")(e.target.value)}
+          isError={isIndexError}
+          errorText="Identifier already taken"
+        />
       </Grid>
       <Grid item md={6} sm={12} xs={12}>
         <EvseTextField
@@ -532,7 +530,7 @@ const EVSESettings = (props) => {
                     ) }
                 </Grid>
                 <Grid item xs={12} container justifyContent="flex-end" style={{ paddingRight : "32px", marginBottom : "12px" }}>
-                  <Button onClick={ handleClick }>add connector</Button>
+                  <Button onClick={ handleAddConnector }>add connector</Button>
                 </Grid>
                 <Grid item xs={12} style={{ paddingRight : "32px", marginBottom : "32px" }}>
                   <FreeUsers freeusers={settings[props.index].freeusers} addFreeUser={addFreeUser} rmFreeUser={rmFreeUser} />
@@ -561,13 +559,26 @@ const EditSettings = () => {
     </Grid>)
 }
 
+const Validate = () => {
+  return (
+    <Grid container direction="row" justifyContent="flex-start" alignContent="center" spacing={1} style={{ padding : '32px' }}>
+      <Grid item xs={12}>
+        <Typography>Data size : 0 bytes</Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Typography>Cost estimation : 0 XTZ</Typography>
+      </Grid>
+    </Grid>
+  )
+}
+
 const wizardPanels = [
   { title : 'General Settings', panel : <General /> },
   { title : 'Supervision', panel : <Supervision /> },
   { title : 'Connectors', panel : <Connectors /> },
   { title : 'Other Settings', panel : <OtherSettings /> },
   { title : 'Edit Settings', panel : <EditSettings /> },
-  { title : 'Validate', panel : <DefaultPanel /> }
+  { title : 'Validate', panel : <Validate /> }
 ]
 
 const Buttons = (props) => {
@@ -619,7 +630,7 @@ const Wizard = (props) => {
   const [ wizardPanelIdx, setWizardPanel ] = React.useState(0);
   const { data, setShowErrors } = getWizard();
   const { createSettings } = getSettings();
-  const { evses, setEvses } = getEVSEs();
+  const { setEvses } = getEVSEs();
   const { settings } = getSettings();
   const { setPanel } = getPanels();
   const isInvalid = () => {
@@ -640,9 +651,9 @@ const Wizard = (props) => {
   }
   const handleClick = () => {
     if (wizardPanelIdx == wizardPanels.length - 1) {
-      const newevses = Array(parseInt(data.nb)).fill(evses.data.length).map((x,i) => {
-        return {id : (data.id + ' ' +  (x + i + 1)), revenue : 0 };
-      } );
+      const newevses = settings.map((x,i) => {
+        return { key : x.id, id : x.id, revenue : 0, setting : { ...x } };
+      });
       setEvses(e => { return { ...e, data : e.data.concat(newevses) }; });
       setPanel(0);
     } else if (isInvalid()) {

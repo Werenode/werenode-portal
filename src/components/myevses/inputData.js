@@ -9,7 +9,7 @@ export const inputdata = {
     items : [
       { value : 'wherenodeocpp16', label : 'Werenode - OCPP 1.6' },
       { value : 'wherenodeocpp20', label : 'Werenode - OCPP 2.0' },
-      { value : 'werenoderpcget', label : 'Werenode - RPC GET ...' },
+      { value : 'werenoderpcget', label : 'Werenode - RPC GET' },
   ]},
   switchon : { label : 'Url to switch on', hash : 'switch-on-url', desc : 'Url to switch EVSE on' },
   switchoff : { label : 'Url to switch off', hash : 'switch-off-url', desc : 'Url to switch EVSE off' },
@@ -80,4 +80,12 @@ export const inputdata = {
 
 export const isOCPP = (t) => {
   return (t == 'wherenodeocpp16' || t == 'wherenodeocpp20')
+}
+
+export const toObj = v => {
+  var obj = {};
+  for (let i = 0; i < inputdata[v].items.length; i++) {
+    obj[inputdata[v].items[i].value] = inputdata[v].items[i].label;
+  }
+  return obj;
 }
