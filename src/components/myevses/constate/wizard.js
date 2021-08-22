@@ -48,6 +48,7 @@ export function useWizard() {
     /* connector settings */
     addConnector : () => 0,
     isInvalidIndex : () => 0,
+    addFreeUser : () => 0,
     open : false,
     connectormode : 'ac1',
     power : 'p2',
@@ -116,15 +117,12 @@ export function useWizard() {
       currency : c.currency }
   })};
   const setConnectorEdit = (b) => { setData(d => { return { ...d, edition : true, connectoredit : b }})};
-  const addFreeUser = (a) => { setData(d => {
-    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a).concat([a]) }
-  }) };
-  const rmFreeUser = (a) => { setData(d => {
-    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a) }
-  }) };
   const setOpenAddAddress = (b) => { setData(d => {
     return { ...d, edition : true, openaddaddress : b }
   }) };
+  const setAddFreeUsers = (f) => { setData(d => {
+    return { ...d, addFreeUser : f }
+  }) }
   return {
     data,
     setData,
@@ -145,9 +143,8 @@ export function useWizard() {
     rmConnector,
     editConnector,
     setConnectorEdit,
-    addFreeUser,
-    rmFreeUser,
     setOpenAddAddress,
+    setAddFreeUsers
   }
 }
 

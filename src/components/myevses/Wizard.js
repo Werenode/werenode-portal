@@ -109,15 +109,16 @@ const useStyles = makeStyles({
 
 const FreeUsers = (props) => {
   const classes = useStyles();
-  const { data, rmFreeUser, setOpenAddAddress } = getWizard();
+  const { setOpenAddAddress, setAddFreeUsers } = getWizard();
   const theme = useTheme();
   const handleDelete = v => () => {
-    rmFreeUser(v);
+    props.rmFreeUser(v);
   }
   const handleClick = () => {
+    setAddFreeUsers(props.addFreeUser);
     setOpenAddAddress(true);
   }
-  let chips = data.freeusers.map(x => {
+  let chips = props.freeusers.map(x => {
     return <Grid key={x} item><Chip variant="outlined" onDelete={handleDelete(x)} label={x} /></Grid>
   });
   chips = chips.concat([
@@ -125,14 +126,12 @@ const FreeUsers = (props) => {
   ]);
   return (
     <Grid container direction="row" justifyContent="flex-start" alignContent="center" className={ classes.freeusers }>
-
         <Typography variant='subtitle2' style={{
           position : 'absolute',
           top : '-11px',
           backgroundColor : theme.palette.background.paper,
           paddingLeft : '8px',
           paddingRight : '8px' }}>Free access address(es)</Typography>
-
       <Grid item container direction='row' justifyContent='flex-start' alignContent='center' spacing={2}>
       {
         chips
@@ -144,9 +143,18 @@ const FreeUsers = (props) => {
 
 const OtherSettings = (props) => {
   const classes = useStyles();
+  const { data, setData } = getWizard();
+  const addFreeUser = (a) => { setData(d => {
+    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a).concat([a]) }
+  }) };
+  const rmFreeUser = (a) => { setData(d => {
+    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a) }
+  }) };
   return (
     <Grid container direction="column" >
-      <Grid item className={ classes.panel }><FreeUsers /></Grid>
+      <Grid item className={ classes.panel }>
+        <FreeUsers freeusers={data.freeusers} addFreeUser={addFreeUser} rmFreeUser={rmFreeUser} />
+        </Grid>
     </Grid>
   )
 }
@@ -452,6 +460,16 @@ const EVSESettings = (props) => {
   };
   const isInvalidIndex = (v) => (settings[props.index].connectors.map(x => x.index).indexOf(parseInt(v)) != -1);
   const handleClick = () => { setOpen(true); setAddConnector(addConnector); setIsInvalidIndex(isInvalidIndex) };
+  const addFreeUser = (a) => { setSettings(s => s.map((x,idx) => {
+    if (idx == props.index) {
+      return { ...x, freeusers : x.freeusers.filter(x => x != a).concat([a]) }
+    } else return x
+  }))};
+  const rmFreeUser = (a) => { setSettings(s => s.map((x,idx) => {
+    if (idx == props.index) {
+      return { ...x, freeusers : x.freeusers.filter(x => x != a) }
+    } else return x
+  }))};
   return (
     <Grid container direction='row' justifyContent='flex-start' alignContent='center' className={ classes.settings }>
       <Grid item md={4} sm={12} xs={12}>
@@ -513,8 +531,11 @@ const EVSESettings = (props) => {
                       data={x} />
                     ) }
                 </Grid>
-                <Grid item xs={12} container justifyContent="flex-end" style={{ paddingRight : "32px", marginBottom : "32px" }}>
+                <Grid item xs={12} container justifyContent="flex-end" style={{ paddingRight : "32px", marginBottom : "12px" }}>
                   <Button onClick={ handleClick }>add connector</Button>
+                </Grid>
+                <Grid item xs={12} style={{ paddingRight : "32px", marginBottom : "32px" }}>
+                  <FreeUsers freeusers={settings[props.index].freeusers} addFreeUser={addFreeUser} rmFreeUser={rmFreeUser} />
                 </Grid>
               </Grid>
             </AccordionDetails>

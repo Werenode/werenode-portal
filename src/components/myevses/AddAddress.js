@@ -22,13 +22,13 @@ const style = {
 
 const AddAddress = () => {
   const [ address, setAddress ] = React.useState("");
-  const { data, setOpenAddAddress, addFreeUser, setShowErrors } = getWizard();
+  const { data, setOpenAddAddress, setShowErrors } = getWizard();
   const handleClose = () => {
     setOpenAddAddress(false);
   }
   const handleClick = () => {
     if (isValidAddress(address)) {
-      addFreeUser(address);
+      data.addFreeUser(address);
       setOpenAddAddress(false);
       setShowErrors(false);
     } else {
