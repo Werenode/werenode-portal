@@ -56,7 +56,8 @@ export function useWizard() {
     price : '0',
     index : 1,
     currency : 'euro',
-    connectoredit : -1
+    connectoredit : -1,
+    edit : false
     /* ----------------- */
   });
   const setShowErrors = (s) => { setData(d => { return { ...d, showerrors : s } }) };
@@ -122,7 +123,8 @@ export function useWizard() {
   }) };
   const setAddFreeUsers = (f) => { setData(d => {
     return { ...d, addFreeUser : f }
-  }) }
+  }) };
+  const setEdit = (b) => { setData(d => ({ ...d, edit : b })) }
   return {
     data,
     setData,
@@ -144,7 +146,8 @@ export function useWizard() {
     editConnector,
     setConnectorEdit,
     setOpenAddAddress,
-    setAddFreeUsers
+    setAddFreeUsers,
+    setEdit
   }
 }
 

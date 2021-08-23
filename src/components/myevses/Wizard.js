@@ -12,6 +12,7 @@ import { getEVSEs } from './constate/evses';
 import { getPanels } from './constate/panels';
 import { getWizard, isValidAddress } from './constate/wizard';
 import { useAccountPkh } from './constate/dapp';
+import { getSelect } from './constate/select';
 
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -581,9 +582,21 @@ const wizardPanels = [
   { title : 'Validate', panel : <Validate /> }
 ]
 
+const getWizardPanels = (edit) => {
+  if (edit) {
+    return [
+      { title : 'Edit Settings', panel : <EditSettings /> },
+      { title : 'Validate', panel : <Validate /> }
+    ]
+  } else {
+    return wizardPanels;
+  }
+}
+
 const Buttons = (props) => {
   const classes = useStyles();
   const { setPanel } = getPanels();
+  const { data } = getWizard();
   const width = useWidth();
   const handleCancel = () => {
     setPanel(0);
@@ -596,7 +609,7 @@ const Buttons = (props) => {
       <Grid container direction="row" justifyContent='flex-end' alignContent="end" className={ classes.buttons } >
         <Grid item xs={12} style={{ marginBottom: '18px' }}>
           <Stepper activeStep={props.wizardPanelIdx} orientation={ isWidthDown('sm', width) ? 'vertical' : 'horizontal' }>
-            {wizardPanels.map((panel) => (
+            {getWizardPanels(data.edit).map((panel) => (
               <Step key={panel.title}>
               <StepLabel>{panel.title}</StepLabel>
               </Step>
@@ -628,38 +641,57 @@ const Buttons = (props) => {
 const Wizard = (props) => {
   const classes = useStyles();
   const [ wizardPanelIdx, setWizardPanel ] = React.useState(0);
-  const { data, setShowErrors } = getWizard();
+  const { data, setShowErrors, setEdit } = getWizard();
   const { createSettings } = getSettings();
-  const { setEvses } = getEVSEs();
+  const { evses, setEvses } = getEVSEs();
   const { settings } = getSettings();
   const { setPanel } = getPanels();
+  const { selected, setSelect, setSelected } = getSelect();
   const isInvalid = () => {
-    if (wizardPanelIdx == 0) {
+    if (wizardPanelIdx == wizardPanels.length - 6) {
       return (data.id == "" || !isValidAddress(data.owner));
-    } else if (wizardPanelIdx == 1) {
+    } else if (wizardPanelIdx == wizardPanels.length - 5) {
       if (data.supervision.type == 'werenoderpcget') {
         return (
           data.supervision.switchon == undefined ||
           data.supervision.switchoff == undefined
         )
       } else return false;
-    } else if (wizardPanelIdx == 2) {
+    } else if (wizardPanelIdx == wizardPanels.length - 4) {
       return (data.connectors.length == 0);
-    } else if (wizardPanelIdx == 4) {
+    } else if (wizardPanelIdx == wizardPanels.length - 2) {
       return settings.reduce((test,x) => (test || x.gps == ""), false);
     } else return false;
   }
   const handleClick = () => {
-    if (wizardPanelIdx == wizardPanels.length - 1) {
-      const newevses = settings.map((x,i) => {
-        return { key : x.id, id : x.id, revenue : 0, setting : { ...x } };
-      });
-      setEvses(e => { return { ...e, data : e.data.concat(newevses) }; });
+    if (wizardPanelIdx == getWizardPanels(data.edit).length - 1) {
+      if (data.edit) {
+        var k = 0;
+        var newevses = [];
+        for (let i=0; i < evses.data.length; i++) {
+          const x = evses.data[i];
+          if (selected.indexOf(x.id) !== -1) {
+            // replace with settings[k]
+            newevses = newevses.concat([{ key : settings[k].id, id : settings[k].id, revenue : 0, setting : settings[k]}]);
+            k++;
+          } else
+            newevses = newevses.concat([x]);
+        }
+        setEvses(e => { return { ...e, data : newevses }; });
+      } else {
+        const newevses = settings.map((x,i) => {
+          return { key : x.id, id : x.id, revenue : 0, setting : { ...x } };
+        });
+        setEvses(e => { return { ...e, data : e.data.concat(newevses) }; });
+      }
       setPanel(0);
+      setEdit(false);
+      setSelected([]);
+      setSelect(false);
     } else if (isInvalid()) {
       setShowErrors(true);
     } else {
-      if (wizardPanelIdx == 3) {
+      if (wizardPanelIdx == getWizardPanels(data.edit).length - 3) {
         createSettings(data);
       }
       setShowErrors(false);
@@ -673,11 +705,11 @@ const Wizard = (props) => {
           <Grid container direction="column" justifyContent='flex-start' alignContent='flex-start' >
             <Grid item className={ classes.header }>
               <Typography variant="h5" component="div" className={ classes.title }>
-                { wizardPanels[wizardPanelIdx].title }
+                { getWizardPanels(data.edit)[wizardPanelIdx].title }
               </Typography>
             </Grid>
             <Grid item style={{ maxHeight : props.height - 200, overflow: 'auto' }}>
-              { wizardPanels[wizardPanelIdx].panel }
+              { getWizardPanels(data.edit)[wizardPanelIdx].panel }
             </Grid>
             <Buttons
               handleClick={handleClick}

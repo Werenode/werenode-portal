@@ -31,6 +31,8 @@ import { toObj } from './inputData.js';
 import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
 import BoltIcon from '@material-ui/icons/Bolt';
 import PowerIcon from '@material-ui/icons/Power';
+import { getSettings } from './constate/settings';
+import { getWizard } from './constate/wizard';
 
 const useStyles = makeStyles({
   tools: {
@@ -173,8 +175,10 @@ const ActionButtons = (props) => {
   const [open, setOpen] = React.useState(false);
   const [sortalpha, setSortAlpha] = React.useState(false);
   const { selected, setSelect, setSelected } = getSelect();
+  const { setSettings } = getSettings();
   const { setPanel } = getPanels();
-  const { setEvses } = getEVSEs();
+  const { setEdit } = getWizard();
+  const { evses, setEvses } = getEVSEs();
   const handleClick = (e) => {
     switch(props.selectedIndex) {
       case 3: // Sort
@@ -197,6 +201,15 @@ const ActionButtons = (props) => {
         setSelected([]);
         setSelect(false);
         break;
+      case 1: // Edit
+        if (selected.length > 0) {
+          setEdit(true);
+          // create settings
+          const s = evses.data.filter(x => (selected.indexOf(x.id) >= 0)).map(x => x.setting);
+          setSettings(s);
+          setPanel(-1);
+        }
+        break
       case 0: // Add
         setPanel(-1);
         break;
