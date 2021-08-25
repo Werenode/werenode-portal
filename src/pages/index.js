@@ -18,9 +18,12 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const data = {
   taglines : {
-    header      : 'This is the very important portals header tagline',
-    mobile      : 'This is the very important mobile app tagline',
-    evsemanager : 'This is the very important evse manager app tagline',
+    header      : 'Open your EV charging station',
+    subheader   : 'Connect every charging equipement and allow anybody to share its own and be compensated seamlessly. Ready for your clean and sustainable mobility!',
+    mobile      : 'Just plug and charge',
+    submobile   : 'Connect instantly to any EV supply equipment with your phone. Use fiat, XTZ or WRC tokens to pay your charging session.',
+    evsemanager : 'Register your EV charging station',
+    submanager  : 'No need to wait for the big players. Help your fellow EV riders and get revenue from it. If you have an accessible connected charging station, you just have to register your EV supply equipment on the Werenode portal.',
     invest      : 'Invest in the future of EV'
   },
   buttons : {
@@ -34,6 +37,12 @@ const data = {
       role     : 'EV ecosystem expert',
       img      : 'img/BM.jpeg',
       linkedin : '' },
+    {
+        key      : 'Nadiya Khokhryakova',
+        title    : 'Co founder',
+        role     : 'EV ecosystem expert',
+        img      : 'img/MM.png',
+        linkedin : '' },
     {
       key      : 'Gaëtan Cadéro',
       title    : 'COO-CFO',
@@ -130,6 +139,7 @@ function useWidth() {
 function isWidthDown(breakp, width) {
   switch (breakp) {
     case 'sm' : return (width == 'xs' || width == 'sm');
+    case 'md' : return (width == 'md' || width == 'xs' || width == 'sm');
     default : return true
   }
 }
@@ -138,7 +148,7 @@ const WerenodeHeader = () => {
   const width = useWidth();
   return (
     <Grid container direction={layoutOptions[layout].direction} justifyContent="flex-start" alignItems="flex-start" style={{
-      height: "500px",
+      minHeight: isWidthDown('md', width) ? "600px" : "500px",
       backgroundImage : `linear-gradient(${layoutOptions[layout].angle}deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 90%), rgb(0 76 126 / 0%)), url(${Plug})`,
       backgroundSize : 'cover',
       backgroundPosition : isWidthDown('sm', width) ? 'right' : 'right'
@@ -155,6 +165,14 @@ const WerenodeHeader = () => {
           textAlign   : 'center'
          }}>
           <Typography variant='h3' xs={12}>{data.taglines.header}</Typography>
+        </Grid>
+        <Grid item style={{
+          marginLeft  : '32px',
+          marginRight  : '32px',
+          marginBottom : '32px',
+          textAlign   : 'center'
+         }}>
+          <Typography variant="h6" xs={12}>{data.taglines.subheader}</Typography>
         </Grid>
       </Grid>
     </Grid>
@@ -209,12 +227,23 @@ const MobileApp = () => {
       paddingTop : isWidthDown('sm', width) ? "0px" : "100px",
       height     : isWidthDown('sm', width) ? "100%" : "650px"
     }}  >
-      <Grid item style={{
-        textAlign   : 'center',
-        marginTop      : isWidthDown('sm', width) ? "50px" : "0px",
-        marginBottom   : isWidthDown('sm', width) ? "50px" : "0px",
-      }}>
-        <Typography variant='h3'>{data.taglines.mobile}</Typography>
+      <Grid item container direction="column" justifyContent="center" alignItems="center">
+        <Grid item style={{
+          textAlign   : 'center',
+          marginTop      : isWidthDown('sm', width) ? "50px" : "0px",
+          marginBottom   : isWidthDown('sm', width) ? "50px" : "0px",
+        }}>
+          <Typography variant='h3'>{data.taglines.mobile}</Typography>
+        </Grid>
+        <Grid item style={{
+          textAlign   : 'center',
+          marginLeft  : '32px',
+          marginRight : '32px',
+          marginTop      : isWidthDown('sm', width) ? "50px" : "32px",
+          marginBottom   : isWidthDown('sm', width) ? "50px" : "0px",
+        }}>
+          <Typography variant="h6">{data.taglines.submobile}</Typography>
+        </Grid>
       </Grid>
       <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4} item>
         <Grid item>
@@ -273,6 +302,14 @@ const EvseManager = () => {
           textAlign    : 'center'
          }}>
         <Typography variant='h3'>{data.taglines.evsemanager}</Typography>
+      </Grid>
+      <Grid item style={{
+          marginLeft   : isWidthDown('sm', width) ? "32px" : "100px",
+          marginRight  : isWidthDown('sm', width) ? "32px" : "100px",
+          marginTop    : '32px',
+          textAlign    : 'center'
+         }}>
+        <Typography variant='h6'>{data.taglines.submanager}</Typography>
       </Grid>
       <Grid item>
         <Link to='myevses' style={{ textDecoration: 'none' }}>
@@ -374,7 +411,9 @@ const Partner = (props) => {
   return (
     <Grid item style={{
       marginBottom : isWidthDown('sm', width) ? "20px" : "0px",
-      marginTop    : isWidthDown('sm', width) ? "20px" : "0px"
+      marginTop    : isWidthDown('sm', width) ? "20px" : "0px",
+      marginLeft   : '32px',
+      marginRight  : '32px',
     }}>
       <Link to={props.url}>
         <img src={useBaseUrl(props.img)} style={{ width : props.width }}/>
@@ -387,12 +426,13 @@ const Partners = () => {
   const width = useWidth();
   return (
     <Grid container direction="column" justifyContent="center" alignItems="center" style={{
-      backgroundColor : '#1d222b'
+      backgroundColor : '#1d222b',
+      paddingBottom  : '32px',
     }}>
     <Grid item style={{ marginTop : '15px' }}>
       <Typography variant='subtitle1' style={{ color : 'grey' }}>Partners</Typography>
     </Grid>
-    <Grid item container direction={isWidthDown('sm', width) ? "column" : "row"} justifyContent="center" alignItems="center" spacing={2} style={{
+    <Grid item container direction={isWidthDown('sm', width) ? "column" : "row"} justifyContent="center" alignItems="center" spacing={6} style={{
       marginTop : '0px',
       marginBottom : '25px',
     }}>
