@@ -200,7 +200,7 @@ const Phone = () => {
 
 const openUri = (os) => {
   if (typeof window !== 'undefined') {
-    window.location.href = (os == "android" ? "https://play.google.com/store/apps/details?id=com.werenode.app" : "https://apps.apple.com/fr/app/facebook/id284882215");
+    window.location.href = (os == "android" ? "https://play.google.com/store/apps/details?id=com.werenode.app" : "https://apps.apple.com/fr/app/werenode/id1582403510");
   }
 }
 
