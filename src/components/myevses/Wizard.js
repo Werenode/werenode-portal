@@ -682,6 +682,20 @@ const Wizard = (props) => {
         const newevses = settings.map((x,i) => {
           return { key : x.id, id : x.id, revenue : 0, setting : { ...x } };
         });
+        let services = {};
+        let types = [];
+        newevses[0].setting.connectors.forEach((connector) => {
+          types.push(connector.type);
+          services[connector.power] = parseInt((connector.price/60)*1000000);
+        });
+        fetch("https://us-central1-werenode-37b0a.cloudfunctions.net/addPlug", {
+          'method': 'POST',
+          'headers': {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          'body': JSON.stringify({services: services, types: types, id: newevses[0].id.split(" ")[0], lat: parseFloat(newevses[0].setting.gps.split(",")[0]), long: parseFloat(newevses[0].setting.gps.split(",")[1])})
+        });
         setEvses(e => { return { ...e, data : e.data.concat(newevses) }; });
       }
       setPanel(0);

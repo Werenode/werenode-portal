@@ -198,15 +198,21 @@ const Phone = () => {
   )
 }
 
+const openUri = (os) => {
+  if (typeof window !== 'undefined') {
+    window.location.href = (os == "android" ? "https://play.google.com/store/apps/details?id=com.werenode.app" : "https://apps.apple.com/fr/app/werenode/id1582403510");
+  }
+}
+
 const GooglePlayStore = () => {
   return (
-    <img src={useBaseUrl('img/google-play-badge.png')} style={{ width : '200px' }}/>
+    <img onClick={() => openUri("android")} src={useBaseUrl('img/google-play-badge.png')} style={{ width : '200px' }}/>
   )
 }
 
 const AppleStore = () => {
   return (
-    <img src={useBaseUrl('img/AppStoreButton.png')} style={{ width : '150px' }}/>
+    <img onClick={() => openUri("ios")} src={useBaseUrl('img/AppStoreButton.png')} style={{ width : '150px' }}/>
   )
 }
 
@@ -312,15 +318,15 @@ const EvseManager = () => {
         <Typography variant='h6'>{data.taglines.submanager}</Typography>
       </Grid>
       <Grid item>
-        <Link to='myevses' style={{ textDecoration: 'none' }}>
-        <Button variant="contained" disableElevation style={{
+        {/*<Link to='myevses' style={{ textDecoration: 'none' }}>*/}
+        <Button disabled={true} variant="contained" disableElevation style={{
           paddingLeft  : '40px',
           paddingRight : '40px',
           color        : 'white',
           marginBottom : '100px',
           marginTop    : '50px'
         }}>{data.buttons.evsemanager}</Button>
-        </Link>
+        {/*</Link>*/}
       </Grid>
     </Grid>
     <Grid item md={6} sm={12} xs={12} style={{
@@ -357,9 +363,9 @@ const Invest = () => {
       <Grid item style={{
         marginBottom : isWidthDown('sm', width) ? '50px' : '0px',
       }}>
-        <Link to='/invest' style={{ textDecoration : 'none' }}>
+        {/*<Link to='/invest' style={{ textDecoration : 'none' }}>
           <Button variant='outlined' style={{ color : 'white' }}>{data.buttons.invest}</Button>
-        </Link>
+        </Link>*/}
       </Grid>
     </Grid>
 
@@ -469,7 +475,7 @@ export default function Home() {
     <div style={{ backgroundColor : '#121212' }}>
     <Layout
       title="Werenode Portal"
-      description="Description will go into a meta tag in <head />">
+      description="Official Werenode website">
       <ThemeProvider theme={ theme }>
       <WerenodeHeader />
       <MobileApp />

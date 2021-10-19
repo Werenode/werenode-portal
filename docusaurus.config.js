@@ -3,7 +3,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'My Site',
+  title: 'Official',
   tagline: 'Dinosaurs are cool',
   url: 'https://werenode.github.io',
   baseUrl: '/werenode-portal/',
@@ -36,18 +36,18 @@ module.exports = {
         src: 'img/werenode_logo_no_name_250px.png',
       },
       items: [
-        { to: 'invest', label: 'Invest', position: 'left' },
-        { to: 'myevses', label: 'My EVSEs', position: 'left' },
-        {
+        //{ to: 'invest', label: 'Invest', position: 'left' },
+        //{ to: 'myevses', label: 'My EVSEs', position: 'left' },
+        /*{
           type: 'doc',
           docId: 'intro',
           position: 'left',
           label: 'Technical docs',
-        },
+        },*/
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/Werenode',
-          label: 'GitHub',
+          href: 'https://t.me/joinchat/20948tdORW1hZTlk',
+          label: 'Telegram',
           position: 'right',
         },
       ],
@@ -58,14 +58,14 @@ module.exports = {
         {
           title: 'Services',
           items: [
-            {
+            /*{
               label: 'Invest',
               to: '/invest',
             },
             {
               label: 'My Evses',
               to: '/myevses',
-            },
+            },*/
             {
               label: 'Technical Docs',
               to: '/docs/intro',
@@ -76,16 +76,12 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Telegram',
+              href: 'https://t.me/joinchat/20948tdORW1hZTlk',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/werenode',
             },
           ],
         },
@@ -103,7 +99,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Werenode, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Werenode, Inc.`,
     }
   },
   presets: [
