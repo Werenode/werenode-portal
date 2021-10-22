@@ -6,7 +6,7 @@ module.exports = {
   title: 'Official',
   tagline: 'Dinosaurs are cool',
   url: 'https://werenode.github.io',
-  baseUrl: '/werenode-portal/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
