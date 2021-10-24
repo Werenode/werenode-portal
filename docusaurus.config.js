@@ -36,7 +36,7 @@ module.exports = {
         src: 'img/werenode_logo_no_name_250px.png',
       },
       items: [
-        //{ to: 'invest', label: 'Invest', position: 'left' },
+        { to: 'invest', label: 'Invest', position: 'left' },
         //{ to: 'myevses', label: 'My EVSEs', position: 'left' },
         /*{
           type: 'doc',
@@ -58,10 +58,10 @@ module.exports = {
         {
           title: 'Services',
           items: [
-            /*{
+            {
               label: 'Invest',
               to: '/invest',
-            },
+            }, /*
             {
               label: 'My Evses',
               to: '/myevses',
