@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://werenode.github.io/werenode-portal/blog</id>
-    <title>My Site Blog</title>
+    <id>https://werenode.github.io/blog</id>
+    <title>Official Blog</title>
     <updated>2021-01-11T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://werenode.github.io/werenode-portal/blog"/>
-    <subtitle>My Site Blog</subtitle>
-    <icon>https://werenode.github.io/werenode-portal/img/favicon.ico</icon>
+    <link rel="alternate" href="https://werenode.github.io/blog"/>
+    <subtitle>Official Blog</subtitle>
+    <icon>https://werenode.github.io/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Financing innovation]]></title>
         <id>defiinnovation</id>
-        <link href="https://werenode.github.io/werenode-portal/blog/defiinnovation"/>
+        <link href="https://werenode.github.io/blog/defiinnovation"/>
         <updated>2021-01-11T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Werenode is releasing its draft white paper describing its blockchain financing innovation. This technical document establishes the main principles of a decentralized investment system using Tezos blockchain native mechanisms like baking. This includes the new Continuous Delegation Offering concept combined with a Continuous Security Reward. Additionally, a Decentralized Autonomous Organization is used to overview the token governance.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Werenode's smart contracts go mainnet]]></title>
         <id>gomainnet</id>
-        <link href="https://werenode.github.io/werenode-portal/blog/gomainnet"/>
+        <link href="https://werenode.github.io/blog/gomainnet"/>
         <updated>2020-10-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Werenode is proud to announce that its smart contracts are now entering Tezos' main net. Eager at spurring the development of the EV charging infrastructure, whether public or private, we have designed with our partner Edukera a set of Tezos smart contracts which allows to build an open framework for safe and auditable EV charging payment.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Meet Werenode's POC]]></title>
         <id>meetpoc</id>
-        <link href="https://werenode.github.io/werenode-portal/blog/meetpoc"/>
+        <link href="https://werenode.github.io/blog/meetpoc"/>
         <updated>2020-09-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Werenode's first POC, featuring a blockchain framework built on Tezos smart contracts, allowing to create and manage new EVSE easily and to pay an EV charge with a dedicated cryptocurrency is ready. This will also simplify the implementation of ISO15118 thanks to distributed certificates.]]></summary>
     </entry>
