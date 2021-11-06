@@ -4,7 +4,7 @@ title: Financing innovation
 author: Benoit Maisseu
 author_title: Werenode CEO
 author_url: https://www.linkedin.com/in/benoit-maisseu/
-author_image_url: ../static/img/BM.jpeg
+author_image_url: /img/BM.jpeg
 tags: [whitepaper, tezos]
 ---
 
