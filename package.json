@@ -2,7 +2,7 @@
   "name": "werenode-portal",
   "version": "0.0.0",
   "private": true,
-  "homepage": "http://werenode.github.io/werenode-portal",
+  "homepage": "http://werenode.github.io/werenode-portal/",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.3",
+    "@docusaurus/plugin-google-gtag": "^2.0.0-beta.3",
     "@docusaurus/preset-classic": "2.0.0-beta.3",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",

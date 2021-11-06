@@ -4,8 +4,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Official',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://werenode.github.io',
+  tagline: 'Dinosaurs are dead',
+  url: 'https://werenode.github.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -22,6 +22,12 @@ module.exports = {
     hideableSidebar: false,
     prism: {
       theme: require('./src/theme/prism-archetype-theme'),
+    },
+    gtag: {
+      trackingID: 'G-M4N4RH6CXF',
+      // trackingID: 'G-QLM041KYQW',
+      // Optional fields.
+      anonymizeIP: false, // Should IPs be anonymized?
     },
     colorMode : {
       defaultMode : 'dark',
@@ -108,13 +114,11 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl:
             'https://github.com/Werenode/werenode-portal',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
           editUrl:
             'https://github.com/Werenode/werenode-portal/tree/master/',
         },
