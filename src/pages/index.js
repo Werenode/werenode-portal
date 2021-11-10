@@ -96,6 +96,12 @@ const data = {
       width: '200px',
     },
     {
+      key: 'Systematic',
+      img: 'img/systematic.jpg',
+      url: 'https://systematic-paris-region.org/nouveaux-membres-2021-chapitre-3/',
+      width: '200px',
+    },
+    {
       key: 'Essimo',
       img: 'img/essimo.png',
       url: '',

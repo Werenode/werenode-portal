@@ -17,7 +17,7 @@ const data = {
   taglines: {
     header: 'Join the rEVolution',
     subheader: 'Stay tuned for the upcoming ICO !',
-
+    text1: 'Send email for more info at contact@werenode.com'
   },
   buttons: {
     invest: 'join the community',
@@ -63,6 +63,14 @@ const InvestHeader = () => {
           textAlign: 'center'
         }}>
           <Typography variant="h4" xs={12}>{data.taglines.subheader}</Typography>
+        </Grid>
+        <Grid item style={{
+          marginLeft: '32px',
+          marginRight: '32px',
+          marginBottom: '32px',
+          textAlign: 'center'
+        }}>
+          <Typography xs={12}>{data.taglines.text1}</Typography>
         </Grid>
         <Grid item xs={12} style={{
           margin: '50px',

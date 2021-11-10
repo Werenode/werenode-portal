@@ -25,4 +25,5 @@ Werenode is using a Tezos token called Werecoin, shorten in WRC. The address is 
 
 You can track live transactions here : https://better-call.dev/mainnet/KT1LqEyTQxD2Dsdkk4LME5YGcBqazAwXrg4t/operations
 
-```All other contracts on Tezos or in other Blockchains are not related to us. Beware of scams.``` 
+```All other contracts on Tezos or on other Blockchains are inactive or not related to us. 
+Beware of scams.``` 
