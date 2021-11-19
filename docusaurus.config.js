@@ -52,7 +52,7 @@ module.exports = {
           label: 'Technical docs',
         },*/
         {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/Status', label: 'System Status', position: 'right'},
+        //{to: '/Status', label: 'System Status', position: 'right'},
         {
           href: 'https://t.me/joinchat/20948tdORW1hZTlk',
           label: 'Telegram',

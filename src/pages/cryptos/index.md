@@ -1,4 +1,11 @@
-# Why Cryptos
+---
+title: Cryptos
+---
+
+<h1 
+ style={{color: "var(--ifm-color-primary)"}}>
+Why Cryptos
+</h1>
 
 Interoperability is crucial in the fragmented ecosystem of charging stations. We need a secure and open payment system where other operators can join easily. 
 A public ledger is also required to audit energy use, especially in complex cases like Smart Charge, V2G, Plug&Charge, etc…. When it comes to P2P payments and disintermediation, cryptos are here !
