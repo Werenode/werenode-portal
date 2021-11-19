@@ -44,6 +44,7 @@ module.exports = {
       items: [
         { to: 'cryptos', label: 'Crypto', position: 'left' },
         { to: 'invest', label: 'Invest', position: 'left' },
+        { to: 'hardware', label: 'Hardware', position: 'left' },
         //{ to: 'myevses', label: 'My EVSEs', position: 'left' },
         /*{
           type: 'doc',

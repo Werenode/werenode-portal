@@ -25,11 +25,12 @@ const data = {
     mobile: 'Just plug and charge',
     submobile: 'Connect instantly to any EV supply equipment with your phone. Use fiat, XTZ or WRC tokens to pay your charging session.',
     evsemanager: 'Register your EV charging station',
-    submanager: 'No need to wait for the big players. Help your fellow EV riders and get revenue from it. If you have an accessible connected charging station, you just have to register your EV supply equipment on the Werenode portal.',
-    invest: 'Invest in the future of EV'
+    submanager: 'No need to wait for the big players. Help your fellow EV riders and get revenue from it. If you have an accessible connected charging station, you just have to register your EV supply equipment on the Werenode DApp.',
+    invest: 'Invest in the future of EV',
+    subinvest: 'New possibilities with Werenode : V2G, SmartCharge, ISO 15118, etc... The EV owner can also be paid for plugging !'
   },
   buttons: {
-    invest: 'join the community',
+    invest: 'Invest with the community',
     evsemanager: 'coming soon'
   },
   team: [
@@ -350,6 +351,14 @@ const Invest = () => {
           marginBottom: isWidthDown('sm', width) ? '25px' : '50px',
         }}>
           <Typography variant='h3'>{data.taglines.invest}</Typography>
+        </Grid>
+        <Grid item style={{
+          marginLeft: isWidthDown('sm', width) ? "32px" : "100px",
+          marginRight: isWidthDown('sm', width) ? "32px" : "100px",
+          marginTop: '32px',
+          textAlign: 'center'
+        }}>
+          <Typography variant='h6'>{data.taglines.subinvest}</Typography>
         </Grid>
         <Grid item style={{
           marginBottom: isWidthDown('sm', width) ? '50px' : '0px',
