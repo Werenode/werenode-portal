@@ -173,20 +173,20 @@ const WerenodeHeader = () => {
 
 const Phone = () => {
   return (
-    <div style={{
-      position: 'relative',
-      width: '500px',
-      height: '660px',
-      overflow: 'hidden'
-    }}>
-      <img src={useBaseUrl('img/phone2.png')} style={{ width: '430px', position: 'absolute', top: '-3px', left: '34px' }} />
-      <img src={useBaseUrl('img/app_screen1.jpg')} style={{
-        position: 'absolute',
-        top: '74px',
-        left: '79px',
-        width: '342px',
-      }} />
-    </div>
+      <div style={{
+        position: 'relative',
+        width: '500px',
+        height: '660px',
+        overflow: 'hidden'
+      }}>
+        <img src={useBaseUrl('img/phone2.png')} style={{ width: '430px', position: 'absolute', top: '-3px', left: '34px' }} />
+        <img src={useBaseUrl('img/app_screen1.jpg')} style={{
+          position: 'absolute',
+          top: '74px',
+          left: '79px',
+          width: '342px',
+        }} />
+      </div>
   )
 }
 
@@ -361,6 +361,7 @@ const Invest = () => {
           <Typography variant='h6'>{data.taglines.subinvest}</Typography>
         </Grid>
         <Grid item style={{
+          marginTop: '50px',
           marginBottom: isWidthDown('sm', width) ? '50px' : '0px',
         }}>
           {<Link to='/invest' style={{ textDecoration: 'none' }}>
