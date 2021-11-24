@@ -46,7 +46,6 @@ const InvestHeader = () => {
       backgroundImage: `linear-gradient(${layoutOptions[layout].angle}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${Car})`,
       backgroundSize: 'cover',
       backgroundPosition: isWidthDown('sm', width) ? 'left' : 'left',
-      height: "500px",
       width: "100%"
     }}>
       <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12}>
@@ -84,6 +83,7 @@ const InvestHeader = () => {
 }
 
 export default function Investhome() {
+  const { siteConfig } = useDocusaurusContext();
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -109,11 +109,13 @@ export default function Investhome() {
   const width = useWidth();
   const deg = isWidthDown('sm', width) ? '0' : '225';
   return (
-    <Layout
-      title="Werenode Invest">
-      <ThemeProvider theme={theme}>
-        <InvestHeader />
-      </ThemeProvider>
-    </Layout>
+    <div style={{ backgroundColor: '#121212' }}>
+      <Layout
+        title="Werenode Invest">
+        <ThemeProvider theme={theme}>
+          <InvestHeader />
+        </ThemeProvider>
+      </Layout>
+    </div>
   )
 }

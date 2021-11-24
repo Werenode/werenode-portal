@@ -13,7 +13,7 @@ EV Chargers are rarely OCPP compliant. We have an IoT server to connect to certa
 > You're a manufacturer willing to certify your device ? [contact us](mailto:contact@werenode.com)
 
 ## WIFI plugs
-Yes, also WIFI plugs can also be integrated into Werenode environment. Through our IoT server you can share a simple plug.
+Yes, WIFI plugs can also be integrated into Werenode environment. Through our IoT server you can share a simple plug.
 
 ___
 In this page you will soon find recommandations for brands and models after we've tested their compliance.
