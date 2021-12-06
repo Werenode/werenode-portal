@@ -44,6 +44,7 @@ export function useWidth() {
 
 export function isWidthDown(breakp, width) {
   switch (breakp) {
+    case 'xs' : return (width == 'xs');
     case 'sm' : return (width == 'xs' || width == 'sm');
     case 'md' : return (width == 'md' || width == 'xs' || width == 'sm');
     default : return true

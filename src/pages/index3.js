@@ -25,13 +25,13 @@ const data = {
     mobile: 'Just plug and charge',
     submobile: 'Connect instantly to any EV supply equipment with your phone. Use fiat, XTZ or WRC tokens to pay your charging session.',
     evsemanager: 'Register your EV charging station',
-    submanager: 'No need to wait for the big players. Help your fellow EV riders and get revenue from it. If you have an accessible connected charging station, you just have to register your EV supply equipment in the blockchain with the Werenode DApp.',
+    submanager: 'No need to wait for the big players. Help your fellow EV riders and get revenue from it. If you have an accessible connected charging station, you just have to register your EV supply equipment on the Werenode DApp.',
     invest: 'Invest in the future of EV',
-    subinvest: 'New possibilities with Werenode : V2G, SmartCharge, ISO 15118, etc...'
+    subinvest: 'New possibilities with Werenode : V2G, SmartCharge, ISO 15118, etc... The EV owner can also be paid for plugging !'
   },
   buttons: {
-    invest: 'Join the community',
-    evsemanager: 'Dapp coming soon'
+    invest: 'Invest with the community',
+    evsemanager: 'coming soon'
   },
   team: [
     {
@@ -50,28 +50,28 @@ const data = {
     },
     {
       key: 'Gaëtan Cadéro',
-      title: 'COO Advisor',
+      title: 'COO-CFO',
       role: 'Operation management expert',
       img: 'img/GC.jpeg',
       linkedin: ''
     },
     {
       key: 'François Chiron',
-      title: 'CTO-IT',
+      title: 'CSO',
       role: 'IT & payment expert',
       img: 'img/FCh.png',
       linkedin: ''
     },
     {
       key: 'François Colet',
-      title: 'CTO-EV',
+      title: 'CTO',
       role: 'EV charging expert, ISO15118 co-author',
       img: 'img/FC.jpeg',
       linkedin: ''
     },
     {
       key: 'Benoît Rognier',
-      title: 'Co Founder',
+      title: 'CIO',
       role: 'Deep tech and blockchain expert',
       img: 'img/BR.jpeg',
       linkedin: ''
@@ -173,20 +173,20 @@ const WerenodeHeader = () => {
 
 const Phone = () => {
   return (
-    <div style={{
-      position: 'relative',
-      width: '500px',
-      height: '660px',
-      overflow: 'hidden'
-    }}>
-      <img src={useBaseUrl('img/phone2.png')} style={{ width: '430px', position: 'absolute', top: '-3px', left: '34px' }} />
-      <img src={useBaseUrl('img/app_screen1.jpg')} style={{
-        position: 'absolute',
-        top: '74px',
-        left: '79px',
-        width: '342px',
-      }} />
-    </div>
+      <div style={{
+        position: 'relative',
+        width: '500px',
+        height: '660px',
+        overflow: 'hidden'
+      }}>
+        <img src={useBaseUrl('img/phone2.png')} style={{ width: '430px', position: 'absolute', top: '-3px', left: '34px' }} />
+        <img src={useBaseUrl('img/app_screen1.jpg')} style={{
+          position: 'absolute',
+          top: '74px',
+          left: '79px',
+          width: '342px',
+        }} />
+      </div>
   )
 }
 
@@ -217,9 +217,8 @@ const MobileApp = () => {
     }}>
       <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12} style={{
         height: "660px",
-        overflow: 'hidden'
       }} >
-      <Grid item><Phone /></Grid>
+        <Grid item><Phone /></Grid>
       </Grid>
       <Grid container direction="column" justifyContent="space-between" alignItems="center" item md={4} sm={12} xs={12} style={{
         height: '100%',
@@ -262,14 +261,22 @@ const Labtop = () => {
     <div style={{
       position: 'relative',
       height: '700px',
-      width: '1000px'
+      width: '1500px'
     }}>
-
-      <img src={useBaseUrl('img/mac-mockup2.png')} style={{
+      <div style={{
+        backgroundColor: 'black',
+        position: 'absolute',
+        top: '80px',
+        left: '180px',
+        height: '550px',
+        width: '1500px'
+      }}>
+      </div>
+      <img src={useBaseUrl('img/mac-mockup.png')} style={{
         position: 'absolute',
         top: '64px',
-        right: '0px',
-        height: '600px',
+        left: '79px',
+        height: '600px'
       }} />
 
     </div>
@@ -308,15 +315,14 @@ const EvseManager = () => {
             paddingLeft: '40px',
             paddingRight: '40px',
             color: 'white',
-            marginBottom: '50px',
+            marginBottom: '100px',
             marginTop: '50px'
           }}>{data.buttons.evsemanager}</Button>
           {/*</Link>*/}
         </Grid>
       </Grid>
       <Grid item md={6} sm={12} xs={12} style={{
-        height: isWidthDown('sm', width) ? "500px" : "100%",
-        width: isWidthDown('sm', width) ? "100%" : "100%",
+        height: isWidthDown('sm', width) ? "700px" : "100%",
         overflow: 'hidden'
       }}>
         <Labtop />
@@ -327,15 +333,15 @@ const EvseManager = () => {
 
 const Invest = () => {
   const width = useWidth();
-  const deg = isWidthDown('xs', width) ? '0' : '225';
+  const deg = isWidthDown('sm', width) ? '0' : '225';
   return (
-    <Grid container justifyContent="flex-end" alignItems="flex-start" style={{
+    <Grid container direction={isWidthDown('sm', width) ? "column-reverse" : "row"} justifyContent="flex-end" alignItems="flex-start" style={{
       backgroundImage: `linear-gradient(${deg}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${Car})`,
       backgroundSize: 'cover',
       backgroundPosition: 'left',
       height: "500px",
     }}>
-      <Grid container direction="column" justifyContent={isWidthDown('sm', width) ? "flex-end" : "center"} alignItems="center" item md={6} sm={6} xs={12} style={{
+      <Grid container direction="column" justifyContent={isWidthDown('sm', width) ? "flex-end" : "center"} alignItems="center" item md={6} sm={12} xs={12} style={{
         height: "100%",
       }}>
         <Grid item style={{
@@ -355,8 +361,8 @@ const Invest = () => {
           <Typography variant='h6'>{data.taglines.subinvest}</Typography>
         </Grid>
         <Grid item style={{
-          marginTop: isWidthDown('xs', width) ? "25px" : "50px",
-          marginBottom: isWidthDown('sm', width) ? "32px" : "0px",
+          marginTop: '50px',
+          marginBottom: isWidthDown('sm', width) ? '50px' : '0px',
         }}>
           {<Link to='/invest' style={{ textDecoration: 'none' }}>
             <Button variant='outlined' style={{ color: 'white' }}>{data.buttons.invest}</Button>
@@ -409,7 +415,6 @@ const Team = (props) => {
 
 const Partner = (props) => {
   const width = useWidth();
-  // console.log("wi",isWidthDown('sm', width))
   return (
     <Grid item style={{
       marginBottom: isWidthDown('sm', width) ? "20px" : "0px",
@@ -434,10 +439,9 @@ const Partners = () => {
       <Grid item style={{ marginTop: '15px' }}>
         <Typography variant='subtitle1' style={{ color: 'grey' }}>Partners</Typography>
       </Grid>
-      <Grid item container justifyContent="center" alignItems="center" spacing={2} style={{
+      <Grid item container direction={isWidthDown('sm', width) ? "column" : "row"} justifyContent="center" alignItems="center" spacing={6} style={{
         marginTop: '0px',
-        marginBottom: '0px',
-
+        marginBottom: '25px',
       }}>
         {data.partners.map(partner =>
           <Partner key={partner.key} img={partner.img} width={partner.width} url={partner.url} />
@@ -446,7 +450,7 @@ const Partners = () => {
     </Grid>
   )
 }
-
+ 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const theme = React.useMemo(
