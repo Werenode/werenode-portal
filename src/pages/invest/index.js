@@ -16,11 +16,12 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 const data = {
   taglines: {
     header: 'Join the rEVolution',
-    subheader: 'Stay tuned for the upcoming ICO !',
+    subheader: 'Stay tuned for the upcoming ICO ...',
     text1: 'Send email for more info at contact@werenode.com'
   },
   buttons: {
     invest: 'join the community',
+    lite: 'Download Lite Paper!'
 
   },
 }
@@ -48,12 +49,12 @@ const InvestHeader = () => {
       backgroundPosition: isWidthDown('sm', width) ? 'left' : 'left',
       width: "100%"
     }}>
-      <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12}>
+      <Grid container direction="column" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12}>
         <Grid item style={{
           margin: '50px',
           textAlign: 'center'
         }}>
-          <Typography variant='h3' xs={12}>{data.taglines.header}</Typography>
+          <Typography variant='h3' xs={12} >{data.taglines.header}</Typography>
         </Grid>
         <Grid item style={{
           marginLeft: '32px',
@@ -61,7 +62,16 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Typography variant="h4" xs={12}>{data.taglines.subheader}</Typography>
+            <Button variant='outlined' href='/documents/Werenode_Litepaper_21_12_03.pdf' style={{ color: 'white' }}>{data.buttons.lite}</Button>
+          
+        </Grid>
+        <Grid item style={{
+          marginLeft: '32px',
+          marginRight: '32px',
+          marginBottom: '32px',
+          textAlign: 'center'
+        }}>
+          <Typography variant='h5' xs={12}>{data.taglines.subheader}</Typography>
         </Grid>
         <Grid item style={{
           marginLeft: '32px',

@@ -30,7 +30,7 @@ const data = {
     subinvest: 'New possibilities with Werenode : V2G, SmartCharge, ISO 15118, etc...'
   },
   buttons: {
-    invest: 'Join the community',
+    invest: 'NEW ! LitePaper available',
     evsemanager: 'Dapp coming soon'
   },
   team: [
