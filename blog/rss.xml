@@ -4,9 +4,16 @@
         <title>Werenode Official Website Blog</title>
         <link>https://werenode.github.io/blog</link>
         <description>Werenode Official Website Blog</description>
-        <lastBuildDate>Mon, 11 Jan 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 01 Oct 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Werenode's MVP is live]]></title>
+            <link>https://werenode.github.io/blog/MVPlive</link>
+            <guid>MVPlive</guid>
+            <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Werenode's MVP is live, featuring the first blockchain framework allowing to create and manage the electric vehicles charging infrastructure and to pay an EV charge with a dedicated token: Werecoin.]]></description>
+        </item>
         <item>
             <title><![CDATA[Financing innovation]]></title>
             <link>https://werenode.github.io/blog/defiinnovation</link>
