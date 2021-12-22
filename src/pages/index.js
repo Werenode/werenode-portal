@@ -103,9 +103,9 @@ const data = {
       width: '200px',
     },
     {
-      key: 'Essimo',
-      img: 'img/essimo.png',
-      url: '',
+      key: 'Blockspot',
+      img: 'img/blockspot-light_blue-250x90.png',
+      url: 'https://blockspot.io/coin/werecoin/',
       width: '130px',
     },
     {
