@@ -46,6 +46,7 @@ module.exports = {
         { to: 'invest', label: 'Invest', position: 'left' },
         { to: 'hardware', label: 'Hardware', position: 'left' },
         { to: 'litepaper', label: 'Lite Paper', position: 'left' },
+        { to: 'Registeryourequipment', label: 'Register your equipment', position: 'left' },
         //{ to: 'myevses', label: 'My EVSEs', position: 'left' },
         /*{
           type: 'doc',

@@ -31,7 +31,7 @@ const data = {
   },
   buttons: {
     invest: 'NEW ! LitePaper available',
-    evsemanager: 'Dapp coming soon'
+    evsemanager: 'Beta test opened!'
   },
   team: [
     {
@@ -106,7 +106,7 @@ const data = {
       key: 'Blockspot',
       img: 'img/blockspot-light_blue-250x90.png',
       url: 'https://blockspot.io/coin/werecoin/',
-      width: '130px',
+      width: '200px',
     },
     {
       key: 'Magmet',
@@ -303,7 +303,7 @@ const EvseManager = () => {
           <Typography variant='h6'>{data.taglines.submanager}</Typography>
         </Grid>
         <Grid item>
-          {/*<Link to='myevses' style={{ textDecoration: 'none' }}>*/}
+          <Link to='registeryourequipment' style={{ textDecoration: 'none' }}>
           <Button disabled={true} variant="contained" disableElevation style={{
             paddingLeft: '40px',
             paddingRight: '40px',
@@ -311,7 +311,7 @@ const EvseManager = () => {
             marginBottom: '50px',
             marginTop: '50px'
           }}>{data.buttons.evsemanager}</Button>
-          {/*</Link>*/}
+          </Link>
         </Grid>
       </Grid>
       <Grid item md={6} sm={12} xs={12} style={{
