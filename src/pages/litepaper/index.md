@@ -1,1 +1,0 @@
-# Presenting the project: [Lite Paper](https://werenode.com/documents/Werenode_Litepaper_21_12_03.pdf)

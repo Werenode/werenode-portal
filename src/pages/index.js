@@ -304,7 +304,7 @@ const EvseManager = () => {
         </Grid>
         <Grid item>
           <Link to='registeryourequipment' style={{ textDecoration: 'none' }}>
-          <Button disabled={true} variant="contained" disableElevation style={{
+          <Button variant="contained" disableElevation style={{
             paddingLeft: '40px',
             paddingRight: '40px',
             color: 'white',

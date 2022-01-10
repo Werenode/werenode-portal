@@ -10,7 +10,7 @@ If your wallbox is connected and compatible with the OCPP standard, then that’
 
 ## EV Chargers
 EV Chargers are rarely OCPP compliant. We have an IoT server to connect to certain EV Chargers and we are extending it to be compatible with more and more models.
-> You're a manufacturer willing to certify your device ? [contact us](mailto:contact@werenode.com)
+> You are a manufacturer willing to certify your device ? [contact us](mailto:contact@werenode.com)
 
 ## WIFI plugs
 Yes, WIFI plugs can also be integrated into Werenode environment. Through our IoT server you can share a simple plug.
