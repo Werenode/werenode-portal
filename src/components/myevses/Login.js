@@ -43,7 +43,7 @@ const ConnectWallet = (props) => {
   const connect= useConnect();
   const handleClick = React.useCallback(async () => {
     try {
-      await connect('florencenet');
+      await connect('hangzhounet');
     } catch (err) {
       alert(err.message);
     };
