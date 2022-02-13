@@ -31,3 +31,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .h1 {
   color: #00B2A6;
 }
+
+react-pdf__Document {
+  margin-top: 30px;
+}

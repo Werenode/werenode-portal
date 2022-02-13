@@ -30,7 +30,7 @@ const data = {
     subinvest: 'New possibilities with Werenode : V2G, SmartCharge, ISO 15118, etc...'
   },
   buttons: {
-    invest: 'NEW ! LitePaper available',
+    invest: 'Tokenomics and more',
     evsemanager: 'Beta test opened!'
   },
   team: [
@@ -49,13 +49,6 @@ const data = {
       linkedin: ''
     },
     {
-      key: 'Gaëtan Cadéro',
-      title: 'COO Advisor',
-      role: 'Operation management expert',
-      img: 'img/GC.jpeg',
-      linkedin: ''
-    },
-    {
       key: 'François Chiron',
       title: 'CTO-IT',
       role: 'IT & payment expert',
@@ -67,6 +60,13 @@ const data = {
       title: 'CTO-EV',
       role: 'EV charging expert, ISO15118 co-author',
       img: 'img/FC.jpeg',
+      linkedin: ''
+    },
+    {
+      key: 'Gaëtan Cadéro',
+      title: 'COO Advisor',
+      role: 'Operation management expert',
+      img: 'img/GC.jpeg',
       linkedin: ''
     },
     {
@@ -121,7 +121,7 @@ const data = {
       width: '250px',
     },
   ]
-}
+} 
 
 const layoutOptions = {
   right: {
@@ -165,6 +165,19 @@ const WerenodeHeader = () => {
           textAlign: 'center'
         }}>
           <Typography variant="h6" xs={12}>{data.taglines.subheader}</Typography>
+
+          {<Link to='https://werecoin.com' style={{ textDecoration: 'none' }}>
+            <Button variant="contained" disableElevation style={{
+              paddingLeft: '40px',
+              paddingRight: '40px',
+              color: 'white',
+              marginBottom: '50px',
+              marginTop: '50px'
+            }}>{"Join our Token Sale now !"}</Button>
+
+
+          </Link>}
+
         </Grid>
       </Grid>
     </Grid>
@@ -219,7 +232,7 @@ const MobileApp = () => {
         height: "660px",
         overflow: 'hidden'
       }} >
-      <Grid item><Phone /></Grid>
+        <Grid item><Phone /></Grid>
       </Grid>
       <Grid container direction="column" justifyContent="space-between" alignItems="center" item md={4} sm={12} xs={12} style={{
         height: '100%',
@@ -304,13 +317,13 @@ const EvseManager = () => {
         </Grid>
         <Grid item>
           <Link to='registeryourequipment' style={{ textDecoration: 'none' }}>
-          <Button variant="contained" disableElevation style={{
-            paddingLeft: '40px',
-            paddingRight: '40px',
-            color: 'white',
-            marginBottom: '50px',
-            marginTop: '50px'
-          }}>{data.buttons.evsemanager}</Button>
+            <Button variant="contained" disableElevation style={{
+              paddingLeft: '40px',
+              paddingRight: '40px',
+              color: 'white',
+              marginBottom: '50px',
+              marginTop: '50px'
+            }}>{data.buttons.evsemanager}</Button>
           </Link>
         </Grid>
       </Grid>
@@ -475,9 +488,9 @@ export default function Home() {
         description="Official Werenode website">
         <ThemeProvider theme={theme}>
           <WerenodeHeader />
-          <MobileApp />
-          <EvseManager />
           <Invest />
+          <EvseManager />
+          <MobileApp />
           {/*<HomepageFeatures />*/}
           <Team />
           <Partners />

@@ -7,17 +7,22 @@ import HomepageFeatures from '../../components/features/HomepageFeatures';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Map from '../../../static/img/home_bg1.jpeg';
-import Plug from '../../../static/img/shutterstock_1859956345.jpeg';
 import React from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+import litepdf from '/documents/Werenode_Litepaper_21_12_03.pdf'
+
+import { Document, Page, pdfjs, Outline } from "react-pdf/";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+
 const data = {
   taglines: {
     header: 'Join the rEVolution',
-    subheader: 'Stay tuned for the upcoming ICO ...',
-    text1: 'Send email for more info at contact@werenode.com'
+    subheader: 'The ICO is running!',
+    text1: 'Tokenomics from our <a href="https://uqsd.cdo"> litepaper : </a> '
   },
   buttons: {
     invest: 'join the community',
@@ -41,8 +46,9 @@ const layout = 'left'
 
 const InvestHeader = () => {
   const width = useWidth();
+  const pdf_w = 1000
   return (
-    <Grid container direction={layoutOptions[layout].direction} justifyContent="flex-start" alignItems="flex-start" style={{
+    <Grid container direction={layoutOptions[layout].direction} style={{
       minHeight: isWidthDown('md', width) ? "600px" : "500px",
       backgroundImage: `linear-gradient(${layoutOptions[layout].angle}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${Car})`,
       backgroundSize: 'cover',
@@ -56,15 +62,7 @@ const InvestHeader = () => {
         }}>
           <Typography variant='h3' xs={12} >{data.taglines.header}</Typography>
         </Grid>
-        <Grid item style={{
-          marginLeft: '32px',
-          marginRight: '32px',
-          marginBottom: '32px',
-          textAlign: 'center'
-        }}>
-            <Button variant='outlined' href='/documents/Werenode_Litepaper_21_12_03.pdf' style={{ color: 'white' }}>{data.buttons.lite}</Button>
-          
-        </Grid>
+
         <Grid item style={{
           marginLeft: '32px',
           marginRight: '32px',
@@ -72,6 +70,7 @@ const InvestHeader = () => {
           textAlign: 'center'
         }}>
           <Typography variant='h5' xs={12}>{data.taglines.subheader}</Typography>
+
         </Grid>
         <Grid item style={{
           marginLeft: '32px',
@@ -79,13 +78,25 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Typography xs={12}>{data.taglines.text1}</Typography>
+          <Button variant='outlined' href='https://exchange.werecoin.com/#/register' style={{ color: 'white' }}>Register here</Button>
         </Grid>
-        <Grid item xs={12} style={{
-          margin: '50px',
+
+        <Grid item style={{
+          marginLeft: '32px',
+          marginRight: '32px',
+          marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <img src={useBaseUrl('img/werenode_logo_text_250px.png')} style={{ width: '350px' }} />
+          <p xs={12} style={{ marginBottom: '32px' }}>
+            From our <a href="./documents/Werenode_Litepaper_21_12_03.pdf"> litepaper : </a>
+          </p>
+
+          <Document file='/documents/Werenode_Litepaper_21_12_03.pdf' >
+            <Page pageNumber={8} width='800' scale='1'  />
+            <hr/>
+            <Page pageNumber={9} width='800' scale='1' />
+          </Document>
+
         </Grid>
       </Grid>
     </Grid>
@@ -116,14 +127,15 @@ export default function Investhome() {
       }),
     [true],
   );
-  const width = useWidth();
-  const deg = isWidthDown('sm', width) ? '0' : '225';
+  // const width = useWidth();
+  // const deg = isWidthDown('sm', width) ? '0' : '225';
   return (
     <div style={{ backgroundColor: '#121212' }}>
       <Layout
         title="Werenode Invest">
         <ThemeProvider theme={theme}>
           <InvestHeader />
+
         </ThemeProvider>
       </Layout>
     </div>
