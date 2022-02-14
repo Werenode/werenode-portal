@@ -121,7 +121,7 @@ const data = {
       width: '250px',
     },
   ]
-} 
+}
 
 const layoutOptions = {
   right: {
@@ -165,7 +165,7 @@ const WerenodeHeader = () => {
           textAlign: 'center'
         }}>
           <Typography variant="h6" xs={12}>{data.taglines.subheader}</Typography>
-
+          
           {<Link to='https://werecoin.com' style={{ textDecoration: 'none' }}>
             <Button variant="contained" disableElevation style={{
               paddingLeft: '40px',
