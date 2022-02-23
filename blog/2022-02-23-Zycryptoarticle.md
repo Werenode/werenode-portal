@@ -10,4 +10,4 @@ tags: [article, werecoin]
 
 Zycrypto covers Werenode's offering of Werecoins.
 
-<iframe width="100%" height="416px" src="https://zycrypto.com/werenode-has-launched-the-ico-of-wrc-token-on-14th-february-2022/" title="Zycrypto article" frameborder="0" </iframe>
+<iframe width="100%" height="416px" src="https://zycrypto.com/werenode-has-launched-the-ico-of-wrc-token-on-14th-february-2022/" title="Zycrypto article" frameborder="0"> </iframe>
