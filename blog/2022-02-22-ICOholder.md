@@ -10,5 +10,5 @@ tags: [listing, werecoin]
 
 import Link from '@docusaurus/Link';
 
-<Link to='https://icoholder.com/en/werenode-1015060/'>Werecoin Offering</Link> is listed onICOholder.
+<Link to='https://icoholder.com/en/werenode-1015060/'>Werecoin Offering</Link> is listed on ICOholder.
 
