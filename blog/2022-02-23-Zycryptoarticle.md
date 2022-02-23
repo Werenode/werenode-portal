@@ -11,5 +11,3 @@ tags: [article, werecoin]
 import Link from '@docusaurus/Link';
 
 A new <Link to='https://zycrypto.com/werenode-has-launched-the-ico-of-wrc-token-on-14th-february-2022/'>article</Link> on Zycrypto covers Werenode's offering of Werecoins.
-
-<img width="75%" align="center" src="photo_2022-02-10_14-06-18.jpg"> </img>
