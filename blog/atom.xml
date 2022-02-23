@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://werenode.github.io/blog</id>
     <title>Werenode Official Website Blog</title>
-    <updated>2021-10-01T00:00:00.000Z</updated>
+    <updated>2022-02-23T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://werenode.github.io/blog"/>
     <subtitle>Werenode Official Website Blog</subtitle>
     <icon>https://werenode.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Zycrypto article about Werecoin]]></title>
+        <id>Zycrypto article</id>
+        <link href="https://werenode.github.io/blog/Zycrypto article"/>
+        <updated>2022-02-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Zycrypto covers Werenode's offering of Werecoins.]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Werenode's MVP is live]]></title>
         <id>MVPlive</id>
