@@ -5,7 +5,7 @@ author: Benoit Maisseu
 author_title: Werenode CEO
 author_url: https://www.linkedin.com/in/benoit-maisseu/
 author_image_url: /img/BM.jpeg
-tags: [article, werecoin]
+tags: [reddit, tezos, werenode]
 ---
 
 import Link from '@docusaurus/Link';
