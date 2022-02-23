@@ -5,7 +5,7 @@ author: Benoit Maisseu
 author_title: Werenode CEO
 author_url: https://www.linkedin.com/in/benoit-maisseu/
 author_image_url: /img/BM.jpeg
-tags: [MVP, video]
+tags: [article, werecoin]
 ---
 
 Zycrypto covers Werenode's offering of Werecoins.
