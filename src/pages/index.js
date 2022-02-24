@@ -31,47 +31,47 @@ const data = {
   },
   buttons: {
     invest: 'Tokenomics and more',
-    evsemanager: 'Beta test opened!'
+    evsemanager: 'Beta test open!'
   },
   team: [
     {
       key: 'Benoît Maïsseu',
-      title: 'CEO',
+      title: 'CEO - Co-founder',
       role: 'EV ecosystem expert',
       img: 'img/BM.jpeg',
       linkedin: ''
     },
     {
       key: 'Nadiya Khokhryakova',
-      title: 'Co founder',
+      title: 'President - Co-founder',
       role: 'Entrepreneur',
       img: 'img/MM.png',
       linkedin: ''
     },
     {
       key: 'François Chiron',
-      title: 'CTO-IT',
+      title: 'CTO-IT - Co-founder',
       role: 'IT & payment expert',
       img: 'img/FCh.png',
       linkedin: ''
     },
     {
       key: 'François Colet',
-      title: 'CTO-EV',
+      title: 'CTO-EV - Co-founder',
       role: 'EV charging expert, ISO15118 co-author',
       img: 'img/FC.jpeg',
       linkedin: ''
     },
     {
       key: 'Gaëtan Cadéro',
-      title: 'COO Advisor',
+      title: 'Advisor - Co-founder',
       role: 'Operation management expert',
       img: 'img/GC.jpeg',
       linkedin: ''
     },
     {
       key: 'Benoît Rognier',
-      title: 'Co Founder',
+      title: 'CBO - Co-founder',
       role: 'Deep tech and blockchain expert',
       img: 'img/BR.jpeg',
       linkedin: ''
