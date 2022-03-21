@@ -31,7 +31,12 @@ export function useEVSEs() {
             .map((ev,idx) => ({id: evsesIdTab.evses[idx], data: ev}))
             .filter(newEv => newEv.data.evse_owner === ownerAddress)
             .map(newEv => {
-              const data = JSON.parse(bytes2Char(newEv.data.evse_data));
+              let data;
+              try{
+                data = JSON.parse(bytes2Char(newEv.data.evse_data));
+              }catch (e){
+                data = {};
+              }
               return {
                 id: newEv.id,
                 setting: {
