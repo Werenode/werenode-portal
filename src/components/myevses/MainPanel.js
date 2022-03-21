@@ -90,11 +90,11 @@ const StyledDivider = styled(Divider)({
 const LoggedAs = (props) => {
   const phk = useAccountPkh();
   const { evses } = getEVSEs();
-  var title = '';
+  let title;
   if (props.panel >= getEVSEPanelIdx(0)) {
     const panel = getEVSEIdfromPanelIdx(props.panel);
     title = evses.data[panel].id;
-  } else if (props.panel == -1) {
+  } else if (props.panel === -1) {
     title = 'Add EVSE(s)'
   }
   else {
@@ -147,7 +147,7 @@ export default function MainPanel(props) {
       }
     }
   };
-  const handleOpen = (id) => (e) => {
+  const handleOpen = (id) => () => {
     switch(id) {
       case EVSEsIdx :
       if (openevses) {
@@ -157,18 +157,18 @@ export default function MainPanel(props) {
         if (!open) {
           setOpen(true);
         }
-      }; break;
+      } break;
       default : setPanel(id);
     }
   };
   const isSelected = (id) => {
     if (openevses) {
-      return panel == id;
+      return panel === id;
     } else {
       if (panel >= getEVSEPanelIdx(0)) {
-        return EVSEsIdx == id;
+        return EVSEsIdx === id;
       } else {
-        return panel == id;
+        return panel === id;
       }
     }
   }
@@ -194,14 +194,14 @@ export default function MainPanel(props) {
               <ListItem button key={x.title} onClick={handleOpen(x.id)} selected={isSelected(x.id)}>
                 <ListItemIcon >{x.icon}</ListItemIcon>
                 <ListItemText primary={x.title} />
-                { x.title == EVSEsTitle ? (openevses ? <ExpandLess /> : <ExpandMore />) : null }
+                { x.title === EVSEsTitle ? (openevses ? <ExpandLess /> : <ExpandMore />) : null }
               </ListItem>;
             switch(x.title) {
               case EVSEsTitle :
               const evseitems = evses.data.map((x, id) => {
                 const evseid = getEVSEPanelIdx(id);
                 return (
-                  <ListItem key={evseid} button style={{ paddingLeft: theme.spacing(4) }} selected={panel == evseid} onClick={handleOpen(evseid)}>
+                  <ListItem key={evseid} button style={{ paddingLeft: theme.spacing(4) }} selected={panel === evseid} onClick={handleOpen(evseid)}>
                     <ListItemText primary={x.id} />
                   </ListItem>)
               });

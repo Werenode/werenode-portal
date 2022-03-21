@@ -51,7 +51,7 @@ export const EvseSelect = (props) => {
   const { data, setData } = getWizard();
   function handleChange(e) {
     setData(d => { d[props.identifier] = e.target.value; return { ...d, edition : true } })
-  };
+  }
   function getValue () {
     if (props.getValue !== undefined) {
       return props.getValue;
@@ -62,7 +62,7 @@ export const EvseSelect = (props) => {
   return (
     <WithHelp identifier={props.identifier} element={
       <StyledFormControl style={{ width : '100%' }}>
-      <InputLabel >{inputdata[props.identifier].label}</InputLabel>
+      <InputLabel>{inputdata[props.identifier].label}</InputLabel>
       <StyledSelect
         id={ "evses" + props.identifier + props.extraid }
         label={inputdata[props.identifier].label}
@@ -82,21 +82,21 @@ export const EvseTextField = (props) => {
   const { data, setData } = getWizard();
   function handleChange(e) {
     setData(d => { d[props.identifier] = e.target.value; return { ...d, edition : true } })
-  };
+  }
   const isInvalid = () => {
-    var val = undefined;
+    let val;
     if (props.getValue !== undefined) {
       val = props.getValue
     } else {
       val = data[props.identifier]
-    };
-    var invalid = false;
+    }
+    let invalid = false;
     if (props.isError !== undefined) {
       if (props.isError(val)) {
         invalid = true;
       }
     }
-    return val == undefined || val == "" || invalid;
+    return val === undefined || val === "" || invalid;
   }
   const isError = data.showerrors ? isInvalid() : false;
   return (

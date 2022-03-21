@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
-import { Paper, Box, Card, CardContent, CardActions } from '@material-ui/core';
+import { Paper, Card, CardContent, CardActions } from '@material-ui/core';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -11,7 +11,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import { getEVSEs } from './constate/evses';
 import { getPanels } from './constate/panels';
 import { getWizard, isValidAddress } from './constate/wizard';
-import { useAccountPkh } from './constate/dapp';
+import {useAccountPkh, useTezos} from './constate/dapp';
 import { getSelect } from './constate/select';
 
 import { useTheme } from '@material-ui/core/styles';
@@ -36,6 +36,8 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { getSettings } from './constate/settings';
+import Gps from "./Gps";
+import {Evse, EVSE_MANAGER_ADDRESS} from "../../utils/evse-smart-contract";
 
 function useWidth() {
   const theme = useTheme();
@@ -51,8 +53,8 @@ function useWidth() {
 
 function isWidthDown(breakp, width) {
   switch (breakp) {
-    case 'xs' : return (width == 'xs');
-    case 'sm' : return (width == 'xs' || width == 'sm');
+    case 'xs' : return (width === 'xs');
+    case 'sm' : return (width === 'xs' || width === 'sm');
     default : return true
   }
 }
@@ -109,8 +111,15 @@ const useStyles = makeStyles({
 
 const FreeUsers = (props) => {
   const classes = useStyles();
-  const { setOpenAddAddress, setAddFreeUsers } = getWizard();
+  const pkh = useAccountPkh();
+  const { setOpenAddAddress, setAddFreeUsers, setData} = getWizard();
   const theme = useTheme();
+  React.useEffect(() => {
+    if (!props.freeusers.includes(pkh)) {
+      const newFreeUsers = props.freeusers.push(pkh);
+      setData(d => { return { ...d, freeusers : newFreeUsers } });
+    }
+  }, []);
   const handleDelete = v => () => {
     props.rmFreeUser(v);
   }
@@ -141,20 +150,20 @@ const FreeUsers = (props) => {
   )
 }
 
-const OtherSettings = (props) => {
+const OtherSettings = () => {
   const classes = useStyles();
   const { data, setData } = getWizard();
   const addFreeUser = (a) => { setData(d => {
-    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a).concat([a]) }
+    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x !== a).concat([a]) }
   }) };
   const rmFreeUser = (a) => { setData(d => {
-    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x != a) }
+    return { ...d, edition : true, freeusers : d.freeusers.filter(x => x !== a) }
   }) };
   return (
     <Grid container direction="column" >
       <Grid item className={ classes.panel }>
         <FreeUsers freeusers={data.freeusers} addFreeUser={addFreeUser} rmFreeUser={rmFreeUser} />
-        </Grid>
+      </Grid>
     </Grid>
   )
 }
@@ -210,17 +219,17 @@ const Connectors = () => {
       price    : d.price,
       currency : d.currency
     };
-    if (d.connectoredit == -1) {
+    if (d.connectoredit === -1) {
       return { ...d, edition : true, connectors : d.connectors.concat([c]) };
     } else {
       return { ...d, edition : true, connectoredit : -1, connectors : d.connectors.map(x => {
-        if (x.index == d.connectoredit) {
+        if (x.index === d.connectoredit) {
           return c;
         } else return x
       })}
     }
   })};
-  const isInvalidIndex = (v) => (data.connectors.map(x => x.index).indexOf(parseInt(v)) != -1);
+  const isInvalidIndex = (v) => (data.connectors.map(x => x.index).indexOf(parseInt(v)) !== -1);
   const handleClick = () => { setOpen(true); setAddConnector(addConnector); setIsInvalidIndex(isInvalidIndex) };
   const theme = useTheme();
   return (
@@ -259,14 +268,14 @@ const RPCGETSupervisionSettings = (props) => {
   const { settings, setSettings } = getSettings();
   const setOn = (e) => {
     setSettings(s => s.map((x,i) => {
-      if (i == props.index) {
+      if (i === props.index) {
         return { ...x, supervision : { ...x.supervision, switchon : e.target.value }}
       } else return x;
     }))
   };
   const setOff = (e) => {
     setSettings(s => s.map((x,i) => {
-      if (i == props.index) {
+      if (i === props.index) {
         return { ...x, supervision : { ...x.supervision, switchoff : e.target.value }}
       } else return x;
     }))
@@ -309,7 +318,7 @@ const RPCGETSupervision = () => {
   )
 }
 
-const Supervision = (props) => {
+const Supervision = () => {
   const classes = useStyles();
   const { data, setSupervision } = getWizard();
   const handleSupervision = e => {
@@ -330,7 +339,7 @@ const Supervision = (props) => {
             <EvseSelect identifier="supervision" handleChange={handleSupervision} getValue={data.supervision.type}/>
           </Grid>
           {
-            data.supervision.type == 'werenoderpcget' ? <RPCGETSupervision /> : null
+            data.supervision.type === 'werenoderpcget' ? <RPCGETSupervision /> : null
           }
         </Grid>
       </Grid>
@@ -338,7 +347,7 @@ const Supervision = (props) => {
   )
 }
 
-const General = (props) => {
+const General = () => {
   const classes = useStyles();
   const { data, setData, setNb, setId } = getWizard();
   const pkh = useAccountPkh();
@@ -382,23 +391,20 @@ const General = (props) => {
   )
 }
 
-const DefaultPanel = () => {
-  return <Box style={{ height : '200px' }} />
-}
-
 const EVSESettings = (props) => {
   const classes = useStyles();
   const [ expanded, setExpanded ] = React.useState(false);
   const { settings, setSettings, setSetting } = getSettings();
   const { setOpen, setData, setAddConnector, setIsInvalidIndex } = getWizard();
   const { evses } = getEVSEs();
+
   const isIndexError = (v) => {
     return evses.data.map(x => x.id).indexOf(v) !== -1;
   }
   const handleSupervision = (e) => {
     setSettings(s => s.map((x,i) => {
-      if (i == props.index) {
-        if (e.target.value == 'werenoderpcget') {
+      if (i === props.index) {
+        if (e.target.value === 'werenoderpcget') {
           return { ...x, supervision : { type : e.target.value, switchon : "", switchoff : ""  } }
         } else return { ...x, supervision : { ...x.supervision, type : e.target.value } }
       } else {
@@ -411,14 +417,14 @@ const EVSESettings = (props) => {
   };
   const rmConnector = (i) => () => {
     setSettings(s => s.map((x,idx) => {
-      if (idx == props.index) {
-        return { ...x, connectors : x.connectors.filter((_,j) => j != i) }
+      if (idx === props.index) {
+        return { ...x, connectors : x.connectors.filter((_,j) => j !== i) }
       } else return x;
     }))
   };
   const addConnector = (d) => {
     setSettings(s => s.map((x,idx) => {
-      if (idx == props.index) {
+      if (idx === props.index) {
         const c = {
           index    : parseInt(d.index),
           mode     : d.connectormode,
@@ -427,11 +433,11 @@ const EVSESettings = (props) => {
           price    : d.price,
           currency : d.currency
         };
-        if (d.connectoredit == -1) {
+        if (d.connectoredit === -1) {
           return { ...x, connectors : x.connectors.concat([c]) }
         } else {
           return { ...x, connectors : x.connectors.map(x => {
-            if (x.index == d.connectoredit) {
+            if (x.index === d.connectoredit) {
               return c;
             } else return x
           })}
@@ -442,7 +448,7 @@ const EVSESettings = (props) => {
   };
   const editConnector = (i) => () => {
     setAddConnector(addConnector);
-    const c = settings[props.index].connectors.find(x => x.index == i);
+    const c = settings[props.index].connectors.find(x => x.index === i);
     setData(d => ({ ...d,
       edition  : true,
       open     : true,
@@ -454,16 +460,16 @@ const EVSESettings = (props) => {
       price    : c.price,
       currency : c.currency }));
   };
-  const isInvalidIndex = (v) => (settings[props.index].connectors.map(x => x.index).indexOf(parseInt(v)) != -1);
+  const isInvalidIndex = (v) => (settings[props.index].connectors.map(x => x.index).indexOf(parseInt(v)) !== -1);
   const handleAddConnector = () => { setOpen(true); setAddConnector(addConnector); setIsInvalidIndex(isInvalidIndex) };
   const addFreeUser = (a) => { setSettings(s => s.map((x,idx) => {
-    if (idx == props.index) {
-      return { ...x, freeusers : x.freeusers.filter(x => x != a).concat([a]) }
+    if (idx === props.index) {
+      return { ...x, freeusers : x.freeusers.filter(x => x !== a).concat([a]) }
     } else return x
   }))};
   const rmFreeUser = (a) => { setSettings(s => s.map((x,idx) => {
-    if (idx == props.index) {
-      return { ...x, freeusers : x.freeusers.filter(x => x != a) }
+    if (idx === props.index) {
+      return { ...x, freeusers : x.freeusers.filter(x => x !== a) }
     } else return x
   }))};
   return (
@@ -479,13 +485,19 @@ const EVSESettings = (props) => {
         />
       </Grid>
       <Grid item md={6} sm={12} xs={12}>
-        <EvseTextField
+        {/* <EvseTextField
           identifier="gps"
           extraid={props.index}
           getValue={settings[props.index].gps}
           handleChange={e => setSetting(props.index)("gps")(e.target.value)}
           isError={v => v == ""}
           errorText="Invalid GPS value"
+        />*/}
+        <Gps
+            identifier="gps"
+            extraid={props.index}
+            isError={v => v === ""}
+            errorText="Invalid GPS value"
         />
       </Grid>
       <Grid item xs={12} style={{ marginBottom : '1px' }}>
@@ -514,7 +526,7 @@ const EVSESettings = (props) => {
                         handleChange={handleSupervision} getValue={settings[props.index].supervision.type}/>
                     </Grid>
                     {
-                      settings[props.index].supervision.type == 'werenoderpcget' ?
+                      settings[props.index].supervision.type === 'werenoderpcget' ?
                         <RPCGETSupervisionSettings index={props.index}/> : null
                     }
                   </Grid>
@@ -534,7 +546,7 @@ const EVSESettings = (props) => {
                   <Button onClick={ handleAddConnector }>add connector</Button>
                 </Grid>
                 <Grid item xs={12} style={{ paddingRight : "32px", marginBottom : "32px" }}>
-                  <FreeUsers freeusers={settings[props.index].freeusers} addFreeUser={addFreeUser} rmFreeUser={rmFreeUser} />
+                   <FreeUsers freeusers={settings[props.index].freeusers} addFreeUser={addFreeUser} rmFreeUser={rmFreeUser} />
                 </Grid>
               </Grid>
             </AccordionDetails>
@@ -561,14 +573,20 @@ const EditSettings = () => {
 }
 
 const Validate = () => {
+  const {evses} = getEVSEs();
+  const byteSize = () => {
+    return new Blob([JSON.stringify(evses.data)]).size;
+  }
   return (
     <Grid container direction="row" justifyContent="flex-start" alignContent="center" spacing={1} style={{ padding : '32px' }}>
       <Grid item xs={12}>
-        <Typography>Data size : 0 bytes</Typography>
+        <Typography>Data size : {byteSize()} bytes</Typography>
       </Grid>
+      {/*
+      //Already visible on temple wallet
       <Grid item xs={12}>
         <Typography>Cost estimation : 0 XTZ</Typography>
-      </Grid>
+      </Grid>*/}
     </Grid>
   )
 }
@@ -623,14 +641,14 @@ const Buttons = (props) => {
           <Button
             size="small"
             disableElevation
-            disabled={props.wizardPanelIdx == 0}
+            disabled={props.wizardPanelIdx === 0}
             variant="text"
             onClick={handlePrevious}
           >Previous</Button>
         </Grid>
         <Grid item >
           <Button size="small" disableElevation variant="contained" onClick={props.handleClick}>{
-            props.wizardPanelIdx == wizardPanels.length - 1 ? "ok" : "next"
+            props.wizardPanelIdx === wizardPanels.length - 1 ? "ok" : "next"
           }</Button>
         </Grid>
       </Grid>
@@ -641,53 +659,88 @@ const Buttons = (props) => {
 const Wizard = (props) => {
   const classes = useStyles();
   const [ wizardPanelIdx, setWizardPanel ] = React.useState(0);
-  const { data, setShowErrors, setEdit } = getWizard();
+  const { data, setShowErrors, setEdit, setData, setShowMessageBox } = getWizard();
   const { createSettings } = getSettings();
-  const { evses, setEvses } = getEVSEs();
+  const { evses, setEvses, addEvse, updateEvse } = getEVSEs();
   const { settings } = getSettings();
   const { setPanel } = getPanels();
   const { selected, setSelect, setSelected } = getSelect();
+  const tezos = useTezos();
+  const pkh = useAccountPkh();
+
+  React.useEffect(() => {
+    if(!data.edit) return;
+    setData(d => { return { ...d, owner : pkh, id: settings[0].id} });
+    console.log(`data edition`);
+  }, [])
   const isInvalid = () => {
-    if (wizardPanelIdx == wizardPanels.length - 6) {
-      return (data.id == "" || !isValidAddress(data.owner));
-    } else if (wizardPanelIdx == wizardPanels.length - 5) {
-      if (data.supervision.type == 'werenoderpcget') {
+    if (wizardPanelIdx === wizardPanels.length - 6) {
+      return (data.id === "" || !isValidAddress(data.owner));
+    } else if (wizardPanelIdx === wizardPanels.length - 5) {
+      if (data.supervision.type === 'werenoderpcget') {
+        console.log(`supervision ${typeof data.supervision.type}`);
         return (
-          data.supervision.switchon == undefined ||
-          data.supervision.switchoff == undefined
+          data.supervision.switchon === undefined ||
+          data.supervision.switchoff === undefined
         )
       } else return false;
-    } else if (wizardPanelIdx == wizardPanels.length - 4) {
-      return (data.connectors.length == 0);
-    } else if (wizardPanelIdx == wizardPanels.length - 2) {
-      return settings.reduce((test,x) => (test || x.gps == ""), false);
+    } else if (wizardPanelIdx === wizardPanels.length - 4) {
+      return (data.connectors.length === 0);
+    } else if (wizardPanelIdx === wizardPanels.length - 2) {
+      return settings.reduce((test,x) => (test || x.gps === ""), false);
     } else return false;
   }
   const handleClick = () => {
-    if (wizardPanelIdx == getWizardPanels(data.edit).length - 1) {
-      if (data.edit) {
-        var k = 0;
-        var newevses = [];
-        for (let i=0; i < evses.data.length; i++) {
-          const x = evses.data[i];
-          if (selected.indexOf(x.id) !== -1) {
-            // replace with settings[k]
-            newevses = newevses.concat([{ key : settings[k].id, id : settings[k].id, revenue : 0, setting : settings[k]}]);
-            k++;
-          } else
-            newevses = newevses.concat([x]);
+    if (wizardPanelIdx === getWizardPanels(data.edit).length - 1) {
+      if(data.edit){
+        console.log('updated');
+        const updateEvseOnBlockChain = async () => {
+          try{
+            setShowMessageBox(true);
+            await updateEvse(tezos, new Evse(
+                settings[0].id, EVSE_MANAGER_ADDRESS,
+                pkh, 0, {
+                  supervision: settings[0].supervision,
+                  connectors: settings[0].connectors,
+                  gps: settings[0].gps,
+                }));
+            setEvses(e => ({...e, shouldLoadData: true}));
+            setShowMessageBox(false);
+          }catch (e){
+            alert(`An error occurs while updating ${e.message}`);
+            setShowMessageBox(false);
+            setEvses(e => ({...e, shouldLoadData: true}));
+          }
         }
-        setEvses(e => { return { ...e, data : newevses }; });
-      } else {
-        const newevses = settings.map((x,i) => {
-          return { key : x.id, id : x.id, revenue : 0, setting : { ...x } };
-        });
-        let services = {};
-        let types = [];
-        newevses[0].setting.connectors.forEach((connector) => {
-          types.push(connector.type);
-          services[connector.power] = parseInt((connector.price/60)*1000000);
-        });
+        updateEvseOnBlockChain();
+      }
+      else{
+        console.log(`Added`);
+        const addEvseOnBlockChain = async () => {
+          try{
+            setShowMessageBox(true);
+            await addEvse(tezos, new Evse(settings[0].id, EVSE_MANAGER_ADDRESS,
+                pkh, 0, {
+                  supervision: settings[0].supervision,
+                  connectors: settings[0].connectors,
+                  location: settings[0].gps,
+                }));
+            setEvses(e => ({...e, shouldLoadData: true}));
+            setShowMessageBox(false);
+          }catch (e){
+            alert(`An error occurs while adding ${e.message}`);
+            setShowMessageBox(false);
+            setEvses(e => ({...e, shouldLoadData: true}));
+          }
+        }
+        addEvseOnBlockChain();
+      }
+      setPanel(0);
+      setEdit(false);
+      setSelected(-1);
+      setSelect(false);
+      /*
+      //What does it mean ????
         fetch("https://us-central1-werenode-37b0a.cloudfunctions.net/addPlug", {
           'method': 'POST',
           'headers': {
@@ -695,17 +748,11 @@ const Wizard = (props) => {
             'Content-Type': 'application/json'
           },
           'body': JSON.stringify({services: services, types: types, id: newevses[0].id.split(" ")[0], lat: parseFloat(newevses[0].setting.gps.split(",")[0]), long: parseFloat(newevses[0].setting.gps.split(",")[1])})
-        });
-        setEvses(e => { return { ...e, data : e.data.concat(newevses) }; });
-      }
-      setPanel(0);
-      setEdit(false);
-      setSelected([]);
-      setSelect(false);
+        });*/
     } else if (isInvalid()) {
       setShowErrors(true);
     } else {
-      if (wizardPanelIdx == getWizardPanels(data.edit).length - 3) {
+      if (wizardPanelIdx === getWizardPanels(data.edit).length - 3) {
         createSettings(data);
       }
       setShowErrors(false);

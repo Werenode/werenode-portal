@@ -15,8 +15,8 @@ export const inputdata = {
   switchoff : { label : 'Url to switch off', hash : 'switch-off-url', desc : 'Url to switch EVSE off' },
   connectormode : { label : 'Mode', hash : 'connector-mode', desc : 'Mode for connector',
     items : [
-      { value : 'ac1', label : 'Alternative - Monophased' },
-      { value : 'ac3', label : 'Alternative - Triphased' },
+      { value : 'ac1', label : 'Alternating - Monophased' },
+      { value : 'ac3', label : 'Alternating - Triphased' },
       { value : 'dc400', label : 'Direct Courant - 400V' },
       { value : 'dc800', label : 'Direct Courant - 800V' },
       { value : 'ind', label : 'Inductive' },
@@ -77,11 +77,11 @@ export const inputdata = {
 }
 
 export const isOCPP = (t) => {
-  return (t == 'wherenodeocpp16' || t == 'wherenodeocpp20')
+  return (t === 'wherenodeocpp16' || t === 'wherenodeocpp20')
 }
 
 export const toObj = v => {
-  var obj = {};
+  let obj = {};
   for (let i = 0; i < inputdata[v].items.length; i++) {
     obj[inputdata[v].items[i].value] = inputdata[v].items[i].label;
   }

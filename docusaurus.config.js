@@ -1,6 +1,6 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
+require('dotenv').config();
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Werenode Official Website',
@@ -29,8 +29,8 @@ module.exports = {
       // Optional fields.
       anonymizeIP: false, // Should IPs be anonymized?
     },
-    colorMode : {
-      defaultMode : 'dark',
+    colorMode: {
+      defaultMode: 'dark',
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
@@ -42,11 +42,11 @@ module.exports = {
         src: 'img/werenode_logo_no_name_250px.png',
       },
       items: [
-        { to: 'cryptos', label: 'Crypto', position: 'left' },
-        { to: 'invest', label: 'Invest', position: 'left' },
-        { to: 'hardware', label: 'Hardware', position: 'left' },
-        { to: 'papers', label: 'White/Lite Paper', position: 'left' },
-        { to: 'Registeryourequipment', label: 'Register your equipment', position: 'left' },
+        {to: 'cryptos', label: 'Crypto', position: 'left'},
+        {to: 'invest', label: 'Invest', position: 'left'},
+        {to: 'hardware', label: 'Hardware', position: 'left'},
+        {to: 'papers', label: 'White/Lite Paper', position: 'left'},
+        {to: 'Registeryourequipment', label: 'Register your equipment', position: 'left'},
         //{ to: 'myevses', label: 'My EVSEs', position: 'left' },
         /*{
           type: 'doc',
@@ -110,7 +110,7 @@ module.exports = {
             {
               label: 'Contact us',
               href: 'mailto:contact@werenode.com',
-            } 
+            }
           ],
         },
       ],
@@ -124,12 +124,12 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/Werenode/werenode-portal',
+              'https://github.com/Werenode/werenode-portal',
         },
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/Werenode/werenode-portal/tree/master/',
+              'https://github.com/Werenode/werenode-portal/tree/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -137,4 +137,7 @@ module.exports = {
       },
     ],
   ],
+  customFields: {
+    googleApiKey: process.env.GOOGLE_API_KEY,
+  }
 };

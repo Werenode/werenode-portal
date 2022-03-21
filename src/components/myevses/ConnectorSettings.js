@@ -7,7 +7,6 @@ import { EvseSelect, EvseTextField } from './EvseInputs';
 import Grid from '@material-ui/core/Grid';
 import { getWizard } from './constate/wizard';
 import { isOCPP } from './inputData.js';
-import { PinDropSharp } from '@material-ui/icons';
 
 const style = {
   position: 'absolute',
@@ -22,13 +21,11 @@ const style = {
 const ConnectorForm = () => {
   const { data, setIndex, setPrice, setOpen, setShowErrors } = getWizard();
   const isInvalidIndex = (v) => {
-    if (data.connectoredit == data.index) {
+    if (data.connectoredit === data.index) {
       return false;
     } else return data.isInvalidIndex(v)
   };
-  const isInvalidPrice = p => {
-    p == '' || p == undefined
-  };
+  const isInvalidPrice = p => (p === '' || p === undefined);
   const isConnectorFormInvalid = () => {
     return (isInvalidIndex(data.index) || isInvalidPrice(data.price));
   };
