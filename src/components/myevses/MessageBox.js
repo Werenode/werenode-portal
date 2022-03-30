@@ -21,7 +21,7 @@ const MessageBox = ({message}) => {
                 <CircularProgress variant='indeterminate' sx={{color: '#00B1A5'}}/>
             </Grid>
             <Grid item>
-                <Typography variant='caption' sx={{color: '#00B1A5'}}>
+                <Typography variant='caption' >
                     {message ? `${message}` : 'Loading data...'}
                 </Typography>
             </Grid>

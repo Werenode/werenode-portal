@@ -661,24 +661,22 @@ const Wizard = (props) => {
   const [ wizardPanelIdx, setWizardPanel ] = React.useState(0);
   const { data, setShowErrors, setEdit, setData, setShowMessageBox } = getWizard();
   const { createSettings } = getSettings();
-  const { evses, setEvses, addEvse, updateEvse } = getEVSEs();
+  const { setEvses, addEvse, updateEvse } = getEVSEs();
   const { settings } = getSettings();
   const { setPanel } = getPanels();
-  const { selected, setSelect, setSelected } = getSelect();
+  const { setSelect, setSelected } = getSelect();
   const tezos = useTezos();
   const pkh = useAccountPkh();
 
   React.useEffect(() => {
     if(!data.edit) return;
     setData(d => { return { ...d, owner : pkh, id: settings[0].id} });
-    console.log(`data edition`);
-  }, [])
+  }, []);
   const isInvalid = () => {
     if (wizardPanelIdx === wizardPanels.length - 6) {
       return (data.id === "" || !isValidAddress(data.owner));
     } else if (wizardPanelIdx === wizardPanels.length - 5) {
       if (data.supervision.type === 'werenoderpcget') {
-        console.log(`supervision ${typeof data.supervision.type}`);
         return (
           data.supervision.switchon === undefined ||
           data.supervision.switchoff === undefined
@@ -737,10 +735,10 @@ const Wizard = (props) => {
       }
       setPanel(0);
       setEdit(false);
-      setSelected(-1);
+      setSelected(null);
       setSelect(false);
       /*
-      //What does it mean ????
+      //This request doesn't work
         fetch("https://us-central1-werenode-37b0a.cloudfunctions.net/addPlug", {
           'method': 'POST',
           'headers': {

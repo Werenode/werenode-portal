@@ -45,31 +45,26 @@ const Gps = (props) => {
     }, [selectedMode]);
 
     useEffect(() => {
-        //if(errorMessage) setErrorMessage('');
         settings[0].gps = location;
     },[location]);
 
     const gpsHandleChange = e => setLocation(e.target.value);
     const handleChange = e => setMode(e.target.value);
 
-    const gpsMode = () => {
-        if(selectedMode === mode.MAP) {
-            return <AutocompleteTextField />
-        }
-        return  (<EvseTextField
-            identifier={props.identifier}
-            extraid={props.extraid}
-            getValue={location}
-            handleChange={e => gpsHandleChange(e)}
-            isError={props.isError}
-            errorText={props.errorText}
-        />)
-    }
-
     return(
         <Grid container>
             <Grid item xs={6}>
-                {gpsMode()}
+                {
+                    selectedMode === mode.MAP ? <AutocompleteTextField /> :
+                        <EvseTextField
+                            identifier={props.identifier}
+                            extraid={props.extraid}
+                            getValue={location}
+                            handleChange={e => gpsHandleChange(e)}
+                            isError={props.isError}
+                            errorText={props.errorText}
+                        />
+                }
                 {errorMessage && <span style={{color: 'red'}}>
                     {errorMessage}
                 </span>}

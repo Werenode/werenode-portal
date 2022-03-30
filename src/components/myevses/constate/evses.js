@@ -45,7 +45,7 @@ export function useEVSEs() {
                   supervision: data.supervision || {type: 'wherenodeocpp16'},
                   connectors: data.connectors || [],
                   freeusers: data.freeusers || [],
-                  gps: data.location || '',
+                  gps: data.gps || data.location,
                 },
               }})
       }));

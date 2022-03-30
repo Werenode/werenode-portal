@@ -46,7 +46,7 @@ const ConnectWallet = (props) => {
       await connect('hangzhounet');
     } catch (err) {
       alert(err.message);
-    };
+    }
   }, [connect]);
   return (
     <Grid item container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
@@ -94,7 +94,7 @@ const Login = (props) => {
   const wallet = useWallet();
   const width = Math.min(props.width-80,500);
   return (
-    <Grid container direction="row" direction="row" justifyContent="center" alignItems="center" className={classes.grid}>
+    <Grid container direction="row" justifyContent="center" alignItems="center" className={classes.grid}>
       <Grid item style={{ paddingBottom : '10%' }}>
         <Paper className={classes.paper} elevation={0}>
           <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">

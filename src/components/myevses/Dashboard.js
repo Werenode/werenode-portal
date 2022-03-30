@@ -104,24 +104,24 @@ const EVSE = (props) => {
   const { evses } = getEVSEs();
   const classes = useStyles();
   const data = props.data;
-  const evseidx = getEVSEPanelIdx(getEvseIdx(evses.data,data.id));
+  const evseidx = getEVSEPanelIdx(getEvseIdx(evses.data, data.id));
   const theme = useTheme();
 
   const handleClick = () => {
     if (select) {
       if (selected === props.data.id) {
-        setSelected(-1);
+        setSelected(null);
       }else {
         setSelected(props.data.id);
       }
     } else {
-      console.log('setPanel');
       setPanel(evseidx);
     }
   };
   const isSelected = () => {
     return select && selected === data.id;
-  }
+  };
+
   return (
     <Card className={ isSelected() ? classes.selected : classes.evse} onClick={ handleClick }>
       <Grid container direction="column" justifyContent="flex-start" alignContent="center" style={{ height : "300px" }}>
@@ -202,8 +202,7 @@ const ActionButtons = (props) => {
   const tezos = useTezos();
 
   const handleClick = () => {
-    //If data are still loading
-    if(data.showMessageBox) return;
+
     switch(props.selectedIndex) {
       case 3: // Sort
         setEvses(evses => {
@@ -235,14 +234,14 @@ const ActionButtons = (props) => {
           removeEvsesOnBlockChain();
         }
         props.setSelectedIndex(0);
-        setSelected([]);
+        setSelected(null);
         setSelect(false);
         break;
       case 1: // Edit
-        if (selected.length > 0) {
+        if (selected) {
           setEdit(true);
           // create settings
-          const s = evses.data.filter(x => (selected.indexOf(x.id) >= 0)).map(x => x.setting);
+          const s = evses.data.filter(x => selected === x.id).map(x => x.setting);
           setSettings(s);
           setPanel(-1);
         }
@@ -258,7 +257,7 @@ const ActionButtons = (props) => {
     if (index === 1 || index === 2) {
       setSelect(true);
     } else {
-      setSelected(-1);
+      setSelected(null);
       setSelect(false);
     }
   };
@@ -275,19 +274,21 @@ const ActionButtons = (props) => {
   };
   return (
     <Grid item>
-        <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
-          <Button onClick={handleClick}>{actions[props.selectedIndex]}</Button>
-          <Button
+      {data.showMessageBox ? null :
+      <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
+        <Button onClick={handleClick} >{actions[props.selectedIndex]}</Button>
+        <Button
             size="small"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}
             aria-label="select EVSE action"
             aria-haspopup="menu"
             onClick={handleToggle}
-          >
-            <ArrowDropDownIcon />
-          </Button>
+        >
+          <ArrowDropDownIcon />
+        </Button>
       </ButtonGroup>
+      }
       <Popper
         open={open}
         anchorEl={anchorRef.current}

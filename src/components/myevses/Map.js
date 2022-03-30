@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {GoogleMap, Marker} from '@react-google-maps/api';
+import {GoogleMap, InfoWindow, Marker} from '@react-google-maps/api';
 import useDocusaurusContext from "@docusaurus/core/lib/client/exports/useDocusaurusContext";
-
 
 const containerStyle = {
     width: '400px',
@@ -15,13 +14,14 @@ const defaultCenter = {
     lng: 2.1661629,
 };
 
-const Map = ({location, setLocation}) => {
+const Map = ({location, setLocation, evseId}) => {
     const {siteConfig: {customFields}} = useDocusaurusContext();
     const [center, setCenter] = useState(defaultCenter);
+    const [showInfoWindow, setShowInfoWindow] = useState(true);
+    const [activeMarker, setActiveMarker] = useState(null);
     useEffect(() => {
         if(!isValidLocation()) return;
         setCenter(location);
-        console.log('center changed');
     }, [location]);
 
     const isValidLocation = () =>
@@ -33,8 +33,9 @@ const Map = ({location, setLocation}) => {
             lng: e.latLng.lng(),
         });
         setCenter(e.latLng);
-    }
-
+    };
+    const handleLoad = (marker) => setActiveMarker(marker);
+    const handleOnClose = () => setShowInfoWindow(prev => !prev);
     return (
         <GoogleMap
             googleMapsApiKey={customFields.googleApiKey}
@@ -45,7 +46,19 @@ const Map = ({location, setLocation}) => {
             <Marker position={isValidLocation(location) ? location : defaultCenter}
                     draggable={true}
                     onDragEnd={e => handleDragEnd(e)}
-            />
+                    onLoad={handleLoad}
+                    onClick={handleOnClose}/>
+            {showInfoWindow &&
+            <InfoWindow anchor={activeMarker} onCloseClick={handleOnClose}>
+                <div style={{color: 'black'}}>
+                   <span>Evse : <strong>{ evseId }</strong></span>
+                    <br />
+                    {`lat : ${location.lat}`}
+                    <br />
+                    {`lng : ${location.lng}`}
+                </div>
+            </InfoWindow>
+            }
         </GoogleMap>
     );
 }
