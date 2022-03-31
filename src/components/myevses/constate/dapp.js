@@ -9,13 +9,15 @@ export const [
   useAccountPkh,
   useReady,
   useConnect,
+  useSetState,
 ] = constate(
   useDApp,
   (v) => v.wallet,
   (v) => v.tezos,
   (v) => v.accountPkh,
   (v) => v.ready,
-  (v) => v.connect
+  (v) => v.connect,
+    (v) => v.setState,
 );
 
 function useDApp({ appName }) {
@@ -64,5 +66,6 @@ function useDApp({ appName }) {
     accountPkh,
     ready,
     connect,
+    setState,
   };
 }

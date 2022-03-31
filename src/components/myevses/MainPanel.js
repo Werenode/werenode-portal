@@ -14,9 +14,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import { Grid } from '@material-ui/core';
 
-import { useAccountPkh } from './constate/dapp';
+import {useAccountPkh} from './constate/dapp';
 import DashBoard from './Dashboard';
-import Wizard from './Wizard';
+import Wizard, {Connector} from './Wizard';
 
 import { getEVSEs } from './constate/evses';
 
@@ -94,6 +94,7 @@ const LoggedAs = (props) => {
   if (props.panel >= getEVSEPanelIdx(0)) {
     const panel = getEVSEIdfromPanelIdx(props.panel);
     title = evses.data[panel].id;
+    console.log(`${title} opened`);
   } else if (props.panel === -1) {
     title = 'Add EVSE(s)'
   }
@@ -129,8 +130,28 @@ const Header = (props) => {
   </DrawerHeader>)
 }
 
-const DefaultPanel = () => {
-  return (<div />)
+const DefaultPanel = ({id}) => {
+  const {evses} = getEVSEs();
+  const data = evses.data[getEVSEIdfromPanelIdx(id)];
+  return (
+      <Grid container width='70%' margin='auto' direction='column' padding='10px'>
+        {
+          data.setting.connectors.length > 0 ?
+              data.setting.connectors.map((x,i) =>
+                  <Grid item margin='10px 0px' key={`index-${i}`}>
+                    <Connector
+                        key={"connector" + i}
+                        identifier={i}
+                        rmConnector={null}
+                        editConnector={null}
+                        supervisiontype={data.setting.supervision.type}
+                        data={data.setting.connectors[i]}
+                        hideButtons={true}
+                    />
+                  </Grid>
+              ) : null
+        }
+  </Grid>)
 }
 
 export default function MainPanel(props) {
@@ -176,7 +197,7 @@ export default function MainPanel(props) {
     switch (id) {
       case -1 : return <Wizard height={ props.height - headerHeight } />;
       case 0 : return <DashBoard height={ props.height - headerHeight }/>;
-      default : return <DefaultPanel />;
+      default : return <DefaultPanel id={id} />;
     }
   }
   return (

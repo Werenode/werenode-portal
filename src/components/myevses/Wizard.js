@@ -168,7 +168,7 @@ const OtherSettings = () => {
   )
 }
 
-const Connector = (props) => {
+export const Connector = (props) => {
   const classes = useStyles();
   const getMode = m => toObj('connectormode')[m];
   const getPower = m => toObj('power')[m];
@@ -194,14 +194,16 @@ const Connector = (props) => {
           <Grid item><Chip variant="outlined" icon={<LocalOfferIcon />} label={getPrice(props.data)} /></Grid>
         </Grid>
       </CardContent>
-      <CardActions>
-        <IconButton onClick={handleEdit}>
-          <EditIcon fontSize="small" />
-        </IconButton>
-        <IconButton onClick={handleDelete}>
-          <DeleteIcon fontSize="small" />
-        </IconButton>
-      </CardActions>
+       {props.hideButtons ? null :
+           <CardActions>
+             <IconButton onClick={handleEdit}>
+               <EditIcon fontSize="small" />
+             </IconButton>
+             <IconButton onClick={handleDelete}>
+               <DeleteIcon fontSize="small" />
+             </IconButton>
+           </CardActions>
+       }
      </Card>
     </Grid>
   )
@@ -249,7 +251,9 @@ const Connectors = () => {
             rmConnector={rmConnector}
             editConnector={editConnector}
             supervisiontype={data.supervision.type}
-            data={data.connectors[i]}/>
+            data={data.connectors[i]}
+            hideButtons={false}
+          />
         ) :
         <Grid item style={{ height : '150px' }} container direction="row" justifyContent="center" alignContent="center">
           <Typography variant="subtitle1" style={{ color : data.showerrors? theme.palette.error.main : '#34383e' }}>No Connector. Click 'ADD CONNECTOR'.</Typography>
