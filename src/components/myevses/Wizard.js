@@ -695,7 +695,7 @@ const Wizard = (props) => {
   const handleClick = () => {
     if (wizardPanelIdx === getWizardPanels(data.edit).length - 1) {
       if(data.edit){
-        console.log('updated');
+        console.log('updating');
         const updateEvseOnBlockChain = async () => {
           try{
             setShowMessageBox(true);
@@ -711,13 +711,13 @@ const Wizard = (props) => {
           }catch (e){
             alert(`An error occurs while updating ${e.message}`);
             setShowMessageBox(false);
-            setEvses(e => ({...e, shouldLoadData: true}));
+            setEvses(e => ({...e, shouldLoadData: true, message: ''}));
           }
         }
         updateEvseOnBlockChain();
       }
       else{
-        console.log(`Added`);
+        console.log(`Adding`);
         const addEvseOnBlockChain = async () => {
           try{
             setShowMessageBox(true);
@@ -732,7 +732,7 @@ const Wizard = (props) => {
           }catch (e){
             alert(`An error occurs while adding ${e.message}`);
             setShowMessageBox(false);
-            setEvses(e => ({...e, shouldLoadData: true}));
+            setEvses(e => ({...e, shouldLoadData: true, message: ''}));
           }
         }
         addEvseOnBlockChain();

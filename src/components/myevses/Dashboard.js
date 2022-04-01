@@ -218,7 +218,7 @@ const ActionButtons = (props) => {
         break;
       case 2: // Remove
         if (selected) {
-          console.log('removed');
+          console.log('removing');
           const removeEvsesOnBlockChain = async () => {
             try{
               setShowMessageBox(true);
@@ -228,7 +228,7 @@ const ActionButtons = (props) => {
             }catch (e){
               alert(`An error occurs while removing ${e.message}`);
               setShowMessageBox(false);
-              setEvses(e => ({...e, shouldLoadData: true}));
+              setEvses(e => ({...e, shouldLoadData: true, message: ''}));
             }
           }
           removeEvsesOnBlockChain();

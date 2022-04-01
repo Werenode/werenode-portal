@@ -10,6 +10,7 @@ export const [
   useReady,
   useConnect,
   useSetState,
+  useReconnect,
 ] = constate(
   useDApp,
   (v) => v.wallet,
@@ -18,6 +19,7 @@ export const [
   (v) => v.ready,
   (v) => v.connect,
     (v) => v.setState,
+    (v) => v.reconnect,
 );
 
 function useDApp({ appName }) {
@@ -59,6 +61,26 @@ function useDApp({ appName }) {
     },
     [setState, wallet]
   );
+  const reconnect = React.useCallback(
+      async (network, opts) => {
+        try {
+          if (!wallet) {
+            throw new Error('Thanos Wallet not available');
+          }
+          await wallet.reconnect(network, opts);
+          const tzs = wallet.toTezos();
+          const pkh = await tzs.wallet.pkh();
+          setState({
+            wallet,
+            tezos: tzs,
+            accountPkh: pkh,
+          });
+        } catch (err) {
+          alert(`Failed to reconnect ThanosWallet: ${err.message}`);
+        }
+      },
+      [setState, wallet]
+  );
 
   return {
     wallet,
@@ -67,5 +89,6 @@ function useDApp({ appName }) {
     ready,
     connect,
     setState,
+    reconnect,
   };
 }

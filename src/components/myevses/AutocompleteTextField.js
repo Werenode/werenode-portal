@@ -38,7 +38,8 @@ const suggestions = (message) =>  (
                 {suggestions
                     .filter(suggestion => suggestion.index <= 10)
                     .map(suggestion => (
-                            <Grid item key={`${suggestion.index}`} {...getSuggestionItemProps(
+                            <Grid item key={`idx-${suggestion.index}-${suggestion.placeId}`}
+                                  {...getSuggestionItemProps(
                                 suggestion, {style: suggestionsStyle(suggestion.active),})}
                                 width='100%'
                             >

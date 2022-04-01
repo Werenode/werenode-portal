@@ -14,9 +14,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import { Grid } from '@material-ui/core';
 
-import {useAccountPkh} from './constate/dapp';
+import {useAccountPkh, useReconnect} from './constate/dapp';
 import DashBoard from './Dashboard';
-import Wizard, {Connector} from './Wizard';
+import Wizard from './Wizard';
 
 import { getEVSEs } from './constate/evses';
 
@@ -26,6 +26,8 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
 import { getPanels, panels, getEVSEPanelIdx, getEVSEIdfromPanelIdx, EVSEsTitle, EVSEsIdx } from './constate/panels';
+import {ChangeCircle} from "@material-ui/icons";
+import {EvseInfo} from "./EvseInfo";
 
 const drawerWidth = 240;
 const courier = "Courier Prime, monospace";
@@ -89,34 +91,44 @@ const StyledDivider = styled(Divider)({
 
 const LoggedAs = (props) => {
   const phk = useAccountPkh();
-  const { evses } = getEVSEs();
+  const reconnect = useReconnect();
+  const { evses, setEvses } = getEVSEs();
   let title;
   if (props.panel >= getEVSEPanelIdx(0)) {
     const panel = getEVSEIdfromPanelIdx(props.panel);
     title = evses.data[panel].id;
-    console.log(`${title} opened`);
   } else if (props.panel === -1) {
     title = 'Add EVSE(s)'
   }
   else {
     title = panels[props.panel].title;
   }
+  const handleClick = () => (async () => {
+    try {
+      await reconnect('hangzhounet', {forcePermission: true});
+      setEvses(e => ({...e, shouldLoadData: true}));
+    } catch (err) {
+      alert(err.message);
+    }
+  })();
+
   return (
-    <Grid container direction="row" justifyContent="space-between" alignItems="center" >
-      <Grid item>
-        <Typography variant='h5'>{title}</Typography>
-      </Grid>
-      <Grid item>
-        <Grid container direction="row" spacing={1}>
-          <Grid item>
-            <Typography variant='caption'>Connected as</Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant='caption' style={{ fontFamily : courier }}>{phk}</Typography>
+      <Grid container direction="row" justifyContent="space-between" alignItems="center" >
+        <Grid item>
+          <Typography variant='h5'>{title}</Typography>
+        </Grid>
+        <Grid item>
+          <Grid container direction="row" spacing={1} alignItems='center'>
+            <Grid item>
+              <Typography variant='caption'>Connected as</Typography>
+              <IconButton onClick={handleClick}><ChangeCircle /></IconButton>
+            </Grid>
+            <Grid item>
+              <Typography variant='caption' style={{ fontFamily : courier }}>{phk}</Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
   )
 }
 
@@ -133,25 +145,7 @@ const Header = (props) => {
 const DefaultPanel = ({id}) => {
   const {evses} = getEVSEs();
   const data = evses.data[getEVSEIdfromPanelIdx(id)];
-  return (
-      <Grid container width='70%' margin='auto' direction='column' padding='10px'>
-        {
-          data.setting.connectors.length > 0 ?
-              data.setting.connectors.map((x,i) =>
-                  <Grid item margin='10px 0px' key={`index-${i}`}>
-                    <Connector
-                        key={"connector" + i}
-                        identifier={i}
-                        rmConnector={null}
-                        editConnector={null}
-                        supervisiontype={data.setting.supervision.type}
-                        data={data.setting.connectors[i]}
-                        hideButtons={true}
-                    />
-                  </Grid>
-              ) : null
-        }
-  </Grid>)
+  return (data ? <EvseInfo data={data} /> : <div />);
 }
 
 export default function MainPanel(props) {
@@ -200,6 +194,7 @@ export default function MainPanel(props) {
       default : return <DefaultPanel id={id} />;
     }
   }
+
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer variant="permanent" open={open}>

@@ -9,19 +9,19 @@ import {getSettings} from "./constate/settings";
 import AutocompleteTextField from "./AutocompleteTextField";
 
 const mode = {
-    ADDRESS: 'ADDRESS',
+    GPS_COORDINATES: 'GPS COORDINATES',
     MAP: 'MAP',
     CURRENT_LOCATION: 'CURRENT LOCATION',
 }
 
 const selectorMode = [
-    {value: 1, mode: mode.ADDRESS},
+    {value: 1, mode: mode.GPS_COORDINATES},
     {value: 2, mode: mode.MAP},
     {value: 3, mode:  mode.CURRENT_LOCATION},
 ]
 
 const Gps = (props) => {
-    const [selectedMode, setMode] = useState(mode.ADDRESS);
+    const [selectedMode, setMode] = useState(mode.GPS_COORDINATES);
     const {settings} = getSettings();
     const [location, setLocation] = useState(settings[0].gps);
     const [errorMessage, setErrorMessage] = useState('');
@@ -39,7 +39,7 @@ const Gps = (props) => {
                     setErrorMessage(positionError.message);
                 })
         }
-        if(mode === mode.ADDRESS){
+        if(mode === mode.GPS_COORDINATES){
             setLocation(settings[0].gps);
         }
     }, [selectedMode]);
@@ -72,7 +72,7 @@ const Gps = (props) => {
             <Grid item xs={4}>
                 <StyledFormControl sx={{width: '80%'}}>
                     <InputLabel id={ "evses" + props.identifier + props.extraid }>
-                        Mode
+                        GPS Mode
                     </InputLabel>
                     <StyledSelect
                         id={ "evses" + props.identifier + props.extraid }

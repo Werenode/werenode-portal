@@ -9,7 +9,6 @@ export function useEVSEs() {
     data : [],
     shouldLoadData: true,
     message : '',
-    opCostEstimation: 0,
   });
 
   const checkEvse = (evse) => {
