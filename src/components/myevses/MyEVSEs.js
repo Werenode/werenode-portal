@@ -11,6 +11,8 @@ import Login from './Login.js';
 import MainPanel from './MainPanel.js';
 import ConnectorSettings from './ConnectorSettings';
 import AddAddress from './AddAddress';
+import useDocusaurusContext from "@docusaurus/core/lib/client/exports/useDocusaurusContext";
+import {GoogleLoadScriptProvider} from "./constate/googleLoadScript";
 
 const TopPanel = (props) => {
   const ready = useReady();
@@ -53,24 +55,27 @@ const MyEVSEs = (props) => {
       }),
     [true],
   );
+  const {siteConfig: {customFields}} = useDocusaurusContext();
   return(
       <ThemeProvider theme={theme}>
       <DAppProvider appName={ labels.appname }>
-      <EVSEProvider>
-      <PanelsProvider>
-      <SelectProvider>
-      <WizardProvider>
-      <SettingsProvider>
-        <div style={{ height: `${props.height}px`, width: `${props.width}px` }}>
-          <TopPanel height={props.height} width={props.width} />
-       </div>
-       <ConnectorSettings />
-       <AddAddress />
-      </SettingsProvider>
-      </WizardProvider>
-      </SelectProvider>
-      </PanelsProvider>
-      </EVSEProvider>
+          <GoogleLoadScriptProvider apiKey={customFields.googleApiKey}>
+              <EVSEProvider>
+                  <PanelsProvider>
+                      <SelectProvider>
+                          <WizardProvider>
+                              <SettingsProvider>
+                                  <div style={{ height: `${props.height}px`, width: `${props.width}px` }}>
+                                      <TopPanel height={props.height} width={props.width} />
+                                  </div>
+                                  <ConnectorSettings />
+                                  <AddAddress />
+                              </SettingsProvider>
+                          </WizardProvider>
+                      </SelectProvider>
+                  </PanelsProvider>
+              </EVSEProvider>
+          </GoogleLoadScriptProvider>
       </DAppProvider>
       </ThemeProvider>
   )

@@ -33,6 +33,10 @@ import BoltIcon from '@material-ui/icons/Bolt';
 import PowerIcon from '@material-ui/icons/Power';
 import { getSettings } from './constate/settings';
 import { getWizard } from './constate/wizard';
+import {useAccountPkh, useTezos} from "./constate/dapp";
+import {useEffect} from "react";
+import MessageBox from "./MessageBox";
+import {getGoogleLoadScript} from "./constate/googleLoadScript";
 
 const useStyles = makeStyles({
   tools: {
@@ -100,22 +104,24 @@ const EVSE = (props) => {
   const { evses } = getEVSEs();
   const classes = useStyles();
   const data = props.data;
-  const evseidx = getEVSEPanelIdx(getEvseIdx(evses.data,data.id));
+  const evseidx = getEVSEPanelIdx(getEvseIdx(evses.data, data.id));
   const theme = useTheme();
+
   const handleClick = () => {
     if (select) {
-      if (selected.includes(props.data.id)) {
-        setSelected(s => s.filter(x => x != data.id));
-      } else {
-        setSelected(s => s.concat([data.id]));
+      if (selected === props.data.id) {
+        setSelected(null);
+      }else {
+        setSelected(props.data.id);
       }
     } else {
-      setPanel(evseidx)
+      setPanel(evseidx);
     }
   };
   const isSelected = () => {
-    return select && selected.includes(data.id);
-  }
+    return select && selected === data.id;
+  };
+
   return (
     <Card className={ isSelected() ? classes.selected : classes.evse} onClick={ handleClick }>
       <Grid container direction="column" justifyContent="flex-start" alignContent="center" style={{ height : "300px" }}>
@@ -144,13 +150,27 @@ const EVSE = (props) => {
 }
 
 const EVSEsPanel = (props) => {
-  const { evses } = getEVSEs();
+  const { evses, setEvses, retrieveEvsesFromStorage } = getEVSEs();
   const theme = useTheme();
-  return (
+  const tezos = useTezos();
+  const pkh = useAccountPkh();
+  const {data, setShowMessageBox} = getWizard();
+  useEffect(() => {
+    if(!evses.shouldLoadData) return;
+    const loadData = async () => {
+      setShowMessageBox(true);
+      await retrieveEvsesFromStorage(tezos, pkh);
+      setEvses(e => ({...e, shouldLoadData: false, message: ''}));
+      setShowMessageBox(false);
+    };
+    loadData();
+  }, [evses.shouldLoadData]);
+
+  return data.showMessageBox ? <MessageBox  message={evses.message} /> : (
     <Container maxWidth="lg" style={{ marginTop : '40px', height : props.height }}>
-    { evses.data.length == 0 ? (<Grid container direction="column" justifyContent="center" alignItems="center" style={{ height : '70%' }}>
+    { evses.data.length === 0 ? (<Grid container direction="column" justifyContent="center" alignItems="center" style={{ height : '70%' }}>
       <Grid item>
-        <img src={useBaseUrl('img/werenode_logo_no_name_250px_black.png')} style={{ width : '150px', marginBottom: '20px' }}/>
+        <img src={useBaseUrl('img/werenode_logo_no_name_250px_black.png')} alt='werenode logo' style={{ width : '150px', marginBottom: '20px' }}/>
       </Grid>
       <Grid item>
         <Typography variant='subtitle1' style={{ color : theme.palette.grey.A700 }}>Click 'ADD' below to add an EVSE.</Typography>
@@ -175,37 +195,53 @@ const ActionButtons = (props) => {
   const [open, setOpen] = React.useState(false);
   const [sortalpha, setSortAlpha] = React.useState(false);
   const { selected, setSelect, setSelected } = getSelect();
-  const { setSettings } = getSettings();
+  const { setSettings} = getSettings();
   const { setPanel } = getPanels();
-  const { setEdit } = getWizard();
-  const { evses, setEvses } = getEVSEs();
-  const handleClick = (e) => {
+  const { setEdit, setShowMessageBox, data } = getWizard();
+  const { evses, setEvses, removeEvse } = getEVSEs();
+  const tezos = useTezos();
+
+  const handleClick = () => {
+
     switch(props.selectedIndex) {
       case 3: // Sort
         setEvses(evses => {
-          var sorted = [];
+          let sorted;
           if (!sortalpha) {
-            sorted = evses.data.concat().sort((x,y) => parseFloat(y.revenue) - parseFloat(x.revenue));
+            sorted = evses.data.sort((x,y) => x.id < y.id ? 1 : -1);
           } else {
-            sorted = evses.data.concat().sort((x,y) => x.id > y.id ? 1 : -1);
+            sorted = evses.data.sort((x,y) => x.id > y.id ? 1 : -1);
           }
           return { ...evses, data : sorted };
         });
         setSortAlpha(sa => !sa);
         break;
       case 2: // Remove
-        if (selected.length > 0) {
-          setEvses(evses => { return { ...evses, data : evses.data.filter(x => selected.indexOf(x.id)<0) }; });
+        if (selected) {
+          console.log('removing');
+          const removeEvsesOnBlockChain = async () => {
+            try{
+              setShowMessageBox(true);
+              await removeEvse(tezos, selected);
+              setEvses(e => ({...e, shouldLoadData: true}));
+              setShowMessageBox(false);
+            }catch (e){
+              alert(`An error occurs while removing ${e.message}`);
+              setShowMessageBox(false);
+              setEvses(e => ({...e, shouldLoadData: true, message: ''}));
+            }
+          }
+          removeEvsesOnBlockChain();
         }
         props.setSelectedIndex(0);
-        setSelected([]);
+        setSelected(null);
         setSelect(false);
         break;
       case 1: // Edit
-        if (selected.length > 0) {
+        if (selected) {
           setEdit(true);
           // create settings
-          const s = evses.data.filter(x => (selected.indexOf(x.id) >= 0)).map(x => x.setting);
+          const s = evses.data.filter(x => selected === x.id).map(x => x.setting);
           setSettings(s);
           setPanel(-1);
         }
@@ -218,10 +254,10 @@ const ActionButtons = (props) => {
   const handleMenuItemClick = (event, index) => {
     props.setSelectedIndex(index);
     setOpen(false);
-    if (index == 1 || index == 2) {
+    if (index === 1 || index === 2) {
       setSelect(true);
     } else {
-      setSelected([]);
+      setSelected(null);
       setSelect(false);
     }
   };
@@ -238,19 +274,21 @@ const ActionButtons = (props) => {
   };
   return (
     <Grid item>
-        <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
-          <Button onClick={handleClick}>{actions[props.selectedIndex]}</Button>
-          <Button
+      {data.showMessageBox ? null :
+      <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
+        <Button onClick={handleClick} >{actions[props.selectedIndex]}</Button>
+        <Button
             size="small"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}
             aria-label="select EVSE action"
             aria-haspopup="menu"
             onClick={handleToggle}
-          >
-            <ArrowDropDownIcon />
-          </Button>
+        >
+          <ArrowDropDownIcon />
+        </Button>
       </ButtonGroup>
+      }
       <Popper
         open={open}
         anchorEl={anchorRef.current}
@@ -289,6 +327,9 @@ const ActionButtons = (props) => {
   )
 }
 
+/*
+//Not possible to add, remove or update many evses at once
+//on tezos blockchain
 const SelectAll = () => {
   const { setSelected } = getSelect();
   const { evses } = getEVSEs();
@@ -300,16 +341,14 @@ const SelectAll = () => {
       <Button variant="text" onClick={handleClick}>select all</Button>
     </Grid>
   )
-}
+}*/
 
-const Tools = (props) => {
+const Tools = () => {
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const { select } = getSelect();
   return (
     <div className={ classes.tools }>
       <Grid container direction="row" justifyContent="flex-end" alignItems="center" style={{ height:'100%' }}>
-        { select ? <SelectAll /> : null }
         <ActionButtons selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
       </Grid>
     </div>
@@ -318,6 +357,14 @@ const Tools = (props) => {
 
 const DashBoard = (props) => {
   const h = props.height - 64;
+
+  const { isGoogleApiLoaded, loadGoogleScript} = getGoogleLoadScript();
+  useEffect(() => {
+    if(!isGoogleApiLoaded){
+      loadGoogleScript();
+    }
+  }, []);
+
   return (
     <Grid container
       direction="column-reverse"

@@ -4,7 +4,7 @@ import constate from "constate";
 export const isValidAddress = v => {
   const lgt = v.length;
   const tz1 = v.startsWith('tz1');
-  return (lgt == 36) && tz1;
+  return (lgt === 36) && tz1;
 }
 
 const isBase58Char = (c) => {
@@ -18,17 +18,13 @@ const isBase58Char = (c) => {
     return true;
   } else if ('a' <= c && c <= 'k') {
     return true;
-  } else if ('m' <= c && c <= 'z') {
-    return true;
-  } else return false;
+  } else return 'm' <= c && c <= 'z';
 }
 
 const isFloatChar = (c) => {
   if ('0' <= c && c <= '9') {
     return true;
-  } else if (c == '.') {
-    return true;
-  } else return false;
+  } else return c === '.';
 }
 
 const IdLength = 6;
@@ -57,7 +53,8 @@ export function useWizard() {
     index : 1,
     currency : 'euro',
     connectoredit : -1,
-    edit : false
+    edit : false,
+    showMessageBox: false,
     /* ----------------- */
   });
   const setShowErrors = (s) => { setData(d => { return { ...d, showerrors : s } }) };
@@ -72,7 +69,7 @@ export function useWizard() {
       })
   };
   const setSupervision = (t) => {
-    if (t == 'werenoderpcget') {
+    if (t === 'werenoderpcget') {
       setData(d => { return { ...d, edition : true, supervision : { type : "werenoderpcget", switchon : "", switchoff : "" }}})
     } else setData(d => { return { ...d, edition : true, supervision : { type : t }}})
   };
@@ -106,7 +103,7 @@ export function useWizard() {
     return { ...d, edition : true, connectors : d.connectors.filter(x => x.index !== i) } })
   };
   const editConnector = (i) => { setData(d => {
-    const c = d.connectors.find(x => x.index == i);
+    const c = d.connectors.find(x => x.index === i);
     return { ...d, edition : true,
       open     : true,
       connectoredit : c.index,
@@ -125,6 +122,7 @@ export function useWizard() {
     return { ...d, addFreeUser : f }
   }) };
   const setEdit = (b) => { setData(d => ({ ...d, edit : b })) }
+  const setShowMessageBox = (b) => { setData(d => ({ ...d, showMessageBox : b })) }
   return {
     data,
     setData,
@@ -147,7 +145,8 @@ export function useWizard() {
     setConnectorEdit,
     setOpenAddAddress,
     setAddFreeUsers,
-    setEdit
+    setEdit,
+    setShowMessageBox,
   }
 }
 

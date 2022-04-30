@@ -43,10 +43,10 @@ const ConnectWallet = (props) => {
   const connect= useConnect();
   const handleClick = React.useCallback(async () => {
     try {
-      await connect('hangzhounet');
+      await connect('hangzhounet', {forcePermission: true});
     } catch (err) {
       alert(err.message);
-    };
+    }
   }, [connect]);
   return (
     <Grid item container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
