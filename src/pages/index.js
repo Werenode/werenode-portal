@@ -109,9 +109,9 @@ const data = {
       width: '200px',
     },
     {
-      key: 'Magmet',
-      img: 'img/magment.png',
-      url: 'https://www.magment.de/',
+      key: 'Incubateur CS',
+      img: 'img/21ST Logo_Logo Vert Blanc-p-500.png',
+      url: 'https://21st.centralesupelec.com/',
       width: '100px',
     },
     {
@@ -166,17 +166,6 @@ const WerenodeHeader = () => {
         }}>
           <Typography variant="h6" xs={12}>{data.taglines.subheader}</Typography>
           
-          {<Link to='https://werecoin.com' style={{ textDecoration: 'none' }}>
-            <Button variant="contained" disableElevation style={{
-              paddingLeft: '40px',
-              paddingRight: '40px',
-              color: 'white',
-              marginBottom: '50px',
-              marginTop: '50px'
-            }}>{"Join our Token Sale now !"}</Button>
-
-
-          </Link>}
 
         </Grid>
       </Grid>

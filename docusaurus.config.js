@@ -1,6 +1,6 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
+require('dotenv').config();
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Werenode Official Website',
@@ -29,8 +29,8 @@ module.exports = {
       // Optional fields.
       anonymizeIP: false, // Should IPs be anonymized?
     },
-    colorMode : {
-      defaultMode : 'dark',
+    colorMode: {
+      defaultMode: 'dark',
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
@@ -54,7 +54,7 @@ module.exports = {
           position: 'left',
           label: 'Technical docs',
         },*/
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/blog', label: 'Blog', position: 'left' },
         //{to: '/Status', label: 'System Status', position: 'right'},
         {
           href: 'https://t.me/joinchat/20948tdORW1hZTlk',
@@ -110,7 +110,7 @@ module.exports = {
             {
               label: 'Contact us',
               href: 'mailto:contact@werenode.com',
-            } 
+            }
           ],
         },
       ],
@@ -137,4 +137,7 @@ module.exports = {
       },
     ],
   ],
+  customFields: {
+    googleApiKey: process.env.GOOGLE_API_KEY,
+  }
 };

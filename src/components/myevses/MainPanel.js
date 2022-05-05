@@ -105,7 +105,7 @@ const LoggedAs = (props) => {
   }
   const handleClick = () => (async () => {
     try {
-      await reconnect('hangzhounet', {forcePermission: true});
+      await reconnect('mainnet', {forcePermission: true});
       setEvses(e => ({...e, shouldLoadData: true}));
     } catch (err) {
       alert(err.message);
