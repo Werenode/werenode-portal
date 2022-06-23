@@ -62,18 +62,16 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Button variant='outlined' href='https://spicyswap.xyz/#/pool/KT1PnUZCp3u2KzWr93pn4DD7HAJnm3rWVrgn:0/KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R:0' style={{ color: 'white' }}>Buy Tokens</Button>
+          <Button variant='outlined' href='https://spicyswap.xyz/#/pool/KT1PnUZCp3u2KzWr93pn4DD7HAJnm3rWVrgn:0/KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R:0' style={{ color: 'white' }}>Buy Tokens on Tezos</Button>
         </Grid>
-
         <Grid item style={{
           marginLeft: '32px',
           marginRight: '32px',
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Button variant='outlined' href='/documents/Werenode_Litepaper_21_12_03.pdf' style={{ color: 'white' }}>{data.buttons.lite}</Button>
+          <Button variant='outlined' href='https://pancakeswap.finance/' style={{ color: 'white' }}>Buy Tokens on Binance SmartChain</Button>
         </Grid>
-
 
         <Grid item style={{
           marginLeft: '32px',

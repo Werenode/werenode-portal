@@ -43,7 +43,7 @@ module.exports = {
       },
       items: [
         { to: 'cryptos', label: 'Crypto', position: 'left' },
-        { to: 'invest', label: 'Invest', position: 'left' },
+        { to: 'invest', label: 'Buy', position: 'left' },
         { to: 'hardware', label: 'Hardware', position: 'left' },
         { to: 'papers', label: 'White/Lite Paper', position: 'left' },
         { to: 'Registeryourequipment', label: 'Register your equipment', position: 'left' },

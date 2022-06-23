@@ -30,7 +30,7 @@ const data = {
     subinvest: 'New possibilities with Werenode : V2G, SmartCharge, ISO 15118, etc...'
   },
   buttons: {
-    invest: 'Tokenomics and more',
+    invest: 'Buy tokens',
     evsemanager: 'Beta test open!'
   },
   team: [

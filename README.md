@@ -2,9 +2,9 @@
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-On the N4 server, start with 
+On the N4 server, node 16 est utilisé par défaut 
 ```console 
-nvm use 12
+nvm use 16
 ```
 
 Don't forget to commit your changes on master before you deploy !
