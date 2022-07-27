@@ -28,6 +28,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import { getPanels, panels, getEVSEPanelIdx, getEVSEIdfromPanelIdx, EVSEsTitle, EVSEsIdx } from './constate/panels';
 import {ChangeCircle} from "@material-ui/icons";
 import {EvseInfo} from "./EvseInfo";
+import {TEZOS_NETWORK} from "../tezosNetwork";
 
 const drawerWidth = 240;
 const courier = "Courier Prime, monospace";
@@ -105,7 +106,7 @@ const LoggedAs = (props) => {
   }
   const handleClick = () => (async () => {
     try {
-      await reconnect('hangzhounet', {forcePermission: true});
+      await reconnect(TEZOS_NETWORK, {forcePermission: true});
       setEvses(e => ({...e, shouldLoadData: true}));
     } catch (err) {
       alert(err.message);

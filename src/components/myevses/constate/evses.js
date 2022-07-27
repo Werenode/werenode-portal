@@ -23,9 +23,11 @@ export function useEVSEs() {
       const contract = await tezos.wallet.at(CONTRACT_ADDRESS);
       const storage = await contract.storage();
       const evsesIdTab = await (storage.evsemanager.get(EVSE_MANAGER_ADDRESS));
+
       const evsesResult = await Promise.all(
           evsesIdTab.evses.map(async evseId => await storage['evse'].get(evseId))
       );
+
       setEvses(e => ({...e, data: evsesResult
             .map((ev,idx) => ({id: evsesIdTab.evses[idx], data: ev}))
             .filter(newEv => newEv.data.evse_owner === ownerAddress)

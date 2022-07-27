@@ -219,7 +219,7 @@ const ActionButtons = (props) => {
       case 2: // Remove
         if (selected) {
           console.log('removing');
-          const removeEvsesOnBlockChain = async () => {
+          const removeEvseBlockChain = async () => {
             try{
               setShowMessageBox(true);
               await removeEvse(tezos, selected);
@@ -231,7 +231,7 @@ const ActionButtons = (props) => {
               setEvses(e => ({...e, shouldLoadData: true, message: ''}));
             }
           }
-          removeEvsesOnBlockChain();
+          removeEvseBlockChain();
         }
         props.setSelectedIndex(0);
         setSelected(null);
@@ -328,8 +328,7 @@ const ActionButtons = (props) => {
 }
 
 /*
-//Not possible to add, remove or update many evses at once
-//on tezos blockchain
+//Not possible to add, remove or update many evses at once on tezos blockchain
 const SelectAll = () => {
   const { setSelected } = getSelect();
   const { evses } = getEVSEs();

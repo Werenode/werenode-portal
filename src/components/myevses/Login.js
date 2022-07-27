@@ -6,7 +6,7 @@ import labels from './labels.js';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 //import Link from '@material-ui/core/Link';
 import Link from '@docusaurus/Link';
-
+import {TEZOS_NETWORK} from "../tezosNetwork";
 
 const useStyles = makeStyles({
   paper: {
@@ -43,7 +43,7 @@ const ConnectWallet = (props) => {
   const connect= useConnect();
   const handleClick = React.useCallback(async () => {
     try {
-      await connect('hangzhounet', {forcePermission: true});
+      await connect(TEZOS_NETWORK, {forcePermission: true});
     } catch (err) {
       alert(err.message);
     }
