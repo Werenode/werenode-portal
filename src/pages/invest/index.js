@@ -70,7 +70,7 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Button variant='outlined' href='https://pancakeswap.finance/' style={{ color: 'white' }}>Buy Tokens on Binance SmartChain</Button>
+          <Button variant='outlined' href='https://pancakeswap.finance/swap?outputCurrency=0xbCe2B12e3aA25225ed716c09C464dF528B1E5916' style={{ color: 'white' }}>Buy Tokens on Binance SmartChain</Button>
         </Grid>
 
         <Grid item style={{

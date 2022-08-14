@@ -1,0 +1,61 @@
+.container {
+    text-align: center;
+}
+
+.ticket {
+    width: 476px;
+    display: flex;
+    flex-direction: column;
+    margin: auto auto 25px auto;
+    background-color: white;
+    box-shadow: -12px 12px 12px 5px black;
+
+}
+.container-qrcode{
+    height: 392px;
+    padding-top: 45px;
+}
+.qrcode-box {
+    border: 8px solid black;
+    height: 232px;
+    width: 232px;
+    border-radius: 8%;
+    margin: auto;
+    position: relative;
+}
+.qrcode {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.qrcode-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.evse-name {
+    border: 1px solid black;
+    text-align: center;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 1.6em;
+    padding: 4px 16px;
+    border-radius: 10px;
+    background-color: black;
+    width: fit-content;
+    word-break: break-word;
+
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid black;
+    border-top: 4px solid transparent;
+}
+

@@ -37,7 +37,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { getSettings } from './constate/settings';
 import Gps from "./Gps";
-import {Evse, EVSE_MANAGER_ADDRESS} from "../../utils/evse-smart-contract";
+import {Evse, EVSE_LINK, EVSE_MANAGER_ADDRESS} from "../../utils/evse-smart-contract";
+import {TicketPDFGenerator} from "./TicketPDFGenerator";
 
 function useWidth() {
   const theme = useTheme();
@@ -578,13 +579,17 @@ const EditSettings = () => {
 
 const Validate = () => {
   const {evses} = getEVSEs();
+  const {settings} = getSettings();
   const byteSize = () => {
     return new Blob([JSON.stringify(evses.data)]).size;
   }
   return (
-    <Grid container direction="row" justifyContent="flex-start" alignContent="center" spacing={1} style={{ padding : '32px' }}>
-      <Grid item xs={12}>
+    <Grid container direction="column">
+      <Grid item textAlign='left' margin='20px 20px'>
         <Typography>Data size : {byteSize()} bytes</Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <TicketPDFGenerator evseName={settings[0].id} evseLink={EVSE_LINK}/>
       </Grid>
       {/*
       //Already visible on temple wallet
