@@ -19,7 +19,7 @@ export const TicketPDFGenerator = ({evseName, evseLink}) => {
         })
     };
     return (
-        <div className='container'>
+        <div className='PDFcontainer'>
             <div>
                 <IconButton sx={{'&:hover' : {backgroundColor: 'gray'}, margin: '20px',
                     border: '1px solid black', borderRadius: '50%'}} onClick={() => downloadPdf()}

@@ -4,7 +4,7 @@ require('dotenv').config();
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Werenode Official Website',
-  tagline: 'Dinosaurs are dead',
+  tagline: 'Cryptos for EV',
   url: 'https://werenode.github.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -19,15 +19,8 @@ module.exports = {
     './src/myevses-plugin',
   ],
   themeConfig: {
-    hideableSidebar: false,
     prism: {
       theme: require('./src/theme/prism-archetype-theme'),
-    },
-    gtag: {
-      trackingID: 'G-M4N4RH6CXF',
-      // trackingID: 'G-QLM041KYQW',
-      // Optional fields.
-      anonymizeIP: false, // Should IPs be anonymized?
     },
     colorMode: {
       defaultMode: 'dark',
@@ -45,7 +38,7 @@ module.exports = {
         { to: 'cryptos', label: 'Crypto', position: 'left' },
         { to: 'invest', label: 'Buy', position: 'left' },
         { to: 'hardware', label: 'Hardware', position: 'left' },
-        { to: 'papers', label: 'White/Lite Paper', position: 'left' },
+        { to: 'faq', label: 'FAQ', position: 'left' },
         { to: 'Registeryourequipment', label: 'Register your equipment', position: 'left' },
         //{ to: 'myevses', label: 'My EVSEs', position: 'left' },
         /*{
@@ -115,7 +108,14 @@ module.exports = {
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Werenode, Inc.`,
+    },
+    docs: {
+      sidebar: {
+        hideable: false,
+      }
+
     }
+
   },
   presets: [
     [
@@ -133,6 +133,12 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          trackingID: 'G-M4N4RH6CXF',
+          // trackingID: 'G-QLM041KYQW',
+          // Optional fields.
+          anonymizeIP: false, // Should IPs be anonymized?
         },
       },
     ],

@@ -10,6 +10,13 @@ Why Cryptos
 Interoperability is crucial in the fragmented ecosystem of charging stations. We need a secure and open payment system where other operators can join easily. 
 A public ledger is also required to audit energy use, especially in complex cases like Smart Charge, V2G, Plug&Charge, etc…. When it comes to P2P payments and disintermediation, cryptos are here !
 
+## Presenting the project
+
+You will find all the information about Werenode in the [White Paper](https://werenode.com/documents/Werenode_whitepaper_22_01_10.pdf)
+
+Or you can begin with the condensed [Lite Paper](https://werenode.com/documents/Werenode_Litepaper_21_12_03.pdf)
+
+
 ## Why Tezos ?
 
 Tezos is an innovative blockchain with smart contracts in mind. Media and pundits show a growing interest  (https://www.cryptodaily.co.uk/2021/10/Tezos-Listed-By-Bank-Of-America-As-Most-Undervalued-Crypto)
