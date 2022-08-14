@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[5649],{78685:function(e){e.exports=JSON.parse('{"label":"tezos","permalink":"/blog/tags/tezos","allTagsPath":"/blog/tags","count":3}')}}]);
