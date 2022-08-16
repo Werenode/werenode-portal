@@ -65,7 +65,9 @@ const MyEVSEs = (props) => {
                       <SelectProvider>
                           <WizardProvider>
                               <SettingsProvider>
-                                  <div style={{ height: `${props.height}px`, width: `${props.width}px` }}>
+                                  <div /*style={{ height: `${props.height}px`, width: `${props.width}px` }}*/
+                                      style={{ height: '100vh', width: '100vw'}}
+                                  >
                                       <TopPanel height={props.height} width={props.width} />
                                   </div>
                                   <ConnectorSettings />

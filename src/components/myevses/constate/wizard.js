@@ -58,9 +58,9 @@ export function useWizard() {
     /* ----------------- */
   });
   const setShowErrors = (s) => { setData(d => { return { ...d, showerrors : s } }) };
-  const setNb = (n) => {
+  /*const setNb = (n) => {
     if (n >= 1) setData(d => { return { ...d, edition : true, nb : n } });
-  };
+  }; */
   const setOwner = (o) => { setData(d => { return { ...d, edition : true, owner : o } }) };
   const setId = (i) => {
     if (i.length <= IdLength)
@@ -129,7 +129,7 @@ export function useWizard() {
     setShowErrors,
     setOwner,
     setId,
-    setNb,
+    //setNb,
     setSupervision,
     setLogin,
     setPwd,

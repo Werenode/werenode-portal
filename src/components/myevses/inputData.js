@@ -1,7 +1,7 @@
 export const inputdata = {
   owner : { label : 'Owner', hash :'owner', desc : 'Address of the Tezos account that owns the EVSE(s).' },
   id :    { label : 'Identifier', hash : 'identifier', desc : 'Identifier of the EVSE(s).' },
-  nb :    { label : 'Number of EVSE(s)', hash : 'number-of-evses', desc : 'Number of EVSEs to declare.' },
+ // nb :    { label : 'Number of EVSE(s)', hash : 'number-of-evses', desc : 'Number of EVSEs to declare.' },
   evseserver : { label : 'EVSE Server', hash : 'evse-manager-server', desc : 'EVSE Manager Server.',
     items : [ { value : 'werenode', label : 'Werenode Server' } ]
   },

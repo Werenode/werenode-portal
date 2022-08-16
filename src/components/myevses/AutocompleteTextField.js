@@ -1,5 +1,5 @@
 import {getSettings} from "./constate/settings";
-import React, {useEffect, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from "react-places-autocomplete";
 import Grid from "@material-ui/core/Grid";
 import {WithHelp} from "./EvseInputs";
@@ -18,6 +18,12 @@ const suggestionsStyle = (active) => ({
     alignItems: 'center',
 });
 
+const MESSAGE = {
+    COORD_NOT_FOUND: "Coordinates not found",
+    ENTER_ADDRESS: "Enter an address",
+}
+const INITIAL_LOCATION = {lat: 0, lng: 0};
+
 const suggestions = (message) =>  (
     ({
           getInputProps,
@@ -32,7 +38,7 @@ const suggestions = (message) =>  (
                     label: 'GPS',})}/>}
             />
             <Grid item container direction='column' position='absolute' top='70%' zIndex={1}
-                  alignItems='left'
+                  alignItems='left' boxShadow='0 0 2px 2px'
             >
                 {loading && <div>Loading...</div>}
                 {suggestions
@@ -56,11 +62,9 @@ const AutocompleteTextField = () => {
     const {settings} = getSettings();
     const [address, setAddress] = useState('');
     const [location, setLocation]  = useState(getLatLngFromGps());
-    const [message, setMessage] = useState('Enter an address');
+    const [message, setMessage] = useState(MESSAGE.ENTER_ADDRESS);
     const { isGoogleApiLoaded, loadGoogleScript} = getGoogleLoadScript();
     const [showMap, setShowMap] = useState(true);
-
-    const handleClick = () => setShowMap(e => !e);
 
     useEffect(() => {
         if(!isGoogleApiLoaded){
@@ -69,35 +73,41 @@ const AutocompleteTextField = () => {
     }, []);
 
     useEffect(() => {
-        if(!settings[0].gps) return;
-        if(location.lat === 0 || location.lng === 0) return;
+        if(location.lat === 0 && location.lng === 0) return;
         settings[0].gps = `${location.lat} , ${location.lng}`;
-        setAddress(`${location.lat} , ${location.lng}`);
-    }, [location])
+        setAddress(settings[0].gps);
+    }, [location]);
+
+    const handleClick = () => setShowMap(e => !e);
 
     const handleSelect = () => {
         geocodeByAddress(address)
             .then(results => getLatLng(results[0]))
             .then(latLng => {
                 setLocation({lat: latLng.lat, lng: latLng.lng});
-                setMessage('First enter an address');
+                if(message === MESSAGE.COORD_NOT_FOUND)
+                    setMessage(MESSAGE.ENTER_ADDRESS);
                 console.log(`${latLng.lat}, ${latLng.lng}`);
             })
             .catch(err => {
+                if(message === MESSAGE.ENTER_ADDRESS)
+                    setMessage(MESSAGE.COORD_NOT_FOUND);
                 console.log(`Error ${err}`);
             })
-    }
+    };
     const handleError = (status, clearSuggestions) => {
         console.log(`status ${status}`);
         clearSuggestions();
         setAddress('');
-        setMessage(`${status}`);
-        setLocation({lat: 0, lng: 0});
-    }
+        //setMessage(`${status}`);
+        if(message === MESSAGE.ENTER_ADDRESS)
+            setMessage(MESSAGE.COORD_NOT_FOUND);
+        setLocation(INITIAL_LOCATION);
+    };
 
     function getLatLngFromGps () {
         if(!settings[0].gps || !settings[0].gps.includes(',')){
-            return {lat: 0, lng: 0};
+            return INITIAL_LOCATION;
         }
         const coordArray = settings[0].gps.split(',');
         return {lat: +coordArray[0], lng: +coordArray[1]};
@@ -117,21 +127,21 @@ const AutocompleteTextField = () => {
             </Grid>
             <Grid item xs={12}>
                 {showMap ?
-                    <IconButton onClick={handleClick} color='primary' sx={{
-                        height: '20px' , fontSize: '0.8em'
-                    }}>
-                        <MapOutlined/>
-                        Hide map
-                    </IconButton> :
+                    <Fragment>
+                        <IconButton onClick={handleClick} color='primary' sx={{
+                            height: '20px' , fontSize: '0.8em'
+                        }}>
+                            <MapOutlined/>
+                            Hide map
+                        </IconButton>
+                        <Map location={location} setLocation={setLocation} evseId={settings[0].id}/>
+                    </Fragment>
+                     :
                     <IconButton onClick={handleClick} sx={{color: 'lightgray',
                         height: '20px' , fontSize: '0.8em'}}>
                         <MapOutlined />
                         Show map
                     </IconButton>
-                }
-                {showMap &&
-                <Map location={location} setLocation={setLocation} evseId={settings[0].id}/>
-
                 }
             </Grid>
         </Grid>

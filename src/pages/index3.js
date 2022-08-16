@@ -221,7 +221,7 @@ const MobileApp = () => {
         <Grid item><Phone /></Grid>
       </Grid>
       <Grid container direction="column" justifyContent="space-between" alignItems="center" item md={4} sm={12} xs={12} style={{
-        height: '100%',
+        //height: '100%',
         paddingTop: isWidthDown('sm', width) ? "0px" : "100px",
         height: isWidthDown('sm', width) ? "100%" : "650px"
       }}  >
@@ -450,7 +450,7 @@ const Partners = () => {
     </Grid>
   )
 }
- 
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const theme = React.useMemo(

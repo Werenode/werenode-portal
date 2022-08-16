@@ -39,6 +39,7 @@ import { getSettings } from './constate/settings';
 import Gps from "./Gps";
 import {Evse, EVSE_LINK, EVSE_MANAGER_ADDRESS} from "../../utils/evse-smart-contract";
 import {TicketPDFGenerator} from "./TicketPDFGenerator";
+import {useEffect} from "react";
 
 function useWidth() {
   const theme = useTheme();
@@ -112,15 +113,9 @@ const useStyles = makeStyles({
 
 const FreeUsers = (props) => {
   const classes = useStyles();
-  const pkh = useAccountPkh();
-  const { setOpenAddAddress, setAddFreeUsers, setData} = getWizard();
+  const { setOpenAddAddress, setAddFreeUsers} = getWizard();
   const theme = useTheme();
-  React.useEffect(() => {
-    if (!props.freeusers.includes(pkh)) {
-      const newFreeUsers = props.freeusers.push(pkh);
-      setData(d => { return { ...d, freeusers : newFreeUsers } });
-    }
-  }, []);
+
   const handleDelete = v => () => {
     props.rmFreeUser(v);
   }
@@ -154,6 +149,13 @@ const FreeUsers = (props) => {
 const OtherSettings = () => {
   const classes = useStyles();
   const { data, setData } = getWizard();
+  useEffect(() => {
+    if(data.edit) return;
+    setData(d => ({
+      ...d,
+      freeusers: [data.owner]
+    }))
+  }, []);
   const addFreeUser = (a) => { setData(d => {
     return { ...d, edition : true, freeusers : d.freeusers.filter(x => x !== a).concat([a]) }
   }) };
@@ -354,13 +356,8 @@ const Supervision = () => {
 
 const General = () => {
   const classes = useStyles();
-  const { data, setData, setNb, setId } = getWizard();
-  const pkh = useAccountPkh();
-  React.useEffect(() => {
-    if (!data.edition) {
-      setData(d => { return { ...d, owner : pkh, freeusers : d.freeusers.concat([ pkh ]) } })
-    }
-  }, []);
+  const { data, setId } = getWizard();
+
   return (
     <Grid
       container
@@ -378,15 +375,19 @@ const General = () => {
               isError={() => !isValidAddress(data.owner)}
               errorText="Invalid address format" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <EvseTextField
               identifier="id"
               handleChange={e => setId(e.target.value)}
               errorText="Empty identifier"/>
           </Grid>
-          <Grid item  xs={6}>
+          {
+            /*
+            Useless
+            <Grid item  xs={6}>
             <EvseTextField identifier="nb" type="number" handleChange={e => setNb(e.target.value)}/>
-          </Grid>
+          </Grid>*/
+          }
           <Grid item  xs={12}>
             <EvseSelect identifier="evseserver" />
           </Grid>
@@ -406,6 +407,7 @@ const EVSESettings = (props) => {
   const isIndexError = (v) => {
     return evses.data.map(x => x.id).indexOf(v) !== -1;
   }
+
   const handleSupervision = (e) => {
     setSettings(s => s.map((x,i) => {
       if (i === props.index) {
@@ -563,6 +565,21 @@ const EVSESettings = (props) => {
 
 const EditSettings = () => {
   const { settings } = getSettings();
+  const { data, setData } = getWizard();
+  const {evses} = getEVSEs();
+  const {selected} = getSelect();
+
+  useEffect(() => {
+    //To display freeusers associated to an evse
+    //in the event of an update
+    if(!data.edit) return;
+    setData(d => ({
+      ...d,
+      freeusers: evses.data.find(ev => ev.id === selected)
+          .setting.freeusers
+    }))
+  }, []);
+
   return (
     <Grid container direction='row'>
       {
@@ -623,10 +640,14 @@ const getWizardPanels = (edit) => {
 const Buttons = (props) => {
   const classes = useStyles();
   const { setPanel } = getPanels();
-  const { data } = getWizard();
+  const { data, setEdit} = getWizard();
   const width = useWidth();
+  const {setSelect, setSelected} = getSelect();
   const handleCancel = () => {
     setPanel(0);
+    setEdit(false);
+    setSelected(null);
+    setSelect(false);
   }
   const handlePrevious = () => {
     props.setWizardPanel(props.wizardPanelIdx - 1);
@@ -677,13 +698,24 @@ const Wizard = (props) => {
   const tezos = useTezos();
   const pkh = useAccountPkh();
 
-  React.useEffect(() => {
-    if(!data.edit) return;
-    setData(d => { return { ...d, owner : pkh, id: settings[0].id} });
+  useEffect(() => {
+    if(data.owner){
+      return;
+    }
+    setData(d => ({
+      ...d,
+      owner: pkh,
+    }));
   }, []);
+
+  /* const setNb = (n) => {
+    if (n >= 1) setData(d => { return { ...d, edition : true, nb : n } });
+  };*/
+
   const isInvalid = () => {
     if (wizardPanelIdx === wizardPanels.length - 6) {
-      return (data.id === "" || !isValidAddress(data.owner));
+      return data.edit ? !isValidAddress(data.owner) :
+          (data.id === "" || !isValidAddress(data.owner));
     } else if (wizardPanelIdx === wizardPanels.length - 5) {
       if (data.supervision.type === 'werenoderpcget') {
         return (
@@ -694,7 +726,7 @@ const Wizard = (props) => {
     } else if (wizardPanelIdx === wizardPanels.length - 4) {
       return (data.connectors.length === 0);
     } else if (wizardPanelIdx === wizardPanels.length - 2) {
-      return settings.reduce((test,x) => (test || x.gps === ""), false);
+      return settings.reduce((test, x) => (test || x.gps === ""), false);
     } else return false;
   }
   const handleClick = () => {
@@ -710,6 +742,7 @@ const Wizard = (props) => {
                   supervision: settings[0].supervision,
                   connectors: settings[0].connectors,
                   gps: settings[0].gps,
+                  freeusers: settings[0].freeusers,
                 }));
             setEvses(e => ({...e, shouldLoadData: true}));
             setShowMessageBox(false);
@@ -730,7 +763,8 @@ const Wizard = (props) => {
                 pkh, 0, {
                   supervision: settings[0].supervision,
                   connectors: settings[0].connectors,
-                  location: settings[0].gps,
+                  gps: settings[0].gps,
+                  freeusers: settings[0].freeusers,
                 }));
             setEvses(e => ({...e, shouldLoadData: true}));
             setShowMessageBox(false);

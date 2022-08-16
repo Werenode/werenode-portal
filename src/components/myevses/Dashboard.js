@@ -124,7 +124,7 @@ const EVSE = (props) => {
 
   return (
     <Card className={ isSelected() ? classes.selected : classes.evse} onClick={ handleClick }>
-      <Grid container direction="column" justifyContent="flex-start" alignContent="center" style={{ height : "300px" }}>
+      <Grid container direction="column" justifyContent="flex-start" alignContent="center" style={{ height : "300px",}}>
         <Grid item style={{ padding : '12px' }}>
           <Grid container direction="row" justifyContent="flex-start" alignContent="center">
             <Grid item xs={12}>
@@ -155,6 +155,7 @@ const EVSEsPanel = (props) => {
   const tezos = useTezos();
   const pkh = useAccountPkh();
   const {data, setShowMessageBox} = getWizard();
+
   useEffect(() => {
     if(!evses.shouldLoadData) return;
     const loadData = async () => {
@@ -356,7 +357,6 @@ const Tools = () => {
 
 const DashBoard = (props) => {
   const h = props.height - 64;
-
   const { isGoogleApiLoaded, loadGoogleScript} = getGoogleLoadScript();
   useEffect(() => {
     if(!isGoogleApiLoaded){

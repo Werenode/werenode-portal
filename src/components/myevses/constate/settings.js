@@ -5,7 +5,7 @@ export function useSettings() {
   const [settings,setSettings] = useState([]);
   const createSettings = (d) => { setSettings(
     Array.from(Array(parseInt(d.nb)), (x,i) => ({
-      id : (d.id + ' ' +  (i + 1)),
+      id : d.id, //(d.id + ' ' +  (i + 1)),
       owner : d.owner,
       evseserver : d.evseserver,
       supervision : d.supervision,

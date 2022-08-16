@@ -29,6 +29,7 @@ import { getPanels, panels, getEVSEPanelIdx, getEVSEIdfromPanelIdx, EVSEsTitle, 
 import {ChangeCircle} from "@material-ui/icons";
 import {EvseInfo} from "./EvseInfo";
 import {TEZOS_NETWORK} from "../tezosNetwork";
+import {useEffect} from "react";
 
 const drawerWidth = 240;
 const courier = "Courier Prime, monospace";
@@ -154,6 +155,7 @@ export default function MainPanel(props) {
   const { panel, setPanel, openevses, setOpenEvses, open, setOpen } = getPanels();
   const [headerHeight, setHeaderHeight] = React.useState(0);
   const { evses } = getEVSEs();
+
   const switchOpen = () => {
     setOpen(o => !o);
     if (openevses) { setOpenEvses(false) }
