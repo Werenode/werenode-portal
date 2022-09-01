@@ -144,6 +144,12 @@ const data = {
       url: 'https://edukera.com/',
       width: '250px',
     },    
+    {
+      key: 'B-Hub',
+      img: 'img/b-hub.png',
+      url: 'https://b-hub.eu/',
+      width: '250px',
+    },    
   ]
 }
 
