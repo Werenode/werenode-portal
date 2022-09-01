@@ -120,6 +120,18 @@ const data = {
       url: 'https://www.nomadic-labs.com/',
       width: '250px',
     },
+    {
+      key: 'Coinbrain',
+      img: 'img/coinbrain.png',
+      url: 'https://coinbrain.com/coins/bnb-0xBCE2B12E3AA25225ED716C09C464DF528B1E5916',
+      width: '250px',
+    },
+    {
+      key: 'Spicyswap',
+      img: 'img/spicyswap.png',
+      url: 'https://spicyswap.xyz/#/pool/KT1PnUZCp3u2KzWr93pn4DD7HAJnm3rWVrgn:0/KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R:0',
+      width: '250px',
+    },
   ]
 }
 
