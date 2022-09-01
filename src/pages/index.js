@@ -132,6 +132,12 @@ const data = {
       url: 'https://spicyswap.xyz/#/pool/KT1PnUZCp3u2KzWr93pn4DD7HAJnm3rWVrgn:0/KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R:0',
       width: '250px',
     },
+    {
+      key: 'Archetype',
+      img: 'img/archetype.png',
+      url: 'https://archetype-lang.org/',
+      width: '250px',
+    },
   ]
 }
 
