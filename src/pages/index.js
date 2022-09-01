@@ -154,7 +154,7 @@ const data = {
       key: 'FrenchTech',
       img: 'img/lafrenchtechsaclay.png',
       url: 'https://lafrenchtech-paris-saclay.fr',
-      width: '250px',
+      width: '200px',
     },    
   ]
 }
