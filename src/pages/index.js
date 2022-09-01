@@ -138,6 +138,12 @@ const data = {
       url: 'https://archetype-lang.org/',
       width: '250px',
     },
+    {
+      key: 'Edukera',
+      img: 'img/edukera.png',
+      url: 'https://edukera.com/',
+      width: '250px',
+    },    
   ]
 }
 
