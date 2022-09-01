@@ -143,11 +143,17 @@ const data = {
       img: 'img/edukera.png',
       url: 'https://edukera.com/',
       width: '250px',
-    },    
+    },
     {
       key: 'B-Hub',
       img: 'img/b-hub.png',
       url: 'https://b-hub.eu/',
+      width: '250px',
+    },    
+    {
+      key: 'FrenchTech',
+      img: 'img/lafrenchtechsaclay.png',
+      url: 'https://lafrenchtech-paris-saclay.fr',
       width: '250px',
     },    
   ]
