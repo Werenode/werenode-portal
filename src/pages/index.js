@@ -122,7 +122,7 @@ const data = {
     },
     {
       key: 'Coinbrain',
-      img: 'img/coinbrain.png',
+      img: 'img/coinbrainfondsombre.png',
       url: 'https://coinbrain.com/coins/bnb-0xBCE2B12E3AA25225ED716C09C464DF528B1E5916',
       width: '250px',
     },
