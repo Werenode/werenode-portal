@@ -40,8 +40,8 @@ Werenode is using a Tezos token called Werecoin, shorten in WRC. The address is 
 > KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R 
 
 The token can also be bought on the Binance Smart Chain. The token address is : 
-> 0xbCe2B12e3aA25225ed716c09C464dF528B1E5916
+> 0xcb2B11e8B780971907A9A171754C7D767ee8Bc70
 
 All other contracts on Tezos or on other Blockchains are obsolete or not related to us. 
 Beware of scams.
-Please don't use the first token KT1LqEyTQ...qazAwXrg4t
+Please don't use the first token KT1LqEyTQ...qazAwXrg4t and 0xbCe2B12e3aA25...9C464dF528B1E5916

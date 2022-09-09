@@ -123,7 +123,7 @@ const data = {
     {
       key: 'Coinbrain',
       img: 'img/coinbrainfondsombre.png',
-      url: 'https://coinbrain.com/coins/bnb-0xBCE2B12E3AA25225ED716C09C464DF528B1E5916',
+      url: 'https://coinbrain.com/coins/bnb-0xcb2B11e8B780971907A9A171754C7D767ee8Bc70',
       width: '250px',
     },
     {
