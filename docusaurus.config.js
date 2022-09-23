@@ -95,6 +95,14 @@ module.exports = {
               label: 'Instagram',
               href: 'https://www.instagram.com/were_node',
             },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/werenode',
+            },
+            {
+              label: 'Youtube',
+              href: 'https://www.youtube.com/channel/UCpVn9cg28Okb907GG8KkMww',
+            },
           ],
         },
         {
