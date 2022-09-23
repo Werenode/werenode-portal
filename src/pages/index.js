@@ -133,6 +133,12 @@ const data = {
       width: '250px',
     },
     {
+      key: 'Coincodex',
+      img: 'img/coincodex-logo-3.png',
+      url: 'https://coincodex.com/crypto/werecoin/',
+      width: '250px',
+    },
+    {
       key: 'Archetype',
       img: 'img/archetype.png',
       url: 'https://archetype-lang.org/',
