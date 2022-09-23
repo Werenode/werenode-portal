@@ -93,7 +93,7 @@ module.exports = {
             },
             {
               label: 'Instagram',
-              href: 'https://www.isntagram.com/were_node',
+              href: 'https://www.instagram.com/were_node',
             },
           ],
         },
