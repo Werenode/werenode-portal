@@ -87,6 +87,14 @@ module.exports = {
               label: 'Twitter',
               href: 'https://twitter.com/werenode',
             },
+            {
+              label: 'Facebook',
+              href: 'https://www.facebook.com/werenode',
+            },
+            {
+              label: 'Instagram',
+              href: 'https://www.isntagram.com/were_node',
+            },
           ],
         },
         {
