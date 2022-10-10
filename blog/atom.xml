@@ -36,6 +36,20 @@
         <category label="werecoin" term="werecoin"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Werenode recognized as best startup 2021]]></title>
+        <id>B-Hub Winner 2021</id>
+        <link href="https://werenode.github.io/blog/B-Hub Winner 2021"/>
+        <updated>2021-10-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Werenode has been marked as the top Startup in 2021 by the European B-Hub project More on B-hub]]></summary>
+        <content type="html"><![CDATA[<p>Werenode has been marked as the top Startup in 2021 by the European B-Hub project <a href="https://b-hub.eu/blockchain-startups-france/#werenode" target="_blank" rel="noopener noreferrer">More on B-hub</a></p>]]></content>
+        <author>
+            <name>Benoit Maisseu</name>
+            <uri>https://www.linkedin.com/in/benoit-maisseu/</uri>
+        </author>
+        <category label="article" term="article"/>
+        <category label="werecoin" term="werecoin"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Werenode's MVP is live]]></title>
         <id>MVPlive</id>
         <link href="https://werenode.github.io/blog/MVPlive"/>
