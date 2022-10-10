@@ -153,7 +153,7 @@ const data = {
     {
       key: 'B-Hub',
       img: 'img/b-hub.png',
-      url: 'https://b-hub.eu/',
+      url: 'https://b-hub.eu/blockchain-startups-france/#werenode',
       width: '250px',
     },    
     {
