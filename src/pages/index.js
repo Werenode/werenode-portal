@@ -155,13 +155,19 @@ const data = {
       img: 'img/b-hub.png',
       url: 'https://b-hub.eu/blockchain-startups-france/#werenode',
       width: '250px',
-    },    
+    },
     {
       key: 'FrenchTech',
       img: 'img/lafrenchtechsaclay.png',
       url: 'https://lafrenchtech-paris-saclay.fr',
       width: '200px',
-    },    
+    },
+    {
+      key: 'Ontochain',
+      img: 'img/Ontochain.png',
+      url: 'https://ontochain.ngi.eu',
+      width: '200px',
+    },
   ]
 }
 
