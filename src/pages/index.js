@@ -164,7 +164,7 @@ const data = {
     },
     {
       key: 'Ontochain',
-      img: 'img/Ontochain.png',
+      img: 'img/ontochain.png',
       url: 'https://ontochain.ngi.eu',
       width: '200px',
     },
