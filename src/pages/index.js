@@ -163,6 +163,12 @@ const data = {
       width: '200px',
     },
     {
+      key: 'PlanetTechCare',
+      img: 'img/planettechcare.png',
+      url: 'https://www.planet-techcare.green/annuaire/',
+      width: '200px',
+    },
+    {
       key: 'FrenchTech',
       img: 'img/lafrenchtechsaclay.png',
       url: 'https://lafrenchtech-paris-saclay.fr',
