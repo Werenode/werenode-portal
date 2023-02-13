@@ -24,7 +24,7 @@ In order to enable advanced grid management, smart charging technology can also 
 
 In conclusion, smart charging for Electric Vehicles is a crucial technology that can help to streamline the charging of EVs, lower costs for EV owners, enhance vehicle performance, and lessen the overall environmental impact of EVs. The use of EV smart charging technology is anticipated to increase in the future as EV adoption rises and efforts are made to create a cleaner, more sustainable transportation system.
 
-<img src="https://werenode.com/img/Werenode_concept.jpg" style="width:602px;height:615px;" ></img>
+<img src="https://werenode.com/img/Werenode_concept.jpg" ></img>
 
 Werenode is a Company that develops software solutions to provide services for the charging of electric vehicles. Using its mastery of blockchain technologies among others, Werenode created a solution that can incorporate the features of several modern services associated with electric vehicle charging and blockchain, including services like: Plug & Charge, Vehicle to Grid and the Technology of the day “Smart charging”. Werenode also provides several payment options for users which includes Fiat and Crypto payment (This allows for a secure, traceable and scalable transaction among others).
 Find some more info about <Link to='https://coinpaprika.com/coin/bwrc-werecoin/'>Werecoin</Link> on <Link to='https://coinpaprika.com/coin/btc-bitcoin/'>Coinpaprika</Link>.
