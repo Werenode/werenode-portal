@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[4091],{22374:function(a){a.exports=JSON.parse('{"label":"smart-charging","permalink":"/blog/tags/smart-charging","allTagsPath":"/blog/tags","count":1}')}}]);
