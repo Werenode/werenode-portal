@@ -14,7 +14,7 @@ Smart charging for electric vehicles (EVs) is the use of cutting-edge technology
 
 The ability to shift charge time to during off-peak hours, when electricity demand is low, is a major benefit of EV smart charging. This can save EV owners a lot of money while reducing the burden on the electric grid. Renewable energy sources, like solar and wind power, can be embodied into the charging process with the effectiveness of smart charging technology.
 
-<img src="https://werenode.com/img/iso3D_ecosystem_charge.jpg" style="width:600px;height:600px;" ></img>
+<img src="https://werenode.com/img/iso3D_ecosystem_charge.jpg" ></img>
 
 Additionally, smart EV charging has the potential to significantly contribute to lowering greenhouse gas emissions and enhancing air quality. The need for electricity to power EVs will rise as more of them are utilized. In order to lessen the overall environmental impact of EVs, smart charging technology can help to ensure that this electricity is produced from clean, renewable sources.
 
