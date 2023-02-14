@@ -27,4 +27,4 @@ In conclusion, smart charging for Electric Vehicles is a crucial technology that
 <img src="https://werenode.com/img/Werenode_concept.jpg" ></img>
 
 Werenode is a Company that develops software solutions to provide services for the charging of electric vehicles. Using its mastery of blockchain technologies among others, Werenode created a solution that can incorporate the features of several modern services associated with electric vehicle charging and blockchain, including services like: Plug & Charge, Vehicle to Grid and the Technology of the day “Smart charging”. Werenode also provides several payment options for users which includes Fiat and Crypto payment (This allows for a secure, traceable and scalable transaction among others).
-Find some more info about <Link to='https://coinpaprika.com/coin/bwrc-werecoin/'>Werecoin</Link> on <Link to='https://coinpaprika.com/coin/btc-bitcoin/'>Coinpaprika</Link>.
+Find some more info about <Link to='https://coinpaprika.com/coin/bwrc-werecoin/'>Werecoin</Link> and <Link to='https://coinpaprika.com/coin/btc-bitcoin/'>Bitcoin</Link> on <Link to='https://coinpaprika.com/'>Coinpaprika</Link>.
