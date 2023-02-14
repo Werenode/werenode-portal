@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[7829],{27859:function(e){e.exports=JSON.parse('{"permalink":"/blog/tags/werecoin","page":1,"postsPerPage":10,"totalPages":1,"totalCount":3,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

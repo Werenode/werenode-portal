@@ -19,9 +19,11 @@ Find some more info about <a href="https://coinpaprika.com/coin/bwrc-werecoin/" 
             <name>Miles Ajibola</name>
             <uri>https://www.linkedin.com/in/miles123/</uri>
         </author>
-        <category label="article" term="article"/>
+        <category label="ev" term="ev"/>
         <category label="smart-charging" term="smart-charging"/>
         <category label="crypto" term="crypto"/>
+        <category label="bitcoin" term="bitcoin"/>
+        <category label="werecoin" term="werecoin"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Zycrypto article about Werecoin]]></title>
