@@ -5,7 +5,7 @@ author: Miles Ajibola
 author_title: Werenode Community Manager
 author_url: https://www.linkedin.com/in/miles123/
 author_image_url: /img/Miles.png
-tags: [article, smart-charging, crypto]
+tags: [ev, smart-charging, crypto, bitcoin, werecoin]
 ---
 
 import Link from '@docusaurus/Link';
