@@ -174,6 +174,12 @@ const data = {
       url: 'https://lafrenchtech-paris-saclay.fr',
       width: '200px',
     },
+    {
+      key: 'MintMe',
+      img: 'img/logomintme.png',
+      url: 'https://www.mintme.com/token/Werecoin',
+      width: '200px',
+    }
   ]
 }
 
