@@ -91,10 +91,10 @@ const data = {
       width: '180px'
     },
     {
-      key: 'Easy Wallet',
-      img: 'img/easywallet.png',
-      url: 'https://easywallet.com/',
-      width: '200px',
+      key: 'EIT Urban Mobility',
+      img: 'img/EITUM_Vertical.png',
+      url: 'https://www.eiturbanmobility.eu/innovation/areas-of-innovation/',
+      width: '400px',
     },
     {
       key: 'Systematic',
