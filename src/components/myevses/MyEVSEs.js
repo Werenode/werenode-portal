@@ -1,18 +1,19 @@
-import React from 'react';
+import useDocusaurusContext from "@docusaurus/core/lib/client/exports/useDocusaurusContext";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import React from 'react';
+
+import AddAddress from './AddAddress';
+import ConnectorSettings from './ConnectorSettings';
 import { DAppProvider, useReady } from './constate/dapp';
 import { EVSEProvider } from './constate/evses';
+import { GoogleLoadScriptProvider } from "./constate/googleLoadScript";
 import { PanelsProvider } from './constate/panels';
-import { SelectProvider } from './constate/select';
-import { WizardProvider } from './constate/wizard';
+import { SelectProvider } from './constate/select';
 import { SettingsProvider } from './constate/settings';
+import { WizardProvider } from './constate/wizard';
 import labels from './labels.js';
 import Login from './Login.js';
 import MainPanel from './MainPanel.js';
-import ConnectorSettings from './ConnectorSettings';
-import AddAddress from './AddAddress';
-import useDocusaurusContext from "@docusaurus/core/lib/client/exports/useDocusaurusContext";
-import {GoogleLoadScriptProvider} from "./constate/googleLoadScript";
 
 const TopPanel = (props) => {
   const ready = useReady();
