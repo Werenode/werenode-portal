@@ -28,7 +28,6 @@ const MyEVSEsPage = () => {
       const resizeEvent = new Event('resize');
       window.dispatchEvent(resizeEvent);
       return () => {
-        clearTimeout(timeoutId);
         window.removeEventListener('resize', handleResize);
       };
     }
