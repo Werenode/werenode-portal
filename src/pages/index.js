@@ -94,7 +94,7 @@ const data = {
       key: 'EIT Urban Mobility',
       img: 'img/EITUM_Vertical.png',
       url: 'https://www.eiturbanmobility.eu/innovation/areas-of-innovation/',
-      width: '400px',
+      width: '200px',
     },
     {
       key: 'Systematic',
