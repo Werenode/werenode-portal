@@ -2,8 +2,8 @@
 slug: Smart Charging article
 title: Follow Us on Twitter
 author: Werenode's Team
-author_title: Werenode Community Manager
-author_url: https://www.linkedin.com/in/bmaisseu/
+author_title: Werenode CEO
+author_url: https://www.linkedin.com/in/benoit-maisseu/
 author_image_url: /img/BM.png
 tags: [ev, smart-charging, crypto, bitcoin, werecoin]
 ---
