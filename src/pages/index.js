@@ -179,6 +179,12 @@ const data = {
       img: 'img/logomintme.png',
       url: 'https://www.mintme.com/token/Werecoin',
       width: '200px',
+    },
+    {
+      key: 'Trustchain',
+      img: 'img/trustchain.png',
+      url: 'https://trustchain.ngi.eu',
+      width: '200px',
     }
   ]
 }
