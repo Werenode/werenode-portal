@@ -144,6 +144,8 @@ module.exports = {
         },
         blog: {
           showReadingTime: true,
+          blogSidebarCount: 'ALL', // 20 posts below or set to 'ALL' for unlimited
+          // blogSidebarCount: 20,
           editUrl:
             'https://github.com/Werenode/werenode-portal/tree/master/',
         },
