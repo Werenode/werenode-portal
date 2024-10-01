@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 3
 ---
 
 # Installing a Shelly Connected Plug or Switch and Sharing with EV Users
