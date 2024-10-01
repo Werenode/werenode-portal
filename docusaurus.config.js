@@ -64,7 +64,7 @@ module.exports = {
           title: 'Services',
           items: [
             {
-              label: 'Invest',
+              label: 'Join us',
               to: '/invest',
             }, /*
             {
