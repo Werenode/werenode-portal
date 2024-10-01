@@ -20,18 +20,18 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const data = {
   taglines: {
-    header: 'Open your EV charging station',
-    subheader: 'Connect every charging equipement and allow anybody to share its own and be compensated seamlessly. Ready for your clean and sustainable mobility!',
-    mobile: 'Just plug and charge',
-    submobile: 'Connect instantly to any EV supply equipment with your phone. Use fiat, XTZ or WRC tokens to pay your charging session.',
+    header: 'Equip your parking with a bespoke EV charging solution',
+    subheader: 'Choose the best solution to accompany the electrified mobility of your employees, visitors or customers. Bring valuable services adapted to your real needs for the right cost. Find all the relevant analytics about your charging stations and your EV fleet.',
+    mobile: 'Open your EV charging station',
+    submobile: 'Connect every charging equipement and allow anybody to share its own and be compensated seamlessly. Ready for your clean and sustainable mobility!',
     evsemanager: 'Register your EV charging station',
     submanager: 'No need to wait for the big players. Help your fellow EV riders and get revenue from it. If you have an accessible connected charging station, you just have to register your EV supply equipment in the blockchain with the Werenode DApp.',
     invest: 'Invest in the future of EV',
     subinvest: 'New possibilities with Werenode : V2G, SmartCharge, ISO 15118, etc...'
   },
   buttons: {
-    invest: 'Buy tokens',
-    evsemanager: 'Beta test open!'
+    invest: 'Join us',
+    evsemanager: 'Register now'
   },
   team: [
     {
@@ -543,9 +543,9 @@ export default function Home() {
         description="Official Werenode website">
         <ThemeProvider theme={theme}>
           <WerenodeHeader />
-          <Invest />
-          <EvseManager />
           <MobileApp />
+          <EvseManager />
+          <Invest />
           {/*<HomepageFeatures />*/}
           <Team />
           <Partners />
