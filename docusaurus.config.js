@@ -35,8 +35,9 @@ module.exports = {
         src: 'img/werenode_logo_no_name_250px.png',
       },
       items: [
-        { to: 'cryptos', label: 'Crypto', position: 'left' },
-        { to: 'invest', label: 'Buy', position: 'left' },
+        { to: 'docs', label: 'Docs', position: 'left' },
+        { to: 'cryptos', label: 'Web3.0', position: 'left' },
+        { to: 'invest', label: 'Join us', position: 'left' },
         { to: 'hardware', label: 'Hardware', position: 'left' },
         { to: 'faq', label: 'FAQ', position: 'left' },
         { to: 'Registeryourequipment', label: 'Register your equipment', position: 'left' },
