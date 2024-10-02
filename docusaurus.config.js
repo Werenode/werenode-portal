@@ -4,7 +4,7 @@ require('dotenv').config();
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Werenode Official Website',
-  tagline: 'Cryptos for EV',
+  tagline: 'Web3.0 EV charging',
   url: 'https://werenode.github.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -36,6 +36,7 @@ module.exports = {
       },
       items: [
         { to: 'docs', label: 'Docs', position: 'left' },
+        { to: 'docs/innovations', label: 'Innovations', position: 'left' },
         { to: 'cryptos', label: 'Web3.0', position: 'left' },
         { to: 'invest', label: 'Join us', position: 'left' },
         { to: 'hardware', label: 'Hardware', position: 'left' },
