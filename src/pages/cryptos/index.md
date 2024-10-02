@@ -28,7 +28,7 @@ All other contracts on Tezos or on other Blockchains are obsolete or not related
 Beware of scams.
 Please don't use the first token KT1LqEyTQ...qazAwXrg4t and 0xbCe2B12e3aA25...9C464dF528B1E5916
 
-# Understanding Werenode's Multi-Chain Cryptocurrencies
+# Understanding Werenode's Multi-Chain Strategy
 
 Werenode leverages blockchain technology to provide a transparent, efficient, and decentralized platform for electric vehicle (EV) charging. As part of this initiative, Werenode has created two tokens: **Werecoin (WRC)**, based on the Tezos blockchain, and **Binance Smart Chain Werecoin (BWRC)**, based on the Binance Smart Chain (BSC). This guide will explain these two tokens, their use cases, and how you can interact with them.
 
