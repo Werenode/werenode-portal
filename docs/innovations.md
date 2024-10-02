@@ -8,7 +8,7 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 
 ## DEFev - Decentralized EV Charging Management
 
-**DEFev** is a fully decentralized web application designed to provide a seamless user experience for managing EV charging using blockchain technology. DEFev aims to empower users with complete control over their EV charging transactions and data.
+**DEFev** is a fully decentralized web application designed to provide a seamless user experience for managing EV charging using blockchain technology. DEFev aims to empower users with complete control over their EV charging transactions and data. DEFev was developed thanks to NGI Ontochain EU funded project (Grant Agreement Number 957338).
 
 ### Key Features:
 
@@ -25,7 +25,7 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 
 ## DID-IMP - Decentralized Identity for Interoperable Mobility Platform
 
-**DID-IMP** is Werenode’s **Decentralized Identity** project aimed at creating a secure and private way for users to authenticate and interact with the Werenode ecosystem.
+**DID-IMP** is Werenode’s **Decentralized Identity** project aimed at creating a secure and private way for users to authenticate and interact with the Werenode ecosystem. DID-IMP was developed thanks to NGI Trustchain EU funded project (Grant Agreement Number 101093274).
 
 ### Key Features:
 
@@ -39,19 +39,19 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 - **Reduced Dependence on Central Authorities**: With decentralized identities, users can move between different platforms and services without the need for multiple login credentials.
 - **Streamlined Charging Experience**: DID-IMP allows users to access charging stations across the Werenode network and partner services without the need to create multiple accounts.
 
-## IOTPAY - IoT-Based Payment Solution for EV Charging
+## IOTPAY - IoT-Based Automatic Payment Solution - In Collaboration with Gapask
 
-**IOTPAY** is Werenode's innovative payment solution that integrates **Internet of Things (IoT)** technology with blockchain to facilitate seamless and secure payments for EV charging.
+**IOTPAY** is Werenode's innovative payment solution that integrates **Internet of Things (IoT)** technology with blockchain to facilitate seamless and secure automatic payments. IOTPAY is developed thanks to NGI Sargasso EU funded project (Grant Agreement number 101092887).
 
 ### Key Features:
 
-- **IoT Integration**: IOTPAY enables the integration of **IoT-connected devices**, such as Shelly plugs and other smart charging points, to enable direct and automated payment processing for EV charging sessions.
-- **Blockchain-Based Payment Processing**: Payments are executed using smart contracts on **Tezos** or **Binance Smart Chain**, ensuring secure and immutable transactions. This makes the payment process transparent and accessible to both EV users and charging station operators.
-- **Real-Time Charging Control**: IOTPAY allows EV owners to initiate, pause, and stop charging sessions using a connected plug, with payment being processed in real time. This provides users with flexibility and complete control over their charging activities.
+- **IoT Integration**: IOTPAY enables the integration of **IoT-connected devices**, such as Shelly plugs and other smart charging points, to enable direct and automated payment processing.
+- **Blockchain-Based Payment Processing**: Payments are executed using smart contracts on **Tezos** or **Binance Smart Chain**, ensuring secure and immutable transactions. This makes the payment process transparent and accessible to both users and IoT fleet operators.
+- **Real-Time Service Control**: IOTPAY allows to initiate, pause, and stop service delivery using a connected device, with payment being processed in real time. This provides users with flexibility and complete control over their IoT devices.
 
 ### Benefits:
 
-- **Automated Payments**: Users can enjoy fully automated payments without needing to manually approve transactions for each charging session.
+- **Automated Payments**: Users can enjoy fully automated payments without needing to manually approve transactions for each service.
 - **Enhanced Security**: By integrating IoT with blockchain, IOTPAY ensures that payment data is secure and cannot be tampered with.
 - **Low Transaction Costs**: The use of blockchain allows for micro-transactions with significantly reduced costs compared to traditional payment gateways.
 
@@ -70,6 +70,33 @@ Werenode has partnered with Renault's **ElectroShaker Lab** to develop an **Alex
 - **Hands-Free Convenience**: The Alexa Speech HMI allows users to manage charging without needing to physically interact with a mobile device, adding a layer of convenience and safety, especially while driving.
 - **Collaboration with Industry Leader**: By collaborating with Renault's ElectroShaker Lab, Werenode is at the forefront of integrating automotive technology with voice-driven interfaces.
 - **Enhanced Accessibility**: The speech interface makes the Werenode app more accessible to users who may prefer or need voice control, including individuals with disabilities.
+
+## DECO - Decentralized Energy COmmunities - In Collaboration with OP Mobility and SII
+
+**DECO** (Decentralized Energy Communities) is an innovation project focused on creating decentralized systems to manage energy production and consumption at the community level. This project is a collaborative effort with partners such as **OP Mobility**, **SII**, and Werenode, combining expertise in energy management, data analysis, and blockchain technology. We also had key contributions from **Geeps**, **Innowide** and **Gibsol**.
+
+### Objectives:
+
+- **Decentralized Energy Management**: DECO aims to manage **decentralized energy communities** that bring together prosumers and consumers on a local scale (e.g., within a two-kilometer radius). The community may consist of solar panels, battery storage, EV charging points, and more.
+- **Energy Optimization**: Develop an **energy transfer and optimization algorithm** that leverages **blockchain**, **IoT**, and **AI** to optimize energy consumption and transfer within and between communities.
+- **Energy Management System (EMS)**: Each community member is equipped with an EMS that manages energy production and consumption, using IoT devices and connected batteries to store and optimize the usage of locally produced energy.
+
+### Key Components:
+
+1. **Blockchain for Energy Traceability**: The project uses blockchain to ensure traceability of energy production and consumption, allowing for **transparent and auditable** energy management.
+2. **Energy Management System (EMS)**: The EMS includes smart meters, optional battery storage, and connection to an AI engine to provide energy optimization recommendations.
+3. **Mobile App Integration**: The existing **Werenode mobile app** will be extended to allow users to manage their energy usage, configure EMS settings, and track community energy data.
+
+### Collaboration:
+
+**DECO** involves multiple partners:
+- **OP Mobility (formerly Plastic Omnium)**: Contributes battery expertise for energy storage solutions.
+- **SII**: Provides expertise in data analysis, IoT, and AI to support energy optimization.
+
+### Benefits:
+
+- **Green Energy Optimization**: By maximizing the use of locally generated renewable energy, DECO reduces electricity costs and minimizes carbon footprints.
+- **Community Resilience**: The decentralized energy model enhances the community's energy independence, providing greater resilience against external disruptions.
 
 ## Conclusion
 
