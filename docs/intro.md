@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Getting Started with Werenode
+# Getting Started
 
 Welcome to **Werenode**! This guide will help you get started with our decentralized electric vehicle (EV) charging platform. Whether you're an EV driver, a charging station owner, or a developer, we have everything you need to start using the Werenode ecosystem effectively.
 
