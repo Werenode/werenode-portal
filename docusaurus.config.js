@@ -35,7 +35,7 @@ module.exports = {
         src: 'img/werenode_logo_no_name_250px.png',
       },
       items: [
-        { to: 'docs', label: 'Docs', position: 'left' },
+        { to: 'docs/intro', label: 'Intro', position: 'left' },
         { to: 'docs/innovations', label: 'Innovations', position: 'left' },
         { to: 'cryptos', label: 'Web3.0', position: 'left' },
         { to: 'invest', label: 'Join us', position: 'left' },
@@ -73,7 +73,7 @@ module.exports = {
               to: '/myevses',
             },*/
             {
-              label: 'Technical Docs',
+              label: 'Documentation',
               to: '/docs/intro',
             },
           ],
