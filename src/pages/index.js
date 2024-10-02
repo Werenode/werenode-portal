@@ -26,7 +26,7 @@ const data = {
     submobile: 'Connect every charging equipement and allow anybody to share its own and be compensated seamlessly. Ready for your clean and sustainable mobility!',
     evsemanager: 'Register your EV charging station',
     submanager: 'No need to wait for the big players. Help your fellow EV riders and get revenue from it. If you have an accessible connected charging station, you just have to register your EV supply equipment in the blockchain with the Werenode DApp.',
-    invest: 'Invest in the future of EV',
+    invest: 'Be part of the future of EV',
     subinvest: 'New possibilities with Werenode : V2G, SmartCharge, ISO 15118, etc...'
   },
   buttons: {
