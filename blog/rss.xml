@@ -4,10 +4,24 @@
         <title>Werenode Official Website Blog</title>
         <link>https://werenode.github.io/blog</link>
         <description>Werenode Official Website Blog</description>
-        <lastBuildDate>Mon, 13 Feb 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 30 Sep 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Our latest Twitter-X publications]]></title>
+            <link>https://werenode.github.io/blog/Twitter Feed article</link>
+            <guid>Twitter Feed article</guid>
+            <pubDate>Mon, 30 Sep 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Here are our latest posts on Twitter:]]></description>
+            <content:encoded><![CDATA[<p>Here are our latest posts on Twitter:</p><div><a class="twitter-timeline" data-theme="light" data-tweet-limit="5" href="https://twitter.com/werenode">Tweets by @<!-- -->werenode</a></div>]]></content:encoded>
+            <category>ev</category>
+            <category>twitter</category>
+            <category>x</category>
+            <category>bitcoin</category>
+            <category>werecoin</category>
+            <category>tezos</category>
+        </item>
         <item>
             <title><![CDATA[The Smart Charging Concept]]></title>
             <link>https://werenode.github.io/blog/Smart Charging article</link>
