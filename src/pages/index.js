@@ -39,7 +39,7 @@ const data = {
       title: 'CEO - Co-founder',
       role: 'EV ecosystem expert',
       img: 'img/BM.jpeg',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/benoit-maisseu'
     },
     {
       key: 'Nadiya Khokhryakova',
@@ -76,6 +76,13 @@ const data = {
       img: 'img/BR.jpeg',
       linkedin: ''
     },
+    {
+      key: 'Miles Ajibola',
+      title: 'Community Manager',
+      role: 'Digital Marketing and Sales',
+      img: 'img/MA.jpeg',
+      linkedin: ''
+    }    
   ],
   partners: [
     {
