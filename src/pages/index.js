@@ -206,6 +206,12 @@ const data = {
       img: 'img/trustchain.png',
       url: 'https://trustchain.ngi.eu',
       width: '200px',
+    },
+    {
+      key: 'Sargasso',
+      img: 'img/Sargasso.png',
+      url: 'https://ngisargasso.eu',
+      width: '200px',
     }
   ]
 }
