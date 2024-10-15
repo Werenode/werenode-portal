@@ -72,7 +72,7 @@ const data = {
     {
       key: 'Benoît Rognier',
       title: 'CBO - Co-founder',
-      role: 'Deep tech and blockchain expert',
+      role: 'Deep tech and Web3.0 expert',
       img: 'img/BR.jpeg',
       linkedin: ''
     },
@@ -82,7 +82,21 @@ const data = {
       role: 'Digital Marketing and Sales',
       img: 'img/MA.jpeg',
       linkedin: ''
-    }    
+    },
+    {
+      key: 'Evgenii Zhdarkin',
+      title: 'Lead Developer',
+      role: 'Full-stack & Smart contracts development',
+      img: 'img/Evgenii.png',
+      linkedin: ''
+    },
+    {
+      key: 'Lucas Gonçalves',
+      title: 'Developer',
+      role: 'Mobile App development',
+      img: 'img/Lucas.jpg',
+      linkedin: ''
+    }
   ],
   partners: [
     {
