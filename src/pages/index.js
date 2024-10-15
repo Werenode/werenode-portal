@@ -208,9 +208,33 @@ const data = {
       width: '200px',
     },
     {
+      key: 'ParisandCo',
+      img: 'img/ParisandCo.png',
+      url: 'https://www.parisandco.com/',
+      width: '200px',
+    },
+    {
+      key: 'QuartiersInnovation',
+      img: 'img/QuartiersInnovation.jpg',
+      url: 'https://www.paris.fr/pages/les-quartiers-d-innovation-urbaine-font-le-paris-de-demain-5913',
+      width: '200px',
+    },
+    {
       key: 'Sargasso',
       img: 'img/Sargasso.png',
       url: 'https://ngisargasso.eu',
+      width: '200px',
+    },
+    {
+      key: 'OPGrandPrix',
+      img: 'img/OPGrandPrix.png',
+      url: 'https://ngisargasso.eu',
+      width: '200px',
+    },
+    {
+      key: 'LGNova',
+      img: 'img/LGNova.png',
+      url: 'https://www.lgnova.com',
       width: '200px',
     }
   ]
