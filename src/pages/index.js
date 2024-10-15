@@ -38,7 +38,7 @@ const data = {
       key: 'Benoît Maïsseu',
       title: 'CEO - Co-founder',
       role: 'EV ecosystem expert',
-      img: 'img/BM.jpeg',
+      img: 'img/BMAI_petit.png',
       linkedin: 'https://www.linkedin.com/in/benoit-maisseu'
     },
     {
