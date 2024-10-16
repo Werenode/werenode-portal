@@ -77,7 +77,7 @@ const data = {
       linkedin: ''
     },
     {
-      key: 'Miles Ajibola',
+      key: 'Ajibola Abdul Muheen Olamilekan (Miles)',
       title: 'Community Manager',
       role: 'Digital Marketing and Sales',
       img: 'img/MA.jpeg',
