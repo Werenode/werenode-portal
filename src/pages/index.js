@@ -175,13 +175,13 @@ const data = {
       key: 'B-Hub',
       img: 'img/b-hub.png',
       url: 'https://b-hub.eu/blockchain-startups-france/#werenode',
-      width: '250px',
+      width: '200px',
     },
     {
       key: 'Ontochain',
       img: 'img/ontochain.png',
       url: 'https://ontochain.ngi.eu',
-      width: '200px',
+      width: '180px',
     },
     {
       key: 'PlanetTechCare',
@@ -235,6 +235,12 @@ const data = {
       key: 'LGNova',
       img: 'img/LGNova.png',
       url: 'https://www.lgnova.com',
+      width: '200px',
+    },
+    {
+      key: 'RegionIDF',
+      img: 'img/RegionIDF.png',
+      url: 'https://www.iledefrance.fr',
       width: '200px',
     }
   ]
