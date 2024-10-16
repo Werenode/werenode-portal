@@ -163,13 +163,13 @@ const data = {
       key: 'Archetype',
       img: 'img/archetype.png',
       url: 'https://archetype-lang.org/',
-      width: '250px',
+      width: '200px',
     },
     {
       key: 'Edukera',
       img: 'img/edukera.png',
       url: 'https://edukera.com/',
-      width: '250px',
+      width: '200px',
     },
     {
       key: 'B-Hub',
@@ -193,7 +193,7 @@ const data = {
       key: 'FrenchTech',
       img: 'img/lafrenchtechsaclay.png',
       url: 'https://lafrenchtech-paris-saclay.fr',
-      width: '200px',
+      width: '120px',
     },
     {
       key: 'MintMe',
@@ -217,7 +217,7 @@ const data = {
       key: 'QuartiersInnovation',
       img: 'img/QuartiersInnovation.jpg',
       url: 'https://www.paris.fr/pages/les-quartiers-d-innovation-urbaine-font-le-paris-de-demain-5913',
-      width: '200px',
+      width: '180px',
     },
     {
       key: 'Sargasso',
@@ -229,7 +229,7 @@ const data = {
       key: 'OPGrandPrix',
       img: 'img/OPGrandPrix.png',
       url: 'https://ngisargasso.eu',
-      width: '200px',
+      width: '150px',
     },
     {
       key: 'LGNova',
