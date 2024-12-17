@@ -281,7 +281,7 @@ const WerenodeHeader = () => {
           }}>
           <img src={useBaseUrl('img/werenode_logo_text_250px.png')} style={{ width: '350px' }} />
           <a href="https://www.f6s.com/werenode/" target="_blank" rel="noopener">
-            <img src={useBaseUrl('img/f6sawarddark.png')} style={{ width: '350px' }} />
+            <img src={useBaseUrl('img/f6sawardlight.png')} style={{ width: '350px' }} />
           </a>
         </Grid>
         <Grid item style={{
