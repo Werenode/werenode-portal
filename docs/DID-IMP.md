@@ -8,7 +8,7 @@ Werenode is committed to advancing Web3.0, electric vehicle (EV) charging techno
 
 ## DID-IMP - Decentralized Identity for Interoperable Mobility Platform
 
-<a href="https://did-imp.werenode.io/" target="_blank" rel="noopener noreferrer">
+<a href="https://webapp.did-imp.werenode.io/" target="_blank" rel="noopener noreferrer">
     <img src="/img/DID-IMP_NGI.png"></img>
 </a>
 
