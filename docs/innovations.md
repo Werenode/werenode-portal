@@ -10,6 +10,14 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 
 **DEFev** is a fully decentralized web application designed to provide a seamless user experience for managing EV charging using blockchain technology. DEFev aims to empower users with complete control over their EV charging transactions and data. DEFev was developed thanks to NGI Ontochain EU funded project (Grant Agreement Number 957338).
 
+<a href="https://defev.io/" target="_blank" rel="noopener noreferrer">
+    <img src="/img/LogotexteDEFev_ontochain.png"></img>
+</a>
+
+<a href="https://ontochain.ngi.eu/" target="_blank" rel="noopener">
+    <img src="/img/logo-ngi-ontochain-positive.png"></img>
+</a>
+
 ### Key Features:
 
 - **Blockchain Payments**: DEFev allows users to directly manage payments for charging using blockchain-based wallets, such as **MetaMask**. This ensures a secure and decentralized payment solution without intermediaries.
@@ -31,6 +39,14 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 
 **DID-IMP** is Werenode’s **Decentralized Identity** project aimed at creating a secure and private way for users to authenticate and interact with the Werenode ecosystem. DID-IMP was developed thanks to NGI Trustchain EU funded project (Grant Agreement Number 101093274).
 
+<a href="https://did-imp.werenode.io/" target="_blank" rel="noopener noreferrer">
+    <img src="/img/DID-IMP_NGI.png"></img>
+</a>
+
+<a href="https://trustchain.ngi.eu/" target="_blank" rel="noopener">
+    <img src="/img/trustchain.png"></img>
+</a>
+
 ### Key Features:
 
 - **Decentralized Identity (DID)**: DID-IMP leverages **Decentralized Identity** to allow users to authenticate across different platforms without relying on centralized authorities. This ensures data privacy and control over user credentials.
@@ -50,6 +66,14 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 ## IOTPAY - IoT-Based Automatic Payment Solution - In Collaboration with Gapask
 
 **IOTPAY** is Werenode's innovative payment solution that integrates **Internet of Things (IoT)** technology with blockchain to facilitate seamless and secure automatic payments. IOTPAY is developed thanks to NGI Sargasso EU funded project (Grant Agreement number 101092887).
+
+<a href="https://werenode.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/img/logo_IOTPAY.png"></img>
+</a>
+
+<a href="https://ngisargasso.eu/" target="_blank" rel="noopener">
+    <img src="/img/Sargasso.png"></img>
+</a>
 
 ### Key Features:
 
