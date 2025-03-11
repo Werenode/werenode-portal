@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Delegation Based DeFi (White paper)
+# Delegation Based DeFi
 
 import Link from '@docusaurus/Link';
 
