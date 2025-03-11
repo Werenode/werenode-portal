@@ -9,7 +9,7 @@ Werenode is committed to advancing Web3.0, electric vehicle (EV) charging techno
 ## DID-IMP - Decentralized Identity for Interoperable Mobility Platform
 
 <a href="https://webapp.did-imp.werenode.io/" target="_blank" rel="noopener noreferrer">
-    <img src="/img/DID-IMP_NGI.png"></img>
+    <img src="/img/DID-IMP_NGI.png" width="300" height="auto"></img>
 </a>
 
 The DID-IMP project is building a decentralized public key infrastructure to allow any connected object to be able to deliver or procure secured and traceable data. To achieve this, Werenode is leveraging blockchain technologies to remove the need for a classical hierarchical structure with players like the Certificate Authority (CA) and the Registration Authority (RA). For DID-IMP, we replace these administrator-like trusted third parties (RA & CA) with a feeless blockchain smart contract. The blockchain is also used as a Certificate Store on which services providers can issue and manage revocable certificates and credentials. Such a lean architecture is especially well adapted for Internet of Things (IoT) Secure Automatic Data Sharing SADS. Indeed, 
@@ -39,7 +39,7 @@ In a nutshell, we build a secure automatic data sharing solution, bringing bette
 **DID-IMP** was developed within the **NGI Trustchain** framework. **DID-IMP** as Werenode's **Decentralized Identity** project aimed at creating a secure and private way for users to authenticate and interact with the Werenode ecosystem. DID-IMP was developed thanks to NGI Trustchain EU funded project (Grant Agreement Number 101093274).
 
 <a href="https://trustchain.ngi.eu/" target="_blank" rel="noopener">
-    <img src="/img/trustchain.png"></img>
+    <img src="/img/trustchain.png" width="200" height="auto"></img>
 </a>
 
 ### User Centric Approach
