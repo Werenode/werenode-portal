@@ -14,10 +14,6 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
     <img src="/img/LogotexteDEFev_ontochain.png" width="300" height="auto"></img>
 </a>
 
-<a href="https://ontochain.ngi.eu/" target="_blank" rel="noopener">
-    <img src="/img/logo-ngi-ontochain-positive.png" width="300" height="auto"></img>
-</a>
-
 ### Key Features:
 
 - **Blockchain Payments**: DEFev allows users to directly manage payments for charging using blockchain-based wallets, such as **MetaMask**. This ensures a secure and decentralized payment solution without intermediaries.
@@ -41,10 +37,6 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 
 <a href="https://did-imp.werenode.io/" target="_blank" rel="noopener noreferrer">
     <img src="/img/DID-IMP_NGI.png" width="300" height="auto"></img>
-</a>
-
-<a href="https://trustchain.ngi.eu/" target="_blank" rel="noopener">
-    <img src="/img/trustchain.png" width="300" height="auto"></img>
 </a>
 
 ### Key Features:
@@ -72,7 +64,7 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 </a>
 
 <a href="https://ngisargasso.eu/" target="_blank" rel="noopener">
-    <img src="/img/Sargasso.png" width="300" height="auto"></img>
+    <img src="/img/Sargasso.png" width="200" height="auto"></img>
 </a>
 
 ### Key Features:
