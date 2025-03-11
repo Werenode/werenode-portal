@@ -2,7 +2,9 @@
 sidebar_position: 10
 ---
 
-# IOTPAY - IoT-Based Automatic Payment Solution - In Collaboration with Gapask Inc.
+# Innovation Project - IOTPAY
+
+## IoT-Based Automatic Payment Solution - In Collaboration with Gapask Inc.
 
 Werenode is committed to advancing Web3.0, electric vehicle (EV) charging technologies, and decentralized energy solutions by developing innovative components that leverage blockchain, IoT, decentralized identity, and cutting-edge user interfaces. This document highlights one of our key innovation projects: **IOTPAY**. We have also developed several other Web3.0 systems: **DEFev**, **DID-IMP**, **DECO** developed in collaboration with **OP Mobility** and **SII**, the **Alexa Speech HMI version** of Werenode, developed in collaboration with Renault's **ElectroShaker Lab**, and the **LG Web OS** version of our application, developed in collaboration with **LG Nova**. 
 
