@@ -40,11 +40,11 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 **DID-IMP** is Werenode’s **Decentralized Identity** project aimed at creating a secure and private way for users to authenticate and interact with the Werenode ecosystem. DID-IMP was developed thanks to NGI Trustchain EU funded project (Grant Agreement Number 101093274).
 
 <a href="https://did-imp.werenode.io/" target="_blank" rel="noopener noreferrer">
-    <img src="/img/DID-IMP_NGI.png"></img>
+    <img src="/img/DID-IMP_NGI.png" width="300" height="auto"></img>
 </a>
 
 <a href="https://trustchain.ngi.eu/" target="_blank" rel="noopener">
-    <img src="/img/trustchain.png"></img>
+    <img src="/img/trustchain.png" width="300" height="auto"></img>
 </a>
 
 ### Key Features:
@@ -68,11 +68,11 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 **IOTPAY** is Werenode's innovative payment solution that integrates **Internet of Things (IoT)** technology with blockchain to facilitate seamless and secure automatic payments. IOTPAY is developed thanks to NGI Sargasso EU funded project (Grant Agreement number 101092887).
 
 <a href="https://werenode.com/" target="_blank" rel="noopener noreferrer">
-    <img src="/img/logo_IOTPAY.png"></img>
+    <img src="/img/logo_IOTPAY.png" width="300" height="auto"></img>
 </a>
 
 <a href="https://ngisargasso.eu/" target="_blank" rel="noopener">
-    <img src="/img/Sargasso.png"></img>
+    <img src="/img/Sargasso.png" width="300" height="auto"></img>
 </a>
 
 ### Key Features:
