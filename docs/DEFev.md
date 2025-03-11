@@ -11,7 +11,7 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies a
 **DEFev** is a fully decentralized web application designed to provide a seamless user experience for managing EV charging using blockchain technology. DEFev aims to empower users with complete control over their EV charging transactions and data. 
 
 <a href="https://defev.io/" target="_blank" rel="noopener noreferrer">
-    <img src="/img/LogotexteDEFev_ontochain.png"></img>
+    <img src="/img/LogotexteDEFev_ontochain.png" width="300" height="auto"></img>
 </a>
 
 ### Key Features:
@@ -39,7 +39,7 @@ A simplified overview of DEFev architecture is showed below:
 **DEFev** was developed within the **NGI Ontochain** framework. DEFev received funding for this: Grant Agreement Number 957338.
 
 <a href="https://ontochain.ngi.eu/" target="_blank" rel="noopener">
-    <img src="/img/logo-ngi-ontochain-positive.png"></img>
+    <img src="/img/logo-ngi-ontochain-positive.png" width="200" height="auto"></img>
 </a>
 
 ### Benefits:
