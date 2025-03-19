@@ -6,7 +6,7 @@ sidebar_position: 5
 
 import Link from '@docusaurus/Link';
 
-[(pfd version)](http://werenode.com/documents/WerenodeWhitepaperv09.pdf)
+[(pdf version)](http://werenode.com/documents/WerenodeWhitepaperv09.pdf)
 
 ## Authors
 
