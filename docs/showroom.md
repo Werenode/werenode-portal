@@ -17,6 +17,12 @@ Nous avons installé et connecté des infrastructures de recharge dans plusieurs
 - **Mairie de Paris** : Mise en place de bornes connectées pour soutenir la mobilité électrique urbaine.
 - **Clients professionnels** : Déploiement de solutions adaptées aux entreprises souhaitant offrir des services de recharge à leurs collaborateurs et clients.
 
+<div align="center">
+<a>
+    <img src="/img/siteswerenode1.png"></img>
+</a>
+</div>
+
 ## Une technologie flexible et transparente
 Notre solution permet aux gestionnaires de bornes de choisir entre différents modèles d’utilisation :
 - **Recharge gratuite avec contrôle d’accès**
