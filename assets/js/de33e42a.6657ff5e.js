@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[8088],{93659:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/payment","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

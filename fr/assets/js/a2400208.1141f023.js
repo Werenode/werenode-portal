@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[6480],{18033:e=>{e.exports=JSON.parse('{"label":"FrenchTech","permalink":"/fr/blog/tags/french-tech","allTagsPath":"/fr/blog/tags","count":1}')}}]);

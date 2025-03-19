@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[1818],{28211:e=>{e.exports=JSON.parse('{"label":"device management","permalink":"/fr/blog/tags/device-management","allTagsPath":"/fr/blog/tags","count":3}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[6258],{988:e=>{e.exports=JSON.parse('{"label":"innovation","permalink":"/fr/blog/tags/innovation","allTagsPath":"/fr/blog/tags","count":1}')}}]);
