@@ -1,26 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-
-// Chargement dynamique de Leaflet uniquement côté client
-const MapContainer = ExecutionEnvironment.canUseDOM
-  ? dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false })
-  : () => null;
-const TileLayer = ExecutionEnvironment.canUseDOM
-  ? dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false })
-  : () => null;
-const Marker = ExecutionEnvironment.canUseDOM
-  ? dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false })
-  : () => null;
-const Popup = ExecutionEnvironment.canUseDOM
-  ? dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false })
-  : () => null;
-
-// Chargement dynamique des styles Leaflet
-if (ExecutionEnvironment.canUseDOM) {
-  import('leaflet/dist/leaflet.css');
-}
 
 const ChargingMap = () => {
   const [stations, setStations] = useState([]);
