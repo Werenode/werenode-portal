@@ -4,8 +4,6 @@ sidebar_label: "Charging Stations Map"
 sidebar_position: 12
 ---
 
-import ChargingMap from '@site/src/components/features/ChargingMap';
-
 # Werenode Charging Stations Map
 # Carte des Bornes de Recharge Werenode
 
@@ -16,8 +14,6 @@ Werenode provides an interactive map of all charging stations accessible through
 Werenode met à disposition une carte interactive des bornes de recharge accessibles via notre réseau. Vous pouvez consulter leur localisation, leur disponibilité en temps réel et leurs caractéristiques détaillées directement sur la carte.
 
 ## Interactive Map / Carte Interactive
-
-<ChargingMap />
 
 ## Legend / Légende
 
