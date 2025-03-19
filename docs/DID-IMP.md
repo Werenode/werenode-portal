@@ -40,9 +40,11 @@ In a nutshell, we build a secure automatic data sharing solution, bringing bette
 
 **DID-IMP** was developed within the **NGI Trustchain** framework. **DID-IMP** as Werenode's **Decentralized Identity** project aimed at creating a secure and private way for users to authenticate and interact with the Werenode ecosystem. DID-IMP was developed thanks to NGI Trustchain EU funded project (Grant Agreement Number 101093274).
 
+<div align="center">
 <a href="https://trustchain.ngi.eu/" target="_blank" rel="noopener">
     <img src="/img/trustchain.png" width="200" height="auto"></img>
 </a>
+</div>
 
 ### User Centric Approach
 
