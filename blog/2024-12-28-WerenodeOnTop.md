@@ -1,6 +1,6 @@
 ---
 slug: WerenodeOnTop
-title: Werenode #1 Web3.0 Company in France
+title: Werenode Best Web3.0 Company in France
 author: Benoît Maïsseu
 author_title: Werenode CEO
 author_url: https://www.linkedin.com/in/benoit-maisseu/
