@@ -36,6 +36,7 @@ module.exports = {
       },
       items: [
         { to: 'docs/intro', label: 'Intro', position: 'left' },
+        { to: 'docs/showroom', label: 'Showroom', position: 'left' },
         { to: 'docs/innovations', label: 'Innovations', position: 'left' },
         { to: 'cryptos', label: 'Web3.0', position: 'left' },
         { to: 'invest', label: 'Join us', position: 'left' },
