@@ -33,6 +33,10 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 - **Secure Payments**: By using blockchain wallets like MetaMask, DEFev eliminates the risk of intermediaries, ensuring fast and secure transactions.
 - **Seamless User Experience**: With the **Plug&Charge** feature, users can enjoy a simplified charging process, requiring minimal interaction to initiate a charging session.
 
+### Pitch
+
+[![Video](https://img.youtube.com/vi/YZQaoK-M-Vk/0.jpg)](https://www.youtube.com/watch?v=YZQaoK-M-Vk)
+
 ## DID-IMP - Decentralized Identity for Interoperable Mobility Platform
 
 **DID-IMP** is Werenode’s **Decentralized Identity** project aimed at creating a secure and private way for users to authenticate and interact with the Werenode ecosystem. DID-IMP was developed thanks to NGI Trustchain EU funded project (Grant Agreement Number 101093274).
