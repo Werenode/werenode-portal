@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import dynamic from 'next/dynamic';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
-// Correction du bug des icônes Leaflet
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
+// Chargement dynamique de Leaflet uniquement côté client
+const MapContainer = ExecutionEnvironment.canUseDOM
+  ? dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false })
+  : () => null;
+const TileLayer = ExecutionEnvironment.canUseDOM
+  ? dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false })
+  : () => null;
+const Marker = ExecutionEnvironment.canUseDOM
+  ? dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false })
+  : () => null;
+const Popup = ExecutionEnvironment.canUseDOM
+  ? dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false })
+  : () => null;
 
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconUrl,
-  shadowUrl,
-});
+// Chargement dynamique des styles Leaflet
+if (ExecutionEnvironment.canUseDOM) {
+  import('leaflet/dist/leaflet.css');
+}
 
 const ChargingMap = () => {
   const [stations, setStations] = useState([]);
 
   useEffect(() => {
-    // Remplacer cette URL par l'endpoint de votre API Firebase si nécessaire
+    if (!ExecutionEnvironment.canUseDOM) return;
+
     fetch('https://api.werenode.com/charging-stations')
       .then(response => response.json())
       .then(data => setStations(data))
