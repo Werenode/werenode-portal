@@ -33,10 +33,6 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 - **Secure Payments**: By using blockchain wallets like MetaMask, DEFev eliminates the risk of intermediaries, ensuring fast and secure transactions.
 - **Seamless User Experience**: With the **Plug&Charge** feature, users can enjoy a simplified charging process, requiring minimal interaction to initiate a charging session.
 
-### Pitch
-
-[![Video](https://img.youtube.com/vi/YZQaoK-M-Vk/0.jpg)](https://www.youtube.com/watch?v=YZQaoK-M-Vk)
-
 ## DID-IMP - Decentralized Identity for Interoperable Mobility Platform
 
 **DID-IMP** is Werenode’s **Decentralized Identity** project aimed at creating a secure and private way for users to authenticate and interact with the Werenode ecosystem. DID-IMP was developed thanks to NGI Trustchain EU funded project (Grant Agreement Number 101093274).
@@ -141,6 +137,10 @@ This project was developed in Collaboration with Renault's ElectroShaker Lab.
 
 - **Green Energy Optimization**: By maximizing the use of locally generated renewable energy, DECO reduces electricity costs and minimizes carbon footprints.
 - **Community Resilience**: The decentralized energy model enhances the community's energy independence, providing greater resilience against external disruptions.
+
+### Pitch
+
+[![Video](https://img.youtube.com/vi/YZQaoK-M-Vk/0.jpg)](https://www.youtube.com/watch?v=YZQaoK-M-Vk)
 
 ## LG WebOS TV Integration - Werenode App for Smart TVs
 Werenode is consistently advancing the boundaries of electric vehicle (EV) charging technology by exploring innovative platforms to enhance accessibility. One of our notable projects is the integration of the **Werenode app** with **LG's WebOS TV solution**, designed to provide an unprecedented level of convenience in managing EV charging activities from the comfort of users' homes.
