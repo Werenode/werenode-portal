@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Werenode CHARGE</title>
+</head>
+<body style="background-color: #004C7F;align-content: center;align-items: center;justify-content: center;">
+  <script>
+
+    const android_dl = "https://play.google.com/store/apps/details?id=com.werenode.app";
+    const ios_dl = "https://apps.apple.com/fr/app/werenode/id1582403510";
+
+    scan();
+
+    function scan() {
+      let currentUrl = window.location.href;
+      if(currentUrl.split('s/?evse=').length == 2) {
+        let evse = currentUrl.split('s/?evse=')[1];
+        let system = "unknown";
+        let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/android/i.test(userAgent)) {
+          system = "android";
+        }
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          system = "ios";
+        }
+        if(system == "android" || system == "ios") {
+          setTimeout(function() {
+            if(system == "android") {
+              window.location = android_dl;
+            } else {
+              window.location = ios_dl;
+            }
+          }, 500);
+          window.location = "werenode://"+evse;
+        }
+      }
+    }
+
+    function go(os) {
+      if(os == "android") {
+        window.location = android_dl;
+      } else {
+        window.location = ios_dl;
+      }
+    }
+
+  </script>
+  <style type="text/css">
+    html, body {
+      height: 100%;
+    }
+
+    html {
+      display: table;
+      margin: auto;
+    }
+
+    body {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    img {
+      cursor: pointer;
+    }
+  </style>
+
+  <img src="../img/google-play-badge.png" onClick="go('android')"/>
+  <p></p>
+  <img src="../img/AppStoreButton.png" onClick="go('ios')"/>
+
+</body>
+</html>

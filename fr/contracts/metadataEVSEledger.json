@@ -1,0 +1,16 @@
+{
+  "extras": {
+    "symbol": "EVLD",
+    "thumbnailUri": "https://werenode.com/contracts/werenode_logo_200x200.png"
+  },
+  "name": "WerenodeEVSEledger",
+  "description": "Electric Vehicle Supply Equipments Open Ledger and NFT",
+  "version": "1.1",
+  "license": {
+    "name": "MIT"
+  },
+  "homepage": "https://werenode.com",
+  "authors": [
+    "Werenode team <contact@werenode.com>"
+  ]
+}

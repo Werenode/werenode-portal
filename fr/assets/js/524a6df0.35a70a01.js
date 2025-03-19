@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[5627],{96763:e=>{e.exports=JSON.parse('{"label":"video","permalink":"/fr/blog/tags/video","allTagsPath":"/fr/blog/tags","count":2}')}}]);

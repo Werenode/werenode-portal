@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[2329],{40415:e=>{e.exports=JSON.parse('{"label":"data security","permalink":"/fr/blog/tags/data-security","allTagsPath":"/fr/blog/tags","count":1}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[2920],{88224:e=>{e.exports=JSON.parse('{"label":"POC","permalink":"/fr/blog/tags/poc","allTagsPath":"/fr/blog/tags","count":1}')}}]);

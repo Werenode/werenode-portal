@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[2704],{41137:e=>{e.exports=JSON.parse('{"label":"twitter","permalink":"/fr/blog/tags/twitter","allTagsPath":"/fr/blog/tags","count":1}')}}]);

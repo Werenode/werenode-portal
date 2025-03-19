@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <img id="myImage" onclick="changeImage()" src="ev.gif" width="1000" height="800">
+    <p>Click the car to begin charging.</p>
+    <script>
+    function changeImage() {
+      var image = document.getElementById('myImage');
+      if (image.src.match("charging")) {
+         image.src = "ev.gif";
+      }
+      else {
+        image.src = "ev-charging.gif";
+      }
+    }
+    </script>
+  </body>
+</html>
