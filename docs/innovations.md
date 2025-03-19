@@ -69,9 +69,11 @@ Werenode is committed to advancing electric vehicle (EV) charging technologies b
 </a>
 </div>
 
+<div align="center">
 <a href="https://ngisargasso.eu/" target="_blank" rel="noopener">
     <img src="/img/Sargasso.png" width="150" height="auto"></img>
 </a>
+</div>
 
 ### Key Features:
 
