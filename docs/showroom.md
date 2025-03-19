@@ -23,7 +23,7 @@ Nous avons installé et connecté des infrastructures de recharge dans plusieurs
 </a>
 </div>
 
-- **Clients professionnels** : Installation de solutions adaptées aux particuliers souhaitant partager (ou pas!) leur équipement de recharge avec des tiers, locataires, voisins, copropriétaires, amis ou passants contre compensation.
+- **Clients particuliers** : Installation de solutions adaptées aux particuliers souhaitant partager (ou pas!) leur équipement de recharge avec des tiers, locataires, voisins, copropriétaires, amis ou passants contre compensation.
 
 <div align="center">
 <a>
