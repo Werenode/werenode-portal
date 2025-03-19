@@ -23,6 +23,14 @@ Nous avons installé et connecté des infrastructures de recharge dans plusieurs
 </a>
 </div>
 
+- **Clients professionnels** : Installation de solutions adaptées aux particuliers souhaitant partager (ou pas!) leur équipement de recharge avec des tiers, locataires, voisins, copropriétaires, amis ou passants contre compensation.
+
+<div align="center">
+<a>
+    <img src="/img/siteswerenode2.png"></img>
+</a>
+</div>
+
 ## Une technologie flexible et transparente
 Notre solution permet aux gestionnaires de bornes de choisir entre différents modèles d’utilisation :
 - **Recharge gratuite avec contrôle d’accès**
@@ -43,17 +51,17 @@ Notre solution comprend :
 ## Sécurité et respect de la confidentialité
 Werenode applique les meilleures pratiques en matière de cybersécurité et respecte strictement la réglementation RGPD pour la protection des données des utilisateurs.
 
-## Conclusion
-Nos réalisations démontrent l’efficacité et la flexibilité de notre solution de recharge Web3.0. Que vous soyez une entreprise, une collectivité ou un particulier, Werenode vous offre une infrastructure fiable, économique et évolutive.
-
-**Contactez-nous** pour rejoindre l’écosystème Werenode et optimiser vos infrastructures de recharge.
-
 ## Prêt à charger?
 
 Téléchargez l'appli Werenode et rejoignez-nous!
 
-- [Download for Android](#)
-- [Download for iOS](#)
+- [Pour Android](#)
+- [Pour iOS](#)
+
+## Conclusion
+Nos réalisations démontrent l’efficacité et la flexibilité de notre solution de recharge Web3.0. Que vous soyez une entreprise, une collectivité ou un particulier, Werenode vous offre une infrastructure fiable, économique et évolutive.
+
+**Contactez-nous** pour rejoindre l’écosystème Werenode et optimiser vos infrastructures de recharge.
 
 ---
 
