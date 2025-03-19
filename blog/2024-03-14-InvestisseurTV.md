@@ -41,6 +41,6 @@ L'équipe exceptionnelle de Werenode, composée d'experts aux compétences compl
 
 ### The Interview
 
-[![Werenode : le booking des stations de recharges électriques](URL_DE_L_IMAGE_MINIATURE)](https://www.investisseur.tv/video/werenode-le-booking-des-stations-de-recharges-electriques)
+[![Werenode : le booking des stations de recharges électriques]](https://www.investisseur.tv/video/werenode-le-booking-des-stations-de-recharges-electriques)
 
 ---
