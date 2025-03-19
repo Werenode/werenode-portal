@@ -10,6 +10,14 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+    localeConfigs: {
+      en: { label: 'English' },
+      fr: { label: 'Français' },
+    },
+  },
   organizationName: 'werenode', // Usually your GitHub org/user name.
   projectName: 'werenode-portal', // Usually your repo name.
   stylesheets: [
@@ -55,6 +63,10 @@ module.exports = {
         {
           href: 'https://t.me/joinchat/20948tdORW1hZTlk',
           label: 'Telegram',
+          position: 'right',
+        },
+        {
+          type: 'localeDropdown',
           position: 'right',
         },
       ],
