@@ -8,17 +8,21 @@ sidebar_position: 10
 
 Werenode is committed to advancing Web3.0, electric vehicle (EV) charging technologies, and decentralized energy solutions by developing innovative components that leverage blockchain, IoT, decentralized identity, and cutting-edge user interfaces. This document highlights one of our key innovation projects: **IOTPAY**. We have also developed several other Web3.0 systems: **DEFev**, **DID-IMP**, **DECO** developed in collaboration with **OP Mobility** and **SII**, the **Alexa Speech HMI version** of Werenode, developed in collaboration with Renault's **ElectroShaker Lab**, and the **LG Web OS** version of our application, developed in collaboration with **LG Nova**. 
 
+<div align="center">
 <a href="https://werenode.com/" target="_blank" rel="noopener noreferrer">
-    <img src="/img/logo_IOTPAY.png"></img>
+    <img src="/img/logo_IOTPAY.png" width="200" height="auto"></img>
 </a>
+</div>
 
 **IOTPAY**, Werenode's innovative payment solution, integrates **Internet of Things (IoT)** technology with **blockchain** to facilitate seamless and secure automatic payments. It is a research initiative by Werenode, developed within the NGI Sargasso framework-an EU-funded program dedicated to fostering a human-centered, trustworthy, and sustainable internet. The project focuses on creating a decentralized public key infrastructure tailored for IoT devices, utilizing blockchain-driven smart contracts to enable secure, traceable, and feeless payment across connected devices. By eliminating intermediaries, IOTPAY facilitates direct transactions between IoT devices, enhancing efficiency and reducing costs. Its blockchain foundation ensures enhanced security and transparency, making it a robust solution for the evolving IoT landscape.
 
 IOTPAY was developed within the **NGI Sargasso** framework, Open Call #3. NGI Sargasso is an EU funded project which has Grant Agreement Number 101092887.
 
+<div align="center">
 <a href="https://ngisargasso.eu/" target="_blank" rel="noopener">
-    <img src="/img/Sargasso.png"></img>
+    <img src="/img/Sargasso.png" width="150" height="auto"></img>
 </a>
+</div>
 
 ## Project Description
 
