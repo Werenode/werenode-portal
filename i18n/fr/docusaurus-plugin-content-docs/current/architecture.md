@@ -145,12 +145,12 @@ Hébergement et déploiement : AWS (EC2, S3), Kubernetes pour l'orchestration de
 APIs : API REST pour l'intégration mobile et web, GraphQL pour des requêtes de données optimisées​
 
 ## Flux de données
-1.Interaction utilisateur : Un utilisateur interagit avec l'application mobile, le portail werenode, l'application membre ou l'application web DEFev pour trouver une station de charge ou gérer une session.​
-2.Requête API : Cette interaction déclenche une requête API vers le backend pour récupérer les données de l'EVSE ou exécuter une action de charge.​
-3.Gestionnaire EVSE : Le gestionnaire EVSE automatise les transactions blockchain, interagissant avec les smart contracts pour gérer le paiement.​
-4.Transaction blockchain : Si un paiement est requis, l'utilisateur interagit avec le portefeuille intégré (MetaMask ou autres) pour exécuter une transaction blockchain.​
-5.Contrôle de l'EVSE : Le backend communique via la couche OCPP ou MQTT pour démarrer ou arrêter le processus de charge.​
-6.Mise à jour des données : Les données de la session de charge sont mises à jour dans la base de données et, le cas échéant, enregistrées sur la blockchain.​
+-Interaction utilisateur : Un utilisateur interagit avec l'application mobile, le portail werenode, l'application membre ou l'application web DEFev pour trouver une station de charge ou gérer une session.​
+-Requête API : Cette interaction déclenche une requête API vers le backend pour récupérer les données de l'EVSE ou exécuter une action de charge.​
+-Gestionnaire EVSE : Le gestionnaire EVSE automatise les transactions blockchain, interagissant avec les smart contracts pour gérer le paiement.​
+-Transaction blockchain : Si un paiement est requis, l'utilisateur interagit avec le portefeuille intégré (MetaMask ou autres) pour exécuter une transaction blockchain.​
+--Contrôle de l'EVSE : Le backend communique via la couche OCPP ou MQTT pour démarrer ou arrêter le processus de charge.​
+--Mise à jour des données : Les données de la session de charge sont mises à jour dans la base de données et, le cas échéant, enregistrées sur la blockchain.​
 
 ## Feuille de route future
 -Analyses de données avancées : Ajouter des analyses prédictives pour suggérer des moments de charge optimaux en fonction du comportement de l'utilisateur et de la demande du réseau.​
