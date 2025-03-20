@@ -1,6 +1,6 @@
 ---
 slug: InvestisseurTV
-title: Benoît Maïsseu's Interview by Stéphane Romanyszyn
+title: InvestisseurTV
 author: Benoît Maïsseu
 author_title: Werenode CEO
 author_url: https://www.linkedin.com/in/benoit-maisseu/
@@ -10,6 +10,8 @@ tags: [EVcharging, Web3.0, booking, investment, payment, device management]
 
 import Link from '@docusaurus/Link';
 
+# Entrevue de Benoît Maïsseu par Stéphane Romanyszyn
+
 ### Présentation de Werenode :
 
 Werenode propose une solution numérique basée sur la technologie Web3.0 pour la recharge des véhicules électriques. Cette solution permet l'installation de bornes connectées à un coût optimisé tout en offrant des services à valeur ajoutée tels que la gestion de groupes d'utilisateurs, la traçabilité, la recharge intelligente (smartcharge), le paiement et le roaming. De plus, Werenode développe une solution décentralisée pour les communautés énergétiques, mettant en avant les synergies entre la production d'électricité individuelle et la gestion intelligente de la recharge des véhicules électriques.​
@@ -18,12 +20,12 @@ Werenode propose une solution numérique basée sur la technologie Web3.0 pour l
 
 L'entreprise a été fondée par six experts dans les domaines de la mobilité électrique, du Web3 et des solutions de paiement :​
 
-Benoît Maïsseu (CEO) : Diplômé de CentraleSupélec en 1996, il a été directeur de la stratégie des véhicules électriques pour l'Alliance Renault-Nissan-Mitsubishi.​
-François Chiron (CTO) : Ancien élève de l'École Polytechnique (promotion 1992) et de CentraleSupélec (1996), il possède 25 ans d'expérience en informatique, avec une expertise en cybersécurité, intelligence artificielle et internet des objets.​
-Nadiya Khokhryakova (Présidente) : Titulaire d'un PhD de l'Université Paris I La Sorbonne, elle est une entrepreneuse en série ayant lancé sa propre ligne de vêtements en 2001 en Ukraine et conseille de nombreuses start-ups.​
-François Colet : Diplômé de l'ENSPG en 1991, il est un expert mondial de la recharge pour véhicules électriques et l'un des principaux auteurs de la norme ISO15118.​
-Benoît Rognier : Titulaire d'un MSc en informatique de l'Université de Nottingham, il est co-fondateur et conseiller, ancien CTO de Probance et co-fondateur d'Edukera.​
-Gaëtan Cadéro : Diplômé de CentraleSupélec (1996) et titulaire d'un MBA de HEC, il a dirigé le programme de réduction des émissions de CO2 chez Lafarge et a occupé des postes de direction chez Lafarge-Holcim, Chronopost France et OVH Cloud.​
+- Benoît Maïsseu (CEO) : Diplômé de CentraleSupélec en 1996, il a été directeur de la stratégie des véhicules électriques pour l'Alliance Renault-Nissan-Mitsubishi.​
+- François Chiron (CTO) : Ancien élève de l'École Polytechnique (promotion 1992) et de CentraleSupélec (1996), il possède 25 ans d'expérience en informatique, avec une expertise en cybersécurité, intelligence artificielle et internet des objets.​
+- Nadiya Khokhryakova (Présidente) : Titulaire d'un PhD de l'Université Paris I La Sorbonne, elle est une entrepreneuse en série ayant lancé sa propre ligne de vêtements en 2001 en Ukraine et conseille de nombreuses start-ups.​
+- François Colet : Diplômé de l'ENSPG en 1991, il est un expert mondial de la recharge pour véhicules électriques et l'un des principaux auteurs de la norme ISO15118.​
+- Benoît Rognier : Titulaire d'un MSc en informatique de l'Université de Nottingham, il est co-fondateur et conseiller, ancien CTO de Probance et co-fondateur d'Edukera.​
+- Gaëtan Cadéro : Diplômé de CentraleSupélec (1996) et titulaire d'un MBA de HEC, il a dirigé le programme de réduction des émissions de CO2 chez Lafarge et a occupé des postes de direction chez Lafarge-Holcim, Chronopost France et OVH Cloud.​
 
 ### Positionnement et Modèle Économique :
 
@@ -41,6 +43,6 @@ L'équipe exceptionnelle de Werenode, composée d'experts aux compétences compl
 
 ### L'entrevue :
 
-[![Werenode : le booking des stations de recharges électriques]](https://www.investisseur.tv/video/werenode-le-booking-des-stations-de-recharges-electriques)
+[Werenode : le booking des stations de recharges électriques](https://www.investisseur.tv/video/werenode-le-booking-des-stations-de-recharges-electriques)
 
 ---
