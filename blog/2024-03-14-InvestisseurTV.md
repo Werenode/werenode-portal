@@ -39,7 +39,7 @@ En 2023, Werenode a réalisé un chiffre d'affaires de 100 000 €, démontrant 
 Werenode a été reconnue pour son expertise en Web3.0, recevant plusieurs distinctions, notamment le prix B-HUB comme meilleur projet Blockchain européen en 2021, et a remporté les projets européens Ontochain (2023) et Trustchain (2024). L'entreprise est également lauréate de Paris & Co - Quartiers Urbains d'Innovation 2023 et a récemment obtenu le Grand Prix Innovation Plastic Omnium 2023.​
 L'équipe exceptionnelle de Werenode, composée d'experts aux compétences complémentaires, invite les investisseurs à profiter de cette opportunité de participer à la croissance de l'entreprise, qui est à un point d'inflexion de son activité.​
 
-### The Interview
+### L'entrevue :
 
 [![Werenode : le booking des stations de recharges électriques]](https://www.investisseur.tv/video/werenode-le-booking-des-stations-de-recharges-electriques)
 
