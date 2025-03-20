@@ -82,7 +82,7 @@ A simplified overview of IOTPAY protocol is showed below:
 
 ## Try IOTPAY
 
-[![IOTPAY by Werenode](/img/logo_IOTPAY.png)](https://iotpay.werenode.io)
+[IOTPAY web application](https://iotpay.werenode.io)
 
 [And give us your feedback!](https://docs.google.com/forms/d/1-JWTfjeJG5ymB0Gcm6YfhZrTJekcClTlujCdKkRZ3Os)
 
