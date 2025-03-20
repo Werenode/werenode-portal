@@ -138,7 +138,7 @@ This project was developed in Collaboration with Renault's ElectroShaker Lab.
 - **Green Energy Optimization**: By maximizing the use of locally generated renewable energy, DECO reduces electricity costs and minimizes carbon footprints.
 - **Community Resilience**: The decentralized energy model enhances the community's energy independence, providing greater resilience against external disruptions.
 
-### Pitch
+### Pitch:
 
 [![Video](https://img.youtube.com/vi/YZQaoK-M-Vk/0.jpg)](https://www.youtube.com/watch?v=YZQaoK-M-Vk)
 
