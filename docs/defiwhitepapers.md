@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 13
 ---
 
 # Delegation Based DeFi
@@ -14,7 +14,7 @@ Thibaut Chessé (thibaut@nomadic-labs.com ), Yves-Michel Leporcher (yves-michel.
 
 ## Abstract
 
-This technical whitepaper establishes the main principles of a decentralized investment system using
+This article establishes the main principles of a decentralized investment system using
 Tezos blockchain innovative mechanisms and an architecture of dedicated smart contracts. The
 main components of this system include the new Continuous Delegation Offering concept combined
 with a Continuous Security Reward allowing to consolidate the value of the investment token.
