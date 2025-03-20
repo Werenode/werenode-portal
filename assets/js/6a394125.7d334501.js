@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[642],{33581:e=>{e.exports=JSON.parse('{"label":"werecoin","permalink":"/blog/tags/werecoin","allTagsPath":"/blog/tags","count":5}')}}]);

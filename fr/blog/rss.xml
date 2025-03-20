@@ -4,10 +4,24 @@
         <title>Werenode Official Website Blog</title>
         <link>https://werenode.github.io/fr/blog</link>
         <description>Werenode Official Website Blog</description>
-        <lastBuildDate>Sat, 28 Dec 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 05 Mar 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>fr</language>
+        <item>
+            <title><![CDATA[IOTPAY Test Version]]></title>
+            <link>https://werenode.github.io/fr/blog/IOTPAY Test Version</link>
+            <guid>IOTPAY Test Version</guid>
+            <pubDate>Wed, 05 Mar 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[We are excited to introduce the test version of the IOTPay application, designed to transform the landscape of automated IoT payments. This release marks a significant step towards seamless, secure, and efficient transactions within the Internet of Things (IoT) ecosystem.]]></description>
+            <content:encoded><![CDATA[<p>We are excited to introduce the <strong>test version</strong> of the IOTPay application, designed to transform the landscape of automated IoT payments. This release marks a significant step towards seamless, secure, and efficient transactions within the Internet of Things (IoT) ecosystem.</p><h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="key-features">Key Features<a class="hash-link" href="#key-features" title="Lien direct vers {heading}">​</a></h2><ul><li><p><strong>Automated IoT Payments</strong>: IOTPay enables devices to autonomously process payments, eliminating the need for manual intervention and enhancing operational efficiency.</p></li><li><p><strong>Secure Transactions</strong>: Leveraging advanced security protocols, IOTPay ensures that all transactions are protected against potential threats, maintaining the integrity and confidentiality of your data.</p></li><li><p><strong>Real-Time Monitoring</strong>: Stay informed with instant updates on transaction statuses and device activities, allowing for proactive management and swift issue resolution.</p></li><li><p><strong>Scalability</strong>: Designed to support a growing network of IoT devices, IOTPay scales effortlessly to accommodate your expanding business needs.</p></li></ul><h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="benefits-to-users">Benefits to Users<a class="hash-link" href="#benefits-to-users" title="Lien direct vers {heading}">​</a></h2><ul><li><p><strong>Enhanced Efficiency</strong>: By automating payment processes, IOTPay reduces operational delays and minimizes human errors, leading to smoother workflows.</p></li><li><p><strong>Improved Security</strong>: Our robust security measures protect against unauthorized access and data breaches, ensuring peace of mind for your business and customers.</p></li><li><p><strong>Comprehensive Oversight</strong>: With real-time monitoring and detailed analytics, you gain valuable insights into your IoT payment operations, facilitating informed decision-making.</p></li></ul><h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="about-iotpay">About IOTPay<a class="hash-link" href="#about-iotpay" title="Lien direct vers {heading}">​</a></h2><p>IOTPay is committed to delivering innovative payment solutions tailored to the evolving IoT landscape. Our mission is to empower businesses with tools that drive automation, security, and efficiency in payment processing.</p><h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="participate-in-the-test-phase">Participate in the Test Phase<a class="hash-link" href="#participate-in-the-test-phase" title="Lien direct vers {heading}">​</a></h2><p>We invite businesses and developers to participate in this test phase to experience firsthand the capabilities of IOTPay and contribute to its refinement. Your feedback is invaluable in shaping a solution that meets the diverse needs of the IoT community.</p><p><a href="https://iotpay.werenode.io" target="_blank" rel="noopener noreferrer">IOTPAY web application</a></p><p><a href="https://docs.google.com/forms/d/1-JWTfjeJG5ymB0Gcm6YfhZrTJekcClTlujCdKkRZ3Os" target="_blank" rel="noopener noreferrer">And give us your feedback!</a></p><p><em>Note: This is a test version of the IOTPay application. Features and functionalities are subject to change based on user feedback and ongoing development.</em></p>]]></content:encoded>
+            <category>IoT</category>
+            <category>payment</category>
+            <category>NGI</category>
+            <category>Web3.0</category>
+            <category>BWRC</category>
+            <category>werecoin</category>
+        </item>
         <item>
             <title><![CDATA[Werenode Best Web3.0 Company in France]]></title>
             <link>https://werenode.github.io/fr/blog/WerenodeOnTop</link>

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[5753],{52966:e=>{e.exports=JSON.parse('{"label":"Web3.0","permalink":"/fr/blog/tags/web-3-0","allTagsPath":"/fr/blog/tags","count":2}')}}]);

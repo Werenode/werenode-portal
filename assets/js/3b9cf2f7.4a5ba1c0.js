@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[1397],{77:e=>{e.exports=JSON.parse('{"label":"NGI","permalink":"/blog/tags/ngi","allTagsPath":"/blog/tags","count":1}')}}]);
