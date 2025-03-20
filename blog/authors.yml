@@ -1,0 +1,33 @@
+bmai:
+  name: Benoît Maïsseu
+  title: Werenode CEO
+  url: https://github.com/bmaisseu
+  image_url: /img/BMAI_petit.png
+  page: true
+  description: ​Benoît Maïsseu is the CEO and co-founder of Werenode. Former Strategy Director for Electric Vehicles and Robotic Vehicles at the Renault Nissan Mitsubishi Alliance.
+  socials:
+    x: MaisseuB
+    github: bmaisseu
+    linkedin: benoit-maisseu
+
+ezhd:
+  name: Evgenii Zhdarkin
+  title: Werenode Lead Developer
+  url: https://github.com/bmaisseu
+  image_url: /img/Evgenii.png
+  page: true
+  description: ​Evgenii Zhdarkin is a full-stack software developer specializing in blockchain and IoT. He holds a Bachelor's degree in Mathematics and Computer Science from Novosibirsk State University and a Diplôme d'Ingénieur from ISAE-SUPAERO.
+  socials:
+    github: Zhenyazhd
+    linkedin: evgenii-zhdarkin-2758b1233
+
+maji:
+  name: Miles Ajibola
+  title: Werenode Community Manager
+  url: https://www.linkedin.com/in/miles123/
+  image_url: /img/Miles.png
+  page: true
+  description: Ajibola Abdul Muheen Olamilekan (Miles) is Werenode's Community Manager, specializing in digital marketing and sales.
+  socials:
+    linkedin: miles123
+  
