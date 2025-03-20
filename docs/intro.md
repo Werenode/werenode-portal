@@ -81,8 +81,8 @@ If you have questions or run into any issues, our support team is here to help. 
 
 Download the Werenode app now and join the movement towards a transparent, decentralized, and efficient EV charging ecosystem. Let's accelerate the adoption of electric vehicles together!
 
-- [Download for Android](#)
-- [Download for iOS](#)
+- [Download for Android](https://play.google.com/store/apps/details?id=com.werenode.app)
+- [Download for iOS](https://apps.apple.com/fr/app/werenode-charge-ve/id1582403510)
 
 ---
 
