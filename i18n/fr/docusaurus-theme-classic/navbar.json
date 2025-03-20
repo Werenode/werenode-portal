@@ -1,0 +1,46 @@
+{
+  "logo.alt": {
+    "message": "Werenode portal",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Intro": {
+    "message": "Intro",
+    "description": "Navbar item with label Intro"
+  },
+  "item.label.Showroom": {
+    "message": "Showroom",
+    "description": "Navbar item with label Showroom"
+  },
+  "item.label.Innovations": {
+    "message": "Innovations",
+    "description": "Navbar item with label Innovations"
+  },
+  "item.label.Web3.0": {
+    "message": "Web3.0",
+    "description": "Navbar item with label Web3.0"
+  },
+  "item.label.Join us": {
+    "message": "Join us",
+    "description": "Navbar item with label Join us"
+  },
+  "item.label.Hardware": {
+    "message": "Hardware",
+    "description": "Navbar item with label Hardware"
+  },
+  "item.label.FAQ": {
+    "message": "FAQ",
+    "description": "Navbar item with label FAQ"
+  },
+  "item.label.Register your equipment": {
+    "message": "Register your equipment",
+    "description": "Navbar item with label Register your equipment"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Telegram": {
+    "message": "Telegram",
+    "description": "Navbar item with label Telegram"
+  }
+}
