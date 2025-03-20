@@ -138,7 +138,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Werenode, Inc.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Werenode SAS`,
     },
     docs: {
       sidebar: {
