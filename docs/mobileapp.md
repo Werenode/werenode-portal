@@ -30,7 +30,7 @@ The **Werenode Mobile App** allows users to seamlessly locate, access, and manag
 ### **Locating Charging Stations**
 1. Open the **Map View** to see available charging stations.
 2. Use filters to refine results by:
-   - Charging speed (kW)
+   - Charging power (kW)
    - Availability
    - Payment methods
 3. Tap on a station marker to view details (address, connector type, pricing).
@@ -49,7 +49,7 @@ The **Werenode Mobile App** allows users to seamlessly locate, access, and manag
 ### **Payment & Billing**
 - Payment methods:
   - Credit/Debit Card
-  - Cryptocurrency (if supported by the station)
+  - Cryptocurrency (if supported by the station, also depending on country)
 - Check transaction history under **Payments**.
 - Download invoices for completed sessions.
 
@@ -87,8 +87,7 @@ If you own a charger, you can register it:
 ## 5. Contact Support
 For assistance, contact:
 - **Email:** [support@werenode.com](mailto:support@werenode.com)
-- **Phone:** +33 1 23 45 67 89
-- **Live Chat:** Available in the app
+- **Live Chat:** Available on [Telegram](https://t.me/joinchat/20948tdORW1hZTlk)
 
 Stay connected and enjoy seamless EV charging with Werenode!
 
