@@ -80,6 +80,11 @@ A simplified overview of IOTPAY protocol is showed below:
 
 <img src="/img/IOTPAY_protocol2.png"></img>
 
+## Try IOTPAY
+
+[![IOTPAY by Werenode](/img/logo_IOTPAY.png)](https://iotpay.werenode.io)
+
+[And give us your feedback!](https://docs.google.com/forms/d/1-JWTfjeJG5ymB0Gcm6YfhZrTJekcClTlujCdKkRZ3Os)
 
 ## Conclusion
 
