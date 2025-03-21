@@ -1,21 +1,22 @@
+
 ---
 title: "Showroom"
-sidebar_label: "Nos Réalisations"
+sidebar_label: "Showroom"
 sidebar_position: 11
 ---
 
-# Nos Réalisations
+# Our Achievements
 
 ## Introduction
-Werenode révolutionne la recharge des véhicules électriques grâce à une solution décentralisée basée sur la blockchain. Nous avons déployé une infrastructure ouverte, interopérable et simple d'utilisation permettant aux particuliers, entreprises et collectivités de gérer efficacement leurs bornes de recharge.
+Werenode is revolutionizing electric vehicle (EV) charging with a decentralized, blockchain-based solution. We have deployed an open, interoperable, and user-friendly infrastructure that enables individuals, businesses, and communities to efficiently manage their charging stations.
 
-## Infrastructure de recharge
-Nous avons installé et connecté des infrastructures de recharge dans plusieurs sites en France, garantissant une gestion flexible et transparente pour les propriétaires et utilisateurs.
+## Charging Infrastructure
+We have installed and connected charging infrastructures at various sites across France, ensuring flexible and transparent management for both owners and users.
 
-### Exemples de sites équipés
-- **AFNIC** : Installation et gestion de prises de recharge pour les employés et visiteurs.
-- **Mairie de Paris** : Mise en place de bornes connectées pour soutenir la mobilité électrique urbaine.
-- **Clients professionnels** : Déploiement de solutions adaptées aux entreprises souhaitant offrir des services de recharge à leurs collaborateurs et clients.
+### Examples of Equipped Sites
+- **AFNIC**: Installation and management of charging outlets for employees and visitors.
+- **City of Paris**: Deployment of connected stations to support urban electric mobility.
+- **Professional Clients**: Implementation of tailored solutions for companies aiming to offer charging services to their staff and customers.
 
 <div align="center">
 <a>
@@ -23,7 +24,7 @@ Nous avons installé et connecté des infrastructures de recharge dans plusieurs
 </a>
 </div>
 
-- **Clients particuliers** : Installation de solutions adaptées aux particuliers souhaitant partager (ou pas!) leur équipement de recharge avec des tiers, locataires, voisins, copropriétaires, amis ou passants contre compensation.
+- **Individual Clients**: Installation of solutions for individuals wishing to share (or not!) their charging equipment with tenants, neighbors, co-owners, friends, or passersby for compensation.
 
 <div align="center">
 <a>
@@ -31,38 +32,38 @@ Nous avons installé et connecté des infrastructures de recharge dans plusieurs
 </a>
 </div>
 
-## Une technologie flexible et transparente
-Notre solution permet aux gestionnaires de bornes de choisir entre différents modèles d’utilisation :
-- **Recharge gratuite avec contrôle d’accès**
-- **Tarification au temps ou à l’énergie consommée**
-- **Gestion des utilisateurs et des plages horaires**
+## A Flexible and Transparent Technology
+Our solution allows charging station managers to choose between different usage models:
+- **Free charging with access control**
+- **Pricing based on time or energy consumed**
+- **User and time slot management**
 
-## Compatibilité avec différents équipements
-Nous avons intégré plusieurs modèles de bornes pour répondre aux besoins variés de nos clients :
-- **Prises Green’Up 3,5 kW** : Idéales pour la recharge résidentielle ou en entreprise.
-- **Bornes 7 kW et 22 kW** : Offrant un compromis entre coût et vitesse de charge.
-- **Bornes des marques Autel, Schneider, Legrand et Wallbox** : Compatibilité avec des équipements standards du marché.
+## Compatibility with Various Equipment
+We have integrated multiple charging station models to meet the diverse needs of our clients:
+- **Green’Up 3.5 kW outlets**: Ideal for residential or corporate charging.
+- **7 kW and 22 kW stations**: Offering a balance between cost and charging speed.
+- **Stations from brands like Autel, Schneider, Legrand, and Wallbox**: Compatibility with standard market equipment.
 
-## Application mobile et portail de gestion
-Notre solution comprend :
-- **Une application mobile intuitive** permettant aux utilisateurs d’activer une recharge en scannant un QR code.
-- **Un tableau de bord pour les gestionnaires** afin de superviser les sessions de charge, les utilisateurs et la facturation.
+## Mobile Application and Management Portal
+Our solution includes:
+- **An intuitive mobile application** allowing users to initiate a charge by scanning a QR code.
+- **A dashboard for managers** to oversee charging sessions, users, and billing.
 
-## Sécurité et respect de la confidentialité
-Werenode applique les meilleures pratiques en matière de cybersécurité et respecte strictement la réglementation RGPD pour la protection des données des utilisateurs.
+## Security and Privacy Compliance
+Werenode adheres to best practices in cybersecurity and strictly complies with GDPR regulations to protect user data.
 
-## Prêt à charger?
+## Ready to Charge?
 
-Téléchargez l'appli Werenode et rejoignez-nous!
+Download the Werenode app and join us!
 
-- [Pour Android](#)
-- [Pour iOS](#)
+- [For Android](https://play.google.com/store/apps/details?id=com.werenode.app)
+- [For iOS](https://apps.apple.com/us/app/werenode-charge-ve/id1582403510)
 
 ## Conclusion
-Nos réalisations démontrent l’efficacité et la flexibilité de notre solution de recharge Web3.0. Que vous soyez une entreprise, une collectivité ou un particulier, Werenode vous offre une infrastructure fiable, économique et évolutive.
+Our achievements demonstrate the efficiency and flexibility of our Web3.0 charging solution. Whether you're a business, a community, or an individual, Werenode offers you a reliable, cost-effective, and scalable infrastructure.
 
-**Contactez-nous** pour rejoindre l’écosystème Werenode et optimiser vos infrastructures de recharge.
+**Contact us** to join the Werenode ecosystem and optimize your charging infrastructures.
 
 ---
 
-Merci d'avoir choisi Werenode!
+Thank you for choosing Werenode!
