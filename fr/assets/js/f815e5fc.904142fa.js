@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwerenode_portal=self.webpackChunkwerenode_portal||[]).push([[3820],{61475:e=>{e.exports=JSON.parse('{"label":"verification certificates (VC)","permalink":"/fr/blog/tags/verification-certificates-vc","allTagsPath":"/fr/blog/tags","count":2}')}}]);
