@@ -10,28 +10,30 @@ Werenode est un écosystème décentralisé de recharge de véhicules électriqu
 ## Composants du Système​
 L'architecture du système Werenode se compose de plusieurs composants clefs :​
 
-1.**Application Mobile (React Native)​**
-2.**Portail Web (werenode-portal basé sur Docusaurus)​**
-3.**Application Membre (Angular)​**
-4.**Services Backend​**
-5.**Réseau Blockchain​**
-6.**Couche OCPP (C#)​**
-7.**Couche OCPI​**
-8.**Couche MQTT​**
-9.**Gestionnaire EVSE​**
-10.**Application Alternative DEFev​**
+-1.**Application Mobile (React Native)​**
+-2.**Portail Web (werenode-portal basé sur Docusaurus)​**
+-3.**Application Membre (Angular)​**
+-4.**Services Backend​**
+-5.**Réseau Blockchain​**
+-6.**Couche OCPP (C#)​**
+-7.**Couche OCPI​**
+-8.**Couche MQTT​**
+-9.**Gestionnaire EVSE​**
+-10.**Application Alternative DEFev​**
 ​
-### 1.Application Mobile (React Native)​
+### 1. Application Mobile (React Native)​
 
 L'application mobile Werenode est développée en React Native pour offrir une expérience multiplateforme aux utilisateurs Android et iOS. Elle permet aux conducteurs de véhicules électriques de localiser des stations de recharge disponibles, d'initier et de gérer des sessions de recharge, et d'effectuer des paiements via des transactions blockchain.​
 
 **Fonctionnalités clefs**
 
 -**Découverte d'EVSE** : L'application fournit une interface cartographique permettant aux utilisateurs de localiser des stations de recharge à proximité.​
+
 -**Intégration de Portefeuille** : Support intégré pour les portefeuilles blockchain afin d'effectuer des paiements sécurisés.​
+
 -**Gestion des Sessions** : Les utilisateurs peuvent surveiller leurs sessions de recharge en temps réel.​
 
-### 2.Portail Web (werenode-portal basé sur Docusaurus)
+### 2. Portail Web (werenode-portal basé sur Docusaurus)
 ​
 Le portail Werenode est une interface web pour la gestion des EVSE et la fourniture de documentation aux développeurs et aux utilisateurs. Il est construit avec Docusaurus pour assurer une navigation facile, une maintenabilité et une évolutivité.​
 
@@ -41,7 +43,7 @@ Le portail Werenode est une interface web pour la gestion des EVSE et la fournit
 -**Gestion des EVSE** : Les opérateurs de stations de recharge peuvent enregistrer, mettre à jour et surveiller leurs unités EVSE.​
 -**Intégration de la Carte EVSE** : La carte EVSE de l'application mobile React Native a été intégrée au portail pour offrir une expérience unifiée de visualisation des stations de recharge disponibles.​
 
-### 3.Application Membre (Angular)
+### 3. Application Membre (Angular)
 ​
 L'Application Membre est développée en Angular et fournit des informations détaillées sur les sessions de recharge pour les membres de Werenode. Elle offre un moyen pratique pour les utilisateurs de gérer leurs activités de recharge et d'obtenir des insights sur leur consommation d'énergie.​
 
@@ -51,7 +53,7 @@ L'Application Membre est développée en Angular et fournit des informations dé
 -**Insights Utilisateur** : Offre des analyses et des insights sur le comportement de recharge, aidant les utilisateurs à optimiser leurs habitudes de recharge.​
 -**Gestion de Compte** : Permet aux utilisateurs de gérer leurs profils, de consulter l'historique des transactions et d'accéder aux documents pertinents.​
 
-### 4.Services Backend
+### 4. Services Backend
 ​
 Les services backend fournissent l'infrastructure nécessaire pour gérer les données des utilisateurs, les informations des stations de recharge et d'autres logiques métier essentielles. Ils consistent en une API RESTful et une architecture de microservices, déployés en utilisant une infrastructure cloud.​
 
@@ -61,7 +63,7 @@ Les services backend fournissent l'infrastructure nécessaire pour gérer les do
 -**Gestion des Données EVSE** : Stocke les informations sur les stations de recharge, leur statut et leur disponibilité.​
 -**API de Session de Recharge** : Traite les demandes de l'application mobile pour démarrer, arrêter et surveiller les sessions de recharge.​
 
-### 5.Réseau Blockchain
+### 5. Réseau Blockchain
 ​
 La plateforme Werenode utilise la technologie blockchain pour permettre des transactions décentralisées et transparentes pour les sessions de recharge.​
 
@@ -71,7 +73,7 @@ La plateforme Werenode utilise la technologie blockchain pour permettre des tran
 -**Paiements en Tokens** : Les paiements pour les sessions de recharge sont gérés via un système de tokens basé sur la blockchain, assurant des transactions sécurisées, rapides et à faible coût.​
 -**Transparence des Données** : Les données de transaction sont enregistrées sur la chaîne, fournissant des enregistrements vérifiables et infalsifiables.​
 
-### 6.Couche OCPP (C#)
+### 6. Couche OCPP (C#)
 ​
 La Couche Open Charge Point Protocol (OCPP), développée en C#, fournit une norme de communication entre les stations de recharge (EVSE) et le serveur backend. Cette couche assure l'interopérabilité entre divers dispositifs EVSE, permettant une communication efficace et une gestion de l'infrastructure de recharge.​
 
@@ -149,8 +151,8 @@ APIs : API REST pour l'intégration mobile et web, GraphQL pour des requêtes de
 -Requête API : Cette interaction déclenche une requête API vers le backend pour récupérer les données de l'EVSE ou exécuter une action de charge.​
 -Gestionnaire EVSE : Le gestionnaire EVSE automatise les transactions blockchain, interagissant avec les smart contracts pour gérer le paiement.​
 -Transaction blockchain : Si un paiement est requis, l'utilisateur interagit avec le portefeuille intégré (MetaMask ou autres) pour exécuter une transaction blockchain.​
---Contrôle de l'EVSE : Le backend communique via la couche OCPP ou MQTT pour démarrer ou arrêter le processus de charge.​
---Mise à jour des données : Les données de la session de charge sont mises à jour dans la base de données et, le cas échéant, enregistrées sur la blockchain.​
+-Contrôle de l'EVSE : Le backend communique via la couche OCPP ou MQTT pour démarrer ou arrêter le processus de charge.​
+-Mise à jour des données : Les données de la session de charge sont mises à jour dans la base de données et, le cas échéant, enregistrées sur la blockchain.​
 
 ## Feuille de route future
 -Analyses de données avancées : Ajouter des analyses prédictives pour suggérer des moments de charge optimaux en fonction du comportement de l'utilisateur et de la demande du réseau.​
