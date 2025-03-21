@@ -1,5 +1,5 @@
 ---
-slug: DID-IMP
+slug: DID-IMPTest
 title: DID-IMP Test Version
 authors: [bmai, ezhd]
 tags: [IoT, blockchain, smart contracts, decentralized identifiers (DID), verification certificates (VC), data security, device management]
