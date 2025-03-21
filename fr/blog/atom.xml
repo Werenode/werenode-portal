@@ -121,7 +121,7 @@ signing;</p><p>6) DIDRegistry - calls functions from DidBase, where for each fun
         <category label="tezos" term="tezos"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[DID-IMP Project]]></title>
+        <title type="html"><![CDATA[DID-IMP Test Version]]></title>
         <id>DID-IMP</id>
         <link href="https://werenode.github.io/fr/blog/DID-IMP"/>
         <updated>2024-06-28T00:00:00.000Z</updated>
