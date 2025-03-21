@@ -9,27 +9,26 @@ Werenode est un écosystème décentralisé de recharge de véhicules électriqu
 
 ## Composants du Système​
 L'architecture du système Werenode se compose de plusieurs composants clefs :​
-
-- 1. **Application Mobile (React Native)​**
-- 2. **Portail Web (werenode-portal basé sur Docusaurus)​**
-- 3. **Application Membre (Angular)​**
-- 4. **Services Backend​**
-- 5. **Réseau Blockchain​**
-- 6. **Couche OCPP (C#)​**
-- 7. **Couche OCPI​**
-- 8. **Couche MQTT​**
-- 9. **Gestionnaire EVSE​**
-- 10. **Application Alternative DEFev​**
-- 11. **Intégration de la carte des EVSE**
+1. **Application Mobile (React Native)​**
+2. **Portail Web (werenode-portal basé sur Docusaurus)​**
+3. **Application Membre (Angular)​**
+4. **Services Backend​**
+5. **Réseau Blockchain​**
+6. **Couche OCPP (C#)​**
+7. **Couche OCPI​**
+8. **Couche MQTT​**
+9. **Gestionnaire EVSE​**
+10. **Application Alternative DEFev​**
+11. **Intégration de la carte des EVSE**
 ​
 ### 1. Application Mobile (React Native)​
 
 L'application mobile Werenode est développée en React Native pour offrir une expérience multiplateforme aux utilisateurs Android et iOS. Elle permet aux conducteurs de véhicules électriques de localiser des stations de recharge disponibles, d'initier et de gérer des sessions de recharge, et d'effectuer des paiements via des transactions blockchain.​
 
 **Fonctionnalités clefs**:
-1. **Découverte d'EVSE** : L'application fournit une interface cartographique permettant aux utilisateurs de localiser des stations de recharge à proximité.​
-2. **Intégration de Portefeuille** : Support intégré pour les portefeuilles blockchain afin d'effectuer des paiements sécurisés.​
-3. **Gestion des Sessions** : Les utilisateurs peuvent surveiller leurs sessions de recharge en temps réel.​
+- **Découverte d'EVSE** : L'application fournit une interface cartographique permettant aux utilisateurs de localiser des stations de recharge à proximité.​
+- **Intégration de Portefeuille** : Support intégré pour les portefeuilles blockchain afin d'effectuer des paiements sécurisés.​
+- **Gestion des Sessions** : Les utilisateurs peuvent surveiller leurs sessions de recharge en temps réel.​
 
 ### 2. Portail Web (werenode-portal basé sur Docusaurus)
 ​
