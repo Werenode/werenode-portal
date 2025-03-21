@@ -11,15 +11,26 @@ Werenode est un écosystème décentralisé de recharge de véhicules électriqu
 L'architecture du système Werenode se compose de plusieurs composants clefs :​
 
 -1.**Application Mobile (React Native)​**
+
 -2.**Portail Web (werenode-portal basé sur Docusaurus)​**
+
 -3.**Application Membre (Angular)​**
+
 -4.**Services Backend​**
+
 -5.**Réseau Blockchain​**
+
 -6.**Couche OCPP (C#)​**
+
 -7.**Couche OCPI​**
+
 -8.**Couche MQTT​**
+
 -9.**Gestionnaire EVSE​**
+
 -10.**Application Alternative DEFev​**
+
+-11.**Intégration de la carte des EVSE**
 ​
 ### 1. Application Mobile (React Native)​
 
@@ -120,7 +131,7 @@ DEFev est une application web entièrement décentralisée qui utilise la techno
 -**Interface Web3** : DEFev est implémentée en utilisant Web3.js pour fournir une connectivité directe au réseau Ethereum, permettant des interactions peer-to-peer complètes sans serveurs intermédiaires.​
 -**Contrôle décentralisé** : L'initiation des sessions de charge et les paiements sont entièrement gérés via des contrats intelligents, offrant une autonomie et une sécurité maximales aux utilisateurs.​
 
-### 11. Intégration de la carte EVSE
+### 11. Intégration de la carte des EVSE
 
 Pour créer une expérience unifiée et transparente pour les utilisateurs, la carte EVSE de l'application mobile a également été intégrée dans le portail werenode basé sur Docusaurus. Cette intégration garantit que le portail web peut servir de point d'interaction pour les utilisateurs cherchant à localiser et en savoir plus sur les stations de charge sans avoir besoin de l'application mobile.​
 
