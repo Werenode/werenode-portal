@@ -1,4 +1,3 @@
-
 ---
 title: "Showroom"
 sidebar_label: "Showroom"
