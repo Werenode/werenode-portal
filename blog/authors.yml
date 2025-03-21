@@ -30,4 +30,38 @@ maji:
   description: Ajibola Abdul Muheen Olamilekan (Miles) is Werenode's Community Manager, specializing in digital marketing and sales.
   socials:
     linkedin: miles123
-  
+
+team:
+  name: Werenode Team
+  title: Dream Team
+  url: https://www.linkedin.com/company/werenode/
+  image_url: /img/log_fav.png
+  page: true
+  description: ​Werenode's team comprises experts in electric vehicle (EV) charging, Web3.0 technologies, IoT, and IT.
+  socials:
+    github: Werenode
+    linkedin: werenode
+    x: werenode
+    facebook: werenode
+    instagram: were_node
+
+fchi:
+  name: François Chiron
+  title: Werenode CTO
+  url: https://www.linkedin.com/in/francoischiron/
+  image_url: /img/BFCh.png
+  page: true
+  description: ​François Chiron, co-founder and Chief Technology Officer (IT) at Werenode, is an alumnus of École Polytechnique (class of 1992) and CentraleSupélec (1996), bringing over 25 years of experience in IT, with expertise in cybersecurity, artificial intelligence, and the Internet of Things.
+  socials:
+    github: arnolchi
+    linkedin: francoischiron
+
+nkho:
+  name: Nadiya Khokhryakova
+  title: Werenode President
+  url: https://www.linkedin.com/in/nadiya-khokhryakova/
+  image_url: /img/MM.png
+  page: true
+  description: ​​Nadiya Khokhryakova, co-founder and President of Werenode, is an entrepreneur with a PhD in geopolitics from Université Paris-Sorbonne, bringing extensive experience in innovation consulting to the company's leadership.
+  socials:
+    linkedin: nadiya-khokhryakova
