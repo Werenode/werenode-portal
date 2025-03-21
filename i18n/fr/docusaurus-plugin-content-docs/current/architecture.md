@@ -10,27 +10,27 @@ Werenode est un écosystème décentralisé de recharge de véhicules électriqu
 ## Composants du Système​
 L'architecture du système Werenode se compose de plusieurs composants clefs :​
 
--1.**Application Mobile (React Native)​**
+-1. **Application Mobile (React Native)​**
 
--2.**Portail Web (werenode-portal basé sur Docusaurus)​**
+-2. **Portail Web (werenode-portal basé sur Docusaurus)​**
 
--3.**Application Membre (Angular)​**
+-3. **Application Membre (Angular)​**
 
--4.**Services Backend​**
+-4. **Services Backend​**
 
--5.**Réseau Blockchain​**
+-5. **Réseau Blockchain​**
 
--6.**Couche OCPP (C#)​**
+-6. **Couche OCPP (C#)​**
 
--7.**Couche OCPI​**
+-7. **Couche OCPI​**
 
--8.**Couche MQTT​**
+-8. **Couche MQTT​**
 
--9.**Gestionnaire EVSE​**
+-9. **Gestionnaire EVSE​**
 
--10.**Application Alternative DEFev​**
+-10. **Application Alternative DEFev​**
 
--11.**Intégration de la carte des EVSE**
+-11. **Intégration de la carte des EVSE**
 ​
 ### 1. Application Mobile (React Native)​
 
