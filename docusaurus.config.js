@@ -144,9 +144,7 @@ module.exports = {
       sidebar: {
         hideable: false,
       }
-
     }
-
   },
   presets: [
     [
@@ -168,7 +166,8 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         gtag: {
-          trackingID: 'G-M4N4RH6CXF',
+          trackingID: 'G-0D85V81J2N',
+          // trackingID: 'G-M4N4RH6CXF',
           // trackingID: 'G-QLM041KYQW',
           // Optional fields.
           anonymizeIP: false, // Should IPs be anonymized?
