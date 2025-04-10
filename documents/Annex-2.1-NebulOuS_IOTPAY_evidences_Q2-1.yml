@@ -1,0 +1,38 @@
+
+services:
+  iotpay-webapp:
+    image: pocs/iotpay-webapp:${IOTPAY_APP_VERSION:-1.0.0}
+    restart: unless-stopped
+    ports:
+      -  ${IOTPAY_APP_PORT:-8080}:80
+  iotpay-server:
+    image: pocs/iotpay-server:${IOTPAY_API_VERSION:-1.0.0}
+    restart: unless-stopped
+    ports:
+      -  ${IOTPAY_API_PORT:-8080}:${IOTPAY_API_PORT:-3000}
+    environment:
+      - REDIS_HOST=${REDIS_HOST:-redis}
+      - REDIS_PORT=${REDIS_PORT:-6379}
+      - APP_PORT=${APP_PORT:-3000}
+      - WEB3_PROVIDER_URL=${WEB3_PROVIDER_URL:-http://localhost:8545}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - SECRET_ID=${SECRET_ID:-iotpay}
+      - APP_DIDIMP=${APP_DIDIMP:-http://localhost:3000}
+      - APP_DID=${APP_DID:-http://localhost:3000}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-}
+  emqx:
+    image: emqx/emqx:5.8.5
+    restart: always
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "18083:18083"
+    environment:
+      - EMQX_ALLOW_ANONYMOUS=false
+      - EMQX_CLUSTER__DISCOVERY_STRATEGY=manual
+    volumes:
+      - ./emqx_etc/dashboard_users.csv:/opt/emqx/etc/dashboard_users.csv
+      - ./emqx_etc/emqx.conf:/opt/emqx/etc/emqx.conf
+  volumes:
+    emqx_data:
