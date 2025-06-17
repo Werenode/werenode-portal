@@ -56,13 +56,6 @@ const data = {
       linkedin: ''
     },
     {
-      key: 'François Colet',
-      title: 'CTO-EV - Co-founder',
-      role: 'EV charging expert, ISO15118 co-author',
-      img: 'img/FC.jpeg',
-      linkedin: ''
-    },
-    {
       key: 'Gaëtan Cadéro',
       title: 'Advisor - Co-founder',
       role: 'Operation management expert',
@@ -88,13 +81,6 @@ const data = {
       title: 'Lead Developer',
       role: 'Full-stack & Smart contracts development',
       img: 'img/Evgenii.png',
-      linkedin: ''
-    },
-    {
-      key: 'Lucas Gonçalves',
-      title: 'Developer',
-      role: 'Mobile App development',
-      img: 'img/Lucas.jpg',
       linkedin: ''
     }
   ],
