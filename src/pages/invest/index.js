@@ -62,7 +62,7 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Button variant='outlined' href='https://spicyswap.xyz/#/pool/KT1PnUZCp3u2KzWr93pn4DD7HAJnm3rWVrgn:0/KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R:0' style={{ color: 'white' }}>Buy Tokens on Tezos</Button>
+          <Button variant='outlined' href='https://app.uniswap.org/explore/tokens/ethereum/0x1D801fB8b2ED31b9990D7A2272A11c2c1D0a25b6' style={{ color: 'white' }}>Buy EWRC Tokens on Ethereum</Button>
         </Grid>
         <Grid item style={{
           marginLeft: '32px',
@@ -70,9 +70,16 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Button variant='outlined' href='https://p2pb2b.com/token-sale/BWRC-523/' style={{ color: 'white' }}>Buy Tokens on Binance SmartChain</Button>
+          <Button variant='outlined' href='https://biswap.org/fr/swap?outputCurrency=0xcb2B11e8B780971907A9A171754C7D767ee8Bc70' style={{ color: 'white' }}>Buy BWRC Tokens on Binance SmartChain</Button>
         </Grid>
-
+        <Grid item style={{
+          marginLeft: '32px',
+          marginRight: '32px',
+          marginBottom: '32px',
+          textAlign: 'center'
+        }}>
+          <Button variant='outlined' href='https://hd.spicyswap.xyz/#/trade/KT1TRtYkzHivDvRAQxYNDBmdnyVfjGtDUZrU' style={{ color: 'white' }}>Buy WRC Tokens on Tezos</Button>
+        </Grid>
         <Grid item style={{
           marginLeft: '32px',
           marginRight: '32px',
