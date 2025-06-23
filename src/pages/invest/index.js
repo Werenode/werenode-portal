@@ -13,6 +13,54 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+import React, { useState } from 'react';
+
+export default function NewsletterSignup() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    jobTitle: ''
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Send to backend or API
+    console.log('Submitted:', formData);
+
+    // TODO: Replace with actual API call (Mailchimp, Brevo, Firebase, etc.)
+
+    setSubmitted(true);
+  };
+
+  return (
+    <div>
+      <h2>Inscription à la lettre d'information</h2>
+      {submitted ? (
+        <p>Merci ! Vous êtes bien inscrit.</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <input name="firstName" placeholder="Prénom" value={formData.firstName} onChange={handleChange} required />
+          <input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleChange} required />
+          <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required />
+          <input name="company" placeholder="Entreprise" value={formData.company} onChange={handleChange} />
+          <input name="jobTitle" placeholder="Fonction" value={formData.jobTitle} onChange={handleChange} />
+          <button type="submit">S'inscrire</button>
+        </form>
+      )}
+    </div>
+  );
+}
+
 const data = {
   taglines: {
     header: 'Join the rEVolution',
