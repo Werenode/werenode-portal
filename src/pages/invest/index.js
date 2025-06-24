@@ -115,26 +115,6 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Button variant='outlined' style={{ color: 'white' }}>Subscribe to our newsletter</Button>
-            {submitted ? (
-              <p>Thanks!</p>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required />
-                <input name="lastName" placeholder="Family Name" value={formData.lastName} onChange={handleChange} required /> <br/>
-                <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required /> <br/>
-                <input name="company" placeholder="Organization" value={formData.company} onChange={handleChange} />
-                <input name="jobTitle" placeholder="Function" value={formData.jobTitle} onChange={handleChange} /> <br/>
-                <button type="submit">Subscribe</button>
-              </form>
-            )}
-        </Grid>
-        <Grid item style={{
-          marginLeft: '32px',
-          marginRight: '32px',
-          marginBottom: '32px',
-          textAlign: 'center'
-        }}>
           <Button variant='outlined' href='https://app.uniswap.org/explore/tokens/ethereum/0x1D801fB8b2ED31b9990D7A2272A11c2c1D0a25b6' style={{ color: 'white' }}>Buy EWRC Tokens on Ethereum</Button>
         </Grid>
         <Grid item style={{
@@ -178,6 +158,26 @@ const InvestHeader = () => {
         title="Werenode Invest">
         <ThemeProvider theme={theme}>
           <InvestHeader />
+          <Grid item style={{
+            marginLeft: '32px',
+            marginRight: '32px',
+            marginBottom: '32px',
+            textAlign: 'center'
+          }}>
+            <Button variant='outlined' style={{ color: 'white' }}>Subscribe to our newsletter</Button>
+              {submitted ? (
+                <p>Thanks!</p>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required />
+                  <input name="lastName" placeholder="Family Name" value={formData.lastName} onChange={handleChange} required /> <br/>
+                  <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required /> <br/>
+                  <input name="company" placeholder="Organization" value={formData.company} onChange={handleChange} />
+                  <input name="jobTitle" placeholder="Function" value={formData.jobTitle} onChange={handleChange} /> <br/>
+                  <button type="submit">Subscribe</button>
+                </form>
+              )}
+          </Grid>          
         </ThemeProvider>
       </Layout>
     </div>
