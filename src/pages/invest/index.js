@@ -115,6 +115,26 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
+          <Button variant='outlined' href='https://app.uniswap.org/explore/tokens/ethereum/0x1D801fB8b2ED31b9990D7A2272A11c2c1D0a25b6' style={{ color: 'white' }}>Subscribe to our newsletter</Button>
+            {submitted ? (
+              <p>Thanks!</p>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <input name="firstName" placeholder="Prénom" value={formData.firstName} onChange={handleChange} required />
+                <input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleChange} required />
+                <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required />
+                <input name="company" placeholder="Entreprise" value={formData.company} onChange={handleChange} />
+                <input name="jobTitle" placeholder="Fonction" value={formData.jobTitle} onChange={handleChange} />
+                <button type="submit">S'inscrire</button>
+              </form>
+            )}
+        </Grid>
+        <Grid item style={{
+          marginLeft: '32px',
+          marginRight: '32px',
+          marginBottom: '32px',
+          textAlign: 'center'
+        }}>
           <Button variant='outlined' href='https://app.uniswap.org/explore/tokens/ethereum/0x1D801fB8b2ED31b9990D7A2272A11c2c1D0a25b6' style={{ color: 'white' }}>Buy EWRC Tokens on Ethereum</Button>
         </Grid>
         <Grid item style={{
@@ -153,31 +173,14 @@ const InvestHeader = () => {
 }
 
   return (
-    <>
-      <div style={{ backgroundColor: '#121212' }}>
-        <Layout
-          title="Werenode Invest">
-          <ThemeProvider theme={theme}>
-            <InvestHeader />
-          </ThemeProvider>
-        </Layout>
-      </div>
-      <div>
-        <h2>Inscription à la lettre d'information</h2>
-        {submitted ? (
-          <p>Merci ! Vous êtes bien inscrit.</p>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <input name="firstName" placeholder="Prénom" value={formData.firstName} onChange={handleChange} required />
-            <input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleChange} required />
-            <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required />
-            <input name="company" placeholder="Entreprise" value={formData.company} onChange={handleChange} />
-            <input name="jobTitle" placeholder="Fonction" value={formData.jobTitle} onChange={handleChange} />
-            <button type="submit">S'inscrire</button>
-          </form>
-        )}
-      </div>
-    </>
+    <div style={{ backgroundColor: '#121212' }}>
+      <Layout
+        title="Werenode Invest">
+        <ThemeProvider theme={theme}>
+          <InvestHeader />
+        </ThemeProvider>
+      </Layout>
+    </div>
   );
 
 }
