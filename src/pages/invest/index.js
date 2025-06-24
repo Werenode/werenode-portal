@@ -13,8 +13,33 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-
-export default function NewsletterSignup() {
+export default function Investhome() {
+  const { siteConfig } = useDocusaurusContext();
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          type: 'dark',
+          primary: {
+            main: '#00b1a5'
+          },
+          background: {
+            paper: '#18191a',
+            default: '#18191a'
+          },
+          text: {
+            primary: '#fff',
+          },
+          info: {
+            main: '#c7b45f'
+          }
+        },
+      }),
+    [true],
+  );
+  const width = useWidth();
+  const deg = isWidthDown('sm', width) ? '0' : '225';  
+  
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -40,25 +65,6 @@ export default function NewsletterSignup() {
 
     setSubmitted(true);
   };
-
-  return (
-    <div>
-      <h2>Inscription à la lettre d'information</h2>
-      {submitted ? (
-        <p>Merci ! Vous êtes bien inscrit.</p>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <input name="firstName" placeholder="Prénom" value={formData.firstName} onChange={handleChange} required />
-          <input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleChange} required />
-          <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required />
-          <input name="company" placeholder="Entreprise" value={formData.company} onChange={handleChange} />
-          <input name="jobTitle" placeholder="Fonction" value={formData.jobTitle} onChange={handleChange} />
-          <button type="submit">S'inscrire</button>
-        </form>
-      )}
-    </div>
-  );
-}
 
 const data = {
   taglines: {
@@ -146,40 +152,32 @@ const InvestHeader = () => {
   )
 }
 
-export default function Investhome() {
-  const { siteConfig } = useDocusaurusContext();
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          type: 'dark',
-          primary: {
-            main: '#00b1a5'
-          },
-          background: {
-            paper: '#18191a',
-            default: '#18191a'
-          },
-          text: {
-            primary: '#fff',
-          },
-          info: {
-            main: '#c7b45f'
-          }
-        },
-      }),
-    [true],
-  );
-  const width = useWidth();
-  const deg = isWidthDown('sm', width) ? '0' : '225';
   return (
-    <div style={{ backgroundColor: '#121212' }}>
-      <Layout
-        title="Werenode Invest">
-        <ThemeProvider theme={theme}>
-          <InvestHeader />
-        </ThemeProvider>
-      </Layout>
-    </div>
-  )
+    <>
+      <div style={{ backgroundColor: '#121212' }}>
+        <Layout
+          title="Werenode Invest">
+          <ThemeProvider theme={theme}>
+            <InvestHeader />
+          </ThemeProvider>
+        </Layout>
+      </div>
+      <div>
+        <h2>Inscription à la lettre d'information</h2>
+        {submitted ? (
+          <p>Merci ! Vous êtes bien inscrit.</p>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <input name="firstName" placeholder="Prénom" value={formData.firstName} onChange={handleChange} required />
+            <input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleChange} required />
+            <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required />
+            <input name="company" placeholder="Entreprise" value={formData.company} onChange={handleChange} />
+            <input name="jobTitle" placeholder="Fonction" value={formData.jobTitle} onChange={handleChange} />
+            <button type="submit">S'inscrire</button>
+          </form>
+        )}
+      </div>
+    </>
+  );
+
 }
