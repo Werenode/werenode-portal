@@ -115,16 +115,16 @@ const InvestHeader = () => {
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <Button variant='outlined' href='https://app.uniswap.org/explore/tokens/ethereum/0x1D801fB8b2ED31b9990D7A2272A11c2c1D0a25b6' style={{ color: 'white' }}>Subscribe to our newsletter</Button>
+          <Button variant='outlined' style={{ color: 'white' }}>Subscribe to our newsletter</Button>
             {submitted ? (
               <p>Thanks!</p>
             ) : (
               <form onSubmit={handleSubmit}>
                 <input name="firstName" placeholder="Prénom" value={formData.firstName} onChange={handleChange} required />
-                <input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleChange} required />
-                <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required />
+                <input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleChange} required /> <br>
+                <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required /> <br>
                 <input name="company" placeholder="Entreprise" value={formData.company} onChange={handleChange} />
-                <input name="jobTitle" placeholder="Fonction" value={formData.jobTitle} onChange={handleChange} />
+                <input name="jobTitle" placeholder="Fonction" value={formData.jobTitle} onChange={handleChange} /> <br>
                 <button type="submit">S'inscrire</button>
               </form>
             )}
