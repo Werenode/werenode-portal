@@ -120,12 +120,12 @@ const InvestHeader = () => {
               <p>Thanks!</p>
             ) : (
               <form onSubmit={handleSubmit}>
-                <input name="firstName" placeholder="Prénom" value={formData.firstName} onChange={handleChange} required />
-                <input name="lastName" placeholder="Nom" value={formData.lastName} onChange={handleChange} required /> <br>
-                <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required /> <br>
-                <input name="company" placeholder="Entreprise" value={formData.company} onChange={handleChange} />
-                <input name="jobTitle" placeholder="Fonction" value={formData.jobTitle} onChange={handleChange} /> <br>
-                <button type="submit">S'inscrire</button>
+                <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required />
+                <input name="lastName" placeholder="Family Name" value={formData.lastName} onChange={handleChange} required /> <br/>
+                <input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} required /> <br/>
+                <input name="company" placeholder="Organization" value={formData.company} onChange={handleChange} />
+                <input name="jobTitle" placeholder="Function" value={formData.jobTitle} onChange={handleChange} /> <br/>
+                <button type="submit">Subscribe</button>
               </form>
             )}
         </Grid>
