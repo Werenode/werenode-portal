@@ -8,63 +8,10 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Map from '../../../static/img/home_bg1.jpeg';
 
-import React, { useState } from 'react';
+import React from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-
-export default function Investhome() {
-  const { siteConfig } = useDocusaurusContext();
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          type: 'dark',
-          primary: {
-            main: '#00b1a5'
-          },
-          background: {
-            paper: '#18191a',
-            default: '#18191a'
-          },
-          text: {
-            primary: '#fff',
-          },
-          info: {
-            main: '#c7b45f'
-          }
-        },
-      }),
-    [true],
-  );
-  const width = useWidth();
-  const deg = isWidthDown('sm', width) ? '0' : '225';  
-  
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    company: '',
-    jobTitle: ''
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  
-    // Send to backend or API
-    console.log('Submitted:', formData);
-
-    // TODO: Replace with actual API call (Mailchimp, Brevo, Firebase, etc.)
-
-    setSubmitted(true);
-  };
 
 const data = {
   taglines: {
@@ -75,7 +22,6 @@ const data = {
   buttons: {
     invest: 'join the community',
     lite: 'Download Lite Paper!'
-
   },
 }
 
@@ -160,6 +106,32 @@ const InvestHeader = () => {
   )
 }
 
+export default function Investhome() {
+  const { siteConfig } = useDocusaurusContext();
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          type: 'dark',
+          primary: {
+            main: '#00b1a5'
+          },
+          background: {
+            paper: '#18191a',
+            default: '#18191a'
+          },
+          text: {
+            primary: '#fff',
+          },
+          info: {
+            main: '#c7b45f'
+          }
+        },
+      }),
+    [true],
+  );
+  const width = useWidth();
+  const deg = isWidthDown('sm', width) ? '0' : '225';
   return (
     <div style={{ backgroundColor: '#121212' }}>
       <Layout
@@ -169,6 +141,5 @@ const InvestHeader = () => {
         </ThemeProvider>
       </Layout>
     </div>
-  );
-
+  )
 }
