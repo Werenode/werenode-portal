@@ -8,12 +8,11 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Map from '../../../static/img/home_bg1.jpeg';
 
-import React from 'react';
+import React, { useState } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import React, { useState } from 'react';
 
 export default function NewsletterSignup() {
   const [formData, setFormData] = useState({
