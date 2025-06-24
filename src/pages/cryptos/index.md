@@ -21,10 +21,10 @@ Or you can begin with the condensed [Lite Paper](https://werenode.com/documents/
 Werenode's token is Werecoin (WRC). Werenode has chosen a multichain strategy to take advantage of different key strongpoints, implemented differently by several major blockchains. Werenode started historically with a Tezos token, to take advantage of the first environmentally friendly and evolutive major blokchain using PoS (Proof of Stake) validation, and benefitting from a very low cost of transaction. The **[WRC](https://tzkt.io/KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R/operations/)** address is :
 > KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R 
 
-The token can also be bought on the Binance Smart Chain. The **[BWRC](https://biswap.org/fr/swap?inputCurrency=BNB&outputCurrency=0xcb2B11e8B780971907A9A171754C7D767ee8Bc70))** token address is : 
+The token can also be bought on the Binance Smart Chain. The **[BWRC](https://biswap.org/fr/swap?inputCurrency=BNB&outputCurrency=0xcb2B11e8B780971907A9A171754C7D767ee8Bc70)** token address is : 
 > 0xcb2B11e8B780971907A9A171754C7D767ee8Bc70
 
-The token can also be bought on the Ethereum Chain. The **[EWR](https://app.uniswap.org/explore/tokens/ethereum/0x1d801fb8b2ed31b9990d7a2272a11c2c1d0a25b6)** token address is : 
+The token can also be bought on the Ethereum Chain. The **[EWRC](https://app.uniswap.org/explore/tokens/ethereum/0x1d801fb8b2ed31b9990d7a2272a11c2c1d0a25b6)** token address is : 
 > 0x1D801fB8b2ED31b9990D7A2272A11c2c1D0a25b6
 
 All other contracts on Tezos or on other Blockchains are obsolete or not related to us. 
@@ -41,7 +41,7 @@ Werenode has designed its cryptocurrency ecosystem around **multi-chain interope
 
 ### 1. Werecoin (WRC) on Tezos Blockchain
 
-**Werecoin (WRC)** is a utility token on the Tezos blockchain, based on the **FA2 token standard**. This token supports Werenode's payment infrastructure, allowing users to pay for EV charging services. The choice of Tezos was motivated by its energy efficiency, security, and low transaction fees. The current total supply of WRC is 19.5B.
+**Werecoin (WRC)** is a utility token on the Tezos blockchain, based on the **FA2 token standard**. This token supports Werenode's payment infrastructure, allowing users to pay for EV charging services. The choice of Tezos was motivated by its energy efficiency, security, and low transaction fees. As a state of fact, Werenode and its Werecoins are part of the history of Tezos: our first smart contract on Tezos blockchain was the 39th. Anyway, we never received any funding by Tezos management who was more interested in football (soccer) and Formula 1 sponsoring. The current total supply of WRC is 19.5B. All the transaction volumes traded on Tezos blockchain are invisible to Coinmarketcap.
 
 **Key Features of Werecoin on Tezos:**
 
@@ -58,8 +58,8 @@ Werenode has designed its cryptocurrency ecosystem around **multi-chain interope
 
 **Where to Trade Werecoin (WRC):**
 
-- **Quipuswap**: Werecoin (WRC) can be traded on the Tezos decentralized exchange **[Quipuswap](https://analytics.quipuswap.com/tokens/KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R_0)**.
-- **Spicyswap**: You can also trade WRC on **[Spicyswap](https://spicyswap.xyz/#/app?tool=swap&tokenLeft=KT1PnUZCp3u2KzWr93pn4DD7HAJnm3rWVrgn:0&tokenRight=KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R:0)**.
+- **[Spicyswap](https://spicyswap.xyz/#/app?tool=swap&tokenLeft=KT1PnUZCp3u2KzWr93pn4DD7HAJnm3rWVrgn:0&tokenRight=KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R:0)**: You can trade WRC on Spicyswap.
+- **[Quipuswap](https://analytics.quipuswap.com/tokens/KT19Fmya7B49wKYdoqXYphyQWGRUn9g5wG8R_0)**: WRC can also be traded on this Tezos decentralized exchange.
 
 ### 2. Binance Smart Chain Werecoin (BWRC)
 
@@ -82,7 +82,7 @@ Werenode has designed its cryptocurrency ecosystem around **multi-chain interope
 - **[Biswap](https://biswap.org/fr/swap?inputCurrency=BNB&outputCurrency=0xcb2B11e8B780971907A9A171754C7D767ee8Bc70)**: the BWRC volumes on Biswap are correctly tracked by Coinmarketcap. So please use Biswap as a priority for BWRC.
 - **[PancakeSwap](https://pancakeswap.finance/info/token/0xcb2b11e8b780971907a9a171754c7d767ee8bc70)**: the most popular BSC DEX. Our volumes on Pancakeswap are sadly invisible to Coinmarketcap because of a mismatch with the V1 version of the token.
 - **[Uniswap](https://app.uniswap.org/explore/tokens/bnb/0xcb2b11e8b780971907a9a171754c7d767ee8bc70)**: world's leading DEX.
-- **Tokpie**: BWRC is also available for trading on the centralized exchange **[Tokpie](https://tokpie.com/view_exchange/bwrc-usdt/)**. Our volumes on Tokpie are also invisible to Coinmarketcap.
+- **[Tokpie](https://tokpie.com/view_exchange/bwrc-usdt/)**: BWRC is also available for trading on this centralized exchange. Unfortunately, our volumes on Tokpie are also invisible to Coinmarketcap.
 
 ### 3. Ethereum Werecoin (EWRC)
 
@@ -103,7 +103,7 @@ Werenode has designed its cryptocurrency ecosystem around **multi-chain interope
 
 **Where to Trade Binance Werecoin (EWRC):**
 
-- **Uniswap**: You can trade EWRC on the most popular crypto decentralized exchange **[Uniswap](https://app.uniswap.org/explore/tokens/ethereum/0x1d801fb8b2ed31b9990d7a2272a11c2c1d0a25b6)**.
+- **[Uniswap](https://app.uniswap.org/explore/tokens/ethereum/0x1d801fb8b2ed31b9990d7a2272a11c2c1d0a25b6)**: You can trade EWRC on the world's most popular crypto decentralized exchange.
 
 ## How to Use Werecoin (WRC), Binance Werecoin (BWRC) and Ethereum Werecoin (EWRC)
 
@@ -122,16 +122,16 @@ To interact with Werenode tokens, you'll need to set up a compatible wallet:
 BWRC is also available on P2B and **[Tokpie](https://tokpie.com/view_exchange/bwrc-usdt/)** centralized exchanges.
 - **Buying EWRC**: Ethereum Werecoin (EWRC) can be traded on the most important crypto market **[UniSwap](https://app.uniswap.org/explore/tokens/ethereum/0x1d801fb8b2ed31b9990d7a2272a11c2c1d0a25b6)**.
 
-### 3. Making Payments for EV Charging
+### 3. Making Payments for EV Charging with Werecoin
 
 1. **Locate a Charging Station**: Use the Werenode mobile app to locate nearby charging stations.
-2. **Connect Your Wallet**: Connect your Tezos wallet (for WRC) or Binance Smart Chain wallet (for BWRC) within the Werenode app.
-3. **Initiate Payment**: When starting a charging session, you will be prompted to pay with either WRC or BWRC, depending on the available payment options.
+2. **Connect Your Wallet**: Connect your Temple wallet (for WRC) or Metamask wallet (for BWRC and EWRC) within the Werenode app.
+3. **Initiate Payment**: When starting a charging session, you will be prompted to pay with either WRC, BWRC, or EWRC depending on the available payment options (implementation still on-going for BWRC and EWRC).
 4. **Confirm Transaction**: Approve the payment through your wallet. Once the transaction is confirmed on the blockchain, your charging session will begin.
 
 ### 4. Staking and Rewards
 
-- **Staking**: You can stake WRC tokens to earn rewards, contributing to the network’s security and gaining additional tokens as a reward.
+- **Staking**: You can stake tokens to earn rewards, contributing to the network’s security and gaining additional tokens as a reward.
 - **Liquidity Provision**: If you are interested in providing liquidity for WRC, BWRC, or EWRC, you can participate in pools available on platforms like Uniswap, Biswap, Quipuswap or Pancakeswap. Each transaction on a DEX rewards the liquidity pools owners.
 
 ## Advantages of Using Multi-Chain Tokens in Werenode
@@ -144,13 +144,13 @@ BWRC is also available on P2B and **[Tokpie](https://tokpie.com/view_exchange/bw
 ### 1. Why does Werenode use three different blockchains?
 Werenode uses **Tezos**, **Binance Smart Chain**, and **Ethereum** to leverage the unique strengths of each blockchain—Tezos for its energy-efficient and secure Proof of Stake consensus, Binance Smart Chain for its fast transactions and DeFi compatibility, and Ethereum for its leadership. This multi-chain approach enhances flexibility for users and provides more options for interacting with the Werenode ecosystem.
 
-### 2. How can I convert WRC to BWRC?
-You can swap between WRC (Tezos) and BWRC (BSC) using supported cross-chain platforms. Detailed instructions for swapping will be provided through the Werenode platform when the feature is available. We currently collaborate with TokEngine project to develop a dedicated multichain bridge solution.
+### 2. How can I convert WRC to BWRC or EWRC?
+You can swap between WRC (Tezos), BWRC (BSC), and EWRC (Ethereum) using supported cross-chain platforms. Detailed instructions for swapping will be provided through the Werenode platform when the feature is available. We currently collaborate with TokEngine project to develop a dedicated multichain bridge solution.
 
 ### 3. Can I use WRC, BWRC, and EWRC for other services beyond EV charging?
 Yes, **WRC**, **BWRC**, and **EWRC** can be used within the Werenode ecosystem, including staking, rewards, and participation in decentralized finance (DeFi) activities on the respective blockchain networks.
 
-### 4. Why Tezos ?
+### 4. Why did we start with Tezos ?
 Tezos is an innovative blockchain with smart contracts in mind. Media and pundits show a growing interest  (https://www.cryptodaily.co.uk/2021/10/Tezos-Listed-By-Bank-Of-America-As-Most-Undervalued-Crypto)
 
 - Tezos is Green thanks to its LPoS protocol. Electricity should be used to charge cars not to run miners :)
