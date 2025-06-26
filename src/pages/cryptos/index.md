@@ -27,9 +27,10 @@ The token can also be bought on the Binance Smart Chain. The **[BWRC](https://bi
 The token can also be bought on the Ethereum Chain. The **[EWRC](https://app.uniswap.org/explore/tokens/ethereum/0x1d801fb8b2ed31b9990d7a2272a11c2c1d0a25b6)** token address is : 
 > 0x1D801fB8b2ED31b9990D7A2272A11c2c1D0a25b6
 
-All other contracts on Tezos or on other Blockchains are obsolete or not related to us. 
-Beware of scams.
+All other contracts on Tezos or on other Blockchains are obsolete or not related to us. Beware of scams.
 Please don't use the first token KT1LqEyTQ...qazAwXrg4t and 0xbCe2B12e3aA25...9C464dF528B1E5916.
+
+Follow us on **[Coinmarketcap](https://coinmarketcap.com/fr/currencies/werecoin/)**, **[Coinbrain](https://coinbrain.com/coins/bnb-0xcb2b11e8b780971907a9a171754c7d767ee8bc70)**, or **[Coingem](https://coingem.com/binance/0xcb2B11e8B780971907A9A171754C7D767ee8Bc70) and many others. 
 
 # Understanding Werenode's Multi-Chain Strategy
 
