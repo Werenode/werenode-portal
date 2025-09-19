@@ -28,7 +28,7 @@ const data = {
     submanager: "Pas besoin d'attendre les grands acteurs. Aidez vos autres conducteurs de VE et tirez-en des revenus. Si vous avez une borne de recharge connectée et accessible, il vous suffit d'enregistrer votre équipement d'alimentation de VE sur la blockchain avec la DApp Werenode.",
     invest: "Participez au futur de l'énergie et de la mobilité vertes",
     subinvest: "De nouvelles possibilités avec Werenode : communautés d'énergie, V2G, SmartCharge, ISO 15118, etc..."
-}
+  },
   buttons: {
     invest: 'Rejoignez-nous',
     evsemanager: 'Créez votre compte'
