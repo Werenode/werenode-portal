@@ -1,6 +1,6 @@
 import { Button, Container, Grid, Typography } from '@material-ui/core';
 import { ThemeProvider, createTheme, useTheme } from '@material-ui/core/styles';
-import { isWidthDown, useWidth } from '../jsUtils';
+import { isWidthDown, useWidth } from '../../../src/jsUtils';
 
 import Car from '../../../static/img/car.png';
 //import Evse from '../../static/img/shutterstock_259990757.png';
