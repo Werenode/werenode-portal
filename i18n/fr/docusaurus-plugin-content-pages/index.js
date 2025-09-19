@@ -36,7 +36,7 @@ const data = {
   team: [
     {
       key: 'Benoît Maïsseu',
-      title: 'Directeur Général - Cofoundateur',
+      title: 'Directeur Général - Cofondateur',
       role: 'EV ecosystem expert',
       img: 'img/BMAI_petit.png',
       linkedin: 'https://www.linkedin.com/in/benoit-maisseu'
