@@ -382,9 +382,10 @@ const MobileApp = () => {
 
 const AccApp = () => {
   const width = useWidth();
+  const deg = isWidthDown('xs', width) ? '0' : '270';
   return (
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
-      backgroundImage: `linear-gradient(90deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${FondACC})`,
+      backgroundImage: `linear-gradient(${deg}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${FondACC})`,
       backgroundSize: 'cover',
       backgroundPosition: 'left',
     }}>
@@ -444,10 +445,9 @@ const Labtop = () => {
 
 const EvseManager = () => {
   const width = useWidth();
-  const deg = isWidthDown('xs', width) ? '0' : '270';
   return (
     <Grid container direction={isWidthDown('sm', width) ? "column-reverse" : "row"} justifyContent="flex-start" alignItems="flex-start" style={{
-      backgroundImage: `linear-gradient(${deg}deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 80%), rgb(0 76 126 / 0%)), url(${Evse})`,
+      backgroundImage: `linear-gradient(0deg, rgb(0 76 126 / 100%), rgb(0 76 126 / 80%), rgb(0 76 126 / 0%)), url(${Evse})`,
       backgroundSize: 'cover',
       backgroundPosition: isWidthDown('sm', width) ? 'center' : 'left'
     }}>
