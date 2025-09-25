@@ -404,8 +404,9 @@ const AccApp = () => {
             marginTop: isWidthDown('sm', width) ? "50px" : "0px",
             marginBottom: isWidthDown('sm', width) ? "50px" : "0px",
           }}>
-            <Typography variant='h3'>{data.taglines.acc}</Typography>
             <a href="https://energie.werenode.fr" target="_blank" rel="noopener">
+              <Typography variant='h3'>{data.taglines.acc}</Typography>
+            </a>
           </Grid>
           <Grid item style={{
             textAlign: 'center',
