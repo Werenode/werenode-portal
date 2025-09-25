@@ -385,7 +385,8 @@ const AccApp = () => {
   const deg = isWidthDown('xs', width) ? '0' : '270';
   return (
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
-      backgroundImage: `linear-gradient(${deg}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 80%)), url(${FondACC})`,
+      //backgroundImage: `linear-gradient(${deg}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 80%)), url(${FondACC})`,
+      backgroundImage: `linear-gradient(${deg}deg, rgba(0,45,90,1) 0%, rgba(0,76,126,0.9) 50%, rgba(0,100,160,0.7) 100%), url(${FondACC})`,
       backgroundSize: 'cover',
       backgroundPosition: 'left',
     }}>
