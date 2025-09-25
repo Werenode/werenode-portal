@@ -49,42 +49,42 @@ const data = {
       title: 'President - Co-founder',
       role: 'Entrepreneur',
       img: 'img/MM.png',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/nadiya-khokhryakova'
     },
     {
       key: 'François Chiron',
       title: 'CTO-IT - Co-founder',
       role: 'IT & payment expert',
       img: 'img/FCh.png',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/francoischiron'
     },
     {
       key: 'Gaëtan Cadéro',
       title: 'Advisor - Co-founder',
       role: 'Operation management expert',
       img: 'img/GC.jpeg',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/gcadero'
     },
     {
       key: 'Benoît Rognier',
       title: 'CBO - Co-founder',
       role: 'Deep tech and Web3.0 expert',
       img: 'img/BR.jpeg',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/benoitrognier'
     },
     {
       key: 'Ajibola Abdul Muheen Olamilekan (Miles)',
       title: 'Community Manager',
       role: 'Digital Marketing and Sales',
       img: 'img/MA.jpeg',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/miles123'
     },
     {
       key: 'Evgenii Zhdarkin',
       title: 'Lead Developer',
       role: 'Full-stack & Smart contracts development',
       img: 'img/Evgenii.png',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/evgenii-zhdarkin-2758b1233/'
     }
   ],
   partners: [
@@ -384,7 +384,7 @@ const AccApp = () => {
   const width = useWidth();
   return (
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
-      backgroundImage: `linear-gradient(${deg}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${FondACC})`,
+      backgroundImage: `linear-gradient(0deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${FondACC})`,
       backgroundSize: 'cover',
       backgroundPosition: 'left',
     }}>
@@ -405,6 +405,7 @@ const AccApp = () => {
             marginBottom: isWidthDown('sm', width) ? "50px" : "0px",
           }}>
             <Typography variant='h3'>{data.taglines.acc}</Typography>
+            <a href="https://energie.werenode.fr" target="_blank" rel="noopener">
           </Grid>
           <Grid item style={{
             textAlign: 'center',
