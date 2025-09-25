@@ -639,7 +639,7 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           <WerenodeHeader />
           <MobileApp />
-          <AccApp>
+          <AccApp />
           <EvseManager />
           <Invest />
           {/*<HomepageFeatures />*/}
