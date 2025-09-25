@@ -11,6 +11,7 @@ import Map from '../../static/img/home_bg1.jpeg';
 //import Plug from '../../static/img/shutterstock_1868850010.jpeg';
 //import Plug from '../../static/img/shutterstock_1868849356.jpeg';
 import Plug from '../../static/img/shutterstock_1859956345.jpeg';
+import FondACC from '../../static/img/WN_ACC_gauche.jpg';
 import React from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -24,6 +25,8 @@ const data = {
     subheader: 'Choose the best solution to accompany the electrified mobility of your employees, visitors or customers. Bring valuable services adapted to your real needs for the right cost. Find all the relevant analytics about your charging stations and your EV fleet.',
     mobile: 'Open your EV charging station',
     submobile: 'Connect every charging equipement and allow anybody to share its own and be compensated seamlessly. Ready for your clean and sustainable mobility!',
+    acc: 'Join an electricity community',
+    subacc: 'Join our energy community and be part of a local movement where neighbors come together to produce and share clean, affordable energy—powering a greener future for everyone.',
     evsemanager: 'Register your EV charging station',
     submanager: 'No need to wait for the big players. Help your fellow EV riders and get revenue from it. If you have an accessible connected charging station, you just have to register your EV supply equipment in the blockchain with the Werenode DApp.',
     invest: 'Be part of the future of EV',
@@ -370,6 +373,47 @@ const MobileApp = () => {
           </Grid>
           <Grid item>
             <AppleStore />
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
+  )
+}
+
+const AccApp = () => {
+  const width = useWidth();
+  return (
+    <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
+      backgroundImage: `url(${FondACC})`,
+      backgroundSize: 'cover',
+    }}>
+      <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12} style={{
+        height: "660px",
+        overflow: 'hidden'
+      }} >
+        <Grid item><Phone /></Grid>
+      </Grid>
+      <Grid container direction="column" justifyContent="space-between" alignItems="center" item md={4} sm={12} xs={12} style={{
+        height: '100%',
+        paddingTop: isWidthDown('sm', width) ? "0px" : "100px",
+        height: isWidthDown('sm', width) ? "100%" : "650px"
+      }}  >
+        <Grid item container direction="column" justifyContent="center" alignItems="center">
+          <Grid item style={{
+            textAlign: 'center',
+            marginTop: isWidthDown('sm', width) ? "50px" : "0px",
+            marginBottom: isWidthDown('sm', width) ? "50px" : "0px",
+          }}>
+            <Typography variant='h3'>{data.taglines.acc}</Typography>
+          </Grid>
+          <Grid item style={{
+            textAlign: 'center',
+            marginLeft: '32px',
+            marginRight: '32px',
+            marginTop: isWidthDown('sm', width) ? "50px" : "32px",
+            marginBottom: isWidthDown('sm', width) ? "50px" : "0px",
+          }}>
+            <Typography variant="h6">{data.taglines.subacc}</Typography>
           </Grid>
         </Grid>
       </Grid>
