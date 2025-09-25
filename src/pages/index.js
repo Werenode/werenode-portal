@@ -384,7 +384,7 @@ const AccApp = () => {
   const width = useWidth();
   return (
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
-      backgroundImage: `linear-gradient(0deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${FondACC})`,
+      backgroundImage: `linear-gradient(90deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 0%)), url(${FondACC})`,
       backgroundSize: 'cover',
       backgroundPosition: 'left',
     }}>
