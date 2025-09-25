@@ -391,7 +391,6 @@ const AccApp = () => {
         height: "660px",
         overflow: 'hidden'
       }} >
-        <Grid item><Phone /></Grid>
       </Grid>
       <Grid container direction="column" justifyContent="space-between" alignItems="center" item md={4} sm={12} xs={12} style={{
         height: '100%',
