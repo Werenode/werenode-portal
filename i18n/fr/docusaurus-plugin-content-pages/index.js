@@ -11,7 +11,7 @@ import Map from '../../../static/img/home_bg1.jpeg';
 //import Plug from '../../static/img/shutterstock_1868850010.jpeg';
 //import Plug from '../../static/img/shutterstock_1868849356.jpeg';
 import Plug from '../../../static/img/shutterstock_1859956345.jpeg';
-import FondACC from '../../static/img/WN_ACC_gauche.jpg';
+import FondACC from '../../../static/img/WN_ACC_gauche.jpg';
 import React from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
