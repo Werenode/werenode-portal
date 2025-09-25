@@ -11,6 +11,7 @@ import Map from '../../../static/img/home_bg1.jpeg';
 //import Plug from '../../static/img/shutterstock_1868850010.jpeg';
 //import Plug from '../../static/img/shutterstock_1868849356.jpeg';
 import Plug from '../../../static/img/shutterstock_1859956345.jpeg';
+import FondACC from '../../static/img/WN_ACC_gauche.jpg';
 import React from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -24,6 +25,8 @@ const data = {
     subheader: "Choisissez la meilleure solution pour accompagner la mobilité électrique de vos employés, visiteurs ou clients. Apportez des services de qualité adaptés à vos besoins réels au meilleur prix. Retrouvez toutes les données pertinentes sur vos bornes de recharge et votre flotte de VE.",
     mobile: "Partagez vos bornes de recharge VE et votre production d'électricité verte",
     submobile: "Connectez n'importe quel équipement de recharge et permettez à quiconque de partager le sien et d'être rémunéré en toute transparence. Créez votre communauté d'énergie. Prêt pour votre mobilité propre et durable !",
+    acc: "Rejoignez une communauté d'énergie",
+    subacc: "Rejoignez la révolution énergétique avec l'autoconsommation collective. Consommez une énergie verte produite près de chez vous et réduisez votre facture.Join our energy community and be part of a local movement where neighbors come together to produce and share clean, affordable energy—powering a greener future for everyone.",
     evsemanager: "Enregistrez votre borne de recharge VE",
     submanager: "Pas besoin d'attendre les grands acteurs. Aidez vos autres conducteurs de VE et tirez-en des revenus. Si vous avez une borne de recharge connectée et accessible, il vous suffit d'enregistrer votre équipement d'alimentation de VE sur la blockchain avec la DApp Werenode.",
     invest: "Participez au futur de l'énergie et de la mobilité vertes",
@@ -46,42 +49,42 @@ const data = {
       title: 'Présidente - Cofondatrice',
       role: 'Entrepreneur',
       img: 'img/MM.png',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/nadiya-khokhryakova'
     },
     {
       key: 'François Chiron',
       title: 'Directeur Technique - Cofondateur',
       role: "Expert en technologies de l'information et paiement",
       img: 'img/FCh.png',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/francoischiron'
     },
     {
       key: 'Gaëtan Cadéro',
       title: 'Conseiller - Cofondateur',
       role: 'Expert en management des opérations',
       img: 'img/GC.jpeg',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/gcadero'
     },
     {
       key: 'Benoît Rognier',
       title: 'Directeur informatique - Cofondateur',
       role: 'Expert Web3.0 et IA',
       img: 'img/BR.jpeg',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/benoitrognier'
     },
     {
       key: 'Ajibola Abdul Muheen Olamilekan (Miles)',
       title: 'Responsable de la communication et du marketing numériques',
       role: 'Communication et du marketing numériques',
       img: 'img/MA.jpeg',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/miles123'
     },
     {
       key: 'Evgenii Zhdarkin',
       title: 'Chef de projet logiciel',
       role: 'Développement logiciel',
       img: 'img/Evgenii.png',
-      linkedin: ''
+      linkedin: 'https://www.linkedin.com/in/evgenii-zhdarkin-2758b1233'
     }
   ],
   partners: [
@@ -377,6 +380,52 @@ const MobileApp = () => {
   )
 }
 
+const AccApp = () => {
+  const width = useWidth();
+  const deg = isWidthDown('xs', width) ? '0' : '270';
+  return (
+    <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" style={{
+      //backgroundImage: `linear-gradient(${deg}deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 80%), rgb(0 76 126 / 80%)), url(${FondACC})`,
+      //backgroundImage: `linear-gradient(${deg}deg, rgba(0,45,90,1) 0%, rgba(0,76,126,0.9) 50%, rgba(0,100,160,0.7) 100%), url(${FondACC})`,
+      backgroundImage: `linear-gradient(${deg}deg, rgba(0,10,20,1) 0%, rgba(0,20,40,0.9) 40%, rgba(0,76,126,0.8) 100%), url(${FondACC})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'left',
+    }}>
+      <Grid container direction="row" justifyContent="center" alignItems="center" item md={6} sm={12} xs={12} style={{
+        height: "660px",
+        overflow: 'hidden'
+      }} >
+      </Grid>
+      <Grid container direction="column" justifyContent="space-between" alignItems="center" item md={4} sm={12} xs={12} style={{
+        height: '100%',
+        paddingTop: isWidthDown('sm', width) ? "0px" : "100px",
+        height: isWidthDown('sm', width) ? "100%" : "650px"
+      }}  >
+        <Grid item container direction="column" justifyContent="center" alignItems="center">
+          <Grid item style={{
+            textAlign: 'center',
+            marginTop: isWidthDown('sm', width) ? "50px" : "0px",
+            marginBottom: isWidthDown('sm', width) ? "50px" : "0px",
+          }}>
+            <a href="https://energie.werenode.fr" target="_blank" rel="noopener">
+              <Typography variant='h3'>{data.taglines.acc}</Typography>
+            </a>
+          </Grid>
+          <Grid item style={{
+            textAlign: 'center',
+            marginLeft: '32px',
+            marginRight: '32px',
+            marginTop: isWidthDown('sm', width) ? "50px" : "32px",
+            marginBottom: isWidthDown('sm', width) ? "50px" : "0px",
+          }}>
+            <Typography variant="h6">{data.taglines.subacc}</Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
+  )
+}
+
 const Labtop = () => {
   return (
     <div style={{
@@ -596,6 +645,7 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           <WerenodeHeader />
           <MobileApp />
+          <AccApp />
           <EvseManager />
           <Invest />
           {/*<HomepageFeatures />*/}
