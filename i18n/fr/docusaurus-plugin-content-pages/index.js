@@ -26,7 +26,7 @@ const data = {
     mobile: "Partagez vos bornes de recharge VE et votre production d'électricité verte",
     submobile: "Connectez n'importe quel équipement de recharge et permettez à quiconque de partager le sien et d'être rémunéré en toute transparence. Créez votre communauté d'énergie. Prêt pour votre mobilité propre et durable !",
     acc: "Rejoignez une communauté d'énergie",
-    subacc: "Rejoignez la révolution énergétique avec l'autoconsommation collective. Consommez une énergie verte produite près de chez vous et réduisez votre facture.Join our energy community and be part of a local movement where neighbors come together to produce and share clean, affordable energy—powering a greener future for everyone.",
+    subacc: "Rejoignez la révolution énergétique avec l'autoconsommation collective. Consommez une énergie verte produite près de chez vous et réduisez votre facture.",
     evsemanager: "Enregistrez votre borne de recharge VE",
     submanager: "Pas besoin d'attendre les grands acteurs. Aidez vos autres conducteurs de VE et tirez-en des revenus. Si vous avez une borne de recharge connectée et accessible, il vous suffit d'enregistrer votre équipement d'alimentation de VE sur la blockchain avec la DApp Werenode.",
     invest: "Participez au futur de l'énergie et de la mobilité vertes",
