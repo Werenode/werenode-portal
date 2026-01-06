@@ -66,16 +66,23 @@ const data = {
       linkedin: 'https://www.linkedin.com/in/gcadero'
     },
     {
+      key: 'Yves-Michel Leporcher',
+      title: 'Directeur des Opérations',
+      role: 'Opérations & Ventes',
+      img: 'img/YM.jpeg',
+      linkedin: 'https://www.linkedin.com/in/yves-michel-leporcher-54143320'
+    },    
+    {
       key: 'Benoît Rognier',
-      title: 'Directeur informatique - Cofondateur',
+      title: 'Directeur Informatique - Cofondateur',
       role: 'Expert Web3.0 et IA',
       img: 'img/BR.jpeg',
       linkedin: 'https://www.linkedin.com/in/benoitrognier'
     },
     {
       key: 'Ajibola Abdul Muheen Olamilekan (Miles)',
-      title: 'Responsable de la communication et du marketing numériques',
-      role: 'Communication et du marketing numériques',
+      title: 'Responsable marketing',
+      role: 'Communication et marketing numériques',
       img: 'img/MA.jpeg',
       linkedin: 'https://www.linkedin.com/in/miles123'
     },
