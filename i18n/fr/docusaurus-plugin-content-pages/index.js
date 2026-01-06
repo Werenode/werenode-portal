@@ -54,7 +54,7 @@ const data = {
     {
       key: 'François Chiron',
       title: 'Directeur Technique - Cofondateur',
-      role: "Expert en technologies de l'information et paiement",
+      role: "Expert IT, IoT et paiement",
       img: 'img/FCh.png',
       linkedin: 'https://www.linkedin.com/in/francoischiron'
     },
