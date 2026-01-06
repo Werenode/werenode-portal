@@ -54,7 +54,7 @@ const data = {
     {
       key: 'François Chiron',
       title: 'CTO - Co-founder',
-      role: 'IT & payment expert',
+      role: 'IT, IoT & payment expert',
       img: 'img/FCh.png',
       linkedin: 'https://www.linkedin.com/in/francoischiron'
     },
@@ -74,8 +74,8 @@ const data = {
     },    
     {
       key: 'Benoît Rognier',
-      title: 'CBO - Co-founder',
-      role: 'Deep tech and Web3.0 expert',
+      title: 'CITO - Co-founder',
+      role: 'AI and Web3.0 expert',
       img: 'img/BR.jpeg',
       linkedin: 'https://www.linkedin.com/in/benoitrognier'
     },
