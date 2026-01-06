@@ -53,7 +53,7 @@ const data = {
     },
     {
       key: 'François Chiron',
-      title: 'CTO-IT - Co-founder',
+      title: 'CTO - Co-founder',
       role: 'IT & payment expert',
       img: 'img/FCh.png',
       linkedin: 'https://www.linkedin.com/in/francoischiron'
@@ -65,6 +65,13 @@ const data = {
       img: 'img/GC.jpeg',
       linkedin: 'https://www.linkedin.com/in/gcadero'
     },
+    {
+      key: 'Yves-Michel Leporcher',
+      title: 'COO',
+      role: 'Operations & Sales',
+      img: 'img/YM.jpeg',
+      linkedin: 'https://www.linkedin.com/in/yves-michel-leporcher-54143320'
+    },    
     {
       key: 'Benoît Rognier',
       title: 'CBO - Co-founder',
