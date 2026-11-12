@@ -55,6 +55,14 @@
     "message": "Contact us",
     "description": "The label of footer link with label=Contact us linking to mailto:contact@werenode.com"
   },
+  "link.item.label.Terms of Use": {
+    "message": "Conditions d'utilisation",
+    "description": "The label of footer link with label=Terms of Use linking to /terms-of-use"
+  },
+  "link.item.label.Privacy Policy": {
+    "message": "Politique de confidentialité",
+    "description": "The label of footer link with label=Privacy Policy linking to /privacy-policy"
+  },
   "copyright": {
     "message": "Copyright © 2025 Werenode, Inc.",
     "description": "The footer copyright"

@@ -137,11 +137,11 @@ module.exports = {
             },
             {
               label: 'Terms of Use',
-              href: 'https://werenode.com/documents/ToU_Werenode_App_v032_2026_01_01.pdf',
+              to: '/terms-of-use',
             },
             {
               label: 'Privacy Policy',
-              href: 'https://werenode.com/documents/Privacy_policy_Werenode_v24_2026_01_01.pdf',
+              to: '/privacy-policy',
             }
           ],
         },
