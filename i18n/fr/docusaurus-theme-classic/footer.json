@@ -62,9 +62,5 @@
   "link.item.label.Privacy Policy": {
     "message": "Politique de confidentialité",
     "description": "The label of footer link with label=Privacy Policy linking to /privacy-policy"
-  },
-  "copyright": {
-    "message": "Copyright © 2025 Werenode, Inc.",
-    "description": "The footer copyright"
   }
 }
