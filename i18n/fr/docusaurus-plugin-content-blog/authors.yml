@@ -1,0 +1,67 @@
+bmai:
+  name: Benoît Maïsseu
+  title: CEO de Werenode
+  url: https://www.linkedin.com/in/benoit-maisseu/
+  image_url: /img/BMAI_petit.png
+  page: true
+  description: Benoît Maïsseu est CEO et cofondateur de Werenode. Il a été directeur de la stratégie des véhicules électriques et des véhicules robotisés de l'Alliance Renault Nissan Mitsubishi.
+  socials:
+    x: MaisseuB
+    github: bmaisseu
+    linkedin: benoit-maisseu
+
+ezhd:
+  name: Evgenii Zhdarkin
+  title: Lead Developer de Werenode
+  url: https://www.linkedin.com/in/evgenii-zhdarkin-2758b1233/
+  image_url: /img/Evgenii.png
+  page: true
+  description: Evgenii Zhdarkin est développeur full-stack, spécialisé dans la blockchain et l'IoT. Il est titulaire d'une licence en mathématiques et informatique de l'Université d'État de Novossibirsk et d'un diplôme d'ingénieur de l'ISAE-SUPAERO.
+  socials:
+    github: Zhenyazhd
+    linkedin: evgenii-zhdarkin-2758b1233
+
+maji:
+  name: Miles Ajibola
+  title: Community Manager de Werenode
+  url: https://www.linkedin.com/in/miles123/
+  image_url: /img/Miles.png
+  page: true
+  description: Ajibola Abdul Muheen Olamilekan (Miles) est le Community Manager de Werenode, spécialisé en marketing digital et en vente.
+  socials:
+    linkedin: miles123
+
+team:
+  name: L'équipe Werenode
+  title: Dream Team
+  url: https://www.linkedin.com/company/werenode/
+  image_url: /img/log_fav.png
+  page: true
+  description: L'équipe de Werenode réunit des experts de la recharge des véhicules électriques (VE), des technologies Web3.0, de l'IoT et de l'informatique.
+  socials:
+    github: Werenode
+    linkedin: werenode
+    x: werenode
+    facebook: werenode
+    instagram: were_node
+
+fchi:
+  name: François Chiron
+  title: CTO de Werenode
+  url: https://www.linkedin.com/in/francoischiron/
+  image_url: /img/BFCh.png
+  page: true
+  description: François Chiron, cofondateur et directeur technique (CTO) de Werenode, est diplômé de l'École polytechnique (promotion 1992) et de CentraleSupélec (1996). Il a plus de 25 ans d'expérience en informatique, avec une expertise en cybersécurité, intelligence artificielle et Internet des objets.
+  socials:
+    github: arnolchi
+    linkedin: francoischiron
+
+nkho:
+  name: Nadiya Khokhryakova
+  title: Présidente de Werenode
+  url: https://www.linkedin.com/in/nadiya-khokhryakova/
+  image_url: /img/MM.png
+  page: true
+  description: Nadiya Khokhryakova, cofondatrice et présidente de Werenode, est entrepreneuse et titulaire d'un doctorat en géopolitique de l'Université Paris-Sorbonne. Elle apporte à la direction de l'entreprise une solide expérience du conseil en innovation.
+  socials:
+    linkedin: nadiya-khokhryakova
