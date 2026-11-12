@@ -48,9 +48,9 @@ module.exports = {
         { to: 'docs/innovations', label: 'Innovations', position: 'left' },
         { to: 'cryptos', label: 'Web3.0', position: 'left' },
         { to: 'invest', label: 'Join us', position: 'left' },
-        { to: 'hardware', label: 'Hardware', position: 'left' },
+        { to: 'Hardware', label: 'Hardware', position: 'left' },
         { to: 'faq', label: 'FAQ', position: 'left' },
-        { to: 'Registeryourequipment', label: 'Register your equipment', position: 'left' },
+        { to: 'registeryourequipment', label: 'Register your equipment', position: 'left' },
         //{ to: 'myevses', label: 'My EVSEs', position: 'left' },
         /*{
           type: 'doc',
