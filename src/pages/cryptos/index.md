@@ -30,7 +30,7 @@ The token can also be bought on the Ethereum Chain. The **[EWRC](https://app.uni
 All other contracts on Tezos or on other Blockchains are obsolete or not related to us. Beware of scams.
 Please don't use the first token KT1LqEyTQ...qazAwXrg4t and 0xbCe2B12e3aA25...9C464dF528B1E5916.
 
-Follow us on **[Coinmarketcap](https://coinmarketcap.com/fr/currencies/werecoin/)**, **[Coinbrain](https://coinbrain.com/coins/bnb-0xcb2b11e8b780971907a9a171754c7d767ee8bc70)**, or **[Coingem](https://coingem.com/binance/0xcb2B11e8B780971907A9A171754C7D767ee8Bc70) and many others. 
+Follow us on **[Coinmarketcap](https://coinmarketcap.com/fr/currencies/werecoin/)**, **[Coinbrain](https://coinbrain.com/coins/bnb-0xcb2b11e8b780971907a9a171754c7d767ee8bc70)**, or **[Coingem](https://coingem.com/binance/0xcb2B11e8B780971907A9A171754C7D767ee8Bc70)** and many others. 
 
 # Understanding Werenode's Multi-Chain Strategy
 
@@ -87,7 +87,7 @@ Werenode has designed its cryptocurrency ecosystem around **multi-chain interope
 
 ### 3. Ethereum Werecoin (EWRC)
 
-**Ethereum Werecoin (EWRC)** is our token based on the Ethereum Chain using the **ERC-20 token standard** with additional features like **EIP2612** for gasless transactions and some defensive functionalities like blacklisting. The latter being necessary since, as a major legit project, we have been targeted several times by organized agressive criminal organizations. EWRC has also minting and burning functionalities to allow dynamic bridging with the other chain versions of Werecoin. The current total supply of BWRC is 10B.
+**Ethereum Werecoin (EWRC)** is our token based on the Ethereum Chain using the **ERC-20 token standard** with additional features like **EIP2612** for gasless transactions and some defensive functionalities like blacklisting. The latter being necessary since, as a major legit project, we have been targeted several times by organized agressive criminal organizations. EWRC has also minting and burning functionalities to allow dynamic bridging with the other chain versions of Werecoin. The current total supply of EWRC is 10B.
 
 **Key Features of EWRC on Ethereum Chain:**
 
@@ -102,7 +102,7 @@ Werenode has designed its cryptocurrency ecosystem around **multi-chain interope
 - **Access to Ethereum Ecosystem**: Users can easily integrate their tokens into the largest DeFi ecosystem, enhancing their assets profitability.
 - **Cross-Chain Liquidity**: Users can take advantage of the cross-chain features of Werenode by swapping between WRC, BWRC, and EWRC.
 
-**Where to Trade Binance Werecoin (EWRC):**
+**Where to Trade Ethereum Werecoin (EWRC):**
 
 - **[Uniswap](https://app.uniswap.org/explore/tokens/ethereum/0x1d801fb8b2ed31b9990d7a2272a11c2c1d0a25b6)**: You can trade EWRC on the world's most popular crypto decentralized exchange.
 
