@@ -22,6 +22,7 @@ module.exports = {
   projectName: 'werenode-portal', // Usually your repo name.
   stylesheets: [
     "https://fonts.googleapis.com/icon?family=Material+Icons",
+    "https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap",
   ],
   plugins: [
     './src/myevses-plugin',
