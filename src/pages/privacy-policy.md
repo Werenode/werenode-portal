@@ -127,6 +127,18 @@ This information helps resolve incidents, ensure Application compatibility and p
 
 When you contact our support service, we may retain your request, the information necessary to process it and the related communications.
 
+### 3.8. Sign-in with Google
+
+If you choose to sign in with your Google account, Werenode receives from Google only your basic profile information: your name, email address, profile picture where available, and your Google account identifier. Werenode does not access any other data in your Google account, such as your emails, contacts, calendar or files.
+
+This information is used only to create your Werenode account, identify you when you sign in, display your name and picture in your profile until you choose others, and contact you about your account. It is kept with your account data for the periods set out in section 8, and erased when you delete your account (section 13).
+
+Werenode does not sell this information or use it for advertising. It is shared only with the technical service providers needed to run the service, as described in section 5.
+
+Werenode's use of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+
+You can revoke Werenode's access to your Google account at any time in your Google account settings: [https://myaccount.google.com/permissions](https://myaccount.google.com/permissions)
+
 ## 4. Purposes and Legal Bases for Processing
 
 We use your personal data only for specified purposes and on an appropriate legal basis.

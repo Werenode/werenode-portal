@@ -127,6 +127,18 @@ Ces informations permettent notamment de résoudre les incidents, d'assurer la c
 
 Lorsque vous contactez notre assistance, nous pouvons conserver votre demande, les informations nécessaires à son traitement et les échanges correspondants.
 
+### 3.8. Connexion avec Google
+
+Si vous choisissez de vous connecter avec votre compte Google, Werenode reçoit de Google uniquement les informations de base de votre profil : votre nom, votre adresse e-mail, votre photo de profil si elle est disponible, et l'identifiant de votre compte Google. Werenode n'accède à aucune autre donnée de votre compte Google, comme vos e-mails, vos contacts, votre agenda ou vos fichiers.
+
+Ces informations servent uniquement à créer votre compte Werenode, à vous identifier lors de vos connexions, à afficher votre nom et votre photo dans votre profil tant que vous n'en avez pas choisi d'autres, et à vous contacter au sujet de votre compte. Elles sont conservées avec les données de votre compte, pendant les durées indiquées à la section 8, et effacées lorsque vous supprimez votre compte (section 13).
+
+Werenode ne vend pas ces informations et ne les utilise pas à des fins publicitaires. Elles ne sont partagées qu'avec les prestataires techniques nécessaires au fonctionnement du service, dans les conditions décrites à la section 5.
+
+L'utilisation des informations reçues des API Google respecte la politique relative aux données utilisateur des services d'API Google ([Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy)), y compris ses exigences d'utilisation limitée.
+
+Vous pouvez à tout moment retirer l'accès de Werenode à votre compte Google dans les paramètres de votre compte Google : [https://myaccount.google.com/permissions](https://myaccount.google.com/permissions)
+
 ## 4. Finalités et bases juridiques des traitements
 
 Nous utilisons vos données personnelles uniquement pour des finalités déterminées et sur une base juridique appropriée.
