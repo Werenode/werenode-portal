@@ -1,0 +1,232 @@
+/* Wallet page. Uses Infima variables so it follows the site's light and dark themes. */
+.page {
+  padding: 3rem 0 4rem;
+}
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-family: 'Sora', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.4rem);
+  margin-bottom: 0.75rem;
+}
+
+.intro {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+}
+
+.card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.input {
+  font: inherit;
+  font-weight: 400;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.input:focus-visible,
+.primary:focus-visible,
+.secondary:focus-visible,
+.secondarySmall:focus-visible,
+.link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.primary,
+.secondary,
+.secondarySmall {
+  font: inherit;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.primary {
+  padding: 0.65rem 1rem;
+  border: none;
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.primary:disabled,
+.secondarySmall:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.secondary {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+}
+
+.secondarySmall {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+}
+
+.secondarySmall:hover,
+.secondary:hover {
+  border-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.link {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--ifm-link-color);
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  height: 1px;
+  margin: 1.25rem 0;
+  background: var(--ifm-color-emphasis-300);
+}
+
+.error {
+  margin: 0;
+  color: var(--ifm-color-danger-dark);
+}
+
+.info {
+  margin: 0;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.muted {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+}
+
+.account {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.addressBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.address {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  word-break: break-all;
+  user-select: all;
+}
+
+.addressActions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.balances {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.balanceLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.balanceValue {
+  font-family: 'Sora', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  word-break: break-word;
+}
+
+.balanceValue small {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.refreshRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}

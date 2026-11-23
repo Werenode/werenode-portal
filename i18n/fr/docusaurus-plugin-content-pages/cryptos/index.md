@@ -7,6 +7,10 @@ title: Cryptos
 Pourquoi le Web3.0 ?
 </h1>
 
+:::tip Mon portefeuille Werenode
+Vous avez un compte dans l'appli Werenode ? [Consultez votre adresse Tezos et vos soldes en Tezos (XTZ) et en Werecoin (WRC)](/cryptos/wallet).
+:::
+
 L'interopérabilité est essentielle dans l'écosystème fragmenté des bornes de recharge. Il faut un système de traçabilité et de paiement sécurisé et ouvert, que d'autres opérateurs peuvent rejoindre facilement.
 Un registre public est également nécessaire pour auditer la consommation d'énergie, en particulier dans les cas complexes comme le Smart Charge, le V2G, le Plug&Charge, etc. Pour les paiements P2P et la désintermédiation, le Web3.0 et la blockchain sont là !
 

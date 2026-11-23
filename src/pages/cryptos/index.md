@@ -7,6 +7,10 @@ title: Cryptos
 Why Web3.0 ?
 </h1>
 
+:::tip My Werenode wallet
+Do you have a Werenode app account? [View your Tezos address and your Tezos (XTZ) and Werecoin (WRC) balances](/cryptos/wallet).
+:::
+
 Interoperability is crucial in the fragmented ecosystem of charging stations. We need a secure and open traceability and payment system where other operators can join easily. 
 A public ledger is also required to audit energy use, especially in complex cases like Smart Charge, V2G, Plug&Charge, etc…. When it comes to P2P payments and disintermediation, Web3.0 and blockchain are here !
 
