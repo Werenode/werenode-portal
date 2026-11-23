@@ -5,10 +5,10 @@ description: "Terms of Use of the Werenode mobile application"
 
 # Terms of Use — Werenode
 
-Version dated 1 January 2026  
+Version dated 23 November 2026  
 Publisher: WERENODE SAS
 
-[Download the PDF version](pathname:///documents/ToU_Werenode_App_v032_2026_01_01.pdf)
+[Download the PDF version](pathname:///documents/ToU_Werenode_App_v033_2026_11_23.pdf)
 
 ## Article 1 — Purpose and Scope
 
@@ -170,7 +170,9 @@ Depending on the services and territories concerned, payment may be made by bank
 
 Payments are processed in accordance with the conditions of the relevant service provider and applicable regulations.
 
-Where payment features involving digital assets are offered, their specific conditions, including accepted assets, fees, exchange rates and refund procedures, are communicated before the transaction.
+The Application does not allow payment in crypto-assets or other digital assets.
+
+Where the Application allows users to prepay an amount in euros, this credit is used exclusively to pay for charging services on the Werenode network. It cannot be transferred to another user or used for other purchases. Users may request a refund of any unused balance under the conditions set out in the Application.
 
 Confirmation of a paid session constitutes acceptance of its pricing conditions.
 
@@ -284,15 +286,13 @@ Optional device permissions, including geolocation and notifications, may be man
 
 ## Article 18 — Blockchain Technologies and Digital Assets
 
-Certain features of the Werenode ecosystem may rely on blockchain technologies or enable the use of digital assets.
+The Application does not offer any feature relating to crypto-assets or other digital assets: it does not allow users to hold, send, exchange or use them to pay for a charging service.
 
-Where offered through the Application, these features are accompanied by information and, where necessary, specific conditions describing their operation, costs and risks.
+Tokens previously issued within the Werenode ecosystem (including the Werecoin) are recorded on the Tezos blockchain. Their holders may access them using any compatible wallet, at their own responsibility.
 
-Where relevant, the user is informed of the potentially irreversible nature of transactions recorded on a blockchain, the variability in the value of digital assets and applicable network fees.
+Werenode does not guarantee the value or liquidity of these tokens.
 
-Werenode does not guarantee the future value or liquidity of any digital asset.
-
-Use of these features remains subject to applicable regulations and their availability in the relevant country.
+Should such features be offered again, in particular through the Werenode website, they would be subject to prior information and specific conditions and would remain subject to applicable regulations.
 
 ## Article 19 — Intellectual Property
 
@@ -362,7 +362,7 @@ Disputes shall be submitted to the courts having jurisdiction under the applicab
 
 ## Article 25 — Effective Date
 
-These Terms enter into force on 1 January 2026.
+These Terms enter into force on 23 November 2026. They replace the version dated 1 January 2026.
 
 They are made available through the Application and on the Werenode website.
 

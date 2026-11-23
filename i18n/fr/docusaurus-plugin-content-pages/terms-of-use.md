@@ -5,10 +5,10 @@ description: "Conditions générales d'utilisation de l'application mobile Weren
 
 # Conditions générales d'utilisation — Werenode
 
-Version du 1er janvier 2026  
+Version du 23 novembre 2026  
 Éditeur : WERENODE SAS
 
-[Télécharger la version PDF](pathname:///documents/CGU_Werenode_v032_2026_01_01.pdf)
+[Télécharger la version PDF](pathname:///documents/CGU_Werenode_v033_2026_11_23.pdf)
 
 ## Article 1 — Objet et champ d'application
 
@@ -151,7 +151,9 @@ Selon les services et territoires concernés, le paiement peut être effectué p
 
 Les paiements sont traités selon les conditions du prestataire concerné et dans le respect des règles applicables.
 
-Lorsque des fonctionnalités de paiement par actifs numériques sont proposées, leurs conditions particulières, notamment les actifs acceptés, les frais, le taux de conversion et les modalités de remboursement, sont communiquées avant la transaction.
+L'Application ne permet pas de payer en crypto-actifs ou en autres actifs numériques.
+
+Lorsque l'Application permet de prépayer un montant en euros, ce crédit sert exclusivement au paiement de prestations de recharge sur le réseau Werenode. Il ne peut être ni transféré à un autre utilisateur ni utilisé pour d'autres achats. Le solde non utilisé peut faire l'objet d'une demande de remboursement dans les conditions indiquées dans l'Application.
 
 La confirmation d'une session payante vaut acceptation de ses conditions tarifaires.
 
@@ -255,15 +257,13 @@ Les autorisations facultatives du téléphone, notamment la géolocalisation et 
 
 ## Article 18 — Technologies blockchain et actifs numériques
 
-Certaines fonctionnalités de l'écosystème Werenode peuvent reposer sur des technologies blockchain ou permettre l'utilisation d'actifs numériques.
+L'Application ne propose aucune fonctionnalité liée aux crypto-actifs ou aux autres actifs numériques : elle ne permet ni de les détenir, ni de les envoyer, ni de les échanger, ni de les utiliser pour payer une prestation de recharge.
 
-Lorsqu'elles sont proposées dans l'Application, ces fonctionnalités font l'objet d'informations et, si nécessaire, de conditions particulières précisant leur fonctionnement, leurs coûts et leurs risques.
+Les jetons émis précédemment dans l'écosystème Werenode (notamment le Werecoin) sont inscrits sur la blockchain Tezos. Leurs détenteurs peuvent y accéder au moyen de tout portefeuille compatible, sous leur propre responsabilité.
 
-L'utilisateur est notamment informé, lorsque cela est pertinent, du caractère potentiellement irréversible des transactions enregistrées sur une blockchain, de la variabilité de la valeur des actifs numériques et des frais de réseau applicables.
+Werenode ne garantit ni la valeur ni la liquidité de ces jetons.
 
-Werenode ne garantit ni la valeur future ni la liquidité d'un actif numérique.
-
-L'utilisation de ces fonctionnalités demeure soumise aux réglementations applicables et à leur disponibilité dans le pays concerné.
+Si des fonctionnalités de ce type étaient de nouveau proposées, notamment depuis le site internet de Werenode, elles feraient l'objet d'informations et de conditions particulières préalables et resteraient soumises aux réglementations applicables.
 
 ## Article 19 — Propriété intellectuelle
 
@@ -333,7 +333,7 @@ Les litiges sont soumis aux juridictions compétentes conformément aux règles 
 
 ## Article 25 — Entrée en vigueur
 
-Les présentes CGU entrent en vigueur le 1 janvier 2026.
+Les présentes CGU entrent en vigueur le 23 novembre 2026. Elles remplacent la version du 1er janvier 2026.
 
 Elles sont mises à disposition dans l'Application et sur le site internet de Werenode.
 
